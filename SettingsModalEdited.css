@@ -1,0 +1,531 @@
+#app-mount .baseLayer__960e4 {
+    opacity: 1 !important;
+    transform: unset !important;
+    will-change: unset !important;
+}
+
+#app-mount .stop-animations * {
+    transition-property: inherit !important;
+    animation: inherit !important;
+}
+
+#app-mount .layer__960e4.stop-animations:first-child::after {
+    content: "" !important;
+    position: fixed !important;
+    background: rgb(248, 36, 90) !important;
+    top: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    left: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    opacity: 0.85 !important;
+    z-index: 999 !important;
+    pointer-events: none !important;
+}
+
+.theme-light #app-mount .layer__960e4 ~ .layer__960e4 {
+    position: absolute !important;
+    top: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    left: 0 !important;
+    background: var(--themelightsettingsmodalbackground) !important;
+    border-radius: 5px !important;
+    box-shadow: var(--elevation-high) !important;
+    width: var(--settingsmodalwidth) !important;
+    height: var(--settingsmodalheight) !important;
+    margin: auto !important;
+    padding: 0 !important;
+    overflow: hidden !important;
+    contain: unset !important;
+    z-index: 1000 !important;
+}
+
+.theme-dark #app-mount .layer__960e4 ~ .layer__960e4 {
+    position: absolute !important;
+    top: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    left: 0 !important;
+    background: var(--themedarksettingsmodalbackground) !important;
+    border-radius: 5px !important;
+    box-shadow: var(--elevation-high) !important;
+    width: var(--settingsmodalwidth) !important;
+    height: var(--settingsmodalheight) !important;
+    margin: auto !important;
+    padding: 0 !important;
+    overflow: hidden !important;
+    contain: unset !important;
+    z-index: 1000 !important;
+}
+
+#app-mount .layer__960e4 ~ .layer__960e4 > div,
+#app-mount .layer__960e4 ~ .layer__960e4 .standardSidebarView__23e6b {
+    position: static !important;
+    border-radius: unset !important;
+    width: 100% !important;
+    height: 100% !important;
+    margin: unset !important;
+    padding: unset !important;
+    overflow: hidden !important;
+}
+
+#app-mount .layer__960e4 ~ .layer__960e4 .sidebar__23e6b {
+    width: 218px !important;
+    padding: 20px 6px 20px 20px !important;
+}
+
+#app-mount .layer__960e4 ~ .layer__960e4 .contentColumnDefault__23e6b {
+    padding: 20px 40px !important;
+}
+
+#app-mount .layer__960e4 ~ .layer__960e4 .side_b3f026 {
+    height: var(--settingsmodalheight) !important;
+}
+
+#app-mount .layer__960e4 ~ .layer__960e4 .header_b3f026 {
+    max-width: calc(var(--settingsmodalwidth) - 256px) !important;;
+}
+
+/* the below one BD specific? Vencord don't seems to have it*/
+#app-mount .layer__960e4 ~ .layer__960e4 .standardSidebarView__23e6b .editor {
+    height: calc(var(--settingsmodalheight) - 120px) !important;
+}
+
+#app-mount .layer__960e4 ~ .layer__960e4 .toolsContainer__23e6b,
+#app-mount .layer__960e4 ~ .layer__960e4 .toolsContainer__23e6b .tools__23e6b,
+#app-mount .layer__960e4 ~ .layer__960e4 .toolsContainer__23e6b .container_c2b141,
+#app-mount .layer__960e4 ~ .layer__960e4 .toolsContainer__23e6b .closeButton_c2b141 {
+    position: absolute !important;
+    top: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    left: 0 !important;
+    background: transparent !important;
+    border: none !important;
+    border-radius: 0 !important;
+    width: 100% !important;
+    max-width: unset !important;
+    height: 100% !important;
+    max-height: unset !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    opacity: 0 !important;
+    cursor: default !important;
+}
+
+#app-mount .layer__960e4 ~ .layer__960e4 .toolsContainer__23e6b {
+    position: fixed !important;
+    top: 22px !important;
+    z-index: -1 !important;
+}
+
+#app-mount .layer__960e4 ~ .layer__960e4 .toolbar__9293f {
+    display: none !important;
+}
+
+#app-mount .layer__960e4 ~ .layer__960e4 .header_b3f026 {
+    max-width: calc(var(--settingsmodalwidth) - 730px) !important;
+}
+
+#app-mount .root__5c9fc {
+    position: fixed !important;
+    top: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    left: 0 !important;
+    background: var(--settingsmodalbackground) !important;
+    border-radius: 5px !important;
+    box-shadow: var(--elevation-high) !important;
+    width: var(--settingsmodalwidth) !important;
+    height: var(--settingsmodalheight) !important;
+    margin: auto !important;
+    padding: 0 !important;
+    overflow: hidden !important;
+    contain: unset !important;
+    z-index: 1000 !important;
+}
+
+#app-mount .root__5c9fc.enterDone__5c9fc {
+    transform: unset !important;
+}
+
+#app-mount .perksModal-CLcR1c {
+    position: static !important;
+    border-radius: unset !important;
+    width: 100% !important;
+    height: 100% !important;
+    margin: unset !important;
+    padding: unset !important;
+}
+
+#app-mount .perksModal-CLcR1c::before {
+    width: var(--settingsmodalwidth) !important;
+    height: var(--settingsmodalheight) !important;
+    margin: auto !important;
+}
+
+#app-mount .perksModalContentWrapper-3RHugb {
+    padding: 10px 0 10px !important;
+}
+
+#app-mount .root__5c9fc .perksModal-CLcR1c .carousel-3dvee9 {
+    margin-left: calc(-0.5 * (100vw - var(--settingsmodalwidth))) !important;
+}
+
+#app-mount .root__5c9fc .closeWrapper-9ScmSq,
+#app-mount .root__5c9fc .closeWrapper-9ScmSq .closeContent-I3JbQJ,
+#app-mount .root__5c9fc .closeWrapper-9ScmSq .container_c2b141,
+#app-mount .root__5c9fc .closeWrapper-9ScmSq .closeButton_c2b141 {
+    position: absolute !important;
+    top: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    left: 0 !important;
+    background: transparent !important;
+    border: none !important;
+    border-radius: 0 !important;
+    width: 100% !important;
+    max-width: unset !important;
+    height: 100% !important;
+    max-height: unset !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    opacity: 0 !important;
+    cursor: default !important;
+}
+
+#app-mount .root__5c9fc .closeWrapper-9ScmSq {
+    position: fixed !important;
+    top: 22px !important;
+    z-index: -1 !important;
+}
+
+.theme-dark .sidebarRegion__23e6b {
+    background: var(--sidebar-colour);
+}
+
+.theme-light .sidebarRegion__23e6b {
+    background: var(--sidebar-colour);
+}
+
+.contentRegion__23e6b {
+    zoom: 0.9 !important;
+}
+
+/*
+ What is this one `premiumFeatureBorder__65c15?
+ A comment would have helped
+*/
+
+.premiumFeatureBorder__65c15 {
+    background: linear-gradient(var(--background-primary), var(--background-primary)) padding-box border-box;
+}
+
+/* hide hover underline on selected tab */
+.selected_b3f026:after {
+    background: transparent !important;
+}
+
+.side_b3f026 .item_b3f026::after {
+    /* Fix the double icon when hovering */
+    display: none !important;
+}
+
+/* Gets rid of the annoying profile button ref */
+.userInfo__1fed1 .button__6af3a.sm__6af3a {
+    display: none !important;
+}
+
+/*user setting redesign*/
+.fieldButton__1fed1.button__6af3a[aria-label="Remove phone number"] {
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+    font-family: "Roboto";
+    font-size: 12px;
+    transition: 0.2s;
+}
+
+
+html.theme-dark .fieldButton__1fed1.button__6af3a[aria-label="Remove phone number"] {
+    background: rgb(36, 36, 36) !important;
+    color: rgb(255, 255, 255) !important;
+}
+
+html.theme-light .fieldButton__1fed1.button__6af3a[aria-label="Remove phone number"] {
+    background: #fff !important;
+    color: #000 !important;
+}
+
+.fieldButton__1fed1.button__6af3a[aria-label="Remove phone number"]:hover {
+    box-shadow: 0px 8px 15px rgba(229, 46, 46, 0.4);
+    transition: 0.1s;
+}
+
+html.theme-dark .fieldButton__1fed1.button__6af3a[aria-label="Remove phone number"]:hover {
+    background: rgb(229, 46, 46) !important;
+    color: #000 !important;
+}
+
+html.theme-light .fieldButton__1fed1.button__6af3a[aria-label="Remove phone number"]:hover {
+    background-color: rgb(255, 129, 129) !important;
+    color: rgb(255, 255, 255) !important;
+}
+
+.badgeList__1fed1 {
+    border-radius: 8px;
+    margin-top: 5px;
+    padding: 2px;
+}
+
+html.theme-dark .badgeList__1fed1 {
+    background-color: #333135;
+}
+
+html.theme-light .badgeList__1fed1 {
+    background-color: #e4e4e4;
+}
+
+.fieldList__1fed1 {
+    margin-left: 10px;
+    margin-bottom: 25px;
+    grid-gap: 15px;
+}
+
+.field__1fed1:last-child {
+    margin-right: 0 !important;
+}
+
+div[class="field__1fed1"] > button[aria-label="Edit username"][class="button__6af3a sm__6af3a secondary__6af3a hasText__6af3a"] {
+    width: 90%;
+    position: absolute;
+    bottom: -1px;
+}
+
+.field__1fed1 > button {
+    width: 90%;
+}
+
+.fieldButtonList__1fed1 > button {
+    width: 100%;
+}
+
+/* This now actually targets the button and makes it takes the whole space */
+.fieldButton__1fed1 > button {
+    width: 100% !important;
+}
+
+/*
+    Fixed the blur issues of the `field__1fed1` items.
+    Issue was not having enough height(was being
+    overridden by a 3rd party AccountDetailsGrid addon).
+    However, the repository got so I forked the addon
+    to our repo for now.
+ */
+.field__1fed1 {
+    border-radius: 8px;
+    max-height: none;
+    flex-flow: column;
+    padding: 15px;
+    margin-right: 10px;
+    position: relative;
+    overflow-y: scroll;
+    height: 150px !important;
+}
+
+.field__1fed1 .fieldButton__1fed1 {
+    background: transparent !important;
+}
+
+html.theme-dark .field__1fed1 {
+    background-color: #333135;
+}
+
+html.theme-light .field__1fed1 {
+    background-color: #e4e4e4;
+}
+
+html.theme-dark .fieldSpacerBottom__1fed1 {
+    margin-bottom: 0;
+}
+
+.field__1fed1::-webkit-scrollbar {
+    width: 0;
+}
+
+.constrainedRow__1fed1 {
+    overflow: visible;
+}
+
+.fieldButton__1fed1.button__6af3a[aria-label="Edit phone number"] {
+    top: 30px !important;
+    border-radius: 8px;
+}
+
+.fieldButton__1fed1.button__6af3a[aria-label="Edit username"] {
+    top: 50px;
+    border-radius: 8px;
+}
+
+.fieldButton__1fed1.removeButton__1fed1 {
+    top: 30px !important;
+    font-size: 12.7px;
+}
+
+.fieldButton__1fed1.button__6af3a {
+    top: 30px;
+    border-radius: 8px;
+}
+
+.background__1fed1 {
+    background: transparent !important;
+}
+
+.settingsBanner-2E5fAp {
+    border-radius: 8px;
+}
+
+#my-account-tab {
+    transform: scale(0.98) translateX(-17px);
+}
+
+.fieldButton__1fed1.button__6af3a[aria-label="Edit phone number"] {
+    top: 50px;
+    border-radius: 8px;
+}
+
+.fieldButton__1fed1.button__6af3a[aria-label="Remove phone number"] {
+    top: 30px !important;
+}
+
+.layer__960e4 .accountProfileCard__1fed1 .userInfo__1fed1 {
+    align-items: center;
+    justify-content: center;
+    width: calc(100% - 34px);
+    margin-left: 17px;
+    padding: 50px 0 9px;
+}
+
+.layer__960e4 .accountProfileCard__1fed1 .userInfo__1fed1 .button__6af3a {
+    position: absolute;
+    top: 52.5px !important;
+    right: 294.5px;
+    width: 77px;
+    height: 77px;
+    min-width: unset;
+    min-height: unset;
+    padding: 0;
+    border-radius: 50px;
+    background-color: transparent !important;
+    font-size: 0;
+    border: none !important;
+    box-shadow: none;
+}
+
+.button__6af3a {
+    border-radius: 45px;
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+    font-family: "Roboto";
+    font-size: 12px;
+    transition: 0.2s;
+}
+
+html.theme-dark .button__6af3a {
+    background: rgb(36, 36, 36) !important;
+    color: rgb(255, 255, 255) !important;
+}
+
+html.theme-light .button__6af3a {
+    background: #fff !important;
+    color: #000 !important;
+}
+
+.button__6af3a:hover {
+    background: rgb(0, 0, 0) !important;
+    transition: 0.1s;
+}
+
+html.theme-dark .button__6af3a:hover {
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.4);
+}
+
+html.theme-light .button__6af3a:hover {
+    box-shadow: -3px -3px 7px #cfcfcf inset, 3px 3px 7px #949aa1 inset;
+}
+
+.overlay__3b260 .button__6af3a {
+    box-shadow: none !important; /* gets rid of the shadow */
+}
+
+/* fix for the newly added classes for the disable and Delete account button */
+.children__7bffb .critical-primary__6af3a, .children__7bffb .critical-secondary__6af3a {
+    padding: 25px;
+    height: 45px;
+    font-family: "Roboto" !important;
+    text-transform: uppercase;
+    letter-spacing: 2.5px;
+    font-weight: 500;
+    border: none;
+    border-radius: 45px;
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease 0s;
+    cursor: pointer;
+    outline: none;
+}
+
+.children__7bffb .critical-primary__6af3a .buttonChildrenWrapper__6af3a span, .children__7bffb .critical-secondary__6af3a span {
+    /* font-size: 0px !important; */
+    visibility: hidden;
+}
+
+.children__7bffb .critical-primary__6af3a::before {
+    content: "Disable";
+    position: absolute;
+    font-size: 14px !important;
+}
+
+.children__7bffb .critical-secondary__6af3a::before {
+    content: "Delete";
+    position: absolute;
+    font-size: 14px !important;
+}
+
+
+html.theme-dark .children__7bffb .buttonContainer_d286c5 .critical-primary__6af3a {
+    color: rgb(255, 255, 255) !important;
+    background-color: rgb(58, 58, 58) !important;
+}
+
+html.theme-dark .children__7bffb .buttonContainer_d286c5 .critical-secondary__6af3a {
+    color: rgb(255, 255, 255) !important;
+    background-color: rgb(58, 58, 58) !important;
+}
+
+html.theme-dark .children__7bffb .buttonContainer_d286c5 .critical-primary__6af3a:hover {
+    background-color: rgb(229, 46, 46) !important;
+    color: rgb(37, 37, 37) !important;
+    transform: translateY(-7px);
+}
+
+html.theme-dark .children__7bffb .buttonContainer_d286c5 .critical-secondary__6af3a:hover {
+    background-color: rgb(229, 46, 46) !important;
+    color: rgb(37, 37, 37) !important;
+    transform: translateY(-7px);
+}
+
+html.theme-light .children__7bffb .buttonContainer_d286c5 .critical-primary__6af3a:hover {
+    background-color: rgb(255, 129, 129) !important;
+    color: rgb(255, 255, 255) !important;
+    transform: translateY(-7px);
+}
+
+html.theme-light .children__7bffb .buttonContainer_d286c5 .critical-secondary__6af3a:hover {
+    background-color: rgb(255, 129, 129) !important;
+    color: rgb(255, 255, 255) !important;
+    transform: translateY(-7px);
+}
+
+.children__7bffb .buttonContainer_d286c5 .critical-primary__6af3a:hover, .children__7bffb .buttonContainer_d286c5 .critical-secondary__6af3a:hover {
+    box-shadow: 0px 15px 20px rgba(229, 46, 46, 0.4);
+}
+/* Done */
