@@ -1,12 +1,12 @@
-/**
- * HOW TO CUSTOMIZE:
- * 1. To change the colors, edit the `linear-gradient` in the :root variables below.
- * 2. To change the speed, modify the duration (e.g., `10s`) in the `animation` property.
- */
+/*
+=================================================================
+        ANIMATED GRADIENT & TRANSLUCENT SETTINGS PANEL
+=================================================================
+*/
 
 :root {
     --crazy-gradient: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
-    --crazy-animation: crazy-gradient-animation 10s ease infinite;
+    --crazy-animation: crazy-gradient-animation 15s ease infinite;
 }
 
 @keyframes crazy-gradient-animation {
@@ -15,23 +15,12 @@
     100% { background-position: 0% 50%; }
 }
 
-/* --- Helper classes for applying the animation --- */
-.animated-gradient-bg {
-    background: var(--crazy-gradient) !important;
-    background-size: 400% 400% !important;
-    animation: var(--crazy-animation) !important;
-}
+/*
+=================================================================
+        Original code edited for the effect
+=================================================================
+*/
 
-.animated-gradient-text {
-    background: var(--crazy-gradient) !important;
-    background-size: 400% 400% !important;
-    -webkit-background-clip: text !important;
-    -webkit-text-fill-color: transparent !important;
-    animation: var(--crazy-animation) !important;
-}
-
-
-/* Original CSS with animated gradients applied */
 #app-mount .baseLayer__960e4 {
     opacity: 1 !important;
     transform: unset !important;
@@ -43,24 +32,26 @@
     animation: inherit !important;
 }
 
+/* --- EDIT: This is the settings backdrop. We'll animate this layer. --- */
 #app-mount .layer__960e4.stop-animations:first-child::after {
     content: "" !important;
     position: fixed !important;
+    /* This is now our animated canvas */
+    background: var(--crazy-gradient) !important;
+    background-size: 400% 400% !important;
+    animation: var(--crazy-animation) !important;
     top: 0 !important;
     right: 0 !important;
     bottom: 0 !important;
     left: 0 !important;
     margin: 0 !important;
     padding: 0 !important;
-    opacity: 0.75 !important;
+    opacity: 1 !important; /* Full opacity to show the gradient */
     z-index: 999 !important;
     pointer-events: none !important;
-    /* --- ANIMATION APPLIED --- */
-    background: var(--crazy-gradient) !important;
-    background-size: 400% 400% !important;
-    animation: var(--crazy-animation) !important;
 }
 
+/* --- EDIT: Make the main settings modal background translucent. --- */
 .theme-light #app-mount .layer__960e4 ~ .layer__960e4,
 .theme-dark #app-mount .layer__960e4 ~ .layer__960e4 {
     position: absolute !important;
@@ -68,8 +59,11 @@
     right: 0 !important;
     bottom: 0 !important;
     left: 0 !important;
+    background: rgba(0, 0, 0, 0.65) !important; /* Translucent background */
+    backdrop-filter: blur(8px); /* Optional: Frosted glass effect */
+    border: 1px solid rgba(255, 255, 255, 0.1); /* Optional: Subtle border */
     border-radius: 5px !important;
-    box-shadow: none !important; /* Shadow removed */
+    box-shadow: var(--elevation-high) !important;
     width: var(--settingsmodalwidth) !important;
     height: var(--settingsmodalheight) !important;
     margin: auto !important;
@@ -77,10 +71,6 @@
     overflow: hidden !important;
     contain: unset !important;
     z-index: 1000 !important;
-    /* --- ANIMATION APPLIED --- */
-    background: var(--crazy-gradient) !important;
-    background-size: 400% 400% !important;
-    animation: var(--crazy-animation) !important;
 }
 
 #app-mount .layer__960e4 ~ .layer__960e4 > div,
@@ -92,7 +82,7 @@
     margin: unset !important;
     padding: unset !important;
     overflow: hidden !important;
-    background: rgba(0,0,0,0.5) !important; /* Add a semi-transparent dark layer for readability */
+    background-color: transparent !important; /* Inherit the modal's background */
 }
 
 #app-mount .layer__960e4 ~ .layer__960e4 .sidebar__23e6b {
@@ -120,28 +110,11 @@
 #app-mount .layer__960e4 ~ .layer__960e4 .toolsContainer__23e6b .tools__23e6b,
 #app-mount .layer__960e4 ~ .layer__960e4 .toolsContainer__23e6b .container_c2b141,
 #app-mount .layer__960e4 ~ .layer__960e4 .toolsContainer__23e6b .closeButton_c2b141 {
-    position: absolute !important;
-    top: 0 !important;
-    right: 0 !important;
-    bottom: 0 !important;
-    left: 0 !important;
-    background: transparent !important;
-    border: none !important;
-    border-radius: 0 !important;
-    width: 100% !important;
-    max-width: unset !important;
-    height: 100% !important;
-    max-height: unset !important;
-    margin: 0 !important;
-    padding: 0 !important;
-    opacity: 0 !important;
-    cursor: default !important;
+    position: absolute !important; top: 0 !important; right: 0 !important; bottom: 0 !important; left: 0 !important; background: transparent !important; border: none !important; border-radius: 0 !important; width: 100% !important; max-width: unset !important; height: 100% !important; max-height: unset !important; margin: 0 !important; padding: 0 !important; opacity: 0 !important; cursor: default !important;
 }
 
 #app-mount .layer__960e4 ~ .layer__960e4 .toolsContainer__23e6b {
-    position: fixed !important;
-    top: 22px !important;
-    z-index: -1 !important;
+    position: fixed !important; top: 22px !important; z-index: -1 !important;
 }
 
 #app-mount .layer__960e4 ~ .layer__960e4 .toolbar__9293f {
@@ -152,14 +125,18 @@
     max-width: calc(var(--settingsmodalwidth) - 730px) !important;
 }
 
+/* --- EDIT: Make other popups translucent too. --- */
 #app-mount .root__5c9fc {
     position: fixed !important;
     top: 0 !important;
     right: 0 !important;
     bottom: 0 !important;
     left: 0 !important;
+    background: rgba(0, 0, 0, 0.65) !important;
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 5px !important;
-    box-shadow: none !important; /* Shadow removed */
+    box-shadow: var(--elevation-high) !important;
     width: var(--settingsmodalwidth) !important;
     height: var(--settingsmodalheight) !important;
     margin: auto !important;
@@ -167,10 +144,6 @@
     overflow: hidden !important;
     contain: unset !important;
     z-index: 1000 !important;
-    /* --- ANIMATION APPLIED --- */
-    background: var(--crazy-gradient) !important;
-    background-size: 400% 400% !important;
-    animation: var(--crazy-animation) !important;
 }
 
 #app-mount .root__5c9fc.enterDone__5c9fc {
@@ -178,18 +151,11 @@
 }
 
 #app-mount .perksModal-CLcR1c {
-    position: static !important;
-    border-radius: unset !important;
-    width: 100% !important;
-    height: 100% !important;
-    margin: unset !important;
-    padding: unset !important;
+    position: static !important; border-radius: unset !important; width: 100% !important; height: 100% !important; margin: unset !important; padding: unset !important;
 }
 
 #app-mount .perksModal-CLcR1c::before {
-    width: var(--settingsmodalwidth) !important;
-    height: var(--settingsmodalheight) !important;
-    margin: auto !important;
+    width: var(--settingsmodalwidth) !important; height: var(--settingsmodalheight) !important; margin: auto !important;
 }
 
 #app-mount .perksModalContentWrapper-3RHugb {
@@ -204,47 +170,30 @@
 #app-mount .root__5c9fc .closeWrapper-9ScmSq .closeContent-I3JbQJ,
 #app-mount .root__5c9fc .closeWrapper-9ScmSq .container_c2b141,
 #app-mount .root__5c9fc .closeWrapper-9ScmSq .closeButton_c2b141 {
-    position: absolute !important;
-    top: 0 !important;
-    right: 0 !important;
-    bottom: 0 !important;
-    left: 0 !important;
-    background: transparent !important;
-    border: none !important;
-    border-radius: 0 !important;
-    width: 100% !important;
-    max-width: unset !important;
-    height: 100% !important;
-    max-height: unset !important;
-    margin: 0 !important;
-    padding: 0 !important;
-    opacity: 0 !important;
-    cursor: default !important;
+    position: absolute !important; top: 0 !important; right: 0 !important; bottom: 0 !important; left: 0 !important; background: transparent !important; border: none !important; border-radius: 0 !important; width: 100% !important; max-width: unset !important; height: 100% !important; max-height: unset !important; margin: 0 !important; padding: 0 !important; opacity: 0 !important; cursor: default !important;
 }
 
 #app-mount .root__5c9fc .closeWrapper-9ScmSq {
-    position: fixed !important;
-    top: 22px !important;
-    z-index: -1 !important;
+    position: fixed !important; top: 22px !important; z-index: -1 !important;
 }
 
+/* --- EDIT: Make sidebar region translucent. --- */
 .theme-dark .sidebarRegion__23e6b,
 .theme-light .sidebarRegion__23e6b {
-    /* --- ANIMATION APPLIED --- */
-    background: var(--crazy-gradient) !important;
-    background-size: 400% 400% !important;
-    animation: var(--crazy-animation) !important;
+    background: rgba(0, 0, 0, 0.25) !important;
 }
 
 .contentRegion__23e6b {
     zoom: 0.9 !important;
+    background: transparent !important; /* Make sure this is also transparent */
 }
 
 .premiumFeatureBorder__65c15 {
-    /* --- ANIMATION APPLIED --- */
-    background: var(--crazy-gradient) !important;
-    background-size: 400% 400% !important;
-    animation: var(--crazy-animation) !important;
+    background: transparent !important;
+    border: 2px solid;
+    border-image-slice: 1;
+    border-image-source: var(--crazy-gradient);
+    animation: var(--crazy-animation)
 }
 
 .selected_b3f026:after {
@@ -259,52 +208,34 @@
     display: none !important;
 }
 
+/* --- EDITS for User Settings Redesign --- */
 .fieldButton__1fed1.button__6af3a[aria-label="Remove phone number"] {
-    box-shadow: none !important; /* Shadow removed */
-    font-family: "Roboto";
-    font-size: 12px;
-    transition: 0.2s;
+    box-shadow: none; font-family: "Roboto"; font-size: 12px; transition: 0.2s;
 }
 
 html.theme-dark .fieldButton__1fed1.button__6af3a[aria-label="Remove phone number"],
 html.theme-light .fieldButton__1fed1.button__6af3a[aria-label="Remove phone number"] {
-    /* --- ANIMATION APPLIED --- */
-    background: var(--crazy-gradient) !important;
-    background-size: 400% 400% !important;
-    animation: var(--crazy-animation) !important;
+    background: rgba(36, 36, 36, 0.5) !important; color: #fff !important;
 }
-
-html.theme-dark .fieldButton__1fed1.button__6af3a[aria-label="Remove phone number"] .buttonChildrenWrapper__6af3a,
-html.theme-light .fieldButton__1fed1.button__6af3a[aria-label="Remove phone number"] .buttonChildrenWrapper__6af3a {
-    /* --- ANIMATED TEXT --- */
-    background: linear-gradient(white, white) !important; /* Text is white */
-    -webkit-background-clip: text !important;
-    -webkit-text-fill-color: transparent !important;
-}
-
 
 .fieldButton__1fed1.button__6af3a[aria-label="Remove phone number"]:hover {
-    box-shadow: none !important; /* Shadow removed */
-    transition: 0.1s;
-    transform: scale(1.05); /* Add a little pop on hover */
+    box-shadow: 0px 8px 15px rgba(229, 46, 46, 0.4); transition: 0.1s;
+}
+
+html.theme-dark .fieldButton__1fed1.button__6af3a[aria-label="Remove phone number"]:hover,
+html.theme-light .fieldButton__1fed1.button__6af3a[aria-label="Remove phone number"]:hover {
+    background-color: rgb(229, 46, 46) !important; color: #fff !important;
 }
 
 .badgeList__1fed1,
 html.theme-dark .badgeList__1fed1,
 html.theme-light .badgeList__1fed1 {
-    border-radius: 8px;
-    margin-top: 5px;
-    padding: 2px;
-    /* --- ANIMATION APPLIED --- */
-    background: var(--crazy-gradient) !important;
-    background-size: 400% 400% !important;
-    animation: var(--crazy-animation) !important;
+    border-radius: 8px; margin-top: 5px; padding: 2px;
+    background-color: rgba(0, 0, 0, 0.3) !important;
 }
 
 .fieldList__1fed1 {
-    margin-left: 10px;
-    margin-bottom: 25px;
-    grid-gap: 15px;
+    margin-left: 10px; margin-bottom: 25px; grid-gap: 15px;
 }
 
 .field__1fed1:last-child {
@@ -312,9 +243,7 @@ html.theme-light .badgeList__1fed1 {
 }
 
 div[class="field__1fed1"] > button[aria-label="Edit username"][class="button__6af3a sm__6af3a secondary__6af3a hasText__6af3a"] {
-    width: 90%;
-    position: absolute;
-    bottom: -1px;
+    width: 90%; position: absolute; bottom: -1px;
 }
 
 .field__1fed1 > button {
@@ -330,18 +259,8 @@ div[class="field__1fed1"] > button[aria-label="Edit username"][class="button__6a
 }
 
 .field__1fed1 {
-    border-radius: 8px;
-    max-height: none;
-    flex-flow: column;
-    padding: 15px;
-    margin-right: 10px;
-    position: relative;
-    overflow-y: scroll;
-    height: 150px !important;
-    /* --- ANIMATION APPLIED --- */
-    background: var(--crazy-gradient) !important;
-    background-size: 400% 400% !important;
-    animation: var(--crazy-animation) !important;
+    border-radius: 8px; max-height: none; flex-flow: column; padding: 15px; margin-right: 10px; position: relative; overflow-y: scroll; height: 150px !important;
+    background-color: rgba(0, 0, 0, 0.25) !important; /* Translucent field background */
 }
 
 .field__1fed1 .fieldButton__1fed1 {
@@ -361,32 +280,28 @@ html.theme-dark .fieldSpacerBottom__1fed1 {
 }
 
 .fieldButton__1fed1.button__6af3a[aria-label="Edit phone number"] {
-    top: 30px !important;
-    border-radius: 8px;
+    top: 30px !important; border-radius: 8px;
 }
 
 .fieldButton__1fed1.button__6af3a[aria-label="Edit username"] {
-    top: 50px;
-    border-radius: 8px;
+    top: 50px; border-radius: 8px;
 }
 
 .fieldButton__1fed1.removeButton__1fed1 {
-    top: 30px !important;
-    font-size: 12.7px;
+    top: 30px !important; font-size: 12.7px;
 }
 
 .fieldButton__1fed1.button__6af3a {
-    top: 30px;
-    border-radius: 8px;
+    top: 30px; border-radius: 8px;
 }
 
 .background__1fed1 {
     background: transparent !important;
 }
 
+/* --- EDIT: Give settings banner the animated gradient --- */
 .settingsBanner-2E5fAp {
     border-radius: 8px;
-    /* --- ANIMATION APPLIED --- */
     background: var(--crazy-gradient) !important;
     background-size: 400% 400% !important;
     animation: var(--crazy-animation) !important;
@@ -397,8 +312,7 @@ html.theme-dark .fieldSpacerBottom__1fed1 {
 }
 
 .fieldButton__1fed1.button__6af3a[aria-label="Edit phone number"] {
-    top: 50px;
-    border-radius: 8px;
+    top: 50px; border-radius: 8px;
 }
 
 .fieldButton__1fed1.button__6af3a[aria-label="Remove phone number"] {
@@ -406,75 +320,33 @@ html.theme-dark .fieldSpacerBottom__1fed1 {
 }
 
 .layer__960e4 .accountProfileCard__1fed1 .userInfo__1fed1 {
-    align-items: center;
-    justify-content: center;
-    width: calc(100% - 34px);
-    margin-left: 17px;
-    padding: 50px 0 9px;
+    align-items: center; justify-content: center; width: calc(100% - 34px); margin-left: 17px; padding: 50px 0 9px;
 }
 
 .layer__960e4 .accountProfileCard__1fed1 .userInfo__1fed1 .button__6af3a {
-    position: absolute;
-    top: 52.5px !important;
-    right: 294.5px;
-    width: 77px;
-    height: 77px;
-    min-width: unset;
-    min-height: unset;
-    padding: 0;
-    border-radius: 50px;
-    background-color: transparent !important;
-    font-size: 0;
-    border: none !important;
-    box-shadow: none;
+    position: absolute; top: 52.5px !important; right: 294.5px; width: 77px; height: 77px; min-width: unset; min-height: unset; padding: 0; border-radius: 50px; background-color: transparent !important; font-size: 0; border: none !important; box-shadow: none;
 }
 
+/* General Buttons */
 .button__6af3a {
-    border-radius: 45px;
-    box-shadow: none !important; /* Shadow removed */
-    font-family: "Roboto";
-    font-size: 12px;
-    transition: 0.2s;
-    /* --- ANIMATION APPLIED --- */
-    background: var(--crazy-gradient) !important;
-    background-size: 400% 400% !important;
-    animation: var(--crazy-animation) !important;
+    border-radius: 45px; box-shadow: none !important; font-family: "Roboto"; font-size: 12px; transition: 0.2s;
 }
 
-.button__6af3a .buttonChildrenWrapper__6af3a {
-    /* Make button text readable */
-    background: linear-gradient(white, white) !important;
-    -webkit-background-clip: text !important;
-    -webkit-text-fill-color: transparent !important;
+html.theme-dark .button__6af3a {
+    background: rgba(36, 36, 36, 0.6) !important; color: #fff !important;
+}
+
+html.theme-light .button__6af3a {
+    background: rgba(255, 255, 255, 0.4) !important; color: #000 !important;
 }
 
 .button__6af3a:hover {
-    transition: 0.1s;
-    transform: scale(1.05); /* Add a little pop on hover */
-    box-shadow: none !important;
+    background: rgba(0, 0, 0, 0.5) !important; transition: 0.1s;
 }
 
-.overlay__3b260 .button__6af3a {
-    box-shadow: none !important;
-}
-
+/* Disable and Delete account buttons */
 .children__7bffb .critical-primary__6af3a, .children__7bffb .critical-secondary__6af3a {
-    padding: 25px;
-    height: 45px;
-    font-family: "Roboto" !important;
-    text-transform: uppercase;
-    letter-spacing: 2.5px;
-    font-weight: 500;
-    border: none;
-    border-radius: 45px;
-    box-shadow: none !important; /* Shadow removed */
-    transition: all 0.3s ease 0s;
-    cursor: pointer;
-    outline: none;
-    /* --- ANIMATION APPLIED --- */
-    background: var(--crazy-gradient) !important;
-    background-size: 400% 400% !important;
-    animation: var(--crazy-animation) !important;
+    padding: 25px; height: 45px; font-family: "Roboto" !important; text-transform: uppercase; letter-spacing: 2.5px; font-weight: 500; border: none; border-radius: 45px; box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1); transition: all 0.3s ease 0s; cursor: pointer; outline: none;
 }
 
 .children__7bffb .critical-primary__6af3a .buttonChildrenWrapper__6af3a span, .children__7bffb .critical-secondary__6af3a span {
@@ -482,29 +354,27 @@ html.theme-dark .fieldSpacerBottom__1fed1 {
 }
 
 .children__7bffb .critical-primary__6af3a::before {
-    content: "Disable";
-    position: absolute;
-    font-size: 14px !important;
-    /* --- ANIMATED TEXT --- */
-    background: linear-gradient(white, white) !important;
-    -webkit-background-clip: text !important;
-    -webkit-text-fill-color: transparent !important;
+    content: "Disable"; position: absolute; font-size: 14px !important;
 }
 
 .children__7bffb .critical-secondary__6af3a::before {
-    content: "Delete";
-    position: absolute;
-    font-size: 14px !important;
-    /* --- ANIMATED TEXT --- */
-    background: linear-gradient(white, white) !important;
-    -webkit-background-clip: text !important;
-    -webkit-text-fill-color: transparent !important;
+    content: "Delete"; position: absolute; font-size: 14px !important;
 }
 
-.children__7bffb .buttonContainer_d286c5 .critical-primary__6af3a:hover,
-.children__7bffb .buttonContainer_d286c5 .critical-secondary__6af3a:hover {
-    box-shadow: none !important; /* Shadow removed */
-    transform: translateY(-7px);
+html.theme-dark .children__7bffb .buttonContainer_d286c5 .critical-primary__6af3a,
+html.theme-dark .children__7bffb .buttonContainer_d286c5 .critical-secondary__6af3a {
+    color: #fff !important;
+    background-color: rgba(58, 58, 58, 0.6) !important;
+}
+
+html.theme-dark .children__7bffb .buttonContainer_d286c5 .critical-primary__6af3a:hover,
+html.theme-dark .children__7bffb .buttonContainer_d286c5 .critical-secondary__6af3a:hover {
+    background-color: rgb(229, 46, 46) !important; color: #fff !important; transform: translateY(-7px);
+}
+
+html.theme-light .children__7bffb .buttonContainer_d286c5 .critical-primary__6af3a:hover,
+html.theme-light .children__7bffb .buttonContainer_d286c5 .critical-secondary__6af3a:hover {
+    background-color: rgb(255, 129, 129) !important; color: #fff !important; transform: translateY(-7px);
 }
 
 .children__7bffb .buttonContainer_d286c5 .critical-primary__6af3a:hover, .children__7bffb .buttonContainer_d286c5 .critical-secondary__6af3a:hover {
