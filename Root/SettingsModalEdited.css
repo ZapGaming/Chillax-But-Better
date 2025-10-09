@@ -12,28 +12,11 @@
 #app-mount .layer__960e4.stop-animations:first-child::after {
     content: "" !important;
     position: fixed !important;
-    background: /* Layer 1: A soft, dark circle to create a clean center point */
-    radial-gradient(
-      circle at center,
-      rgba(0, 0, 0, 0.4) 0%, /* Darker center */
-      transparent 30%        /* Fades to transparent to reveal the cone */
-    ),
-    /* Layer 2: The seamless repeating cone from before */
-    repeating-conic-gradient(
-      from 45deg, /* Rotates the pattern for a more dynamic look */
-      lime 0%,
-      aqua 5%,
-      magenta 12.5%,
-      gold 20%,
-      lime 25% /* This pattern is 25% of a circle (90deg) and repeats 4 times */
-    );
-
-  /* Make sure neither layer tiles or repeats */
+    background:
+      radial-gradient(circle at center, rgba(0, 0, 0, 0.4) 0%, transparent 30%),
+    repeating-conic-gradient(from 45deg, lime 0%, aqua 5%, magenta 12.5%, gold 20%, lime 25%);
   background-repeat: no-repeat;
-  
-  /* Center both layers */
   background-position: center;
-    
     top: 0 !important;
     right: 0 !important;
     bottom: 0 !important;
