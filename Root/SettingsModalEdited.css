@@ -12,7 +12,7 @@
 #app-mount .layer__960e4.stop-animations:first-child::after {
     content: "" !important;
     position: fixed !important;
-    background: ("https://i.pinimg.com/originals/cb/e0/ee/cbe0eea3249b92cd812480e4277fbbf5.gif") !important;
+    background: rgb(0, 0, 0) !important;
     top: 0 !important;
     right: 0 !important;
     bottom: 0 !important;
