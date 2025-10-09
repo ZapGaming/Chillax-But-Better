@@ -12,7 +12,32 @@
 #app-mount .layer__960e4.stop-animations:first-child::after {
     content: "" !important;
     position: fixed !important;
-    background: conic-gradient(lime, aqua, magenta, gold) !important;
+    background:     /* Layer 1: The Top "Pinwheel" (smaller and more detailed) */
+    repeating-conic-gradient(
+      from 15deg, /* Offsets the starting angle slightly */
+      transparent 0deg 10deg, /* A transparent gap */
+      aqua 10deg 20deg,       /* A wedge of aqua */
+      magenta 20deg 30deg      /* A wedge of magenta */
+      /* This 30-degree pattern repeats 12 times to fill the circle */
+    ),
+    /* Layer 2: The Bottom Background (larger and simpler) */
+    repeating-conic-gradient(
+      lime 0deg 45deg,      /* A wedge of lime */
+      gold 45deg 90deg      /* A wedge of gold */
+      /* This 90-degree pattern repeats 4 times to fill the circle */
+    );
+
+  /* --- Sizing and Positioning --- */
+  background-size:
+    150px 150px, /* Sets the top layer to be a fixed 150x150 pixels */
+    100% 100%;   /* Sets the bottom layer to fill the entire element */
+
+  background-position:
+    center,      /* Positions the top layer in the center */
+    center;      /* Positions the bottom layer in the center */
+
+  background-repeat:
+    no-repeat;
     top: 0 !important;
     right: 0 !important;
     bottom: 0 !important;
