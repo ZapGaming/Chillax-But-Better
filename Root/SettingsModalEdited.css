@@ -35,7 +35,7 @@
   /* Center both layers */
   background-position: center;
 }
-    top: 0 !important;
+/*    top: 0 !important;
     right: 0 !important;
     bottom: 0 !important;
     left: 0 !important;
@@ -44,7 +44,7 @@
     opacity: 0.85 !important;
     z-index: 999 !important;
     pointer-events: none !important;
-}
+} */
 
 .theme-light #app-mount .layer__960e4 ~ .layer__960e4 {
     position: absolute !important;
