@@ -12,14 +12,14 @@
 #app-mount .layer__960e4.stop-animations:first-child::after {
     content: "" !important;
     position: fixed !important;
-    background: rgb(248, 36, 90) !important;
+    background: rgb(0, 34, 255) !important;
     top: 0 !important;
     right: 0 !important;
     bottom: 0 !important;
     left: 0 !important;
     margin: 0 !important;
     padding: 0 !important;
-    opacity: 0.85 !important;
+    opacity: 0.75 !important;
     z-index: 999 !important;
     pointer-events: none !important;
 }
@@ -268,8 +268,8 @@ html.theme-dark .fieldButton__1fed1.button__6af3a[aria-label="Remove phone numbe
 }
 
 html.theme-light .fieldButton__1fed1.button__6af3a[aria-label="Remove phone number"]:hover {
-    background-color: rgb(255, 129, 129) !important;
-    color: rgb(255, 255, 255) !important;
+    background-color: rgb(255, 0, 132) !important;
+    color: rgb(0, 34, 255) !important;
 }
 
 .badgeList__1fed1 {
@@ -431,8 +431,8 @@ html.theme-dark .fieldSpacerBottom__1fed1 {
 }
 
 html.theme-dark .button__6af3a {
-    background: rgb(36, 36, 36) !important;
-    color: rgb(255, 255, 255) !important;
+    background: ("https://i.pinimg.com/originals/cb/e0/ee/cbe0eea3249b92cd812480e4277fbbf5.gif") !important;
+    color: rgb(255, 0, 132) !important;
 }
 
 html.theme-light .button__6af3a {
