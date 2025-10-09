@@ -13,7 +13,6 @@
 /* CHILLAX theme entry point */
 @import url("https://rinlovesyou.github.io/Couve/snippets/couve-profile-popout.css");
 @import url("https://raw.githubusercontent.com/ZapGaming/Chillax-But-Better/refs/heads/main/chillax.css");
-@import url('https://github.com/ZapGaming/Chillax-But-Better/raw/refs/heads/main/Fonts/K-Pop%20Demon%20Hunters.woff2');
 
 /* removable addons */
 @import url("https://mwittrien.github.io/BetterDiscordAddons/Themes/EmojiReplace/base/BlobMoji.css");
@@ -83,9 +82,9 @@
 :root {
     --user-name: "King";
     --edited-message: " EDITED ✎ ";
-    --font-name: K-Pop Demon Hunters;
-    --font-size: 13px;
-    --group-chat-font: "K-Pop Demon Hunters"; /* change this to change the group chat's default font */
+    --font-name: KDH;
+    --font-size: 17px;
+    --group-chat-font: "Default"; /* change this to change the group chat's default font */
 
 
        /*glow radial status*/ /*must end in px*/
@@ -567,6 +566,16 @@ ul[aria-label="Direct Messages"] .channel__972a0.container_e45859 .interactive_b
     { content: "Capybara"; font-size: 14px; color: white; }
 }
 /* End default discord complete Capybara theme */
+
+
+
+.theme-midnight {
+@font-face {
+    font-family: 'KDH';
+    font-weight: 400;
+    font-style: normal;
+    src: url("https://raw.githubusercontent.com/ZapGaming/Chillax-But-Better/refs/heads/main/Fonts/K-Pop%20Demon%20Hunters.woff2") format('woff2');
+}
 
 
 
