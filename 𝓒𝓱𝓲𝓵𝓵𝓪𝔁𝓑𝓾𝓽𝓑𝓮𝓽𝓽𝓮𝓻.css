@@ -12,11 +12,10 @@
 
 /* CHILLAX theme entry point */
 @import url("https://rinlovesyou.github.io/Couve/snippets/couve-profile-popout.css");
-@import url("https://warrayquipsome.github.io/Chillax/chillax.css");
-@import url("https://blade04208.github.io/css/bettershiki.css");
+@import url("https://raw.githubusercontent.com/ZapGaming/Chillax-But-Better/refs/heads/main/chillax.css");
 
 /* removable addons */
-@import url("https://mwittrien.github.io/BetterDiscordAddons/Themes/EmojiReplace/base/Microsoft.css");
+@import url("https://mwittrien.github.io/BetterDiscordAddons/Themes/EmojiReplace/base/Apple.css");
 @import url("https://mwittrien.github.io/BetterDiscordAddons/Themes/_res/SettingsIcons.css");
 @import url("https://chillax-org.github.io/Discolored/main.css");
 @import url("https://warrayquipsome.github.io/Chillax/Addons/IconPackEdited.css");
@@ -25,6 +24,8 @@
 @import url("https://raw.githubusercontent.com/DiscordStyles/RadialStatus/refs/heads/deploy/RadialStatus.css");
 @import url("https://warrayquipsome.github.io/Chillax/Addons/FriendGrid.css");
 @import url("https://warrayquipsome.github.io/Chillax/Addons/ColoredLinks.css");
+@import url("https://blade04208.github.io/css/bettershiki.css");
+@import url(https://blade04208.github.io/css/tabsv2-servers.css);
 
 
 @import url("https://raw.githubusercontent.com/acheronx0577/Transparent-Code-Block/refs/heads/main/Transparent%20Code%20Block.css");
@@ -37,7 +38,6 @@
 @import url('https://raw.githubusercontent.com/acheronx0577/Transparent-Quick-Switcher-Discord/main/Transparent%20Quick%20Switcher.css');
 
 
-@import url(https://blade04208.github.io/css/tabsv2-servers.css);
 
 /*additional addons*/ /*(remove the both * to use)*/
 /*use the below css if you are experiencing lag (remove the both * to use)*/
@@ -52,10 +52,10 @@
     --background-image: var(--wallpaper);
     --bg-opacity: 100%;
     /*bg dev suggestions*/
-    --wallpaper: url("https://ik.imagekit.io/zapgaming/5132-pixel-mario.gif?updatedAt=1753072034355");
+    --wallpaper: url("https://ik.imagekit.io/zapgaming/fantasy-anime-style-scene.jpg?updatedAt=1759980726483");
     /*modern background selection*/
-    --modern-dark-bg: url("https://ik.imagekit.io/zapgaming/5132-pixel-mario.gif?updatedAt=1753072034355");
-    --modern-light-bg: url("https://ik.imagekit.io/zapgaming/5132-pixel-mario.gif?updatedAt=1753072034355");
+    --modern-dark-bg: url("https://ik.imagekit.io/zapgaming/fantasy-anime-style-scene.jpg?updatedAt=1759980726483");
+    --modern-light-bg: url("https://ik.imagekit.io/zapgaming/fantasy-anime-style-scene.jpg?updatedAt=1759980726483");
 }
 
 
@@ -404,129 +404,67 @@ ul[aria-label="Direct Messages"] .channel__972a0.container_e45859 .interactive_b
 
 
 
-/* window-controls.css */ /* not working gotta edit the fucking root */
-/*
-body {
-    --window-control-size: 14px;
+/* macOS-buttons-for-discord */
+
+
+/* Hide SVG icons in buttons */
+.winButton_c38106 svg {
+  display: none !important;
 }
 
-@property --custom-window-controls {
-    syntax: 'off | on';
-    inherits: false;
-    initial-value: on;
+/* === Anchor window buttons to always-visible bar === */
+.withFrame-2dL45i .winButtons_c38106 {
+  position: absolute !important;
+  top: 12px !important;
+  right: 12px !important; /* adjust for macOS-style */
+  left: 60px !important; /* shifted to avoid DevTools icon (~36–48px wide) */
+  height: 36px;
+  display: flex !important;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 6px;
+  z-index: 9999;
 }
 
-@container body style(--custom-window-controls: on) {
-    .winButtons_c38106 {
-        gap: 0;
-        padding-right: calc(var(--gap) - (var(--window-control-size) / 2) + 1px);
-    }
-    .winButtons_c38106::before {
-        margin-right: calc(var(--custom-app-top-bar-height) / 4);
-    }
-    .winButton_c38106 > svg {
-        display: none;
-    }
-    .winButton_c38106 {
-        background: none !important;
-        width: calc(var(--window-control-size) * 2);
-        height: var(--custom-app-top-bar-height);
-    }
-    .winButton_c38106::after {
-        display: block;
-        content: '';
-        height: var(--window-control-size);
-        width: var(--window-control-size);
-        border-radius: 50%;
-        transition: box-shadow 0.3s ease; /* Smooth transition for the glow effect */
-    }
 
-@property --custom-window-controls {
-    syntax: 'off | on';
-    inherits: false;
-    initial-value: on;
+/* === macOS button style ===*/
+.winButton_c38106 {
+  width: 12px;
+  height: 12px;
+  border-radius: 9999px !important; /* force circle */
+  margin-left: 6px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  -webkit-app-region: no-drag;
+}
+/* Minimize */
+.winButtonMinMax_c38106[aria-label="Minimize"],
+.winButtonMinMax_c38106[aria-label="Minimise"] {
+  background-color: #FFBD44;
 }
 
-@container body style(--custom-window-controls: on) {
-    .winButtons_c38106 {
-        gap: 0;
-        padding-right: calc(var(--gap) - (var(--window-control-size) / 2) + 1px);
-    }
-    .winButtons_c38106::before {
-        margin-right: calc(var(--custom-app-top-bar-height) / 4);
-    }
-    .winButton_c38106 > svg {
-        display: none;
-    }
-    .winButton_c38106 {
-        background: none !important;
-        width: calc(var(--window-control-size) * 2);
-        height: var(--custom-app-top-bar-height);
-    }
-    .winButton_c38106::after {
-        display: block;
-        content: '';
-        height: var(--window-control-size);
-        width: var(--window-control-size);
-        border-radius: 50%;
-        transition: box-shadow 0.6s ease; /* Smooth transition for the glow effect */
-    }
-
-    /* Glowing hover effects for each button */
-    .winButtonClose_c38106::after {
-        background-color: var(--dnd) !important;
-    }
-    .winButtonClose_c38106:hover::after {
-        box-shadow: 0 0 20px 6px var(--dnd);
-    }
-
-    .winButtonMinMax_c38106:nth-child(1)::after {
-        background-color: var(--idle) !important;
-    }
-    .winButtonMinMax_c38106:nth-child(1):hover::after {
-        box-shadow: 0 0 20px 6px var(--idle);
-    }
-
-    .winButtonMinMax_c38106:nth-child(2)::after {
-        background-color: var(--online) !important;
-    }
-    .winButtonMinMax_c38106:nth-child(2):hover::after {
-        box-shadow: 0 0 20px 6px var(--online); 
-    }
-
-    .winButton_c38106:hover::after {
-        filter: none;
-    }
-    .winButton_c38106:active::after {
-        transform: scale(0.9);
-    }
+/* Maximize */
+.winButtonMinMax_c38106[aria-label="Maximize"],
+.winButtonMinMax_c38106[aria-label="Maximise"] {
+  background-color: #00CA4E;
+}
+.winButtonClose_c38106 {
+  background-color: #FF605C;
+  margin-right: 12px;
 }
 
-@container body style(--custom-window-controls: off) and style(--top-bar-button-position: titlebar) {
-    .visual-refresh {
-        .winButton_c38106 {
-            width: calc(var(--window-control-size) * 2);
-            height: calc(var(--window-control-size) * 2);
-        }
-        .winButtons_c38106 {
-            gap: 0;
-        }
-    }
+.winButton_c38106:hover {
+  transform: scale(1.2);
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.3);
 }
 
-/* Особые стили для различных состояний окна */
-@container body style(--custom-window-controls: off) and style(--top-bar-button-position: titlebar) {
-    .visual-refresh .winButton_c38106 {
-        border-radius: 0 !important;
-    }
-    
-    .visual-refresh .winButtons_c38106 {
-        gap: 0 !important;
-    }
+/* === Make title bar draggable, except buttons === */
+.appMount-3lHmkl,
+.withFrame-2dL45i {
+  -webkit-app-region: drag;
 }
-}  */
-
-
+.winButton_c38106 {
+  -webkit-app-region: no-drag;
+}
 
 
 
