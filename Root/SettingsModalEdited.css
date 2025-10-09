@@ -1,3 +1,37 @@
+/**
+ * HOW TO CUSTOMIZE:
+ * 1. To change the colors, edit the `linear-gradient` in the :root variables below.
+ * 2. To change the speed, modify the duration (e.g., `10s`) in the `animation` property.
+ */
+
+:root {
+    --crazy-gradient: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+    --crazy-animation: crazy-gradient-animation 10s ease infinite;
+}
+
+@keyframes crazy-gradient-animation {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* --- Helper classes for applying the animation --- */
+.animated-gradient-bg {
+    background: var(--crazy-gradient) !important;
+    background-size: 400% 400% !important;
+    animation: var(--crazy-animation) !important;
+}
+
+.animated-gradient-text {
+    background: var(--crazy-gradient) !important;
+    background-size: 400% 400% !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    animation: var(--crazy-animation) !important;
+}
+
+
+/* Original CSS with animated gradients applied */
 #app-mount .baseLayer__960e4 {
     opacity: 1 !important;
     transform: unset !important;
@@ -12,7 +46,6 @@
 #app-mount .layer__960e4.stop-animations:first-child::after {
     content: "" !important;
     position: fixed !important;
-    background: rgb(0, 0, 0) !important;
     top: 0 !important;
     right: 0 !important;
     bottom: 0 !important;
@@ -22,35 +55,21 @@
     opacity: 0.75 !important;
     z-index: 999 !important;
     pointer-events: none !important;
+    /* --- ANIMATION APPLIED --- */
+    background: var(--crazy-gradient) !important;
+    background-size: 400% 400% !important;
+    animation: var(--crazy-animation) !important;
 }
 
-.theme-light #app-mount .layer__960e4 ~ .layer__960e4 {
-    position: absolute !important;
-    top: 0 !important;
-    right: 0 !important;
-    bottom: 0 !important;
-    left: 0 !important;
-    background: var(--themelightsettingsmodalbackground) !important;
-    border-radius: 5px !important;
-    box-shadow: var(--elevation-high) !important;
-    width: var(--settingsmodalwidth) !important;
-    height: var(--settingsmodalheight) !important;
-    margin: auto !important;
-    padding: 0 !important;
-    overflow: hidden !important;
-    contain: unset !important;
-    z-index: 1000 !important;
-}
-
+.theme-light #app-mount .layer__960e4 ~ .layer__960e4,
 .theme-dark #app-mount .layer__960e4 ~ .layer__960e4 {
     position: absolute !important;
     top: 0 !important;
     right: 0 !important;
     bottom: 0 !important;
     left: 0 !important;
-    background: var(--themedarksettingsmodalbackground) !important;
     border-radius: 5px !important;
-    box-shadow: var(--elevation-high) !important;
+    box-shadow: none !important; /* Shadow removed */
     width: var(--settingsmodalwidth) !important;
     height: var(--settingsmodalheight) !important;
     margin: auto !important;
@@ -58,6 +77,10 @@
     overflow: hidden !important;
     contain: unset !important;
     z-index: 1000 !important;
+    /* --- ANIMATION APPLIED --- */
+    background: var(--crazy-gradient) !important;
+    background-size: 400% 400% !important;
+    animation: var(--crazy-animation) !important;
 }
 
 #app-mount .layer__960e4 ~ .layer__960e4 > div,
@@ -69,6 +92,7 @@
     margin: unset !important;
     padding: unset !important;
     overflow: hidden !important;
+    background: rgba(0,0,0,0.5) !important; /* Add a semi-transparent dark layer for readability */
 }
 
 #app-mount .layer__960e4 ~ .layer__960e4 .sidebar__23e6b {
@@ -88,7 +112,6 @@
     max-width: calc(var(--settingsmodalwidth) - 256px) !important;;
 }
 
-/* the below one BD specific? Vencord don't seems to have it*/
 #app-mount .layer__960e4 ~ .layer__960e4 .standardSidebarView__23e6b .editor {
     height: calc(var(--settingsmodalheight) - 120px) !important;
 }
@@ -135,9 +158,8 @@
     right: 0 !important;
     bottom: 0 !important;
     left: 0 !important;
-    background: var(--settingsmodalbackground) !important;
     border-radius: 5px !important;
-    box-shadow: var(--elevation-high) !important;
+    box-shadow: none !important; /* Shadow removed */
     width: var(--settingsmodalwidth) !important;
     height: var(--settingsmodalheight) !important;
     margin: auto !important;
@@ -145,6 +167,10 @@
     overflow: hidden !important;
     contain: unset !important;
     z-index: 1000 !important;
+    /* --- ANIMATION APPLIED --- */
+    background: var(--crazy-gradient) !important;
+    background-size: 400% 400% !important;
+    animation: var(--crazy-animation) !important;
 }
 
 #app-mount .root__5c9fc.enterDone__5c9fc {
@@ -202,88 +228,77 @@
     z-index: -1 !important;
 }
 
-.theme-dark .sidebarRegion__23e6b {
-    background: var(--sidebar-colour);
-}
-
+.theme-dark .sidebarRegion__23e6b,
 .theme-light .sidebarRegion__23e6b {
-    background: var(--sidebar-colour);
+    /* --- ANIMATION APPLIED --- */
+    background: var(--crazy-gradient) !important;
+    background-size: 400% 400% !important;
+    animation: var(--crazy-animation) !important;
 }
 
 .contentRegion__23e6b {
     zoom: 0.9 !important;
 }
 
-/*
- What is this one `premiumFeatureBorder__65c15?
- A comment would have helped
-*/
-
 .premiumFeatureBorder__65c15 {
-    background: linear-gradient(var(--background-primary), var(--background-primary)) padding-box border-box;
+    /* --- ANIMATION APPLIED --- */
+    background: var(--crazy-gradient) !important;
+    background-size: 400% 400% !important;
+    animation: var(--crazy-animation) !important;
 }
 
-/* hide hover underline on selected tab */
 .selected_b3f026:after {
     background: transparent !important;
 }
 
 .side_b3f026 .item_b3f026::after {
-    /* Fix the double icon when hovering */
     display: none !important;
 }
 
-/* Gets rid of the annoying profile button ref */
 .userInfo__1fed1 .button__6af3a.sm__6af3a {
     display: none !important;
 }
 
-/*user setting redesign*/
 .fieldButton__1fed1.button__6af3a[aria-label="Remove phone number"] {
-    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+    box-shadow: none !important; /* Shadow removed */
     font-family: "Roboto";
     font-size: 12px;
     transition: 0.2s;
 }
 
-
-html.theme-dark .fieldButton__1fed1.button__6af3a[aria-label="Remove phone number"] {
-    background: rgb(36, 36, 36) !important;
-    color: rgb(255, 255, 255) !important;
-}
-
+html.theme-dark .fieldButton__1fed1.button__6af3a[aria-label="Remove phone number"],
 html.theme-light .fieldButton__1fed1.button__6af3a[aria-label="Remove phone number"] {
-    background: #fff !important;
-    color: #000 !important;
+    /* --- ANIMATION APPLIED --- */
+    background: var(--crazy-gradient) !important;
+    background-size: 400% 400% !important;
+    animation: var(--crazy-animation) !important;
 }
+
+html.theme-dark .fieldButton__1fed1.button__6af3a[aria-label="Remove phone number"] .buttonChildrenWrapper__6af3a,
+html.theme-light .fieldButton__1fed1.button__6af3a[aria-label="Remove phone number"] .buttonChildrenWrapper__6af3a {
+    /* --- ANIMATED TEXT --- */
+    background: linear-gradient(white, white) !important; /* Text is white */
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+}
+
 
 .fieldButton__1fed1.button__6af3a[aria-label="Remove phone number"]:hover {
-    box-shadow: 0px 8px 15px rgba(229, 46, 46, 0.4);
+    box-shadow: none !important; /* Shadow removed */
     transition: 0.1s;
+    transform: scale(1.05); /* Add a little pop on hover */
 }
 
-html.theme-dark .fieldButton__1fed1.button__6af3a[aria-label="Remove phone number"]:hover {
-    background: rgb(229, 46, 46) !important;
-    color: #000 !important;
-}
-
-html.theme-light .fieldButton__1fed1.button__6af3a[aria-label="Remove phone number"]:hover {
-    background-color: rgb(255, 0, 132) !important;
-    color: rgb(0, 34, 255) !important;
-}
-
-.badgeList__1fed1 {
+.badgeList__1fed1,
+html.theme-dark .badgeList__1fed1,
+html.theme-light .badgeList__1fed1 {
     border-radius: 8px;
     margin-top: 5px;
     padding: 2px;
-}
-
-html.theme-dark .badgeList__1fed1 {
-    background-color: #333135;
-}
-
-html.theme-light .badgeList__1fed1 {
-    background-color: #e4e4e4;
+    /* --- ANIMATION APPLIED --- */
+    background: var(--crazy-gradient) !important;
+    background-size: 400% 400% !important;
+    animation: var(--crazy-animation) !important;
 }
 
 .fieldList__1fed1 {
@@ -310,18 +325,10 @@ div[class="field__1fed1"] > button[aria-label="Edit username"][class="button__6a
     width: 100%;
 }
 
-/* This now actually targets the button and makes it takes the whole space */
 .fieldButton__1fed1 > button {
     width: 100% !important;
 }
 
-/*
-    Fixed the blur issues of the `field__1fed1` items.
-    Issue was not having enough height(was being
-    overridden by a 3rd party AccountDetailsGrid addon).
-    However, the repository got so I forked the addon
-    to our repo for now.
- */
 .field__1fed1 {
     border-radius: 8px;
     max-height: none;
@@ -331,18 +338,14 @@ div[class="field__1fed1"] > button[aria-label="Edit username"][class="button__6a
     position: relative;
     overflow-y: scroll;
     height: 150px !important;
+    /* --- ANIMATION APPLIED --- */
+    background: var(--crazy-gradient) !important;
+    background-size: 400% 400% !important;
+    animation: var(--crazy-animation) !important;
 }
 
 .field__1fed1 .fieldButton__1fed1 {
     background: transparent !important;
-}
-
-html.theme-dark .field__1fed1 {
-    background-color: #333135;
-}
-
-html.theme-light .field__1fed1 {
-    background-color: #e4e4e4;
 }
 
 html.theme-dark .fieldSpacerBottom__1fed1 {
@@ -383,6 +386,10 @@ html.theme-dark .fieldSpacerBottom__1fed1 {
 
 .settingsBanner-2E5fAp {
     border-radius: 8px;
+    /* --- ANIMATION APPLIED --- */
+    background: var(--crazy-gradient) !important;
+    background-size: 400% 400% !important;
+    animation: var(--crazy-animation) !important;
 }
 
 #my-account-tab {
@@ -424,40 +431,33 @@ html.theme-dark .fieldSpacerBottom__1fed1 {
 
 .button__6af3a {
     border-radius: 45px;
-    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+    box-shadow: none !important; /* Shadow removed */
     font-family: "Roboto";
     font-size: 12px;
     transition: 0.2s;
+    /* --- ANIMATION APPLIED --- */
+    background: var(--crazy-gradient) !important;
+    background-size: 400% 400% !important;
+    animation: var(--crazy-animation) !important;
 }
 
-html.theme-dark .button__6af3a {
-    background: rgb(87, 4, 47) !important;
-    color: rgb(255, 0, 132) !important;
-}
-
-html.theme-light .button__6af3a {
-    background: #fff !important;
-    color: #000 !important;
+.button__6af3a .buttonChildrenWrapper__6af3a {
+    /* Make button text readable */
+    background: linear-gradient(white, white) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
 }
 
 .button__6af3a:hover {
-    background: rgb(0, 0, 0) !important;
     transition: 0.1s;
-}
-
-html.theme-dark .button__6af3a:hover {
-    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.4);
-}
-
-html.theme-light .button__6af3a:hover {
-    box-shadow: -3px -3px 7px #cfcfcf inset, 3px 3px 7px #949aa1 inset;
+    transform: scale(1.05); /* Add a little pop on hover */
+    box-shadow: none !important;
 }
 
 .overlay__3b260 .button__6af3a {
-    box-shadow: none !important; /* gets rid of the shadow */
+    box-shadow: none !important;
 }
 
-/* fix for the newly added classes for the disable and Delete account button */
 .children__7bffb .critical-primary__6af3a, .children__7bffb .critical-secondary__6af3a {
     padding: 25px;
     height: 45px;
@@ -467,14 +467,17 @@ html.theme-light .button__6af3a:hover {
     font-weight: 500;
     border: none;
     border-radius: 45px;
-    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+    box-shadow: none !important; /* Shadow removed */
     transition: all 0.3s ease 0s;
     cursor: pointer;
     outline: none;
+    /* --- ANIMATION APPLIED --- */
+    background: var(--crazy-gradient) !important;
+    background-size: 400% 400% !important;
+    animation: var(--crazy-animation) !important;
 }
 
 .children__7bffb .critical-primary__6af3a .buttonChildrenWrapper__6af3a span, .children__7bffb .critical-secondary__6af3a span {
-    /* font-size: 0px !important; */
     visibility: hidden;
 }
 
@@ -482,46 +485,25 @@ html.theme-light .button__6af3a:hover {
     content: "Disable";
     position: absolute;
     font-size: 14px !important;
+    /* --- ANIMATED TEXT --- */
+    background: linear-gradient(white, white) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
 }
 
 .children__7bffb .critical-secondary__6af3a::before {
     content: "Delete";
     position: absolute;
     font-size: 14px !important;
+    /* --- ANIMATED TEXT --- */
+    background: linear-gradient(white, white) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
 }
 
-
-html.theme-dark .children__7bffb .buttonContainer_d286c5 .critical-primary__6af3a {
-    color: rgb(255, 255, 255) !important;
-    background-color: rgb(58, 58, 58) !important;
-}
-
-html.theme-dark .children__7bffb .buttonContainer_d286c5 .critical-secondary__6af3a {
-    color: rgb(255, 255, 255) !important;
-    background-color: rgb(58, 58, 58) !important;
-}
-
-html.theme-dark .children__7bffb .buttonContainer_d286c5 .critical-primary__6af3a:hover {
-    background-color: rgb(229, 46, 46) !important;
-    color: rgb(37, 37, 37) !important;
-    transform: translateY(-7px);
-}
-
-html.theme-dark .children__7bffb .buttonContainer_d286c5 .critical-secondary__6af3a:hover {
-    background-color: rgb(229, 46, 46) !important;
-    color: rgb(37, 37, 37) !important;
-    transform: translateY(-7px);
-}
-
-html.theme-light .children__7bffb .buttonContainer_d286c5 .critical-primary__6af3a:hover {
-    background-color: rgb(255, 129, 129) !important;
-    color: rgb(255, 255, 255) !important;
-    transform: translateY(-7px);
-}
-
-html.theme-light .children__7bffb .buttonContainer_d286c5 .critical-secondary__6af3a:hover {
-    background-color: rgb(255, 129, 129) !important;
-    color: rgb(255, 255, 255) !important;
+.children__7bffb .buttonContainer_d286c5 .critical-primary__6af3a:hover,
+.children__7bffb .buttonContainer_d286c5 .critical-secondary__6af3a:hover {
+    box-shadow: none !important; /* Shadow removed */
     transform: translateY(-7px);
 }
 
