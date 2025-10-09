@@ -12,7 +12,7 @@
 #app-mount .layer__960e4.stop-animations:first-child::after {
     content: "" !important;
     position: fixed !important;
-    background: conic-gradient(aqua, magenta, lime) !important;
+    background: conic-gradient(lime, aqua, magenta, gold) !important;
     top: 0 !important;
     right: 0 !important;
     bottom: 0 !important;
