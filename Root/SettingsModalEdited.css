@@ -13,7 +13,7 @@
     content: "" !important;
     position: fixed !important;
     background:
-      radial-gradient(circle at center, rgba(0, 0, 0, 0.4) 0%, transparent 30%),
+    radial-gradient(circle at center, rgba(0, 0, 0, 0.4) 0%, transparent 30%),
   /*  repeating-conic-gradient(from 45deg, lime 0%, aqua 5%, magenta 12.5%, gold 20%, lime 25%);
   background-repeat: no-repeat;
   background-position: center; */
