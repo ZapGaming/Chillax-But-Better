@@ -29,8 +29,21 @@
     border-radius: 5px;
     background: var(--window-colour);
     backdrop-filter: blur(var(--window-blur)) !important;
+    content: " ‏‏‎🫧M a t r i x";
+    font-size: 12px;
+    font-weight: 900;
+    font-family: "KDH" !important;
+    background: var(--window-colour);
+    backdrop-filter: blur(var(--window-blur));
+    border-radius: 5px;
+    padding: 10px 11px 10px 7px;
+    margin-left: var(--window-margin);
+    pointer-events: all;
+    transition: 0.5s ease-in-out;
+    color: var(--text-primary);
 }
 
+/*
 .bar_85643 {
     padding: 2px 0 2px 0;
 }
@@ -53,7 +66,7 @@
 .title__85643:hover::after {
     content: "‏‏‎ 🫧M a t r i x";
     letter-spacing: 2px;
-}
+} */
 
 /* Title bar buttons */
 .trailing_c38106 {
