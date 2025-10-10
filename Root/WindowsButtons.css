@@ -1,0 +1,112 @@
+/* Wordmark */
+.bar_c38106 {
+    padding: 2px 0 2px 0;
+}
+
+.leading_c38106::before {
+    content: "‏‏‎ c h i l l a x";
+    font-size: 12px;
+    font-weight: 900;
+    font-family: "Poiret one" !important;
+    background: var(--window-colour);
+    backdrop-filter: blur(var(--window-blur));
+    border-radius: 5px;
+    padding: 10px 11px 10px 7px;
+    margin-left: var(--window-margin);
+    pointer-events: all;
+    transition: 0.5s ease-in-out;
+    color: var(--text-primary);
+}
+
+.leading_c38106:hover::before {
+    content: "‏‏‎ c h i l l a x";
+    letter-spacing: 2px;
+}
+
+/* Server name in title bar */
+.title__85643 {
+    padding: 4px 6px;
+    border-radius: 5px;
+    background: var(--window-colour);
+    backdrop-filter: blur(var(--window-blur)) !important;
+}
+
+.title__85643::after {
+    content: " ‏‏‎🫧";
+    font-size: 12px;
+    font-weight: 900;
+    font-family: "KDH" !important;
+    background: var(--window-colour);
+    backdrop-filter: blur(var(--window-blur));
+    border-radius: 5px;
+    padding: 10px 11px 10px 7px;
+    margin-left: var(--window-margin);
+    pointer-events: all;
+    transition: 0.5s ease-in-out;
+    color: var(--text-primary);
+}
+
+.title__85643:hover::after {
+    content: "‏‏‎ 🫧";
+    letter-spacing: 2px;
+}
+
+/* Title bar buttons */
+.trailing_c38106 {
+    margin-right: var(--window-margin);
+}
+
+.recentsIcon_c99c29,
+.trailing_c38106 > .anchor_edefb8,
+.winButtons_c38106 > div {
+    height: var(--space-32);
+    background: var(--window-colour);
+    backdrop-filter: blur(var(--window-blur));
+    transition: 0.2s;
+    border-radius: var(--window-border-radius);
+}
+
+.recentsIcon_c99c29:hover,
+.trailing_c38106 > .anchor_edefb8:hover,
+.winButtons_c38106 > div:hover {
+    background: transparent;
+    transition: 0.1s;
+    backdrop-filter: none;
+}
+
+/* Make min/max/close connected */
+.winButtons_c38106 {
+    gap: 0;
+}
+
+.winButton_c38106:nth-child(1) {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.winButton_c38106:nth-child(2) {
+    border-radius: 0;
+}
+
+.winButton_c38106:nth-child(3) {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+/* Rotate on hover effect */
+.winButton_c38106 > svg {
+    transition: 0.1s;
+}
+
+.winButton_c38106:hover > svg {
+    transform: rotate(45deg);
+}
+
+/* Keep some spacing between the edge when window margin is close to 0px */
+.trailing_c38106 {
+    margin-right: calc(max(var(--window-margin), 4px));
+}
+
+.leading_c38106::before {
+    margin-left: calc(max(var(--window-margin), 4px));
+}
