@@ -5,7 +5,7 @@
  * @version 2.1.1
  * @invite DrfX6286kF
  * @description The theme where calm meets craziness.
- * @source https://github.com/warrayquipsome/Chillax
+ * @source https://github.com/ZapGaming/Chillax-But-Better
 */
 
 /* ⸙ 🫧 🫧 🫧 🫧 🫧 𖡎  It's All Better 𖡎 🫧 🫧 🫧 🫧 🫧 ⸙ */
@@ -136,7 +136,7 @@
     /* Spotify Player Control Squid GIF Adjustments */
 
     /* Change the ulr in the `--chillax-spotify-control-squid-gif-url` css var to your liking */
-    --chillax-spotify-control-squid-gif-url: "https://static.wikia.nocookie.net/minecraft_gamepedia/images/0/0c/Glow_Squid_BE1.gif";
+    --chillax-spotify-control-squid-gif-url: "https://64.media.tumblr.com/0d4e6d40295ff17455cf0f0839eadcc4/tumblr_mqic6aNvfO1s5e5bko6_500.gif";
     /* adjust the height and width accordingly */
     --chillax-spotify-control-squid-width: 25px;
     --chillax-spotify-control-squid-height: 25px;
@@ -306,15 +306,14 @@
 
 /* Change the Discord Logo to something custom */
 .listItemWrapper__91816 .childWrapper__6e9f8 img {
-    content: url("https://emojipedia.org/_next/image?url=https%3A%2F%2Fis.zobj.net%2Fimage-server%2Fv1%2Fimages%3Fr%3DV58EAKDVUTQfeva_7u4BUwmWE33BpLhKCJ38wy8M7p5DCNrwhH0EJDYBvOQdfCMrKvJSJuQU6m90aUZfAqkkU6LYywTyYjqxjPkw4TBSxu8IYOGBKKCUtzb_6l5IOnhOpwz6GWd14dQB8LY9t1n0tZyd5wIwUXh9j1RfdNmm_fekApO5OUpozTP2Hb7TXlzoJiAuq8FfGTlIXXxf3toR4YVaBDQZ5UmsSExW-T_vklpw6isQPKeE_o522Ck&w=256&q=75");
-} /* change the url to your fav logo/gif etc (I recommend 50x50 or similar) */
+    content: url("https://64.media.tumblr.com/0d4e6d40295ff17455cf0f0839eadcc4/tumblr_mqic6aNvfO1s5e5bko6_500.gif")} /* change the url to your fav logo/gif etc (I recommend 50x50 or similar) */
 
 .listItemWrapper__91816 .childWrapper__6e9f8 svg {
     display: none;
 }
 
 .listItemWrapper__91816 .childWrapper__6e9f8  {
-    content: url("https://emojipedia.org/_next/image?url=https%3A%2F%2Fis.zobj.net%2Fimage-server%2Fv1%2Fimages%3Fr%3DV58EAKDVUTQfeva_7u4BUwmWE33BpLhKCJ38wy8M7p5DCNrwhH0EJDYBvOQdfCMrKvJSJuQU6m90aUZfAqkkU6LYywTyYjqxjPkw4TBSxu8IYOGBKKCUtzb_6l5IOnhOpwz6GWd14dQB8LY9t1n0tZyd5wIwUXh9j1RfdNmm_fekApO5OUpozTP2Hb7TXlzoJiAuq8FfGTlIXXxf3toR4YVaBDQZ5UmsSExW-T_vklpw6isQPKeE_o522Ck&w=256&q=75");
+    content: url("https://64.media.tumblr.com/0d4e6d40295ff17455cf0f0839eadcc4/tumblr_mqic6aNvfO1s5e5bko6_500.gif") /* url("https://emojipedia.org/_next/image?url=https%3A%2F%2Fis.zobj.net%2Fimage-server%2Fv1%2Fimages%3Fr%3DV58EAKDVUTQfeva_7u4BUwmWE33BpLhKCJ38wy8M7p5DCNrwhH0EJDYBvOQdfCMrKvJSJuQU6m90aUZfAqkkU6LYywTyYjqxjPkw4TBSxu8IYOGBKKCUtzb_6l5IOnhOpwz6GWd14dQB8LY9t1n0tZyd5wIwUXh9j1RfdNmm_fekApO5OUpozTP2Hb7TXlzoJiAuq8FfGTlIXXxf3toR4YVaBDQZ5UmsSExW-T_vklpw6isQPKeE_o522Ck&w=256&q=75") */;
 } /* change the url to your fav logo/gif etc (I recommend 50x50 or similar) */
 
 
@@ -506,7 +505,7 @@ ul[aria-label="Direct Messages"] .channel__972a0.container_e45859 .interactive_b
 .vc-shiki-btn::after {
   top: -3px !important;
   left: -7px !important;
-  content: "😭" !important; /* or any other symbol you want */
+  content: "֎" !important; /* or any other symbol you want */
   font-size: 16px !important;
 }
 
@@ -519,25 +518,25 @@ ul[aria-label="Direct Messages"] .channel__972a0.container_e45859 .interactive_b
 
 
 
-/* Default discord complete Capybara theme */
+/* Default discord complete Chill theme */
 .themeSelection__36dee.midnightIcon__36dee::before {
     position: absolute;
     content: "";
     inset: 10px;
-    background: url(https://media4.giphy.com/media/v1.Y2lkPTZjMDliOTUyeXp2dzBrbmE5YWhzZWs1YjAxcnRyN3c0ZDMyZWZkdmIzNXc5bTJ6diZlcD12MV9zdGlja2Vyc19zZWFyY2gmY3Q9cw/OgUorGH0Z75b3unoPA/giphy.gif);
+    background: url("https://64.media.tumblr.com/0d4e6d40295ff17455cf0f0839eadcc4/tumblr_mqic6aNvfO1s5e5bko6_500.gif");
     background-repeat: no-repeat;
-    background-size: contain;
+    background-size: fill;
     background-position: center;
 }
 
 .app_a3002d:has(.themeSelection__36dee.midnightIcon__36dee:hover)~.layerContainer__59d0d .tooltipContent__382e7 {
     font-size: 0px;
-    position: relative;
+    position: center;
     width: 80px;
     &::before {
-        position: absolute;
+        position: fill;
         inset: 0;
-        content: "Capybara";
+        content: "Chill";
         font-size: 16px;
         text-align: center;
         line-height: 200%;
@@ -548,24 +547,24 @@ ul[aria-label="Direct Messages"] .channel__972a0.container_e45859 .interactive_b
     .content_f75fb0 
     {background: var(--background-gradient-chat, var(--background-base-lower));}
     .chatContent_f75fb0 {
-        background: url(https://media4.giphy.com/media/v1.Y2lkPTZjMDliOTUyeXp2dzBrbmE5YWhzZWs1YjAxcnRyN3c0ZDMyZWZkdmIzNXc5bTJ6diZlcD12MV9zdGlja2Vyc19zZWFyY2gmY3Q9cw/OgUorGH0Z75b3unoPA/giphy.gif) center no-repeat; background-size: 40cap;
+        background: url("https://64.media.tumblr.com/0d4e6d40295ff17455cf0f0839eadcc4/tumblr_mqic6aNvfO1s5e5bko6_500.gif") center no-repeat; background-size: 75cap;
         position: relative;
         &::before { 
             position: absolute; inset: 0; content: "";
-            background: #0003;
-            mask: url(https://media4.giphy.com/media/v1.Y2lkPTZjMDliOTUyeXp2dzBrbmE5YWhzZWs1YjAxcnRyN3c0ZDMyZWZkdmIzNXc5bTJ6diZlcD12MV9zdGlja2Vyc19zZWFyY2gmY3Q9cw/OgUorGH0Z75b3unoPA/giphy.gif) center no-repeat; mask-size: 40cap;
+            background: transparent;
+            mask: url("https://64.media.tumblr.com/0d4e6d40295ff17455cf0f0839eadcc4/tumblr_mqic6aNvfO1s5e5bko6_500.gif") center no-repeat; mask-size: 75cap;
         }
     }
 }
 
 .item_c1e9c4#user-settings-cog-App_Settings--Appearance--midnight {
     font-size: 0px;
-    background: url(https://media4.giphy.com/media/v1.Y2lkPTZjMDliOTUyeXp2dzBrbmE5YWhzZWs1YjAxcnRyN3c0ZDMyZWZkdmIzNXc5bTJ6diZlcD12MV9zdGlja2Vyc19zZWFyY2gmY3Q9cw/OgUorGH0Z75b3unoPA/giphy.gif) center no-repeat;
+    background: url("https://64.media.tumblr.com/0d4e6d40295ff17455cf0f0839eadcc4/tumblr_mqic6aNvfO1s5e5bko6_500.gif") center no-repeat;
     background-size: contain; background-position: right; padding-right: 40px;
     &::before 
-    { content: "Capybara"; font-size: 14px; color: white; }
+    { content: "Chill"; font-size: 14px; color: white; }
 }
-/* End default discord complete Capybara theme */
+/* End default discord complete Chill theme */
 
 
 
@@ -575,7 +574,9 @@ ul[aria-label="Direct Messages"] .channel__972a0.container_e45859 .interactive_b
     font-weight: 400;
     font-style: normal;
     src: url("https://raw.githubusercontent.com/ZapGaming/Chillax-But-Better/refs/heads/main/Fonts/K-Pop%20Demon%20Hunters.woff2") format('woff2');
-}
+} /* To change font visit the githubs font foulder and change K-Pop%20Demon%20Hunters to Aurora or Norse or maybe Harry%20Potter and set font family to its initials for Harry Potter its HP or Norse is N */
+
+
 
 
 
