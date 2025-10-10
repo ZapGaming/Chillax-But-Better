@@ -7,7 +7,7 @@
     content: "‏‏‎ c h i l l a x";
     font-size: 12px;
     font-weight: 900;
-    font-family: "" !important;
+    font-family: "Poiret one" !important;
     background: var(--window-colour);
     backdrop-filter: blur(var(--window-blur));
     border-radius: 5px;
@@ -31,7 +31,7 @@
     backdrop-filter: blur(var(--window-blur)) !important;
 }
 
-.title__85643::after {
+.title__85643::before {
     content: " ‏‏‎🫧";
     font-size: 12px;
     font-weight: 900;
@@ -46,7 +46,7 @@
     color: var(--text-primary);
 }
 
-.title__85643:hover::after {
+.title__85643:hover::before {
     content: "‏‏‎ 🫧";
     letter-spacing: 2px;
 }
