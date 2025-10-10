@@ -31,7 +31,11 @@
     backdrop-filter: blur(var(--window-blur)) !important;
 }
 
-.leading_c38106::after {
+.bar_85643 {
+    padding: 2px 0 2px 0;
+}
+
+.title__85643::after {
     content: " ‏‏‎🫧 𝕄 𝕒 𝕥 𝕣 𝕚 𝕩";
     font-size: 12px;
     font-weight: 900;
@@ -46,7 +50,7 @@
     color: var(--text-primary);
 }
 
-.leading_c38106:hover::after {
+.title__85643:hover::after {
     content: "‏‏‎ 🫧 𝕄 𝕒 𝕥 𝕣 𝕚 𝕩";
     letter-spacing: 2px;
 }
