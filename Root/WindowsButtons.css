@@ -36,7 +36,7 @@
 }
 
 .title__85643::after {
-    content: " ‏‏‎🫧 𝕄 𝕒 𝕥 𝕣 𝕚 𝕩";
+    content: " ‏‏‎🫧M a t r i x";
     font-size: 12px;
     font-weight: 900;
     font-family: "KDH" !important;
@@ -51,7 +51,7 @@
 }
 
 .title__85643:hover::after {
-    content: "‏‏‎ 🫧 𝕄 𝕒 𝕥 𝕣 𝕚 𝕩";
+    content: "‏‏‎ 🫧M a t r i x";
     letter-spacing: 2px;
 }
 
