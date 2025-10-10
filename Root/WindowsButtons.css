@@ -110,3 +110,15 @@
 .leading_c38106::before {
     margin-left: calc(max(var(--window-margin), 4px));
 }
+
+
+
+
+
+
+@font-face {
+    font-family: 'KDH';
+    font-weight: 400;
+    font-style: normal;
+    src: url("https://raw.githubusercontent.com/ZapGaming/Chillax-But-Better/refs/heads/main/Fonts/K-Pop%20Demon%20Hunters.woff2") format('woff2');
+} /* To change font visit the githubs font foulder and change K-Pop%20Demon%20Hunters to Aurora or Norse or maybe Harry%20Potter and set font family to its initials for Harry Potter its HP or Norse is N */
