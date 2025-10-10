@@ -31,6 +31,10 @@
     backdrop-filter: blur(var(--window-blur)) !important;
 }
 
+.bar_c38106 {
+    padding: 2px 0 2px 0;
+}
+
 .title__85643::before {
     content: " ‏‏‎🫧";
     font-size: 12px;
