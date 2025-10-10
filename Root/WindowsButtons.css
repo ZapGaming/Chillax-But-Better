@@ -7,7 +7,7 @@
     content: "‏‏‎ c h i l l a x";
     font-size: 12px;
     font-weight: 900;
-    font-family: "KDH" !important;
+    font-family: "" !important;
     background: var(--window-colour);
     backdrop-filter: blur(var(--window-blur));
     border-radius: 5px;
