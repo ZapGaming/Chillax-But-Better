@@ -1,0 +1,273 @@
+/*
+ * Poping
+ * Compatible with Vencord, BetterDiscord, etc.
+ * Designed for a soft, pastel, translucent, and flower/bubble aesthetic.
+ */
+
+/* ==================================== */
+/* 0. CUSTOM FONT DEFINITION */
+/* ==================================== */
+
+@font-face {
+    font-family: 'KDH';
+    font-weight: 400;
+    font-style: normal;
+    src: url("https://raw.githubusercontent.com/ZapGaming/Chillax-But-Better/refs/heads/main/Fonts/Norse.woff2") format('woff2');
+}
+
+/* GLOBAL FONT APPLICATION: SETS ALL TEXT TO 'KDH' */
+body, 
+[class*="app_"], 
+.messageContent_e29c63, 
+.header_d756cd, 
+.channelName_e0d9b4, 
+.title_d756cd {
+    font-family: 'KDH', monospace !important;
+}
+
+/* ==================================== */
+/* 1. ROOT VARIABLES (Color Palette & Translucency) */
+/* ==================================== */
+
+:root {
+    /* Primary Anime Flower/Bubble Colors */
+    --flower-pink: #ffc0cb;        /* Light Pink/Cherry Blossom */
+    --bubble-blue: #b3e5fc;        /* Pale Sky Blue */
+    --soft-purple: #e1bee7;        /* Soft Lavender/Lilac */
+    --bg-lightest: #ffffff;        /* Pure White/Default Background */
+
+    /* --- Custom Translucency Variables --- */
+    --translucent-blur: 15px; /* Stronger blur for glass effect */
+    --translucent-light: rgba(255, 255, 255, 0.2); /* Very light (80% transparent) for main panels */
+    --translucent-medium: rgba(255, 255, 255, 0.4); /* Medium light (60% transparent) for headers/input */
+
+    /* --- FANTASY FLOWER TEXT COLORS --- */
+    --fantasy-text-vibrant: #7A08B0; /* Deep Vibrant Amethyst for main text */
+    --fantasy-header-glow: #e91e63; /* Glowing Raspberry for headers and primary accents */
+    
+    /* Generic Discord Variable Overrides (Applying high transparency) */
+    --header-primary: var(--fantasy-header-glow);       /* Set Headers to Raspberry Glow */
+    --header-secondary: #ff80ab;                        /* Lighter Raspberry/Pink */
+    --text-normal: var(--fantasy-text-vibrant);         /* Set Normal Text to Amethyst */
+    --text-muted: #a0a0a0;                              /* Muted light gray text */
+
+    --interactive-normal: var(--soft-purple);
+    --interactive-hover: var(--flower-pink);
+    --interactive-active: #ff80a0;
+
+    --background-primary: var(--translucent-light);      /* Main content area background */
+    --background-secondary: var(--translucent-light); /* Channel list, user list background */
+    --background-secondary-alt: var(--translucent-medium); /* Input bar background */
+    --background-tertiary: var(--translucent-medium); /* Header/title bar background */
+    --background-accent: var(--flower-pink); /* Pink accent color */
+    --background-floating: rgba(255, 255, 255, 0.8); /* Keep modals/popouts more solid for reading */
+    --channel-icon: var(--soft-purple);
+
+    --button-secondary-background: var(--soft-purple);
+    --button-secondary-hover: var(--flower-pink);
+
+    --deprecated-card-bg: var(--translucent-light);
+    --elevation-low: 0 1px 0 rgba(0, 0, 0, 0.05);
+
+    /* --- Custom Watermark Variables (Bubble/Translucent look) --- */
+    --window-colour: rgba(255, 255, 255, 0.6);
+    --window-blur: 10px;
+    --window-margin: 15px;
+    --text-primary: var(--fantasy-text-vibrant); /* Watermark text color */
+
+    /* Custom Gradient for Leaf/Shape */
+    --leaf-gradient: linear-gradient(135deg, #ff80a0 0%, #a0c4ff 100%);
+}
+
+/* ==================================== */
+/* 2. GENERAL UI STYLING & GLOBAL BLUR */
+/* ==================================== */
+
+/* Clear out the root background to allow the custom background image to show */
+.app_b1f725, /* Common main app container class */
+.base_e9a184 { /* Another common base container */
+    background: transparent !important;
+}
+
+/* Apply translucent background and blur to all major structural panels */
+.container_d538e7, /* Main app background container */
+.sidebar_e03106, /* Channel List/Server Header */
+.membersWrap_d1e8c1, /* Members List Wrap */
+.chat_a83002, /* Chat Area (main content) */
+.content_d0d467, /* Content area including chat */
+.scroller_e0d9b4, /* Channel list scroller background */
+.title_d756cd, /* Channel Header/Title */
+.form_d4acb7, /* Message form/input area */
+.bottom_a17539 { /* Bottom user settings bar */
+    background-color: var(--translucent-light) !important;
+    backdrop-filter: blur(var(--translucent-blur)) !important;
+    /* Ensure borders and shadows look right on the translucent background */
+    border: none !important;
+    box-shadow: none !important;
+}
+
+
+/* Custom Scrollbar Styling (Bubble Pink/Blue gradient look) */
+.scrollerBase_e26d83::-webkit-scrollbar-thumb {
+    background: var(--leaf-gradient);
+    border: 3px solid var(--background-primary);
+    border-radius: 10px; /* Rounded pill shape */
+}
+
+.scrollerBase_e26d83::-webkit-scrollbar-track {
+    background: var(--background-secondary-alt);
+}
+
+/* Glowing Border for Active/Selected Elements (Soft Pink Glow) */
+.listItem_a388b3.selected_a388b3,
+.container_cb99f2:hover,
+.button_af505f:hover,
+.focused_a388b3 {
+    border-left: 3px solid var(--flower-pink) !important;
+    box-shadow: inset 0 0 8px rgba(255, 192, 203, 0.7); /* Soft Pink Glow */
+    transition: box-shadow 0.3s ease-in-out;
+}
+
+/* Input Fields and Text Areas (Softer, rounder corners) */
+.input_a44e54 {
+    background-color: var(--background-secondary-alt) !important;
+    border: 1px solid var(--soft-purple);
+    border-radius: 12px; /* Bubble-like corners */
+    box-shadow: 0 0 6px rgba(142, 36, 170, 0.2); /* Soft purple shadow */
+}
+
+/* User Popout/Modal Styling (Soft, prominent border) - Kept slightly more opaque for legibility */
+.userPopoutInner_f801e0, .root_d6f920, .header_d756cd {
+    box-shadow: 0 0 20px rgba(255, 192, 203, 0.6);
+    border: 1px solid var(--flower-pink);
+    border-radius: 15px;
+    backdrop-filter: blur(8px);
+}
+
+/* ==================================== */
+/* 3. CORNER LEAF GRADIENT SHAPE */
+/* ==================================== */
+
+/* Note: Targeting a common top-level container class for Vencord/BetterDiscord */
+[class*="app_"] {
+    position: relative;
+    overflow: hidden; /* Ensures the shape doesn't leak out */
+}
+
+[class*="app_"]::before {
+    content: '';
+    position: absolute;
+    top: -100px; /* Position off-screen to start the shape in the corner */
+    left: -100px;
+    width: 300px;
+    height: 300px;
+    background: var(--leaf-gradient);
+    opacity: 0.6; /* Translucent effect */
+    z-index: 0;
+    pointer-events: none;
+    /* Creates an irregular, organic, leaf-like shape using border-radius */
+    border-radius: 300px 50px 300px 50px / 300px 50px 300px 50px;
+    transform: rotate(-15deg); /* Slight rotation for a dynamic look */
+    filter: blur(50px); /* Softens the edges dramatically */
+}
+
+
+/* ==================================== */
+/* 4. USER'S WATERMARK STYLING */
+/* ==================================== */
+
+.bar_c38106 {
+    padding: 2px 0 2px 0;
+}
+
+.leading_c38106::after {
+    content: " ‏‏‎🫧P o p i n g"; /* Updated text: P o p i n g */
+    font-size: 14px; /* Slightly larger text */
+    font-weight: 900;
+    font-family: "KDH", monospace !important;
+    background: var(--window-colour); /* Translucent White/Pearl */
+    backdrop-filter: blur(var(--window-blur));
+    border-radius: 12px; /* More rounded, bubble shape */
+    border: 1px solid var(--flower-pink); /* Thin soft border */
+    padding: 12px 14px 12px 10px; /* More padding for a bolder look */
+    margin-left: var(--window-margin);
+    pointer-events: all;
+    /* Smoother, bouncier transition for all properties */
+    transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    color: var(--text-primary);
+    /* Adding text glow effects */
+    text-shadow: 0 0 5px var(--bubble-blue), 0 0 10px rgba(255, 192, 203, 0.8);
+    /* Adding a prominent, multi-layered bubble box shadow */
+    box-shadow: 0 4px 15px rgba(179, 229, 252, 0.5), inset 0 0 10px rgba(255, 192, 203, 0.3);
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    z-index: 1000;
+}
+
+.leading_c38106:hover::after {
+    content: "‏‏‎ 🫧P O P I N G"; /* Updated text: P O P I N G (capitalized for hover contrast) */
+    letter-spacing: 3px; /* More dramatic spacing on hover */
+    /* Pop and subtle rotation on hover */
+    transform: scale(1.08) rotate(1deg);
+    /* Brighter shadow on hover */
+    box-shadow: 0 8px 20px rgba(255, 192, 203, 0.9), inset 0 0 15px var(--bubble-blue);
+}
+
+/* ==================================== */
+/* 5. STRUCTURAL MODIFICATIONS (Movement & New Snippet) */
+/* ==================================== */
+
+/* === A. Container Reordering (Member List moves left, Channel List moves right) === */
+
+/* Targets the main flex container that holds the sidebars and chat */
+.base_e9a184 { 
+    display: flex;
+    flex-direction: row; /* Ensure default flex direction is maintained */
+}
+
+/* 1. Channel List/Sidebar (Usually order: 2) */
+.sidebar_e03106 { 
+    order: 3; /* Move to the right side of the chat */
+}
+
+/* 2. Main Chat Area (Usually order: 3) */
+.chat_a83002 {
+    order: 2; /* Remains in the center */
+}
+
+/* 3. Member List (Usually order: 4) */
+.membersWrap_d1e8c1 {
+    order: 1; /* Move to the left of the chat, beside the server list */
+    /* Force width to prevent collapsing when reordered */
+    width: 240px; 
+    min-width: 240px;
+    max-width: 240px;
+}
+
+/* === B. Chat Bubble Snippet === */
+
+/* Styling for message content to create a soft bubble effect */
+.messageContent_e29c63 {
+    display: inline-block;
+    padding: 8px 12px;
+    margin-top: 2px;
+    margin-bottom: 2px;
+    max-width: 100%; /* Ensure text wraps within the bubble */
+    box-sizing: border-box;
+    /* Apply translucent styling from theme variables */
+    background-color: var(--translucent-medium) !important; 
+    border-radius: 18px !important; /* High radius for a round, bubble shape */
+    border: 1px solid var(--soft-purple); /* Soft purple outline */
+    box-shadow: 0 2px 5px rgba(100, 0, 150, 0.1); /* Subtle shadow for depth */
+    color: var(--fantasy-text-vibrant); /* Ensure the text maintains the fantasy color */
+}
+
+/* Fix spacing issue between subsequent bubble messages */
+.messageContent_e29c63 + .messageContent_e29c63 {
+    margin-top: 2px;
+}
+
+/* ==================================== */
+/* END OF THEME */
+/* ==================================== */
