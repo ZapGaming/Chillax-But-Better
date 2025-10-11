@@ -1,5 +1,5 @@
 /*
- * Anime Bubble Flower Theme - Expanded Version (v3.4) - Raw CSS
+ * Anime Bubble Flower Theme - ADVANCED ORGANIC EDITION (v6.0) - Raw CSS
  * Optimized for Vencord Custom CSS Injection
  */
 
@@ -18,9 +18,18 @@
 @import url("https://nspc911.github.io/themes/vencord/BorderedEmbeds.theme.css");
 @import url('https://raw.githubusercontent.com/acheronx0577/Transparent-Quick-Switcher-Discord/main/Transparent%20Quick%20Switcher.css');
 @import url("https://warrayquipsome.github.io/Chillax/ChillaxTag.css");
+@import url("https://raw.githubusercontent.com/ZapGaming/Chillax-But-Better/refs/heads/main/Root/SettingsModalEdited.css");
+@import url("https://warrayquipsome.github.io/Chillax/Addons/AccountDetailsGrid.css");
+@import url("https://crearts-community.github.io/Friends-Grid/theme.css");
+@import url("https://github.com/ZapGaming/Chillax-But-Better/raw/refs/heads/main/Root/WindowsButtons.css");
+@import url("https://warrayquipsome.github.io/Chillax/Components/UserArea.css");
+@import url("https://warrayquipsome.github.io/Chillax/Components/Embeds.css");
+@import url("https://warrayquipsome.github.io/Chillax/Components/ChatArea.css");
+@import url("https://warrayquipsome.github.io/Chillax/Components/ChannelHeader.css");
+@import url("https://mwittrien.github.io/BetterDiscordAddons/Themes/EmojiReplace/base/BlobMoji.css");
 
 /*
- * Anime Bubble Flower Theme - Expanded Version (v3.3) - Performance Optimized
+ * Anime Bubble Flower Theme - Expanded Version (v6.0) - Performance Optimized
  * Compatible with Vencord, BetterDiscord, etc.
  */
 
@@ -57,10 +66,14 @@ body,
     --soft-purple: #e1bee7;        /* Soft Lavender/Lilac */
     --bg-lightest: #ffffff;        /* Pure White/Default Background */
 
+    /* --- NEW: ORGANIC SHAPE VARIABLE --- */
+    --leaf-border-radius: 25px 10px 25px 10px / 10px 25px 10px 25px; /* Subtle organic shape */
+
     /* --- Custom Translucency Variables (Performance Optimized) --- */
     --translucent-blur: 8px; /* Reduced blur for better performance */
     --translucent-light: rgba(255, 255, 255, 0.2); /* Very light (80% transparent) for main panels */
     --translucent-medium: rgba(255, 255, 255, 0.4); /* Medium light (60% transparent) for headers/input */
+    --translucent-heavy: rgba(255, 255, 255, 0.7); /* Heavier for focused elements */
 
     /* --- FANTASY FLOWER TEXT COLORS --- */
     --fantasy-text-vibrant: #7A08B0; /* Deep Vibrant Amethyst for main text */
@@ -81,7 +94,7 @@ body,
     --background-secondary-alt: var(--translucent-medium);
     --background-tertiary: var(--translucent-medium);
     --background-accent: var(--flower-pink);
-    --background-floating: rgba(255, 255, 255, 0.8);
+    --background-floating: var(--translucent-heavy);
     --channel-icon: var(--soft-purple);
 
     --button-secondary-background: var(--soft-purple);
@@ -90,17 +103,47 @@ body,
     --deprecated-card-bg: var(--translucent-light);
     --elevation-low: 0 1px 0 rgba(0, 0, 0, 0.05);
 
-    /* --- Custom Watermark Variables (Bubble/Translucent look) --- */
+    /* --- Custom Window Variables (Kept for title bar) --- */
     --window-colour: rgba(255, 255, 255, 0.6);
     --window-blur: 10px;
     --window-margin: 15px;
     --text-primary: var(--fantasy-text-vibrant);
 
-    /* Custom Gradient for Leaf/Shape */
+    /* --- NEW: SHADER EFFECT COLORS --- */
+    --shader-color-a: #ff80a0; /* Flower Pink (Vibrant) */
+    --shader-color-b: #a0c4ff; /* Bubble Blue (Soft) */
+    --shader-color-c: #e1bee7; /* Soft Purple (Lilac) */
+    --shader-color-d: #40e0d0; /* Turquoise accent (Contrast) */
+
+    /* Define the multi-layer CONIC GRADIENT for main BG */
+    --animated-cone-layer: conic-gradient(
+        from 180deg at 50% 50%,
+        var(--shader-color-a) 0deg,
+        var(--shader-color-b) 90deg,
+        var(--shader-color-c) 180deg,
+        var(--shader-color-d) 270deg,
+        var(--shader-color-a) 360deg
+    );
+    
+    /* --- NEW: BUTTON/ACCENT CONIC GRADIENT (More contrast, faster rotation for interactive elements) --- */
+    --button-cone-layer: conic-gradient(
+        from 90deg at 50% 50%,
+        var(--shader-color-d) 0deg,
+        var(--flower-pink) 60deg,
+        var(--shader-color-b) 180deg,
+        var(--soft-purple) 280deg,
+        var(--shader-color-d) 360deg
+    );
+
+    /* --- COMPLEX GRADIENTS (Used for panels) --- */
+    --primary-gradient: linear-gradient(180deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 128, 160, 0.15) 100%); /* Light Pink/White fade */
+    --secondary-gradient: linear-gradient(90deg, var(--bubble-blue), var(--soft-purple)); /* Blue to Purple fade */
+
+    /* Custom Gradient for Leaf/Shape (Keep existing for border-radius) */
     --leaf-gradient: linear-gradient(135deg, #ff80a0 0%, #a0c4ff 100%);
 
     /* --- SNIPPET VARIABLES --- */
-    --badges-background: var(--redesign-button-overlay-alpha-background); /*adds a semi transparent background behind badges*/
+    --badges-background: var(--redesign-button-overlay-alpha-background);
     /* Bordered Embeds Variables */
     --wh-border-width: 4px;
     --wh-background-opacity: 0%;
@@ -108,41 +151,69 @@ body,
     --wh-always-show-suppress-embed-button: 0;
 
     /* --- Vencord Header Snippet Vars (for positioning) --- */
-    /* controls the vertical position of the window buttons */
     --vr-header-snippet-top: 0px !important;
-    /* controls the space above the server list */
     --vr-header-snippet-server-padding: 16px !important;
-    /* controls the space the window buttons get on the channel header, experiment around with this if you get gaps or the buttons overlap! */
     --vr-header-snippet-space: 225px !important;
-    /* controls the space to the right of the window buttons, good if you are using themes like midnight which add padding to the bar */
     --vr-header-snippet-button-padding: 5px !important;
-    /* !DESKTOP SNIPPET ONLY! If set to none instead of flex, hides the window control buttons */
     --vr-header-snippet-winbuttons: flex !important;
 }
 
 /* ==================================== */
-/* 2. GENERAL UI STYLING & GLOBAL BLUR (Expanded Bubbles) */
+/* 2. GENERAL UI STYLING & ORGANIC SHAPES */
 /* ==================================== */
 
-/* Clear out the root background to allow the custom background image to show */
+/* Apply Custom Background (The custom BG is here!) */
 .app_b1f725, /* Common main app container class */
 .base_e9a184 { /* Another common base container */
-    background: transparent !important;
+    /* NEW: Animated Shader Background */
+    background: var(--animated-cone-layer) !important;
+    background-size: 200% 200% !important; /* Initial size for multi-layer cone */
+    background-position: center !important;
+    background-attachment: fixed !important;
+
+    /* Apply Welcome Animation first (1s), then loop the shader effect (40s) */
+    animation: welcomeFadeIn 1s ease-out 1 forwards, shaderEffect 40s 1s infinite linear alternate !important;
+
+    /* Ensure the color stays soft but vibrant */
+    filter: saturate(1.2) brightness(0.9);
 }
 
-/* Apply translucent background and blur to all major structural panels (Expanded to cover more areas) */
+/* --- KEYFRAMES FOR SHADER ANIMATION --- */
+@keyframes shaderEffect {
+    0% {
+        background-position: 0% 0%;
+        background-size: 200% 200%;
+        transform: scale(1) rotate(0deg);
+        filter: hue-rotate(0deg);
+    }
+    50% {
+        background-position: 100% 100%;
+        background-size: 150% 150%;
+        transform: scale(1.1) rotate(15deg);
+        filter: hue-rotate(180deg);
+    }
+    100% {
+        background-position: 0% 0%;
+        background-size: 200% 200%;
+        transform: scale(1) rotate(0deg);
+        filter: hue-rotate(360deg);
+    }
+}
+
+/* --- KEYFRAMES FOR WELCOME ANIMATION (New) --- */
+@keyframes welcomeFadeIn {
+    0% { opacity: 0; transform: scale(0.99); filter: blur(50px); }
+    100% { opacity: 1; transform: scale(1); filter: blur(0); }
+}
+
+
+/* Apply translucent background, blur, and LEAF SHAPE to all major structural panels */
 .container_d538e7, /* Main app background container */
-.sidebar_e03106, /* Channel List/Server Header */
-.membersWrap_d1e8c1, /* Members List Wrap */
-.chat_a83002, /* Chat Area (main content) */
-.content_d0d467, /* Content area including chat */
 .scroller_e0d9b4, /* Channel list scroller background */
 .title_d756cd, /* Channel Header/Title */
 .form_d4acb7, /* Message form/input area */
-.bottom_a17539, /* Bottom user settings bar */
+.bottom_a17539, /* Bottom user settings bar (old style) */
 .layers_d1e8c1, /* Top level layer container */
-.panels_a17539, /* User Panel (bottom) */
-.userSettingsContainer_a17539,
 .container_a17539, /* Generic inner container */
 .container_ce383d, /* Channel Category Container (Title Bar) */
 .header_d756cd, /* Header element (in chat, popouts, etc.) */
@@ -155,11 +226,38 @@ body,
 .popout_c3c86c /* Menu popouts */
  {
     /* Uses the newly optimized translucent-blur variable */
-    background-color: var(--translucent-light) !important;
+    /* Only apply the base translucency and blur */
     backdrop-filter: blur(var(--translucent-blur)) !important;
+    background-color: var(--translucent-light) !important;
+
+    /* --- MANDATORY LEAF SHAPE --- */
+    border-radius: var(--leaf-border-radius) !important;
     /* Ensure borders and shadows look right on the translucent background */
     border: none !important;
     box-shadow: none !important;
+}
+
+/* Apply Linear Gradients to Main Columns */
+.sidebar_e03106 {
+    /* Channel List - White/Pink Gradient */
+    background-image: var(--primary-gradient), var(--translucent-light) !important;
+    background-color: transparent !important;
+}
+.membersWrap_d1e8c1 {
+    /* Members List - White/Pink Gradient */
+    background-image: var(--primary-gradient), var(--translucent-light) !important;
+    background-color: transparent !important;
+}
+.chat_a83002 {
+    /* Main Chat - Blue/Purple Gradient */
+    background-image: var(--secondary-gradient), var(--translucent-light) !important;
+    background-color: transparent !important;
+}
+
+
+/* Specific overrides for containers that shouldn't have the leaf shape */
+.guilds_e1c8a5 {
+    border-radius: 0 !important; /* Keep server list straight */
 }
 
 /* Modals and Popouts need slightly more opacity to be readable */
@@ -168,13 +266,13 @@ body,
 .root_d6f920,
 .popout_c3c86c,
 .userPopoutInner_f801e0 {
-    background-color: rgba(255, 255, 255, 0.7) !important; /* Slightly more opaque for focus */
+    background-color: var(--translucent-heavy) !important; /* Slightly more opaque for focus */
     backdrop-filter: blur(var(--translucent-blur)) !important;
-    border-radius: 20px;
-    box-shadow: 0 5px 20px rgba(179, 229, 252, 0.7); /* Bubble blue shadow */
+    border-radius: var(--leaf-border-radius) !important;
+    box-shadow: 0 8px 30px rgba(179, 229, 252, 0.9); /* Stronger bubble blue shadow */
     overflow: hidden;
+    border: 1px solid var(--bubble-blue);
 }
-
 
 /* Custom Scrollbar Styling (Bubble Pink/Blue gradient look) */
 .scrollerBase_e26d83::-webkit-scrollbar-thumb {
@@ -183,149 +281,149 @@ body,
     border-radius: 10px; /* Rounded pill shape */
 }
 
-.scrollerBase_e26d83::-webkit-scrollbar-track {
-    background: var(--background-secondary-alt);
-}
-
-/* --- NEW: Search Bar and Sidebar List Styling --- */
-/* 🟦 Outer sidebar container */
-.sidebarList_c48ade,
-.sidebarListRounded_c48ade {
-    border-radius: 0 !important;
-}
-
-/* 🔍 Search bar container */
+/* --- Search Bar and Sidebar List Styling (ENHANCED FOCUS) --- */
+/* 🔍 Search bar container (Applies leaf shape) */
 .searchBar__35e86 {
     background-color: rgba(0, 0, 0, 0.205) !important;
     box-shadow: none !important;
-
+    border-radius: var(--leaf-border-radius) !important;
+    transition: all 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55); /* Complex transition */
 }
-
-/* 🔘 Search button in sidebar */
-.searchBar__35e86 .button__201d5 {
-    background: linear-gradient(
-        to right,
-        rgba(87, 45, 133, 0.3) 0%,
-        rgba(45, 52, 139, 0.5) 50%,
-        rgba(87, 45, 133, 0.3) 100%
-    ) !important;
-    transition: all 0.2s ease !important;
-    border-radius: 7px !important;
+/* ✨ Search bar FOCUS effect */
+.searchBar__35e86:focus-within {
+    border: 2px solid var(--flower-pink);
+    box-shadow: 0 0 15px rgba(255, 192, 203, 0.8) !important;
+    background-color: var(--translucent-heavy) !important;
 }
-
-/* ✨ Search button hover effect in sidebar */
-.searchBar__35e86 .button__201d5:hover {
-    background: linear-gradient(
-        to right,
-        rgba(87, 45, 133, 0.6) 0%,
-        rgba(45, 52, 139, 0.8) 50%,
-        rgba(87, 45, 133, 0.6) 100%
-    ) !important;
-    color: rgb(255, 255, 255) !important;
-    transform: translateY(-0.5px) !important;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2) !important;
-}
-/* 📝 Button contents */
-.contents__201d5 {
-    background-color: transparent !important;
-}
-/* --- END New Search Bar/Sidebar --- */
 
 /* Glowing Border for Active/Selected Elements (Soft Pink Glow) */
 .listItem_a388b3.selected_a388b3,
+.container_cb99f2.selected_a388b2,
 .container_cb99f2:hover,
-.button_af505f:hover,
 .focused_a388b3 {
-    border-left: 3px solid var(--flower-pink) !important;
-    box-shadow: inset 0 0 8px rgba(255, 192, 203, 0.7); /* Soft Pink Glow */
-    transition: box-shadow 0.3s ease-in-out;
+    /* Highlight entire leaf-shaped element */
+    border-left: none !important;
+    box-shadow: inset 0 0 15px rgba(255, 192, 203, 0.8), 0 0 5px rgba(233, 30, 99, 0.5); /* Stronger Soft Pink Glow */
+    background-color: var(--translucent-medium) !important;
+    transition: box-shadow 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55), transform 0.2s ease;
 }
 
-/* Buttons and Interactive Elements: Soft pop effect */
-.button_af505f {
-    transition: all 0.2s cubic-bezier(0.68, -0.55, 0.27, 1.55); /* Spring/Pop transition */
-    border-radius: 10px;
+/* --- BUTTONS: Multi-Layer Conic Gradient and Complex Transitions (New) --- */
+@keyframes buttonCone {
+    0% { background-position: 0% 0%; }
+    100% { background-position: 200% 200%; }
 }
-.button_af505f:hover {
+
+.button_af505f, 
+.lookFilled_da8864:not(.colorRed_da8864), /* Targets primary buttons */
+.button_af505f:not(.lookFilled_da8864), /* Secondary/Generic Buttons */
+.lookInverted_da8864 { /* Other interactive styles */
+    /* Apply Gradient and Complex Transition */
+    background: var(--button-cone-layer) !important;
+    background-size: 200% 200% !important;
+    animation: buttonCone 5s infinite linear reverse; /* Faster animation for buttons */
+
+    transition: all 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55), box-shadow 0.5s ease-out; /* Spring/Pop transition and shadow */
+    border-radius: 15px 5px 15px 5px !important; /* Leaf shape for buttons */
+    color: white !important; /* Ensure text is visible on the gradient */
+    font-weight: 700 !important;
+    border: none !important;
+    box-shadow: 0 4px 15px rgba(100, 0, 150, 0.3); /* Initial soft shadow */
+}
+
+/* Button Hover: Complex Glow */
+.button_af505f:hover, 
+.lookFilled_da8864:hover:not(.colorRed_da8864),
+.lookInverted_da8864:hover {
     transform: scale(1.05);
-    box-shadow: 0 4px 10px rgba(255, 192, 203, 0.5);
+    /* Complex Glow for active buttons */
+    box-shadow: 0 0 20px 5px var(--flower-pink), inset 0 0 10px 2px var(--bubble-blue);
+    filter: brightness(1.2);
 }
 
-/* Input Fields and Text Areas (Softer, rounder corners) */
+/* Red/Danger buttons still get the shape and transition, but keep the color */
+.colorRed_da8864 {
+    background-color: #f04747 !important;
+    border-radius: 15px 5px 15px 5px !important;
+    transition: all 0.3s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+}
+.colorRed_da8864:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 15px #f04747;
+}
+
+/* Input Fields and Text Areas (Leaf corners) */
 .input_a44e54 {
     background-color: var(--background-secondary-alt) !important;
     border: 1px solid var(--soft-purple);
-    border-radius: 12px; /* Bubble-like corners */
-    box-shadow: 0 0 6px rgba(142, 36, 170, 0.2); /* Soft purple shadow */
+    border-radius: var(--leaf-border-radius) !important; /* Applied Leaf Corners */
+    box-shadow: 0 0 8px rgba(142, 36, 170, 0.3); /* Soft purple shadow */
 }
 
-/* User Popout/Modal Styling (Soft, prominent border) - Kept slightly more opaque for legibility */
-.userPopoutInner_f801e0, .root_d6f920, .header_d756cd {
-    box-shadow: 0 0 20px rgba(255, 192, 203, 0.6);
-    border: 1px solid var(--flower-pink);
-    border-radius: 15px;
-    backdrop-filter: blur(8px);
+/* Server Icon Styling (Focus state/Active/PULSE ANIMATION) */
+@keyframes pulseBubble {
+    0% { transform: scale(1); opacity: 0.9; }
+    50% { transform: scale(1.02); opacity: 1; }
+    100% { transform: scale(1); opacity: 0.9; }
 }
 
-/* Server List (Guilds) Styling */
-.guilds_e1c8a5 {
-    background: transparent !important; /* Let the custom background shine through */
-}
-.guilds_e1c8a5 .scroller_d0d467 {
-    padding-top: 20px; /* Space for the top shape */
-}
-
-/* Server Icon Styling (Focus state/Active) */
 .listItem_a388b3 {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
+
+.listItem_a388b3:not(.selected_a388b3) .wrapper_a388b3 {
+    animation: pulseBubble 5s infinite ease-in-out;
+    transition: all 0.3s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+    border-radius: 50%;
+}
+
 .listItem_a388b3.selected_a388b3,
 .listItem_a388b3:hover {
     transform: scale(1.05);
     background-color: rgba(255, 192, 203, 0.3) !important; /* Pink light overlay */
     border-radius: 50% !important;
+    box-shadow: 0 0 15px var(--flower-pink);
 }
 
-/* Channel Category/Headers */
-.container_ce383d {
+/* Channel Category/Headers (ENHANCED GLOW) */
+.container_ce383d, /* Channel Category Title */
+.title_d756cd { /* Chat Header Title */
     color: var(--fantasy-header-glow) !important;
-    font-weight: bold;
-    text-shadow: 0 0 5px rgba(233, 30, 99, 0.3);
+    font-weight: 900 !important;
+    text-shadow: 0 0 10px rgba(233, 30, 99, 0.8), 0 0 5px rgba(255, 255, 255, 0.5); /* Enhanced Glow */
+    padding: 15px 10px; /* More padding for header leaf shape */
 }
 
 /* ==================================== */
-/* 3. VENCORD/USER PANEL STYLING (Spotify & Bottom Bar) */
+/* 3. VENCORD/USER PANEL STYLING (REPOSITIONED & LEAF SHAPE) */
 /* ==================================== */
-
-/* --- Spotify Player Styling (Vencord) --- */
-#vc-spotify-player {
-    background-color: var(--background-gradient-highest, var(--background-base-low)) !important;
-    border-top-left-radius: 20px;
-    border-top-right-radius: 20px;
-    border: 1px solid var(--border-subtle);
-    border-bottom-right-radius: 20px;
-    border-bottom-left-radius: 20px;
-    height: 130px;
-    margin-bottom: 12px;
-}
 
 /* --- User Panel (Bottom Bar) and Content Styling --- */
+/* The Panels area is already on the bottom right due to the sidebar reordering.
+   We make it a distinct floating leaf-shaped module. */
 section[class^="panels_"] {
-    background: var(--background-gradient-high, var(--background-base-lowest));
-    border: 0px;
-    border-left: 0px;
+    background: transparent !important;
+    border: none !important;
+    border-left: 0px; /* Remove default border */
+    /* Make the bottom bar a floating, distinct area (Applied leaf shape in general section 2) */
+    padding: 10px; /* Internal padding for the bubble effect */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    /* Ensure the general leaf shape and translucency applies here */
 }
 
 section[class^="panels_"] div[class^="container__"] {
-    background-color: var(--background-gradient-highest, var(--background-base-low));
-    border: 1px solid var(--border-subtle);
-    border-radius: 20px;
+    /* Make the actual user box inside look more like a leaf button */
+    border-radius: var(--leaf-border-radius) !important;
+    background-color: var(--translucent-light) !important;
+    border: 1px solid var(--flower-pink);
+    box-shadow: inset 0 0 5px rgba(255, 192, 203, 0.5);
 }
 
 section[class^="panels_"] div[class^="panel_"] {
     margin-bottom: 12px;
-    border-radius: 20px;
+    border-radius: var(--leaf-border-radius) !important;
     border: 1px solid var(--border-subtle);
+    background-color: var(--translucent-medium) !important;
 }
 
 header[class^="header_"] {
@@ -333,16 +431,62 @@ header[class^="header_"] {
 }
 
 section[class^="panels_"] div[class^="listeningAlong_"] {
-    border: 1px solid var(--border-subtle) !important;
+    border: 1:px solid var(--border-subtle) !important;
     margin-bottom: 12px;
-    border-radius: 20px;
+    border-radius: var(--leaf-border-radius) !important;
+    background-color: var(--translucent-medium) !important;
 }
 
+/* --- Spotify Player Styling (Vencord) - Applied Leaf Shape --- */
+#vc-spotify-player {
+    background-color: var(--translucent-medium) !important;
+    border-radius: var(--leaf-border-radius) !important;
+    border: 1px solid var(--bubble-blue);
+    height: 130px;
+    margin-bottom: 12px;
+    transition: all 0.3s ease;
+}
+#vc-spotify-player:hover {
+    transform: translateY(-5px); /* Lift on hover */
+    box-shadow: 0 10px 30px rgba(179, 229, 252, 0.8);
+}
+
+
 /* ==================================== */
-/* 4. CORNER LEAF GRADIENT SHAPE */
+/* 4. COMPLEX FLOATING ELEMENTS & ANIMATIONS */
 /* ==================================== */
 
-/* Note: Targeting a common top-level container class for Vencord/BetterDiscord */
+/* Animation for Floating/Subtle Movement (Applied to main columns) */
+@keyframes floatLeaf {
+    0% { transform: translateY(0) rotate(0.5deg); }
+    50% { transform: translateY(-5px) rotate(-0.5deg); }
+    100% { transform: translateY(0) rotate(0.5deg); }
+}
+
+/* Apply floating animation to main structural panels */
+.sidebar_e03106,
+.membersWrap_d1e8c1,
+.chat_a83002 {
+    animation: floatLeaf 15s infinite ease-in-out;
+    transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94); /* Smooth transition for expansion */
+}
+
+/* Expanded/Focused Hover Effect for Sidebars */
+.sidebar_e03106:hover {
+    box-shadow: 0 0 40px var(--flower-pink), 0 0 20px var(--soft-purple); /* Stronger overall glow */
+    transform: scale(1.01) translateY(-2px); /* Slight lift and scale */
+    width: 260px; /* Expand Channel List width slightly */
+    min-width: 260px;
+}
+.membersWrap_d1e8c1:hover {
+    box-shadow: 0 0 40px var(--bubble-blue), 0 0 20px var(--soft-purple);
+    transform: scale(1.01) translateY(-2px);
+    width: 260px; /* Expand Member List width slightly */
+    min-width: 260px;
+    max-width: 260px;
+}
+
+/* Corner Leaf Gradient Shape (Existing, for top-left visual) */
 [class*="app_"] {
     position: relative;
     overflow: hidden; /* Ensures the shape doesn't leak out */
@@ -353,58 +497,47 @@ section[class^="panels_"] div[class^="listeningAlong_"] {
     position: absolute;
     top: -100px; /* Position off-screen to start the shape in the corner */
     left: -100px;
-    width: 300px;
-    height: 300px;
+    width: 350px; /* Slightly larger */
+    height: 350px;
     background: var(--leaf-gradient);
-    opacity: 0.6; /* Translucent effect */
+    opacity: 0.7; /* Increased opacity */
     z-index: 0;
     pointer-events: none;
     /* Creates an irregular, organic, leaf-like shape using border-radius */
     border-radius: 300px 50px 300px 50px / 300px 50px 300px 50px;
-    transform: rotate(-15deg); /* Slight rotation for a dynamic look */
-    /* PERFORMANCE OPTIMIZATION: Reduced blur from 50px to 20px */
-    filter: blur(20px); /* Softens the edges dramatically with reduced performance cost */
+    transform: rotate(-10deg); /* Slight rotation for a dynamic look */
+    filter: blur(25px); /* Softens the edges dramatically */
 }
 
-
-/* ==================================== */
-/* 5. USER'S WATERMARK STYLING (UPDATED) */
-/* ==================================== */
-
-.bar_c38106 {
-    padding: 2px 0 2px 0;
+/* Floating Particle/Wisp Effect (NEW! Adds depth and movement) */
+@keyframes wispyFloat {
+    0% { transform: translate(0, 0) rotate(0deg); opacity: 0.5; }
+    33% { transform: translate(150px, -80px) rotate(15deg); opacity: 0.8; }
+    66% { transform: translate(-100px, 50px) rotate(-10deg); opacity: 0.6; }
+    100% { transform: translate(0, 0) rotate(0deg); opacity: 0.5; }
 }
 
-.leading_c38106::after {
-    content: " ‏‏‎🫧M a t r i x";
-    font-size: 12px;
-    font-weight: 900;
-    font-family: "KDH" !important;
-    background: var(--window-colour);
-    backdrop-filter: blur(var(--window-blur));
-    border-radius: 5px;
-    padding: 10px 11px 10px 7px;
-    margin-left: var(--window-margin);
-    pointer-events: all;
-    transition: 0.5s ease-in-out;
-    color: var(--text-primary);
-    box-shadow: 0 4px 15px rgba(179, 229, 252, 0.5), inset 0 0 10px rgba(255, 192, 203, 0.3); /* Kept existing glow for theme consistency */
+[class*="app_"]::after { /* Use ::after for the floating element in the bottom right */
+    content: '';
     position: absolute;
-    top: 15px;
-    right: 15px;
-    z-index: 1000;
+    bottom: -50px;
+    right: -50px;
+    width: 200px;
+    height: 200px;
+    background: radial-gradient(circle, var(--bubble-blue) 10%, transparent 70%);
+    opacity: 0.6;
+    z-index: 1;
+    pointer-events: none;
+    filter: blur(40px);
+    animation: wispyFloat 30s infinite ease-in-out alternate;
 }
 
-.leading_c38106:hover::after {
-    content: "‏‏‎ 🫧M a t r i x";
-    letter-spacing: 2px;
-    transform: scale(1.05); /* Softened hover scale */
-    box-shadow: 0 8px 20px rgba(255, 192, 203, 0.9), inset 0 0 15px var(--bubble-blue);
-}
+/* ==================================== */
+/* 5. USER'S WATERMARK STYLING (REMOVED) */
+/* ==================================== */
 
-.leading_c38106::before {
-    margin-left: calc(max(var(--window-margin), 4px));
-}
+/* The Watermark has been successfully removed. */
+
 
 /* ==================================== */
 /* 6. STRUCTURAL MODIFICATIONS (Movement & Chat Bubbles) */
@@ -418,26 +551,26 @@ section[class^="panels_"] div[class^="listeningAlong_"] {
     flex-direction: row; /* Ensure default flex direction is maintained */
 }
 
-/* 1. Channel List/Sidebar (Usually order: 2) */
+/* 1. Channel List/Sidebar (Already on the right) */
 .sidebar_e03106 {
     order: 3; /* Move to the right side of the chat */
 }
 
-/* 2. Main Chat Area (Usually order: 3) */
+/* 2. Main Chat Area */
 .chat_a83002 {
     order: 2; /* Remains in the center */
 }
 
-/* 3. Member List (Usually order: 4) */
+/* 3. Member List (Already on the left) */
 .membersWrap_d1e8c1 {
     order: 1; /* Move to the left of the chat, beside the server list */
-    /* Force width to prevent collapsing when reordered */
+    /* Force width to prevent collapsing when reordered - ADJUSTED FOR EXPAND HOVER */
     width: 240px;
     min-width: 240px;
     max-width: 240px;
 }
 
-/* === B. Chat Bubble Snippet === */
+/* === B. Chat Bubble Snippet (Enhanced) === */
 
 /* Styling for message content to create a soft bubble effect */
 .messageContent_e29c63 {
@@ -449,52 +582,57 @@ section[class^="panels_"] div[class^="listeningAlong_"] {
     box-sizing: border-box;
     /* Apply translucent styling from theme variables */
     background-color: var(--translucent-medium) !important;
-    border-radius: 18px !important; /* High radius for a round, bubble shape */
+    border-radius: 20px 5px 20px 5px !important; /* Mini-leaf shape for bubbles */
     border: 1px solid var(--soft-purple); /* Soft purple outline */
-    box-shadow: 0 2px 5px rgba(100, 0, 150, 0.1); /* Subtle shadow for depth */
+    box-shadow: 0 4px 10px rgba(100, 0, 150, 0.2); /* Deeper shadow for depth */
     color: var(--fantasy-text-vibrant); /* Ensure the text maintains the fantasy color */
+    transition: all 0.2s ease;
 }
+.messageContent_e29c63:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 6px 15px rgba(100, 0, 150, 0.3);
+}
+
 
 /* Fix spacing issue between subsequent bubble messages */
 .messageContent_e29c63 + .messageContent_e29c63 {
     margin-top: 2px;
 }
 
-/* Message Actions (Reply/Pin/More icons) */
+/* Message Actions (Reply/Pin/More icons) - Floating Pink Crystal look */
 .wrapper_f801e0 .button_e10d8a {
-    color: var(--soft-purple);
-    background-color: var(--translucent-medium) !important;
+    color: white;
+    background-color: var(--fantasy-header-glow) !important;
     border-radius: 50%;
     padding: 6px;
-    opacity: 0.8;
-    transition: all 0.2s ease;
+    opacity: 0.9;
+    box-shadow: 0 0 10px rgba(233, 30, 99, 0.5);
+    transition: all 0.3s ease;
 }
 .wrapper_f801e0 .button_e10d8a:hover {
     opacity: 1;
     background-color: var(--flower-pink) !important;
-    color: white;
-    transform: scale(1.1);
+    color: var(--fantasy-text-vibrant);
+    transform: scale(1.2) rotate(10deg);
 }
 
-/* Embeds, Attachments, and Media */
+/* Embeds, Attachments, and Media (Leaf Shape) */
 .container_de23ad { /* Embed container */
-    border-radius: 15px;
+    border-radius: var(--leaf-border-radius) !important;
     border-left: 5px solid var(--bubble-blue);
     background-color: var(--translucent-medium);
-    padding: 10px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+}
+.container_de23ad:hover {
+    border-left: 8px solid var(--flower-pink);
 }
 
 /* Message Dividers */
 .divider_d0d467 {
-    border-top: 1px solid var(--soft-purple) !important;
-    opacity: 0.5;
-}
-
-/* Message Author/Timestamp (Softer text color) */
-.username_e29c63, .timestamp_e29c63 {
-    color: var(--fantasy-text-vibrant);
-    opacity: 0.9;
+    border-top: 2px dashed var(--soft-purple) !important;
+    opacity: 0.7;
 }
 
 /* ==================================== */
