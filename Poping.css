@@ -1,26 +1,47 @@
 /*
- * Poping
+ * Anime Bubble Flower Theme - Expanded Version (v3.4) - Raw CSS
+ * Optimized for Vencord Custom CSS Injection
+ */
+
+/* --- EXTERNAL IMPORTS --- */
+/* Note: Too many external imports can also cause lag. If performance remains an issue,
+   we may need to consolidate the content of these files manually. */
+@import url(https://blade04208.github.io/css/tabsv2-servers.css);
+@import url("https://raw.githubusercontent.com/acheronx0577/Better-Transparent-Gif-Emoji-Sticker-Picker/refs/heads/main/Better-Transparent-Gif-Emoji-Sticker-Picker.css");
+@import url("https://raw.githubusercontent.com/acheronx0577/Frosted-Nitro-Popup/refs/heads/main/Frosted-Nitro-Popup.css");
+@import url("https://raw.githubusercontent.com/acheronx0577/Transparent-Header-and-Bug-Fix/refs/heads/main/Transparent-Header-and-Bug-Fix");
+@import url("https://raw.githubusercontent.com/acheronx0577/Transparent-Mailbox-Popup/refs/heads/main/Transparent%20Popup.css");
+@import url("https://raw.githubusercontent.com/acheronx0577/Transparent-Code-Block/refs/heads/main/Transparent%20Code%20Block.css");
+@import url("https://raw.githubusercontent.com/acheronx0577/Transparent-Activity-Discord/refs/heads/main/Transparent%20Activity%20Discord.css");
+@import url("https://raw.githubusercontent.com/acheronx0577/Better-Compact-Command-Menu-With-Smooth-Transition/refs/heads/main/Better%20Compact%20Command%20Menu%20With%20Smooth%20Transition.css");
+@import url("https://rinlovesyou.github.io/Couve/snippets/couve-profile-popout.css");
+@import url("https://nspc911.github.io/themes/vencord/BorderedEmbeds.theme.css");
+@import url('https://raw.githubusercontent.com/acheronx0577/Transparent-Quick-Switcher-Discord/main/Transparent%20Quick%20Switcher.css');
+@import url("https://warrayquipsome.github.io/Chillax/ChillaxTag.css");
+
+/*
+ * Anime Bubble Flower Theme - Expanded Version (v3.3) - Performance Optimized
  * Compatible with Vencord, BetterDiscord, etc.
- * Designed for a soft, pastel, translucent, and flower/bubble aesthetic.
  */
 
 /* ==================================== */
-/* 0. CUSTOM FONT DEFINITION */
+/* 0. CUSTOM FONT DEFINITION (UPDATED) */
 /* ==================================== */
 
 @font-face {
-    font-family: 'KDH';
-    font-weight: 400;
-    font-style: normal;
-    src: url("https://raw.githubusercontent.com/ZapGaming/Chillax-But-Better/refs/heads/main/Fonts/Norse.woff2") format('woff2');
+    font-family: 'KDH';
+    font-weight: 400;
+    font-style: normal;
+    src: url("https://raw.githubusercontent.com/ZapGaming/Chillax-But-Better/refs/heads/main/Fonts/Norse.woff2") format('woff2');
 }
 
+
 /* GLOBAL FONT APPLICATION: SETS ALL TEXT TO 'KDH' */
-body, 
-[class*="app_"], 
-.messageContent_e29c63, 
-.header_d756cd, 
-.channelName_e0d9b4, 
+body,
+[class*="app_"],
+.messageContent_e29c63,
+.header_d756cd,
+.channelName_e0d9b4,
 .title_d756cd {
     font-family: 'KDH', monospace !important;
 }
@@ -36,31 +57,31 @@ body,
     --soft-purple: #e1bee7;        /* Soft Lavender/Lilac */
     --bg-lightest: #ffffff;        /* Pure White/Default Background */
 
-    /* --- Custom Translucency Variables --- */
-    --translucent-blur: 15px; /* Stronger blur for glass effect */
+    /* --- Custom Translucency Variables (Performance Optimized) --- */
+    --translucent-blur: 8px; /* Reduced blur for better performance */
     --translucent-light: rgba(255, 255, 255, 0.2); /* Very light (80% transparent) for main panels */
     --translucent-medium: rgba(255, 255, 255, 0.4); /* Medium light (60% transparent) for headers/input */
 
     /* --- FANTASY FLOWER TEXT COLORS --- */
     --fantasy-text-vibrant: #7A08B0; /* Deep Vibrant Amethyst for main text */
     --fantasy-header-glow: #e91e63; /* Glowing Raspberry for headers and primary accents */
-    
+
     /* Generic Discord Variable Overrides (Applying high transparency) */
-    --header-primary: var(--fantasy-header-glow);       /* Set Headers to Raspberry Glow */
-    --header-secondary: #ff80ab;                        /* Lighter Raspberry/Pink */
-    --text-normal: var(--fantasy-text-vibrant);         /* Set Normal Text to Amethyst */
-    --text-muted: #a0a0a0;                              /* Muted light gray text */
+    --header-primary: var(--fantasy-header-glow);
+    --header-secondary: #ff80ab;
+    --text-normal: var(--fantasy-text-vibrant);
+    --text-muted: #a0a0a0;
 
     --interactive-normal: var(--soft-purple);
     --interactive-hover: var(--flower-pink);
     --interactive-active: #ff80a0;
 
-    --background-primary: var(--translucent-light);      /* Main content area background */
-    --background-secondary: var(--translucent-light); /* Channel list, user list background */
-    --background-secondary-alt: var(--translucent-medium); /* Input bar background */
-    --background-tertiary: var(--translucent-medium); /* Header/title bar background */
-    --background-accent: var(--flower-pink); /* Pink accent color */
-    --background-floating: rgba(255, 255, 255, 0.8); /* Keep modals/popouts more solid for reading */
+    --background-primary: var(--translucent-light);
+    --background-secondary: var(--translucent-light);
+    --background-secondary-alt: var(--translucent-medium);
+    --background-tertiary: var(--translucent-medium);
+    --background-accent: var(--flower-pink);
+    --background-floating: rgba(255, 255, 255, 0.8);
     --channel-icon: var(--soft-purple);
 
     --button-secondary-background: var(--soft-purple);
@@ -73,14 +94,34 @@ body,
     --window-colour: rgba(255, 255, 255, 0.6);
     --window-blur: 10px;
     --window-margin: 15px;
-    --text-primary: var(--fantasy-text-vibrant); /* Watermark text color */
+    --text-primary: var(--fantasy-text-vibrant);
 
     /* Custom Gradient for Leaf/Shape */
     --leaf-gradient: linear-gradient(135deg, #ff80a0 0%, #a0c4ff 100%);
+
+    /* --- SNIPPET VARIABLES --- */
+    --badges-background: var(--redesign-button-overlay-alpha-background); /*adds a semi transparent background behind badges*/
+    /* Bordered Embeds Variables */
+    --wh-border-width: 4px;
+    --wh-background-opacity: 0%;
+    --wh-default-background: hsl(from var(--background-surface-high) h s l / 100%);
+    --wh-always-show-suppress-embed-button: 0;
+
+    /* --- Vencord Header Snippet Vars (for positioning) --- */
+    /* controls the vertical position of the window buttons */
+    --vr-header-snippet-top: 0px !important;
+    /* controls the space above the server list */
+    --vr-header-snippet-server-padding: 16px !important;
+    /* controls the space the window buttons get on the channel header, experiment around with this if you get gaps or the buttons overlap! */
+    --vr-header-snippet-space: 225px !important;
+    /* controls the space to the right of the window buttons, good if you are using themes like midnight which add padding to the bar */
+    --vr-header-snippet-button-padding: 5px !important;
+    /* !DESKTOP SNIPPET ONLY! If set to none instead of flex, hides the window control buttons */
+    --vr-header-snippet-winbuttons: flex !important;
 }
 
 /* ==================================== */
-/* 2. GENERAL UI STYLING & GLOBAL BLUR */
+/* 2. GENERAL UI STYLING & GLOBAL BLUR (Expanded Bubbles) */
 /* ==================================== */
 
 /* Clear out the root background to allow the custom background image to show */
@@ -89,7 +130,7 @@ body,
     background: transparent !important;
 }
 
-/* Apply translucent background and blur to all major structural panels */
+/* Apply translucent background and blur to all major structural panels (Expanded to cover more areas) */
 .container_d538e7, /* Main app background container */
 .sidebar_e03106, /* Channel List/Server Header */
 .membersWrap_d1e8c1, /* Members List Wrap */
@@ -98,12 +139,40 @@ body,
 .scroller_e0d9b4, /* Channel list scroller background */
 .title_d756cd, /* Channel Header/Title */
 .form_d4acb7, /* Message form/input area */
-.bottom_a17539 { /* Bottom user settings bar */
+.bottom_a17539, /* Bottom user settings bar */
+.layers_d1e8c1, /* Top level layer container */
+.panels_a17539, /* User Panel (bottom) */
+.userSettingsContainer_a17539,
+.container_a17539, /* Generic inner container */
+.container_ce383d, /* Channel Category Container (Title Bar) */
+.header_d756cd, /* Header element (in chat, popouts, etc.) */
+.root_d6f920, /* Generic Popout Root */
+.menu_d03f0d, /* Context Menus */
+.scroller__3d0c2, /* Generic Scroller for Popups/Modals */
+.userPopoutInner_f801e0, /* User Popout */
+.modal_d710a3, /* Generic Modal */
+.popout_d710a3, /* Generic Popout */
+.popout_c3c86c /* Menu popouts */
+ {
+    /* Uses the newly optimized translucent-blur variable */
     background-color: var(--translucent-light) !important;
     backdrop-filter: blur(var(--translucent-blur)) !important;
     /* Ensure borders and shadows look right on the translucent background */
     border: none !important;
     box-shadow: none !important;
+}
+
+/* Modals and Popouts need slightly more opacity to be readable */
+.modal_d710a3,
+.popout_d710a3,
+.root_d6f920,
+.popout_c3c86c,
+.userPopoutInner_f801e0 {
+    background-color: rgba(255, 255, 255, 0.7) !important; /* Slightly more opaque for focus */
+    backdrop-filter: blur(var(--translucent-blur)) !important;
+    border-radius: 20px;
+    box-shadow: 0 5px 20px rgba(179, 229, 252, 0.7); /* Bubble blue shadow */
+    overflow: hidden;
 }
 
 
@@ -118,6 +187,50 @@ body,
     background: var(--background-secondary-alt);
 }
 
+/* --- NEW: Search Bar and Sidebar List Styling --- */
+/* 🟦 Outer sidebar container */
+.sidebarList_c48ade,
+.sidebarListRounded_c48ade {
+    border-radius: 0 !important;
+}
+
+/* 🔍 Search bar container */
+.searchBar__35e86 {
+    background-color: rgba(0, 0, 0, 0.205) !important;
+    box-shadow: none !important;
+
+}
+
+/* 🔘 Search button in sidebar */
+.searchBar__35e86 .button__201d5 {
+    background: linear-gradient(
+        to right,
+        rgba(87, 45, 133, 0.3) 0%,
+        rgba(45, 52, 139, 0.5) 50%,
+        rgba(87, 45, 133, 0.3) 100%
+    ) !important;
+    transition: all 0.2s ease !important;
+    border-radius: 7px !important;
+}
+
+/* ✨ Search button hover effect in sidebar */
+.searchBar__35e86 .button__201d5:hover {
+    background: linear-gradient(
+        to right,
+        rgba(87, 45, 133, 0.6) 0%,
+        rgba(45, 52, 139, 0.8) 50%,
+        rgba(87, 45, 133, 0.6) 100%
+    ) !important;
+    color: rgb(255, 255, 255) !important;
+    transform: translateY(-0.5px) !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2) !important;
+}
+/* 📝 Button contents */
+.contents__201d5 {
+    background-color: transparent !important;
+}
+/* --- END New Search Bar/Sidebar --- */
+
 /* Glowing Border for Active/Selected Elements (Soft Pink Glow) */
 .listItem_a388b3.selected_a388b3,
 .container_cb99f2:hover,
@@ -126,6 +239,16 @@ body,
     border-left: 3px solid var(--flower-pink) !important;
     box-shadow: inset 0 0 8px rgba(255, 192, 203, 0.7); /* Soft Pink Glow */
     transition: box-shadow 0.3s ease-in-out;
+}
+
+/* Buttons and Interactive Elements: Soft pop effect */
+.button_af505f {
+    transition: all 0.2s cubic-bezier(0.68, -0.55, 0.27, 1.55); /* Spring/Pop transition */
+    border-radius: 10px;
+}
+.button_af505f:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 10px rgba(255, 192, 203, 0.5);
 }
 
 /* Input Fields and Text Areas (Softer, rounder corners) */
@@ -144,8 +267,79 @@ body,
     backdrop-filter: blur(8px);
 }
 
+/* Server List (Guilds) Styling */
+.guilds_e1c8a5 {
+    background: transparent !important; /* Let the custom background shine through */
+}
+.guilds_e1c8a5 .scroller_d0d467 {
+    padding-top: 20px; /* Space for the top shape */
+}
+
+/* Server Icon Styling (Focus state/Active) */
+.listItem_a388b3 {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.listItem_a388b3.selected_a388b3,
+.listItem_a388b3:hover {
+    transform: scale(1.05);
+    background-color: rgba(255, 192, 203, 0.3) !important; /* Pink light overlay */
+    border-radius: 50% !important;
+}
+
+/* Channel Category/Headers */
+.container_ce383d {
+    color: var(--fantasy-header-glow) !important;
+    font-weight: bold;
+    text-shadow: 0 0 5px rgba(233, 30, 99, 0.3);
+}
+
 /* ==================================== */
-/* 3. CORNER LEAF GRADIENT SHAPE */
+/* 3. VENCORD/USER PANEL STYLING (Spotify & Bottom Bar) */
+/* ==================================== */
+
+/* --- Spotify Player Styling (Vencord) --- */
+#vc-spotify-player {
+    background-color: var(--background-gradient-highest, var(--background-base-low)) !important;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    border: 1px solid var(--border-subtle);
+    border-bottom-right-radius: 20px;
+    border-bottom-left-radius: 20px;
+    height: 130px;
+    margin-bottom: 12px;
+}
+
+/* --- User Panel (Bottom Bar) and Content Styling --- */
+section[class^="panels_"] {
+    background: var(--background-gradient-high, var(--background-base-lowest));
+    border: 0px;
+    border-left: 0px;
+}
+
+section[class^="panels_"] div[class^="container__"] {
+    background-color: var(--background-gradient-highest, var(--background-base-low));
+    border: 1px solid var(--border-subtle);
+    border-radius: 20px;
+}
+
+section[class^="panels_"] div[class^="panel_"] {
+    margin-bottom: 12px;
+    border-radius: 20px;
+    border: 1px solid var(--border-subtle);
+}
+
+header[class^="header_"] {
+    border-bottom: 0px;
+}
+
+section[class^="panels_"] div[class^="listeningAlong_"] {
+    border: 1px solid var(--border-subtle) !important;
+    margin-bottom: 12px;
+    border-radius: 20px;
+}
+
+/* ==================================== */
+/* 4. CORNER LEAF GRADIENT SHAPE */
 /* ==================================== */
 
 /* Note: Targeting a common top-level container class for Vencord/BetterDiscord */
@@ -168,37 +362,33 @@ body,
     /* Creates an irregular, organic, leaf-like shape using border-radius */
     border-radius: 300px 50px 300px 50px / 300px 50px 300px 50px;
     transform: rotate(-15deg); /* Slight rotation for a dynamic look */
-    filter: blur(50px); /* Softens the edges dramatically */
+    /* PERFORMANCE OPTIMIZATION: Reduced blur from 50px to 20px */
+    filter: blur(20px); /* Softens the edges dramatically with reduced performance cost */
 }
 
 
 /* ==================================== */
-/* 4. USER'S WATERMARK STYLING */
+/* 5. USER'S WATERMARK STYLING (UPDATED) */
 /* ==================================== */
 
 .bar_c38106 {
-    padding: 2px 0 2px 0;
+    padding: 2px 0 2px 0;
 }
 
 .leading_c38106::after {
-    content: " ‏‏‎🫧P o p i n g"; /* Updated text: P o p i n g */
-    font-size: 14px; /* Slightly larger text */
-    font-weight: 900;
-    font-family: "KDH", monospace !important;
-    background: var(--window-colour); /* Translucent White/Pearl */
-    backdrop-filter: blur(var(--window-blur));
-    border-radius: 12px; /* More rounded, bubble shape */
-    border: 1px solid var(--flower-pink); /* Thin soft border */
-    padding: 12px 14px 12px 10px; /* More padding for a bolder look */
-    margin-left: var(--window-margin);
-    pointer-events: all;
-    /* Smoother, bouncier transition for all properties */
-    transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    color: var(--text-primary);
-    /* Adding text glow effects */
-    text-shadow: 0 0 5px var(--bubble-blue), 0 0 10px rgba(255, 192, 203, 0.8);
-    /* Adding a prominent, multi-layered bubble box shadow */
-    box-shadow: 0 4px 15px rgba(179, 229, 252, 0.5), inset 0 0 10px rgba(255, 192, 203, 0.3);
+    content: " ‏‏‎🫧M a t r i x";
+    font-size: 12px;
+    font-weight: 900;
+    font-family: "KDH" !important;
+    background: var(--window-colour);
+    backdrop-filter: blur(var(--window-blur));
+    border-radius: 5px;
+    padding: 10px 11px 10px 7px;
+    margin-left: var(--window-margin);
+    pointer-events: all;
+    transition: 0.5s ease-in-out;
+    color: var(--text-primary);
+    box-shadow: 0 4px 15px rgba(179, 229, 252, 0.5), inset 0 0 10px rgba(255, 192, 203, 0.3); /* Kept existing glow for theme consistency */
     position: absolute;
     top: 15px;
     right: 15px;
@@ -206,28 +396,30 @@ body,
 }
 
 .leading_c38106:hover::after {
-    content: "‏‏‎ 🫧P O P I N G"; /* Updated text: P O P I N G (capitalized for hover contrast) */
-    letter-spacing: 3px; /* More dramatic spacing on hover */
-    /* Pop and subtle rotation on hover */
-    transform: scale(1.08) rotate(1deg);
-    /* Brighter shadow on hover */
+    content: "‏‏‎ 🫧M a t r i x";
+    letter-spacing: 2px;
+    transform: scale(1.05); /* Softened hover scale */
     box-shadow: 0 8px 20px rgba(255, 192, 203, 0.9), inset 0 0 15px var(--bubble-blue);
 }
 
+.leading_c38106::before {
+    margin-left: calc(max(var(--window-margin), 4px));
+}
+
 /* ==================================== */
-/* 5. STRUCTURAL MODIFICATIONS (Movement & New Snippet) */
+/* 6. STRUCTURAL MODIFICATIONS (Movement & Chat Bubbles) */
 /* ==================================== */
 
 /* === A. Container Reordering (Member List moves left, Channel List moves right) === */
 
 /* Targets the main flex container that holds the sidebars and chat */
-.base_e9a184 { 
+.base_e9a184 {
     display: flex;
     flex-direction: row; /* Ensure default flex direction is maintained */
 }
 
 /* 1. Channel List/Sidebar (Usually order: 2) */
-.sidebar_e03106 { 
+.sidebar_e03106 {
     order: 3; /* Move to the right side of the chat */
 }
 
@@ -240,7 +432,7 @@ body,
 .membersWrap_d1e8c1 {
     order: 1; /* Move to the left of the chat, beside the server list */
     /* Force width to prevent collapsing when reordered */
-    width: 240px; 
+    width: 240px;
     min-width: 240px;
     max-width: 240px;
 }
@@ -256,7 +448,7 @@ body,
     max-width: 100%; /* Ensure text wraps within the bubble */
     box-sizing: border-box;
     /* Apply translucent styling from theme variables */
-    background-color: var(--translucent-medium) !important; 
+    background-color: var(--translucent-medium) !important;
     border-radius: 18px !important; /* High radius for a round, bubble shape */
     border: 1px solid var(--soft-purple); /* Soft purple outline */
     box-shadow: 0 2px 5px rgba(100, 0, 150, 0.1); /* Subtle shadow for depth */
@@ -266,6 +458,169 @@ body,
 /* Fix spacing issue between subsequent bubble messages */
 .messageContent_e29c63 + .messageContent_e29c63 {
     margin-top: 2px;
+}
+
+/* Message Actions (Reply/Pin/More icons) */
+.wrapper_f801e0 .button_e10d8a {
+    color: var(--soft-purple);
+    background-color: var(--translucent-medium) !important;
+    border-radius: 50%;
+    padding: 6px;
+    opacity: 0.8;
+    transition: all 0.2s ease;
+}
+.wrapper_f801e0 .button_e10d8a:hover {
+    opacity: 1;
+    background-color: var(--flower-pink) !important;
+    color: white;
+    transform: scale(1.1);
+}
+
+/* Embeds, Attachments, and Media */
+.container_de23ad { /* Embed container */
+    border-radius: 15px;
+    border-left: 5px solid var(--bubble-blue);
+    background-color: var(--translucent-medium);
+    padding: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Message Dividers */
+.divider_d0d467 {
+    border-top: 1px solid var(--soft-purple) !important;
+    opacity: 0.5;
+}
+
+/* Message Author/Timestamp (Softer text color) */
+.username_e29c63, .timestamp_e29c63 {
+    color: var(--fantasy-text-vibrant);
+    opacity: 0.9;
+}
+
+/* ==================================== */
+/* 7. UTILITY & WINDOW CONTROL SNIPPETS (UPDATED TITLE BAR) */
+/* ==================================== */
+
+/* --- Custom Title Bar & Bubble Buttons (Replaces macOS style) --- */
+
+/* Server name in title bar */
+.title__85643 {
+    padding: 4px 6px;
+    border-radius: 5px;
+    background: var(--window-colour);
+    backdrop-filter: blur(var(--window-blur)) !important;
+}
+
+/* Title bar buttons container (ensures correct dragging behavior) */
+.withFrame-2dL45i .winButtons_c38106 {
+    /* Restore position for the new connected style */
+    position: relative !important;
+    top: auto !important;
+    left: auto !important;
+    right: auto !important;
+    height: auto;
+    display: flex !important;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 0; /* Important for connected buttons */
+    z-index: 9999;
+}
+
+/* Title bar buttons */
+.trailing_c38106 {
+    margin-right: var(--window-margin);
+}
+
+.recentsIcon_c99c29,
+.trailing_c38106 > .anchor_edefb8,
+.winButtons_c38106 > div {
+    height: var(--space-32);
+    background: var(--window-colour);
+    backdrop-filter: blur(var(--window-blur));
+    transition: 0.2s;
+    border-radius: 5px; /* Using explicit 5px border-radius as a proxy for a defined variable */
+    width: 36px; /* Ensure buttons have width when icons are hidden */
+}
+
+.recentsIcon_c99c29:hover,
+.trailing_c38106 > .anchor_edefb8:hover,
+.winButtons_c38106 > div:hover {
+    background: transparent;
+    transition: 0.1s;
+    backdrop-filter: none;
+}
+
+/* Make min/max/close connected */
+.winButtons_c38106 {
+    gap: 0;
+}
+
+.winButton_c38106:nth-child(1) {
+    /* Fix: Ensuring correct variable is used for targeting the buttons */
+    /* winButton_c38106 is the generic class, target based on order to remove specific radii */
+    border-top-right-radius: 0 !important;
+    border-bottom-right-radius: 0 !important;
+}
+
+.winButton_c38106:nth-child(2) {
+    border-radius: 0 !important;
+}
+
+.winButton_c38106:nth-child(3) {
+    border-top-left-radius: 0 !important;
+    border-bottom-left-radius: 0 !important;
+}
+
+/* Rotate on hover effect */
+.winButton_c38106 > svg {
+    display: block !important; /* Re-enable SVG icon for rotation effect */
+    transition: 0.1s;
+}
+
+.winButton_c38106:hover > svg {
+    transform: rotate(45deg);
+}
+
+/* Keep some spacing between the edge when window margin is close to 0px */
+.trailing_c38106 {
+    margin-right: calc(max(var(--window-margin), 4px));
+}
+
+/* === Make title bar draggable, except buttons === */
+.appMount-3lHmkl,
+.withFrame-2dL45i {
+  -webkit-app-region: drag;
+}
+/* Ensure new title elements are not draggable for interaction */
+.winButton_c38106,
+.title__85643 {
+  -webkit-app-region: no-drag;
+}
+
+/* --- Vencord/BetterDiscord Utility Overrides (Retained) --- */
+
+/* allows quest buttons to be clickable */
+.tabWrapper__26669 {
+  -webkit-app-region: no-drag;
+  pointer-events: auto;
+}
+
+/* orbs balance on nitro shop*/
+.container__44ee9 {
+  position:fixed;
+  right:189px;
+}
+
+/* orbs balance on quests page */
+.container_a592e1 .container__44ee9 {
+  right:225px;
+  -webkit-app-region: no-drag;
+}
+
+/* nitro shop search bar */
+.searchBar__824d3 {
+  position:absolute;
+  right:320px;
 }
 
 /* ==================================== */
