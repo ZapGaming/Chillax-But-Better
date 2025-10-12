@@ -1,0 +1,630 @@
+/*
+ * Custom Discord Theme: Bublecord (for Vencord/BetterDiscord)
+ *
+ * This is the EXTREME REDESIGN - Maximum Complexity Mode, integrated with Midnight variables.
+ * UPDATE: Implemented smooth, animated conic gradient background.
+ * UPDATE: User panel margin adjusted to shift left (margin: ... 0 !important;).
+ * UPDATE: Added in-file documentation for Font and Color customization (Bublax reference).
+ *
+ * FIXES IMPLEMENTED:
+ * 1. Username Visibility restored by forcing solid color over failing gradient application.
+ * 2. Profile Picture (PFP) breaking code from imported themes is neutralized.
+ *
+ * NEW: FONT INTENSITY BOOST via Text-Shadow.
+ */
+
+/**** 1. CORE ADDONS ****/
+@import url("https://mwittrien.github.io/BetterDiscordAddons/Themes/BlurpleRecolor/BlurpleRecolor.css");
+@import url("https://mwittrien.github.io/BetterDiscordAddons/Themes/EmojiReplace/base/BlobMoji.css");
+@import url("https://mwittrien.github.io/BetterDiscordAddons/Themes/_res/SettingsIcons.css");
+@import url("https://chillax-org.github.io/Discolored/main.css");
+
+/* Midnight Base Import - MANDATORY for structural variables */
+@import url('https://refact0r.github.io/midnight-discord/build/midnight.css');
+
+@import url("https://crearts-community.github.io/Friends-Grid/theme.css");
+@import url("https://raw.githubusercontent.com/DiscordStyles/RadialStatus/refs/heads/deploy/RadialStatus.css");
+@import url("https://blade04208.github.io/css/bettershiki.css");
+
+/**** 2. CHILLAX COMPONENTS ****/
+
+
+/**** 3. TRANSPARENT / FROSTED OVERLAYS (Acheronx) ****/
+@import url("https://raw.githubusercontent.com/acheronx0577/Transparent-Code-Block/refs/heads/main/Transparent%20Code%20Block.css");
+@import url("https://raw.githubusercontent.com/acheronx0577/Transparent-Mailbox-Popup/refs/heads/main/Transparent%20Popup.css");
+@import url("https://raw.githubusercontent.com/acheronx0577/Better-Transparent-Gif-Emoji-Sticker-Picker/refs/heads/main/Better-Transparent-Gif-Emoji-Sticker-Picker.css");
+@import url("https://raw.githubusercontent.com/acheronx0577/Frosted-Nitro-Popup/refs/heads/main/Frosted-Nitro-Popup.css");
+@import url("https://raw.githubusercontent.com/acheronx0577/Transparent-Header-and-Bug-Fix/refs/heads/main/Transparent-Header-and-Bug-Fix.css");
+@import url("https://raw.githubusercontent.com/acheronx0577/Transparent-Activity-Discord/refs/heads/main/Transparent%20Activity%20Discord.css");
+@import url("https://raw.githubusercontent.com/acheronx0577/Better-Compact-Command-Menu-With-Smooth-Transition/refs/heads/main/Better%20Compact%20Command%20Menu%20With%20Smooth%20Transition.css");
+@import url("https://raw.githubusercontent.com/acheronx0577/Transparent-Quick-Switcher-Discord/main/Transparent%20Quick%20Switcher.css");
+
+
+/*
+ * ====================================================================
+ * CUSTOM FONT DEFINITION (Norse/KDH Font)
+ * ====================================================================
+ */
+@font-face {
+    font-family: 'KDH';
+    font-weight: 400;
+    font-style: normal;
+    src: url("https://raw.githubusercontent.com/ZapGaming/Chillax-But-Better/refs/heads/main/Fonts/Norse.woff2") format('woff2');
+}
+
+
+/*
+ * ====================================================================
+ * MIDNIGHT & BUBLECORD MERGED VARIABLES (ARCANE HEXTECH REVISION)
+ * ====================================================================
+ */
+:root {
+    /* --- 1. CORE ARCANE COLOR PALETTE (These control the Text Gradient and Button Colors) --- */
+    --accent-color: #40E0D0;    /* 1. START COLOR: Hextech Cyan/Turquoise (Primary Accent) */
+    --secondary-accent: #FF69B4; /* 2. MIDDLE COLOR: Zaun Neon Magenta (Secondary Glow/Hover) */
+    --teal-highlight: #FFD700;  /* 3. END COLOR: Arcane Gold/Bronze (Border/Highlight) */
+    
+    /* ----------------------------------------------------------------------
+     * BUBLEX REFERENCE: FONT & COLOR CUSTOMIZATION GUIDE
+     * ----------------------------------------------------------------------
+     * This guide helps you customize colors/fonts globally, similar to Bublax.
+     * * 1. FONT FAMILY:
+     * - Change the '--font' variable below to use a system font (e.g., 'Inter')
+     * or another custom font you have imported via an @import or @font-face rule.
+     * --font: 'KDH'; // Change this line
+     * * 2. GENERAL TEXT COLOR:
+     * - These control standard message and UI text.
+     * - Change '--text-normal' for the main message text color.
+     * - Change '--text-muted' for timestamps and secondary information.
+     * --text-normal: hsl(220, 45%, 95%); // Change this line
+     * * 3. GRADIENT / ACCENT COLOR (Bublax's --accentcolorV2 equivalent):
+     * - The primary theme colors are defined at the top of this :root block.
+     * - Changing these three variables will update all button colors, 
+     * header/name gradient text, and the floating panel glows.
+     * --accent-color: #40E0D0; 
+     * --secondary-accent: #FF69B4;
+     * --teal-highlight: #FFD700;
+     * ---------------------------------------------------------------------- */
+
+    /* --- 2. MIDNIGHT STRUCTURAL & ANIMATION VARIABLES --- */
+    --font: 'KDH'; /* <--- CHANGE THIS LINE for the main UI font family (e.g., 'Inter') */
+    --code-font: '';
+    --gap: 12px;
+    --divider-thickness: 4px;
+    --border-thickness: 2px;
+    --animations: on;
+    --list-item-transition: 0.2s ease;
+    --dms-icon-svg-transition: 0.4s ease;
+    --border-hover-transition: 0.2s ease;
+    
+    /* Midnight Top Bar/Window Control variables (included for completeness) */
+    --top-bar-height: var(--gap);
+    --top-bar-button-position: titlebar;
+    --top-bar-title-position: off;
+    --subtle-top-bar-title: off;
+    --custom-window-controls: on;
+    --window-control-size: 14px;
+    --custom-dms-icon: custom;
+    --dms-icon-svg-url: url('https://refact0r.github.io/midnight-discord/assets/Font_Awesome_5_solid_moon.svg');
+    --dms-icon-svg-size: 90%;
+    --dms-icon-color-before: var(--icon-secondary);
+    --dms-icon-color-after: var(--white);
+    --custom-dms-background: off;
+    --dms-background-image-url: url('');
+    --dms-background-image-size: cover;
+    
+    /* --- MIDNIGHT BACKGROUND IMAGE SYSTEM (Smooth Conic Gradient) --- */
+    --background-image: on; 
+    --background-image-url: url(''); /* No image */
+    
+    /* New: Smooth Conic Gradient Definition */
+    --conic-start-angle: 225deg; /* Starting rotation point for animation */
+    --background-color: conic-gradient(
+        from var(--conic-start-angle) at 50% 50%, /* Center the rotation */
+        hsla(220, 15%, 5%, 1) 0deg,      /* Deep dark background */
+        var(--accent-color) 45deg,       /* Hextech Cyan */
+        var(--secondary-accent) 90deg,    /* Zaun Magenta */
+        var(--teal-highlight) 135deg,    /* Arcane Gold */
+        hsla(220, 15%, 10%, 1) 180deg,    /* Deep dark background */
+        var(--accent-color) 225deg, 
+        var(--secondary-accent) 270deg, 
+        var(--teal-highlight) 315deg, 
+        hsla(220, 15%, 5%, 1) 360deg
+    );
+    
+    /* --- 3. TRANSPARENCY & BLUR --- */
+    --transparency-tweaks: on;
+    --remove-bg-layer: off;
+    --panel-blur: on;
+    --blur-amount: 22px; 
+    --background-blur: calc(var(--blur-amount) * 2); 
+    
+    --bg-floating: hsla(220, 15%, 13%, 0.95); 
+
+    /* --- 4. BUBLECARD/CUSTOM ELEMENTS --- */
+    --font-primary: 'KDH', "Inter", "Whitney", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    --radius-full: 24px; 
+    --radius-item: 12px; 
+    
+    /* --- 5. HEXTECH STATUS COLORS --- */
+    --online: var(--green-2);
+    --dnd: var(--red-2);
+    --idle: var(--yellow-2);
+    --streaming: var(--purple-2);
+    --offline: var(--text-4);
+    
+    /* --- 6. MIDNIGHT COLOR MAPPING (Transparent BGs) --- */
+    --bg-1: hsla(220, 15%, 20%, 0.5); 
+    --bg-2: hsla(220, 15%, 16%, 0.5); 
+    --bg-3: hsla(220, 15%, 13%, 0.5); 
+    --bg-4: hsla(220, 15%, 10%, 0.5); 
+    
+    --bg-primary: var(--bg-4);
+    --bg-secondary: var(--bg-3);
+    --bg-tertiary: var(--bg-2);
+    --bg-hover: var(--hover);
+
+    --text-normal: hsl(220, 45%, 95%); /* PRIMARY TEXT COLOR (Messages, UI text) */
+    --text-muted: hsl(220, 20%, 70%);  /* SECONDARY TEXT COLOR (Timestamps, secondary info) */
+
+    /* Chillax Aliases */
+    --chillax-bg: var(--bg-primary);
+    --chillax-sidebar-bg: var(--bg-secondary);
+    --chillax-messages-bg: var(--bg-primary);
+    --chillax-header-bg: var(--bg-secondary);
+    --chillax-popout-bg: var(--bg-floating);
+
+    /* Imported Twilight Variables */
+    --twilight-bg-medium-rgb: 37, 37, 69; 
+    --twilight-border-color: #38384f;
+    --twilight-accent-pink: var(--secondary-accent); 
+
+    /* --- 7. FULL MIDNIGHT COLOR DEFINITIONS (HEXTECH SERIES) --- */
+    --colors: on; 
+    --text-0: hsla(220, 15%, 10%, 1); 
+    --text-1: hsl(220, 45%, 95%); 
+    --text-2: hsl(220, 25%, 85%);
+    --text-3: hsl(220, 20%, 70%);
+    --text-4: hsl(220, 15%, 50%);
+    --text-5: hsl(220, 15%, 35%);
+    --hover: hsla(221, 19%, 40%, 0.1); 
+    --active: hsla(220, 19%, 40%, 0.2); 
+    --active-2: hsla(220, 19%, 40%, 0.3);
+    --message-hover: hsla(220, 0%, 0%, 0.1); 
+    --accent-1: var(--blue-1); 
+    --accent-2: var(--blue-2);
+    --accent-3: var(--blue-3);
+    --accent-4: var(--blue-4);
+    --accent-5: var(--blue-5);
+    --accent-new: var(--accent-2); 
+    --mention: linear-gradient(to right, color-mix(in hsl, var(--accent-2), transparent 90%) 40%, transparent); 
+    --mention-hover: linear-gradient(to right, color-mix(in hsl, var(--accent-2), transparent 95%) 40%, transparent); 
+    --reply: linear-gradient(to right, color-mix(in hsl, var(--text-3), transparent 90%) 40%, transparent); 
+    --reply-hover: linear-gradient(to right, color-mix(in hsl, var(--text-3), transparent 95%) 40%, transparent); 
+    
+    --online: var(--green-2); 
+    --dnd: var(--red-2);
+    --idle: var(--yellow-2); 
+    --streaming: var(--purple-2); 
+    --offline: var(--text-4); 
+    
+    --border-light: var(--hover); 
+    --border: var(--active); 
+    --border-hover: var(--active);
+    --button-border: hsl(220, 0%, 100%, 0.1); 
+
+    /* BASE COLORS REDEFINED WITH HEXTECH PALETTE (HSL STEPS) */
+    --red-1: hsl(325, 100%, 80%);
+    --red-2: hsl(325, 100%, 70%); 
+    --red-3: hsl(325, 80%, 60%);
+    --red-4: hsl(325, 70%, 50%);
+    --red-5: hsl(325, 60%, 40%);
+
+    --green-1: hsl(175, 80%, 65%);
+    --green-2: hsl(175, 70%, 53%); 
+    --green-3: hsl(175, 65%, 45%);
+    --green-4: hsl(175, 60%, 35%);
+    --green-5: hsl(175, 50%, 25%);
+
+    --blue-1: hsl(190, 70%, 60%);
+    --blue-2: hsl(190, 60%, 50%);
+    --blue-3: hsl(190, 50%, 40%);
+    --blue-4: hsl(190, 45%, 30%);
+    --blue-5: hsl(190, 40%, 20%);
+
+    --yellow-1: hsl(51, 100%, 65%);
+    --yellow-2: hsl(51, 100%, 50%); 
+    --yellow-3: hsl(51, 80%, 45%);
+    --yellow-4: hsl(51, 70%, 35%);
+    --yellow-5: hsl(51, 60%, 25%);
+
+    --purple-1: hsl(280, 80%, 70%);
+    --purple-2: #8A2BE2; 
+    --purple-3: hsl(280, 70%, 50%);
+    --purple-4: hsl(280, 60%, 40%);
+    --purple-5: hsl(280, 50%, 30%);
+
+    /* --- 8. NEW GRADIENT DEFINITIONS (FOR TEXT & BUTTONS) --- */
+    --hextech-gradient: linear-gradient(90deg, var(--accent-color) 0%, var(--secondary-accent) 50%, var(--teal-highlight) 100%);
+    --hextech-gradient-hover: linear-gradient(45deg, var(--teal-highlight), var(--accent-color), var(--secondary-accent));
+}
+
+/*
+ * ====================================================================
+ * CUSTOM HEXTECH BACKGROUND (Smooth Animated Conic Gradient)
+ * ====================================================================
+ */
+
+/* Keyframes for the slow, smooth rotation of the conic gradient */
+@keyframes smooth-conic-rotation {
+    0% { background-position: 0% 0%; }
+    100% { background-position: 200% 200%; }
+}
+
+/* Apply the single, smooth, animated conic gradient */
+html.theme-midnight > body [class^="bg_"] {
+    background-image: var(--background-color) !important;
+    
+    /* Enlarge the gradient significantly for a smoother, larger color field */
+    background-size: 300% 300% !important; 
+    
+    /* Apply the slow, linear animation */
+    animation: smooth-conic-rotation 120s linear infinite !important; 
+    
+    background-attachment: fixed !important; 
+    background-blend-mode: normal !important; /* Simple blend mode */
+}
+
+/* Ensure the Midnight background layer itself doesn't interfere with the new composite BG */
+.theme-midnight [class^="app_"]:before {
+    background: none !important;
+}
+
+
+/*
+ * ====================================================================
+ * GRADIENT TEXT STYLING (HEXTECH ARCANE EFFECT)
+ * ====================================================================
+ */
+/* Apply gradient to key text elements like names, titles, and headers */
+[class^="serverName_"],
+[class^="headerText_"],
+[class^="title_"] > [class^="text_"],
+[class^="name_"] > [class^="text_"],
+[class^="topic_"] > [class^="text_"],
+[class^="username_"],
+[class^="header_"] h1 {
+    /* Required properties for gradient text effect */
+    background-image: var(--hextech-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent; /* Fallback */
+    /* Add a subtle animation size to make the gradient appear to shift */
+    background-size: 200% auto;
+    transition: background-position 0.5s ease;
+    /* >>> ENHANCED: FONT INTENSITY VIA GLOW SHADOW <<< */
+    text-shadow: 0 0 2px var(--teal-highlight), 0 0 8px var(--accent-color);
+}
+
+
+/*
+ * ====================================================================
+ * FONT INTENSITY ENHANCEMENT (Subtle Text Shadow for Readability)
+ * ====================================================================
+ */
+/* Apply a subtle shadow to message content and general body text 
+ * to make the custom font feel heavier and increase contrast. */
+.message_a4a559 [class^="messageContent_"],
+[class^="base_a28983"] {
+    text-shadow: 0 0 1px rgba(0, 0, 0, 0.5); /* Subtle depth/intensity */
+}
+
+
+/*
+ * ====================================================================
+ * FIXES FOR USERNAME VISIBILITY AND PFP BREAKAGE
+ * ====================================================================
+ */
+
+/* FIX 1: Restore Username Visibility (Overriding a common gradient failure) */
+/* This forces message usernames to use a solid color, overriding the gradient transparency if it breaks. */
+.message_a4a559 [class^="username_"] {
+    color: var(--text-normal) !important; 
+    -webkit-text-fill-color: var(--text-normal) !important;
+    background-image: none !important;
+    /* NEW: Add shadow for intensity on solid usernames */
+    text-shadow: 0 0 2px rgba(0, 0, 0, 0.7), 0 0 4px var(--text-normal);
+}
+
+/* FIX 2: Reset PFP Shapes (Neutralizing Bublax/Chillax PFP modifications) */
+/* Ensures avatars are correctly displayed as circles and removes conflicting mask styles. */
+[class^="avatar_"], 
+[class^="wrapper_"] [class^="avatar_"] {
+    border-radius: 50% !important; /* Force standard circle */
+    mask: none !important; /* Remove any custom SVG/clip-path masking */
+}
+
+/*
+ * ====================================================================
+ * SCROLLBAR REDESIGN (HEXTECH THEMED) - UNCHANGED
+ * ====================================================================
+ */
+.scrollerBase_a4a559::-webkit-scrollbar-thumb {
+    background-color: var(--accent-color) !important;
+    border-radius: 10px !important;
+    border: 3px solid transparent !important;
+    box-shadow: 0 0 10px var(--accent-color);
+}
+.scrollerBase_a4a559::-webkit-scrollbar-track {
+    background-color: hsla(220, 15%, 10%, 0.6) !important;
+}
+
+
+/* * GLOBAL GLOW & ANIMATION STYLES - UNCHANGED */
+.button_af1d57, .inputDefault_d33054, .searchBar_f09623, .popout_af1d57 {
+    border-radius: var(--radius-item) !important;
+    transition: all var(--list-item-transition) cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+.button_af1d57 {
+    background-image: var(--hextech-gradient) !important;
+    background-size: 200% auto !important;
+    background-position: left center !important;
+}
+.button_af1d57:hover {
+    background-position: right center !important;
+    background-image: var(--hextech-gradient-hover) !important;
+    box-shadow: 0 4px 20px var(--accent-color);
+}
+
+.textArea_a4a559, .scrollableContainer_a4a559 {
+    border-radius: var(--radius-item) !important;
+    background-color: var(--bg-secondary) !important;
+    backdrop-filter: blur(calc(var(--background-blur) / 2)) saturate(150%);
+    border: var(--border-thickness) solid var(--teal-highlight);
+    box-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+    transition: all var(--list-item-transition) cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+.textArea_a4a559:focus-within {
+    box-shadow: 0 0 45px var(--accent-color);
+    border-color: var(--accent-color);
+}
+
+.popout_a28983 {
+    border-radius: var(--radius-item) !important;
+    backdrop-filter: blur(calc(var(--background-blur) * 1.5)) !important;
+    background-color: var(--bg-floating) !important;
+    border: var(--border-thickness) solid var(--teal-highlight);
+}
+
+
+/*
+ * BUBLECARD STRUCTURAL OVERHAUL (Complex Floating Panel Layout - EXTREME)
+ */
+
+.app_a28983, .base_a28983, .base_a28983 > div {
+    background-color: transparent !important;
+}
+
+.base_a28983 {
+    padding: calc(var(--gap) * 3) calc(var(--gap) * 4) !important;
+    max-width: 98vw;
+}
+
+/* Reworked Arcane Glow Pulse - KEPT FOR CONTAINER COLOR CHANGE EFFECT */
+@keyframes glow-pulse {
+    0% { 
+        box-shadow: 
+            0 0 10px var(--teal-highlight),
+            0 0 40px var(--accent-color);
+    }
+    50% { 
+        box-shadow: 
+            0 0 20px var(--teal-highlight),
+            0 0 70px var(--accent-color),
+            0 0 15px var(--secondary-accent);
+    }
+    100% { 
+        box-shadow: 
+            0 0 10px var(--teal-highlight),
+            0 0 40px var(--accent-color);
+    }
+}
+
+/* Floating Panels - Now highly transparent to reveal smooth conic background */
+.guilds__2b202, .sidebar_a28983, .chat_a28983, .members_a28983 {
+    margin: calc(var(--gap) * 2) !important;
+    border-radius: var(--radius-item) !important;
+
+    border: var(--border-thickness) solid var(--teal-highlight);
+    animation: glow-pulse 7s infinite alternate ease-in-out; /* Pulsing Shadow remains for color-change effect */
+
+    background-color: var(--bg-primary) !important; /* Transparent BG */
+    backdrop-filter: blur(var(--background-blur)) saturate(150%);
+    transition: all var(--list-item-transition);
+    transform: translateZ(0);
+}
+
+.members_a28983 {
+    margin-top: calc(var(--gap) * 2) !important;
+}
+
+.sidebar_a28983:hover, .chat_a28983:hover, .members_a28983:hover {
+    box-shadow:
+        0 0 50px var(--accent-color), 
+        0 0 25px var(--secondary-accent);
+    transform: scale(1.005);
+}
+
+/* Chat Header */
+.header_a28983 {
+    background-color: var(--bg-secondary) !important;
+    backdrop-filter: blur(calc(var(--background-blur) / 4)) saturate(150%);
+    border-radius: var(--radius-item) var(--radius-item) 0 0 !important;
+    border-bottom: 2px solid var(--teal-highlight);
+}
+
+/*
+ * CHANNEL & LIST ITEM STYLING (Integrated from Ceres Addon logic) - UNCHANGED
+ */
+[class*="listItem__"]:hover:not([class*="selected"]),
+[class*="container_"]:hover:not([class*="selected"]) {
+    background-color: var(--hover) !important;
+}
+
+.modeSelected__487a3 [class*="container_"],
+.selected_a523ff [class*="listItem__"],
+.selected_a523ff [class*="link_"] {
+    background-color: var(--active-2) !important; 
+    border-left: 4px solid var(--accent-color) !important;
+    box-shadow: 0 0 10px var(--accent-color);
+}
+
+
+/*
+ * MAX FROSTED GLASS: MESSAGE STREAM STYLING - UNCHANGED
+ */
+
+.group_a4a559 {
+    background-color: transparent !important;
+    padding: 5px 10px;
+    margin: 5px 0;
+    border-radius: var(--radius-item);
+    transition: all var(--list-item-transition);
+}
+
+.message_a4a559 {
+    background-color: var(--bg-3) !important;
+    border-radius: var(--radius-item);
+    backdrop-filter: blur(12px) saturate(140%);
+    padding: 10px !important;
+    margin: 6px 0 !important;
+    border: var(--border-thickness) solid rgba(64, 224, 208, 0.3);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    transition: all var(--list-item-transition);
+}
+
+.message_a4a559:hover {
+    box-shadow: 0 0 15px rgba(64, 224, 208, 0.6), 0 0 5px rgba(255, 255, 255, 0.2);
+    border-color: var(--accent-color);
+    background-color: var(--bg-2) !important;
+}
+
+
+/*
+ * COMPLEX SETTINGS AREA STYLING - UNCHANGED
+ */
+
+.root_a28983 {
+    border-radius: var(--radius-full) !important;
+    background-color: var(--bg-floating) !important;
+    backdrop-filter: blur(calc(var(--background-blur) * 1.5)) !important;
+    border: 3px solid var(--accent-color);
+    box-shadow: 0 0 70px var(--accent-color), 0 0 35px var(--secondary-accent);
+}
+
+.sidebar_a28983 {
+    margin: 0 !important;
+    border-radius: var(--radius-full) 0 0 var(--radius-full) !important;
+    background-color: var(--bg-3) !important;
+    backdrop-filter: blur(calc(var(--background-blur) / 4)) saturate(150%);
+}
+
+
+/*
+ * BUBLECARD USER AREA STYLE (FIXED PADDING)
+ * MODIFIED: Changed margin to shift the container left.
+ */
+
+.container__37e49 {
+    position: relative !important; 
+    top: unset !important;
+    right: unset !important; 
+    z-index: 100 !important; 
+    
+    flex-direction: column !important;
+    width: 100% !important; 
+    height: auto !important;
+    min-height: 120px !important; 
+    
+    padding: 20px 15px !important; 
+    border-radius: var(--radius-full) !important; 
+    /* Changed margin from var(--gap) all around to shift it left. 
+       0px left margin pushes it flush to the internal padding of the sidebar parent. */
+    margin: var(--gap) var(--gap) var(--gap) 0 !important;
+    
+    background-image: linear-gradient(180deg, var(--bg-secondary), var(--bg-primary)); 
+    backdrop-filter: blur(20px) saturate(180%);
+    
+    border: 4px solid var(--teal-highlight);
+    box-shadow: 
+        0 0 40px var(--accent-color), 
+        inset 0 0 20px var(--teal-highlight); 
+    
+    transition: all var(--list-item-transition);
+}
+
+.buttons__37e49 {
+    display: flex !important; 
+    gap: 12px; 
+    width: 100%;
+    
+    .button__67645 {
+        transition: all var(--list-item-transition); 
+        
+        border: 2px solid var(--teal-highlight);
+        background-image: var(--hextech-gradient) !important;
+        background-size: 200% auto !important;
+
+        &:hover {
+            border-color: var(--accent-color) !important; 
+            background-image: var(--hextech-gradient-hover) !important;
+            background-position: right center !important;
+            box-shadow: 
+                0 0 35px var(--accent-color), 
+                0 0 15px var(--secondary-accent);
+            transform: translateY(-2px); 
+        }
+
+        &.redGlow__67645 {
+            background-image: var(--hextech-gradient-hover) !important;
+            box-shadow: 0 0 40px var(--secondary-accent), 0 0 20px var(--teal-highlight);
+            border-color: var(--text-normal);
+        }
+    }
+}
+
+
+/*
+ * ====================================================================
+ * NEW: INBOX/NOTIFICATIONS STYLING (Messages Popout) - UNCHANGED
+ * ====================================================================
+ */
+
+[class*="recentMentionsPopout_"],
+[class*="messagesPopout_"] {
+    border-radius: var(--radius-item) !important;
+    
+    background-color: var(--bg-floating) !important;
+    backdrop-filter: blur(calc(var(--background-blur) * 1.5)) saturate(150%) !important;
+    
+    border: var(--border-thickness) solid var(--teal-highlight) !important;
+    box-shadow: 0 0 40px var(--accent-color), 0 0 20px var(--secondary-accent) !important;
+}
+
+[class*="recentMentionsPopout_"] [class*="header_"] {
+    background-color: var(--bg-secondary) !important;
+    border-bottom: 2px solid var(--teal-highlight) !important;
+}
+
+[class*="messageListItem_"] {
+    background-color: transparent !important;
+    border-radius: var(--radius-item) !important;
+    margin: 4px 0 !important;
+    padding: 8px !important;
+    transition: background-color 0.2s;
+}
+
+[class*="messageListItem_"]:hover {
+    background-color: var(--hover) !important;
+}
