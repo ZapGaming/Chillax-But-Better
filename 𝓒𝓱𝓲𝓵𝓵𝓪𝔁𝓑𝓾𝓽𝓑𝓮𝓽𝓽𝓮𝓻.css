@@ -1,6 +1,6 @@
 /**
  * @name 𝓒𝓱𝓲𝓵𝓵𝓪𝔁 𝓑𝓾𝓽 𝓑𝓮𝓽𝓽𝓮𝓻
- * @author Chillax Squad, Modified by Zap gaming
+ * @author Chillax Squad, Modified by Zandy
  * @authorLink https://github.com/warrayquipsome/Chillax#Authors
  * @version 2.1.1
  * @invite DrfX6286kF
@@ -8,10 +8,17 @@
  * @source https://github.com/ZapGaming/Chillax-But-Better
 */
 
-/* ⸙ 🫧 🫧 🫧 🫧 🫧 𖡎  It's All Better 𖡎 🫧 🫧 🫧 🫧 🫧 ⸙ */
+/*                      ⸙ 🫧 🫧 🫧 🫧 🫧 𖡎  It's All Better 𖡎 🫧 🫧 🫧 🫧 🫧 ⸙ 
+ ██████╗██╗  ██╗██╗██╗     ██╗      █████╗ ██╗  ██╗    ██████╗ ██╗   ██╗████████╗    ██████╗ ███████╗████████╗████████╗███████╗██████╗ 
+██╔════╝██║  ██║██║██║     ██║     ██╔══██╗╚██╗██╔╝    ██╔══██╗██║   ██║╚══██╔══╝    ██╔══██╗██╔════╝╚══██╔══╝╚══██╔══╝██╔════╝██╔══██╗
+██║     ███████║██║██║     ██║     ███████║ ╚███╔╝     ██████╔╝██║   ██║   ██║       ██████╔╝█████╗     ██║      ██║   █████╗  ██████╔╝
+██║     ██╔══██║██║██║     ██║     ██╔══██║ ██╔██╗     ██╔══██╗██║   ██║   ██║       ██╔══██╗██╔══╝     ██║      ██║   ██╔══╝  ██╔══██╗
+╚██████╗██║  ██║██║███████╗███████╗██║  ██║██╔╝ ██╗    ██████╔╝╚██████╔╝   ██║       ██████╔╝███████╗   ██║      ██║   ███████╗██║  ██║
+ ╚═════╝╚═╝  ╚═╝╚═╝╚══════╝╚══════╝╚═╝  ╚═╝╚═╝  ╚═╝    ╚═════╝  ╚═════╝    ╚═╝       ╚═════╝ ╚══════╝   ╚═╝      ╚═╝   ╚══════╝╚═╝  ╚═╝
+                                                                                                                                       
+                                                                                                                               */
 
 /* CHILLAX theme entry point */
-@import url("https://rinlovesyou.github.io/Couve/snippets/couve-profile-popout.css");
 @import url("https://raw.githubusercontent.com/ZapGaming/Chillax-But-Better/refs/heads/main/chillax.css");
 
 /* removable addons */
@@ -25,7 +32,9 @@
 @import url("https://warrayquipsome.github.io/Chillax/Addons/FriendGrid.css");
 @import url("https://warrayquipsome.github.io/Chillax/Addons/ColoredLinks.css");
 @import url("https://blade04208.github.io/css/bettershiki.css");
-@import url("https://blade04208.github.io/css/tabsv2-servers.css");
+@import url("https://teeenoob.github.io/themes/vencord/SpotifyEmbed.css");
+/* @import url("https://raw.githubusercontent.com/ZapGaming/Mika-Theme-Components/refs/heads/main/Custom_Spotify_Embed.css"); */
+@import url("https://raw.githubusercontent.com/ZapGaming/Mika-Theme-Components/refs/heads/main/Mika_Intrusive_Vencord_Player.css");
 
 
 @import url("https://raw.githubusercontent.com/acheronx0577/Transparent-Code-Block/refs/heads/main/Transparent%20Code%20Block.css");
@@ -306,14 +315,14 @@
 
 /* Change the Discord Logo to something custom */
 .listItemWrapper__91816 .childWrapper__6e9f8 img {
-    content: url("https://64.media.tumblr.com/0d4e6d40295ff17455cf0f0839eadcc4/tumblr_mqic6aNvfO1s5e5bko6_500.gif")} /* change the url to your fav logo/gif etc (I recommend 50x50 or similar) */
+    content: url("https://emojipedia.org/_next/image?url=https%3A%2F%2Fis.zobj.net%2Fimage-server%2Fv1%2Fimages%3Fr%3DV58EAKDVUTQfeva_7u4BUwmWE33BpLhKCJ38wy8M7p5DCNrwhH0EJDYBvOQdfCMrKvJSJuQU6m90aUZfAqkkU6LYywTyYjqxjPkw4TBSxu8IYOGBKKCUtzb_6l5IOnhOpwz6GWd14dQB8LY9t1n0tZyd5wIwUXh9j1RfdNmm_fekApO5OUpozTP2Hb7TXlzoJiAuq8FfGTlIXXxf3toR4YVaBDQZ5UmsSExW-T_vklpw6isQPKeE_o522Ck&w=256&q=75")} /* change the url to your fav logo/gif etc (I recommend 50x50 or similar) */
 
 .listItemWrapper__91816 .childWrapper__6e9f8 svg {
     display: none;
 }
 
 .listItemWrapper__91816 .childWrapper__6e9f8  {
-    content: url("https://64.media.tumblr.com/0d4e6d40295ff17455cf0f0839eadcc4/tumblr_mqic6aNvfO1s5e5bko6_500.gif") /* url("https://emojipedia.org/_next/image?url=https%3A%2F%2Fis.zobj.net%2Fimage-server%2Fv1%2Fimages%3Fr%3DV58EAKDVUTQfeva_7u4BUwmWE33BpLhKCJ38wy8M7p5DCNrwhH0EJDYBvOQdfCMrKvJSJuQU6m90aUZfAqkkU6LYywTyYjqxjPkw4TBSxu8IYOGBKKCUtzb_6l5IOnhOpwz6GWd14dQB8LY9t1n0tZyd5wIwUXh9j1RfdNmm_fekApO5OUpozTP2Hb7TXlzoJiAuq8FfGTlIXXxf3toR4YVaBDQZ5UmsSExW-T_vklpw6isQPKeE_o522Ck&w=256&q=75") */;
+    content: url("https://emojipedia.org/_next/image?url=https%3A%2F%2Fis.zobj.net%2Fimage-server%2Fv1%2Fimages%3Fr%3DV58EAKDVUTQfeva_7u4BUwmWE33BpLhKCJ38wy8M7p5DCNrwhH0EJDYBvOQdfCMrKvJSJuQU6m90aUZfAqkkU6LYywTyYjqxjPkw4TBSxu8IYOGBKKCUtzb_6l5IOnhOpwz6GWd14dQB8LY9t1n0tZyd5wIwUXh9j1RfdNmm_fekApO5OUpozTP2Hb7TXlzoJiAuq8FfGTlIXXxf3toR4YVaBDQZ5UmsSExW-T_vklpw6isQPKeE_o522Ck&w=256&q=75") /* url("https://emojipedia.org/_next/image?url=https%3A%2F%2Fis.zobj.net%2Fimage-server%2Fv1%2Fimages%3Fr%3DV58EAKDVUTQfeva_7u4BUwmWE33BpLhKCJ38wy8M7p5DCNrwhH0EJDYBvOQdfCMrKvJSJuQU6m90aUZfAqkkU6LYywTyYjqxjPkw4TBSxu8IYOGBKKCUtzb_6l5IOnhOpwz6GWd14dQB8LY9t1n0tZyd5wIwUXh9j1RfdNmm_fekApO5OUpozTP2Hb7TXlzoJiAuq8FfGTlIXXxf3toR4YVaBDQZ5UmsSExW-T_vklpw6isQPKeE_o522Ck&w=256&q=75") */;
 } /* change the url to your fav logo/gif etc (I recommend 50x50 or similar) */
 
 
@@ -375,23 +384,71 @@ ul[aria-label="Direct Messages"] .channel__972a0.container_e45859 .interactive_b
 
 
 
-/* Sidebar Capybara above divider */
-.user-profile-sidebar > [class^="inner_"] > [class^="footer__"] {border: none; 
-> [class^="footerButton__"] { border-top: 1px solid var(--user-profile-border);}}
-.user-profile-sidebar > [class^="inner_"] > [class^="footer__"]::before {
-    content: ""; display: block; inset: 0; padding: 0 20px;
-    background-size:contain; background-position: center; background-repeat: no-repeat;
 
-    /* Change url here*/
-    background-image: url("https://media4.giphy.com/media/v1.Y2lkPTZjMDliOTUyeXp2dzBrbmE5YWhzZWs1YjAxcnRyN3c0ZDMyZWZkdmIzNXc5bTJ6diZlcD12MV9zdGlja2Vyc19zZWFyY2gmY3Q9cw/OgUorGH0Z75b3unoPA/giphy.gif");
-    /* Size of the image*/
-    padding-bottom: 150px;
-    /* The glow, if you want it */
-    filter: drop-shadow(0 0 20px #7a4100);
-    /* how much space isnt the image*/
-    margin: -12px; /* Move the image down a bit to make them sit on the divider*/
-    /*fade out at the top*/
-    mask-image: linear-gradient(to bottom, transparent, black 20%);
+
+
+/* Sidebar Capybara above divider */
+/* --- Keyframes for Dynamic Aura Glow --- */
+@keyframes dynamic-aura-glow {
+    0% {
+        /* Soft base glow and initial vibrancy */
+        filter: drop-shadow(0 0 10px #00FFFF) 
+                drop-shadow(0 0 5px #FF00FF) 
+                brightness(1.1) saturate(1.2);
+        transform: scale(1);
+    }
+    50% {
+        /* Peak glow and subtle pulse scale */
+        filter: drop-shadow(0 0 25px #00FFFF) 
+                drop-shadow(0 0 12px #FF00FF) 
+                brightness(1.3) saturate(1.5);
+        transform: scale(1.02);
+    }
+    100% {
+        /* Return to base glow */
+        filter: drop-shadow(0 0 10px #00FFFF) 
+                drop_shadow(0 0 5px #FF00FF) 
+                brightness(1.1) saturate(1.2);
+        transform: scale(1);
+    }
+}
+
+
+
+.user-profile-sidebar > [class^="inner_"] > [class^="footer__"] { 
+    position: relative;
+}
+
+.user-profile-sidebar > [class^="inner_"] > [class^="footer__"]::before {
+    position: absolute;
+    content: "";
+
+    /* Positioning and Sizing */
+    inset: 0;
+    padding: 0 20px;
+    bottom: 50px;
+    top: unset;
+    
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    
+    /* Image Source (Now using the provided GIF URL) */
+    background-image: url(
+        "https://media4.giphy.com/media/v1.Y2lkPTZjMDliOTUyeXp2dzBrbmE5YWhzZWs1YjAxcnRyN3c0ZDMyZWZkdmIzNXc5bTJ6viZlcD12MV9zdGlja2Vyc19zZWFyY2gmY3Q9cw/OgUorGH0Z75b3unoPA/giphy.gif"
+    );
+    
+    /* Size of the image (padding-bottom controls height) */
+    padding-bottom: 100px; 
+    
+    /* Apply Glow and Animation */
+    animation: dynamic-aura-glow 5s infinite alternate ease-in-out; 
+    
+    /* Ensure the transform origin is the center of the element */
+    transform-origin: center;
+    
+    /* How much space isn't the image */
+    margin: 10px;
 }
 /* End sidebar Capybara above divider */
 
@@ -412,31 +469,26 @@ ul[aria-label="Direct Messages"] .channel__972a0.container_e45859 .interactive_b
 
 
 
-/* Colored embeds */
+/* Transparent Embeds */
 .embedFull__623de {
     overflow: hidden;
+    position: relative;
+    
+    background: transparent !important; 
 
-    &::before {
-        top: -1px;
-        content: "";
-        position: absolute;
-        border: inherit;
-        border-left-width: 100vw;
-        max-width: 100%;
-        height: calc(100% + 2px);
-        box-sizing: border-box !important;
-        opacity: 0.25;
-        z-index: 1;
-        border-radius: 0px 8px 8px 0px;
-    }
+    backdrop-filter: none !important;
+    animation: none !important; 
+    
+    border: 1px solid rgba(255, 255, 255, 0.1); 
+    border-radius: 8px; 
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4); 
+    transition: background-color 0.3s ease; 
+}
 
-    .gridContainer__623de {
-        z-index: 2;
-    }
-}
-.withAccentColor__60fa3 {
-    background: color-mix(in srgb, var(--background-surface-high), var(--__accent-color) 25%);
-}
+
+
+
+
 
 
 
@@ -447,6 +499,19 @@ ul[aria-label="Direct Messages"] .channel__972a0.container_e45859 .interactive_b
   left: -7px !important;
   content: "֎" !important; /* or any other symbol you want */
   font-size: 16px !important;
+}
+
+
+
+
+
+
+
+.micButtonParent__37e49>.buttonChevron__37e49 {
+  display: none;
+}
+.micButtonParent__37e49>.micButtonWithMenu__37e49 {
+  border-radius: var(--radius-sm);
 }
 
 
@@ -512,12 +577,34 @@ ul[aria-label="Direct Messages"] .channel__972a0.container_e45859 .interactive_b
 
 
 
+
+
+.captchaContainer_deee3a iframe {
+    filter: 
+        invert(1) 
+        brightness(1.3)
+        hue-rotate(450deg) 
+        saturate(2.0)
+        contrast(1.7) !important;
+    border-radius: 15px;
+}
+
+
+
+
+
+
+
 @font-face {
     font-family: 'KDH';
     font-weight: 400;
     font-style: normal;
     src: url("https://raw.githubusercontent.com/ZapGaming/Chillax-But-Better/refs/heads/main/Fonts/Norse.woff2") format('woff2');
 } /* To change font visit the githubs font foulder and change K-Pop%20Demon%20Hunters to Aurora or Norse or maybe Harry%20Potter */
+
+
+
+
 
 
 
@@ -691,30 +778,6 @@ html.theme-dark {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /* Certain features from extras bellow have been diabled as it seems to break certain conponents */
 
 #vc-spotify-player {
@@ -750,6 +813,235 @@ header[class^="header_"] {
     border-bottom: 0px;
 }
 
+
+
+
+
+Tests
+
+
+.winButton_c38106 {
+    position: relative !important;
+    background-color: transparent !important;
+    margin: 0 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+
+.winButtons_c38106 {
+    gap: 0 !important;
+    display: flex !important;
+    align-items: center !important;
+}
+
+.winButton_c38106 svg {
+    opacity: 0 !important;
+    display: none !important;
+}
+
+.winButton_c38106::before {
+    content: "" !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    font-weight: bold !important;
+    width: 14px !important;
+    height: 14px !important;
+    transition: color 0.3s ease, text-shadow 0.7s ease, transform 0.7s ease-in-out, filter 0.7s ease !important;
+    position: absolute !important;
+    transform: translate(-50%, -50%) !important;
+}
+
+
+.winButtonClose_c38106::before {
+    content: "✖" !important;
+    color: #d83a42 !important; /* Red color */
+    top: 53% !important;
+    font-size: 20px !important;
+    left: 50% !important;
+    font-weight: normal !important; /* Fixed weight */
+    text-shadow: 0 0 3px #d83a42 !important; /* Light outline for stability */
+    will-change: transform !important; /* Optimization for animation */
+    transform: translate(-50%, -50%) !important;
+}
+
+.winButtonClose_c38106:hover::before {
+    color: #d83a42 !important; /* Brighter red on hover */
+    text-shadow: 
+    0 0 5px #ff3b44cc,
+    0 0 10px #ff3b4499,
+    0 0 15px #ff3b4480,
+    0 0 20px #ff3b4466,
+    0 0 25px #ff3b444d,
+    0 0 30px #ff3b4433 !important;
+    filter: brightness(1.1) !important;
+    transform: translate(-50%, -50%) rotate(180deg) !important; /* Rotation animation */
+}
+
+.winButtonMinMax_c38106:nth-child(1)::before {
+    content: "⚋" !important;
+    color: #faa61a !important; /* Yellow color */
+    top: 55% !important;
+    font-size: 20px !important;
+    left: 50% !important;
+    -webkit-text-stroke: 0.5px #faa61a !important; /* Fix outline */
+    text-rendering: geometricPrecision !important;
+    will-change: transform !important; /* Optimization for animation */
+    text-shadow: 0 0 3px #faa61a !important; /* Light outline for stability */
+}
+
+.winButtonMinMax_c38106:nth-child(1):hover::before {
+    color: #faa61a !important;
+    text-shadow: 
+        0 0 5px #faa61a,
+        0 0 10px #b3760f,
+        0 0 15px #c98105,
+        0 0 20px #b17307,
+        0 0 25px #996606b6,
+        0 0 30px #9663059a !important;
+    filter: brightness(1.2) !important;
+    transform: translate(-50%, -50%) rotate(180deg) !important;
+}
+
+.winButtonMinMax_c38106:nth-child(2)::before {
+    content: "⛶" !important;
+    color: #23a55a !important; /* Green color */
+    top: 55% !important;
+    font-size: 20px !important;
+    left: 50% !important;
+    -webkit-text-stroke: 0.5px #23a55a !important; /* Fix outline */
+    text-rendering: geometricPrecision !important;
+    will-change: transform !important; /* Optimization for animation */
+    text-shadow: 0 0 3px #23a55a !important; /* Light outline for stability */
+}
+
+.winButtonMinMax_c38106:nth-child(2):hover::before {
+    color: #2ecc71 !important;
+    text-shadow: 
+        0 0 5px #2ecc71cc,
+        0 0 10px #2ecc7199,
+        0 0 15px #2ecc7180,
+        0 0 20px #2ecc7166,
+        0 0 25px #2ecc714d,
+        0 0 30px #2ecc7133 !important;
+    filter: brightness(1.2) !important;
+    transform: translate(-50%, -50%) rotate(180deg) !important;
+}
+
+
+@container body style(--custom-window-controls: off) and style(--top-bar-button-position: titlebar) {
+    .visual-refresh .winButton_c38106 {
+        border-radius: 0 !important;
+    }
+    
+    .visual-refresh .winButtons_c38106 {
+        gap: 0 !important;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[class^=scrollerInner][aria-label*=support] > [data-author-id="1017176847865352332"] {
+    &:not(:last-of-type) > :not([class*=hasReply]) { display: none; }
+    &:last-of-type > :not([class*=hasReply]) {
+        bottom: -12px;
+        left: 16px;
+        margin-top: 6px;
+        border: 2px solid red;
+        border-bottom: unset;
+        border-radius: 8px 8px 0 0;
+        padding-top: 4px;
+        width: calc(100% - 116px);
+        background-color: rgba(91, 15, 15, 31);
+        &:hover { background-color: rgba(127, 31, 31, 63); }
+        > [class^=contents] {
+            position: relative;
+            left: -16px;
+            > [class^=avatar],
+            & > [class^=header],
+            & > [class^=markup] > small:last-of-type {
+                display: none;
+            }
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.iconContainerWithGuildIcon__2ea32 {
+    .icon__2894c {
+        margin-left: 0px;
+        margin-top: 0px;
+        width: 20px;
+        height: 20px;
+        background: none !important;
+
+        >path {
+            filter: drop-shadow(-1px 0 0px var(--background-base-lowest)) drop-shadow(1px 0 0px var(--background-base-lowest)) drop-shadow(0px 1px 0px var(--background-base-lowest)) drop-shadow(0px -1px 0px var(--background-base-lowest));
+        }
+    }
+
+    .svg__2338f {
+        position: absolute;
+        top: -6px;
+        left: -10px;
+        overflow: visible !important;
+        width: calc(28px + var(--space-xxs) + var(--space-xxs));
+        height: calc(28px + var(--space-xxs) + var(--space-xxs));
+        contain: none;
+
+        foreignObject {
+            mask: none !important;
+            overflow: hidden !important;
+            border-radius: var(--radius-sm) 0 0 var(--radius-sm) !important;
+            width: calc(28px + var(--space-xxs) + var(--space-xxs)) !important;
+
+            .channelGuildIcon__2894c {
+                position: absolute;
+                top: calc(0px - var(--space-xxs) - var(--space-xxs));
+                width: calc(28px + var(--space-xxs) + var(--space-xxs)) !important;
+                height: calc(28px + var(--space-xxs) + var(--space-xxs)) !important;
+                mask-image: linear-gradient(to right, black 0%, transparent 100%);
+                border-radius: 0px !important;
+            }
+        }
+
+
+    }
+}
+
+.modeSelected__2ea32 .iconWithGuildIcon__2ea32 {
+    color: var(--header-primary)
+}
 
 
 
