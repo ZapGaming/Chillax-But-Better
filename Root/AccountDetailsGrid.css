@@ -5,67 +5,89 @@
     padding: 0;
 }
 
-/* 2. Grid Layout: 4 Columns for Complexity and Spacing */
+/* 2. ORBITAL CONTAINER: Centralized block for the circular arrangement */
 .fieldList__1fed1 {
     background-color: transparent;
-    display: grid;
-    /* Switched to 4 equal, compact columns */
-    grid-template-columns: repeat(4, 1fr);
-    /* Increased gap for separation between 4D "pills" */
-    grid-gap: 25px;
-    padding: 20px 0;
+    /* Block display for centralized positioning */
+    display: block; 
+    /* Position relative to contain absolutely positioned pills */
+    position: relative; 
+    
+    /* Set large dimensions for the circular area */
+    width: 600px;
+    height: 600px;
+    /* Center the entire ring layout */
+    margin: 30px auto; 
+    
+    /* Ensure child transformation works in 3D space */
+    transform-style: preserve-3d;
 }
 
 /* 3. Individual Field/Card Styling: The Complex Pill */
 .field__1fed1 {
-    width: 100%;
-    /* PILL SHAPE: Very high radius to create capsule/pill look */
+    width: 180px; /* Fixed width for consistent rotation */
+    height: 180px; /* Fixed height for consistent rotation */
+    
+    /* PILL SHAPE: Capsule look */
     border-radius: 50px; 
-    /* Fixed height to emphasize the capsule shape */
-    height: 180px;
+    
+    /* ABSOLUTE POSITIONING: Center all elements on the container's pivot point */
+    position: absolute; 
+    top: 50%; 
+    left: 50%;
+    /* Offset by half the width/height to center the pill itself */
+    margin-left: -90px; 
+    margin-top: -90px; 
     
     /* GLASSMORPHISM / FUTURISTIC BASE */
-    /* Semi-transparent dark background */
     background-color: rgba(10, 10, 10, 0.55); 
-    /* Key to the glass look: blurring the background content */
     backdrop-filter: blur(12px); 
-    /* Subtle white border for a hard glass edge */
     border: 1px solid rgba(255, 255, 255, 0.08);
 
     /* INTERNAL LAYOUT */
     flex-direction: column;
     display: flex;
-    /* Use 'space-between' to push buttons to the bottom */
     justify-content: space-between; 
     padding: 25px;
-    margin: 0; 
+    margin-top: -90px; /* Redefined centering for absolute context */
     overflow-y: auto;
     
     /* COMPLEX 4D SHADOW EFFECT (Initial State) */
     box-shadow: 
-        /* Outer ambient blue glow (subtle) */
         0 0 15px rgba(var(--brand-experiment-rgb, 114, 137, 218), 0.2), 
-        /* Deep, central shadow for depth */
         0 12px 40px rgba(0, 0, 0, 0.9), 
-        /* Inner light shine */
         inset 0 0 15px rgba(255, 255, 255, 0.05); 
 
-    /* TRANSFORMATION SETUP: Enable 3D and apply initial position */
+    /* TRANSFORMATION SETUP: Use a smooth transition for the orbit change */
     transform-style: preserve-3d;
-    transform: translateZ(0);
-    /* Complex cubic-bezier transition for a smooth, unique movement */
     transition: all 0.35s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 }
 
-/* 4. Hover Effect: The 4D Tilt and Neon Glow */
-.field__1fed1:hover {
-    /* 3D TRANSFORMATION: Lifts, tilts slightly in X and Y, and zooms in */
-    transform: translateY(-10px) rotateX(1deg) rotateY(-1deg) scale(1.03); 
-    
-    /* BACKGROUND CHANGE: Slightly lighten the glass for focus */
-    background-color: rgba(10, 10, 10, 0.7);
+/* 3.1 ORBITAL PLACEMENT: Use nth-child to position elements circularly */
+/* R = 250px (Radius) | Rotation Step = 45 degrees for 8 items */
+/* Transform logic: Rotate the item's pivot, Translate it out by R, then counter-rotate the item content */
+.fieldList__1fed1 .field__1fed1:nth-child(1) { transform: rotate(0deg) translate(250px) rotate(0deg); }
+.fieldList__1fed1 .field__1fed1:nth-child(2) { transform: rotate(45deg) translate(250px) rotate(-45deg); }
+.fieldList__1fed1 .field__1fed1:nth-child(3) { transform: rotate(90deg) translate(250px) rotate(-90deg); }
+.fieldList__1fed1 .field__1fed1:nth-child(4) { transform: rotate(135deg) translate(250px) rotate(-135deg); }
+.fieldList__1fed1 .field__1fed1:nth-child(5) { transform: rotate(180deg) translate(250px) rotate(-180deg); }
+.fieldList__1fed1 .field__1fed1:nth-child(6) { transform: rotate(225deg) translate(250px) rotate(-225deg); }
+.fieldList__1fed1 .field__1fed1:nth-child(7) { transform: rotate(270deg) translate(250px) rotate(-270deg); }
+.fieldList__1fed1 .field__1fed1:nth-child(8) { transform: rotate(315deg) translate(250px) rotate(-315deg); }
 
-    /* COMPLEX 4D SHADOW EFFECT (Hover State) */
+/* 4. Hover Effect: Pops out from the orbit with increased glow */
+.fieldList__1fed1 .field__1fed1:nth-child(1):hover { transform: rotate(0deg) translate(250px) rotate(0deg) translateY(-15px) scale(1.08); }
+.fieldList__1fed1 .field__1fed1:nth-child(2):hover { transform: rotate(45deg) translate(250px) rotate(-45deg) translateY(-15px) scale(1.08); }
+.fieldList__1fed1 .field__1fed1:nth-child(3):hover { transform: rotate(90deg) translate(250px) rotate(-90deg) translateY(-15px) scale(1.08); }
+.fieldList__1fed1 .field__1fed1:nth-child(4):hover { transform: rotate(135deg) translate(250px) rotate(-135deg) translateY(-15px) scale(1.08); }
+.fieldList__1fed1 .field__1fed1:nth-child(5):hover { transform: rotate(180deg) translate(250px) rotate(-180deg) translateY(-15px) scale(1.08); }
+.fieldList__1fed1 .field__1fed1:nth-child(6):hover { transform: rotate(225deg) translate(250px) rotate(-225deg) translateY(-15px) scale(1.08); }
+.fieldList__1fed1 .field__1fed1:nth-child(7):hover { transform: rotate(270deg) translate(250px) rotate(-270deg) translateY(-15px) scale(1.08); }
+.fieldList__1fed1 .field__1fed1:nth-child(8):hover { transform: rotate(315deg) translate(250px) rotate(-315deg) translateY(-15px) scale(1.08); }
+
+/* Apply Glow to ALL pills on hover */
+.field__1fed1:hover {
+    background-color: rgba(10, 10, 10, 0.7);
     box-shadow: 
         /* Stronger neon glow */
         0 0 35px rgba(var(--brand-experiment-rgb, 114, 137, 218), 0.7), 
@@ -75,33 +97,27 @@
         inset 0 0 30px rgba(255, 255, 255, 0.15);
 }
 
+
 /* 5. Button List Layout (Inside the Pill) */
 .field__1fed1 .fieldButtonList__1fed1 {
-    gap: 10px; /* Increased spacing */
-    margin-top: 15px; /* Push buttons further down */
-    /* Ensure list is also flexible for better alignment */
+    gap: 10px;
+    margin-top: 15px;
     display: flex; 
     justify-content: flex-start;
 }
 
 /* 6. Button Styling: Matching Pill Shape and Glass Look */
 .field__1fed1 .fieldButton__1fed1 {
-    /* PILL BUTTON SHAPE */
     border-radius: 40px; 
-    
-    /* FUTURISTIC BUTTON LOOK */
     background-color: var(--brand-experiment); 
-    color: var(--text-normal); /* Ensure text is readable */
+    color: var(--text-normal);
     padding: 10px 18px;
-    
-    /* Button shadow/glow */
     box-shadow: 0 4px 12px rgba(var(--brand-experiment-rgb, 114, 137, 218), 0.5); 
     transition: all 0.2s ease-out;
 }
 
 .field__1fed1 .fieldButton__1fed1:hover {
     background-color: var(--brand-experiment-hover);
-    /* Subtle pop-out effect */
     transform: scale(1.05); 
     box-shadow: 0 0 25px var(--brand-experiment-hover); 
 }
@@ -111,7 +127,7 @@
 }
 
 .field__1fed1 .fieldButton__1fed1 {
-    width: auto; /* Allow buttons to size based on content */
+    width: auto;
     margin-right: 0;
     position: relative;
 }
@@ -127,7 +143,6 @@
 }
 
 .field__1fed1::-webkit-scrollbar-thumb {
-    /* Use a dark, highly transparent color for subtlety */
     background-color: rgba(255, 255, 255, 0.15);
     min-height: 20px;
 }
@@ -138,7 +153,7 @@
 
 .field__1fed1::-webkit-scrollbar-thumb,
 .field__1fed1::-webkit-scrollbar-track {
-    border: 0; /* Remove borders */
+    border: 0;
     background-clip: padding-box;
     border-radius: 3px;
 }
