@@ -33,9 +33,14 @@
 @import url("https://warrayquipsome.github.io/Chillax/Addons/ColoredLinks.css");
 @import url("https://blade04208.github.io/css/bettershiki.css");
 @import url("https://teeenoob.github.io/themes/vencord/SpotifyEmbed.css");
-/* @import url("https://raw.githubusercontent.com/ZapGaming/Mika-Theme-Components/refs/heads/main/Custom_Spotify_Embed.css"); */
 @import url("https://raw.githubusercontent.com/ZapGaming/Mika-Theme-Components/refs/heads/main/Mika_Intrusive_Vencord_Player.css");
 @import url("https://raw.githubusercontent.com/ZapGaming/Mika-Theme-Components/refs/heads/main/tabs%20v3.css");
+@import url("https://raw.githubusercontent.com/yiruzu/vencord-snippets/refs/heads/main/snippets/BubbleUsernames/import.css");
+@import url("https://rinlovesyou.github.io/Couve/snippets/couve-profile-popout.css");
+@import url("https://raw.githubusercontent.com/ZapGaming/Mika-Theme-Components/refs/heads/main/Mika_User_Popup.css");
+@import url("https://raw.githubusercontent.com/ZapGaming/Chillax-But-Better/refs/heads/main/Extras/Icons.css"); 
+@import url("https://raw.githubusercontent.com/madmaxgrey/Vertical-Spacious-Refresh/refs/heads/main/vencord/Toggles/Toggles.css");
+@import url("https://davart154.github.io/Themes/Snippets/Chat%20Bar%20Upload%20Swap/ChatSwapSource.css");
 
 
 @import url("https://raw.githubusercontent.com/acheronx0577/Transparent-Code-Block/refs/heads/main/Transparent%20Code%20Block.css");
@@ -68,14 +73,13 @@
     --modern-light-bg: url("https://ik.imagekit.io/zapgaming/fantasy-anime-style-scene.jpg?updatedAt=1759980726483");
 }
 
-
 /*window*/ /*dark mode*/
 :root.theme-dark {
     --window-margin: 20px; /*must be above 20px*/
-    --window-colour: #0009;
-    --window-blur: 5px;
-    --window-border-radius: 10px;
-    --sidebar-colour: rgb(36, 36, 36);
+    --window-colour: rgba(149, 211, 232, 0.352);
+    --window-blur: 12px;
+    --window-border-radius: 20px;
+    --sidebar-colour: rgba(97, 153, 202, 0.403);
 }
 
 /*window*/ /*light mode*/
@@ -87,10 +91,9 @@
     --sidebar-colour: rgb(209, 209, 209);
 }
 
-
 /*roots*/ /*both dark and light*/
 :root {
-    --user-name: "King";
+    --user-name: "Master";
     --edited-message: " EDITED ✎ ";
     --font-name: KDH;
     --font-size: 17px;
@@ -130,15 +133,15 @@
     /* avatar only member list */
     --memberlist-border-radius: 10px; /* can be in `px`, `rem`, `em` */
 
-    /* placeholder texts/values */
-    /* input fields */
-    --chillax-input-field: "Life is so much easier when you just take a moment to chill";
-    /* input fields  when the channel is locked*/
-    --chillax-input-field-locked: "Unfortunately, you can't chill in this channel";
+    /* --- Placeholder Texts (Liquid & Bubbly) --- */
+    /* input fields (general placeholder) */
+    --chillax-input-field: "Floating your thoughts here...";
+    /* input fields when the channel is locked */
+    --chillax-input-field-locked: "Currents too strong. This channel is sealed.";
     /* typing indicator: when a single person is typing */
-    --chillax-input-typing-indicator-one-person: "is smashing some buttons";
+    --chillax-input-typing-indicator-one-person: "is sending gentle ripples...";
     /* typing indicator: when more than one person is typing */
-    --chillax-input-typing-indicator-many-person: "are smashing some buttons";
+    --chillax-input-typing-indicator-many-person: "are generating a pleasant fizz...";
 
     /* scroller (by default transparent) */
     --chillax-scroller-color: transparent; /* change `transparent` to some other hex color to make it visible */
@@ -316,14 +319,14 @@
 
 /* Change the Discord Logo to something custom */
 .listItemWrapper__91816 .childWrapper__6e9f8 img {
-    content: url("https://emojipedia.org/_next/image?url=https%3A%2F%2Fis.zobj.net%2Fimage-server%2Fv1%2Fimages%3Fr%3DV58EAKDVUTQfeva_7u4BUwmWE33BpLhKCJ38wy8M7p5DCNrwhH0EJDYBvOQdfCMrKvJSJuQU6m90aUZfAqkkU6LYywTyYjqxjPkw4TBSxu8IYOGBKKCUtzb_6l5IOnhOpwz6GWd14dQB8LY9t1n0tZyd5wIwUXh9j1RfdNmm_fekApO5OUpozTP2Hb7TXlzoJiAuq8FfGTlIXXxf3toR4YVaBDQZ5UmsSExW-T_vklpw6isQPKeE_o522Ck&w=256&q=75")} /* change the url to your fav logo/gif etc (I recommend 50x50 or similar) */
+    content: url("https://ik.imagekit.io/zapgaming/Gemini_Generated_Image_lutwehlutwehlutw-Photoroom.png")} /* change the url to your fav logo/gif etc (I recommend 50x50 or similar) */
 
 .listItemWrapper__91816 .childWrapper__6e9f8 svg {
     display: none;
 }
 
 .listItemWrapper__91816 .childWrapper__6e9f8  {
-    content: url("https://emojipedia.org/_next/image?url=https%3A%2F%2Fis.zobj.net%2Fimage-server%2Fv1%2Fimages%3Fr%3DV58EAKDVUTQfeva_7u4BUwmWE33BpLhKCJ38wy8M7p5DCNrwhH0EJDYBvOQdfCMrKvJSJuQU6m90aUZfAqkkU6LYywTyYjqxjPkw4TBSxu8IYOGBKKCUtzb_6l5IOnhOpwz6GWd14dQB8LY9t1n0tZyd5wIwUXh9j1RfdNmm_fekApO5OUpozTP2Hb7TXlzoJiAuq8FfGTlIXXxf3toR4YVaBDQZ5UmsSExW-T_vklpw6isQPKeE_o522Ck&w=256&q=75") /* url("https://emojipedia.org/_next/image?url=https%3A%2F%2Fis.zobj.net%2Fimage-server%2Fv1%2Fimages%3Fr%3DV58EAKDVUTQfeva_7u4BUwmWE33BpLhKCJ38wy8M7p5DCNrwhH0EJDYBvOQdfCMrKvJSJuQU6m90aUZfAqkkU6LYywTyYjqxjPkw4TBSxu8IYOGBKKCUtzb_6l5IOnhOpwz6GWd14dQB8LY9t1n0tZyd5wIwUXh9j1RfdNmm_fekApO5OUpozTP2Hb7TXlzoJiAuq8FfGTlIXXxf3toR4YVaBDQZ5UmsSExW-T_vklpw6isQPKeE_o522Ck&w=256&q=75") */;
+    content: url("https://ik.imagekit.io/zapgaming/Gemini_Generated_Image_lutwehlutwehlutw-Photoroom.png") /* url("https://emojipedia.org/_next/image?url=https%3A%2F%2Fis.zobj.net%2Fimage-server%2Fv1%2Fimages%3Fr%3DV58EAKDVUTQfeva_7u4BUwmWE33BpLhKCJ38wy8M7p5DCNrwhH0EJDYBvOQdfCMrKvJSJuQU6m90aUZfAqkkU6LYywTyYjqxjPkw4TBSxu8IYOGBKKCUtzb_6l5IOnhOpwz6GWd14dQB8LY9t1n0tZyd5wIwUXh9j1RfdNmm_fekApO5OUpozTP2Hb7TXlzoJiAuq8FfGTlIXXxf3toR4YVaBDQZ5UmsSExW-T_vklpw6isQPKeE_o522Ck&w=256&q=75") */;
 } /* change the url to your fav logo/gif etc (I recommend 50x50 or similar) */
 
 
@@ -524,12 +527,12 @@ ul[aria-label="Direct Messages"] .channel__972a0.container_e45859 .interactive_b
 
 
 
-/* Default discord complete Chill theme */
+/* Default discord complete Capybara theme */
 .themeSelection__36dee.midnightIcon__36dee::before {
     position: absolute;
     content: "";
     inset: 10px;
-    background: url("https://64.media.tumblr.com/0d4e6d40295ff17455cf0f0839eadcc4/tumblr_mqic6aNvfO1s5e5bko6_500.gif");
+    background: url("https://preview.redd.it/07ugp5ljimc91.gif?width=730&auto=webp&s=081800fe7503f81497bc4afa324d99cf297c5553");
     background-repeat: no-repeat;
     background-size: fill;
     background-position: center;
@@ -542,7 +545,7 @@ ul[aria-label="Direct Messages"] .channel__972a0.container_e45859 .interactive_b
     &::before {
         position: fill;
         inset: 0;
-        content: "Chill";
+        content: "Capybara";
         font-size: 16px;
         text-align: center;
         line-height: 200%;
@@ -553,24 +556,24 @@ ul[aria-label="Direct Messages"] .channel__972a0.container_e45859 .interactive_b
     .content_f75fb0 
     {background: var(--background-gradient-chat, var(--background-base-lower));}
     .chatContent_f75fb0 {
-        background: url("https://64.media.tumblr.com/0d4e6d40295ff17455cf0f0839eadcc4/tumblr_mqic6aNvfO1s5e5bko6_500.gif") center no-repeat; background-size: 75cap;
+        background: url("https://preview.redd.it/07ugp5ljimc91.gif?width=730&auto=webp&s=081800fe7503f81497bc4afa324d99cf297c5553") center no-repeat; background-size: 100cap;
         position: relative;
         &::before { 
             position: absolute; inset: 0; content: "";
             background: transparent;
-            mask: url("https://64.media.tumblr.com/0d4e6d40295ff17455cf0f0839eadcc4/tumblr_mqic6aNvfO1s5e5bko6_500.gif") center no-repeat; mask-size: 75cap;
+            mask: url("https://preview.redd.it/07ugp5ljimc91.gif?width=730&auto=webp&s=081800fe7503f81497bc4afa324d99cf297c5553") center no-repeat; mask-size: 100cap;
         }
     }
 }
 
 .item_c1e9c4#user-settings-cog-App_Settings--Appearance--midnight {
     font-size: 0px;
-    background: url("https://64.media.tumblr.com/0d4e6d40295ff17455cf0f0839eadcc4/tumblr_mqic6aNvfO1s5e5bko6_500.gif") center no-repeat;
+    background: url("https://preview.redd.it/07ugp5ljimc91.gif?width=730&auto=webp&s=081800fe7503f81497bc4afa324d99cf297c5553") center no-repeat;
     background-size: contain; background-position: right; padding-right: 40px;
     &::before 
-    { content: "Chill"; font-size: 14px; color: white; }
+    { content: "Capybara"; font-size: 14px; color: white; }
 }
-/* End default discord complete Chill theme */
+/* End default discord complete Capybara theme */
 
 
 
@@ -601,7 +604,363 @@ ul[aria-label="Direct Messages"] .channel__972a0.container_e45859 .interactive_b
     font-weight: 400;
     font-style: normal;
     src: url("https://raw.githubusercontent.com/ZapGaming/Chillax-But-Better/refs/heads/main/Fonts/Norse.woff2") format('woff2');
-} /* To change font visit the githubs font foulder and change K-Pop%20Demon%20Hunters to Aurora or Norse or maybe Harry%20Potter */
+} /* To change font visit the githubs font folder and change K-Pop%20Demon%20Hunters to Aurora or Norse or maybe Harry%20Potter */
+
+
+
+
+
+
+
+
+
+
+
+
+.menu_c1e9c4 {
+  background: linear-gradient(135deg,
+    rgba(100, 180, 255, 0.9) 0%, /* Sky Blue */
+    rgba(150, 80, 200, 0.9) 40%, /* Lavender Purple */
+    rgba(255, 100, 150, 0.9) 80%, /* Pink */
+    rgba(255, 200, 80, 0.9) 100% /* Golden Yellow */
+  );
+  border-radius: 25px; /* Even more rounded, very bubbly */
+  box-shadow:
+    0 8px 30px rgba(100, 180, 255, 0.6), /* Blue glow */
+    0 0 20px rgba(255, 100, 150, 0.5), /* Pink inner glow */
+    inset 0 0 10px rgba(255, 255, 255, 0.2); /* Inner highlight */
+  overflow: hidden;
+  transition: all 0.3s ease-in-out; /* Smooth transitions for hover effects */
+}
+.menu_c1e9c4:hover {
+  transform: translateY(-3px) scale(1.02); /* Slight lift and grow on hover */
+  box-shadow:
+    0 12px 40px rgba(100, 180, 255, 0.8), /* More intense blue glow */
+    0 0 25px rgba(255, 100, 150, 0.7), /* More intense pink glow */
+    inset 0 0 15px rgba(255, 255, 255, 0.3);
+}
+
+.contentWrapper__08434 {
+  background: linear-gradient(45deg,
+    rgba(255, 150, 100, 0.8) 0%, /* Orange */
+    rgba(255, 220, 100, 0.8) 30%, /* Light Yellow */
+    rgba(100, 255, 180, 0.8) 60%, /* Mint Green */
+    rgba(100, 180, 255, 0.8) 100% /* Sky Blue */
+  );
+  border-radius: 30px; /* Super bubbly main wrapper */
+  box-shadow:
+    0 10px 35px rgba(255, 150, 100, 0.7), /* Orange glow */
+    0 0 25px rgba(100, 255, 180, 0.6), /* Mint inner glow */
+    inset 0 0 12px rgba(255, 255, 255, 0.25); /* Inner highlight */
+  padding: 15px; /* More internal padding */
+  transition: all 0.3s ease-in-out;
+}
+.contentWrapper__08434:hover {
+  transform: scale(1.01); /* Subtle grow on hover */
+  box-shadow:
+    0 15px 45px rgba(255, 150, 100, 0.9),
+    0 0 30px rgba(100, 255, 180, 0.8),
+    inset 0 0 18px rgba(255, 255, 255, 0.4);
+}
+
+  .wrapper__4e6ce {
+    background-color: transparent;
+    border-radius: 20px; /* Rounded internal wrappers */
+    .unicodeShortcut_b9ee0c {
+      background: linear-gradient(90deg,
+        rgba(255, 120, 180, 0.7), /* Hot Pink */
+        rgba(120, 180, 255, 0.7) /* Cool Blue */
+      );
+      border-radius: 15px;
+      box-shadow: 0 4px 15px rgba(255, 120, 180, 0.4);
+      transition: all 0.2s ease-out;
+    }
+    .unicodeShortcut_b9ee0c:hover {
+      transform: scale(1.05); /* Pop out on hover */
+      box-shadow: 0 6px 20px rgba(255, 120, 180, 0.6);
+    }
+    .categoryItemDefaultCategorySelected_b9ee0c,
+    .categoryItemDefaultCategorySelected_b9ee0c:hover {
+      background: rgba(255, 255, 255, 0.2); /* Brighter highlight for selection */
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+    }
+  }
+  .emojiItem_fc7141.emojiItemSelected_fc7141,
+  .emojiItem_fc7141.expandCollapseButtonSelected_fc7141 {
+    background: rgba(0, 0, 0, 0.4); /* Darker, more defined selection */
+    border-radius: 12px;
+    box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.5);
+  }
+  .inspector_aeaaeb,
+  .wrapper__14245,
+  .header__8ef02,
+  .container_fed6d3,
+  .header_fed6d3 {
+    background-color: transparent;
+    border-radius: 15px; /* Ensures internal elements are also rounded */
+  }
+  .stickerInspected_c6367b .inspectedIndicator_c6367b {
+    background-color: rgba(255, 255, 255, 0.5); /* Lighter, glowing indicator */
+    border-radius: 50%; /* Perfectly round */
+    box-shadow: 0 0 8px rgba(255, 255, 255, 0.7);
+  }
+  .stickerCategoryGeneric__3ad28:hover {
+    background-color: rgba(0, 0, 0, 0.4);
+    border-radius: 15px;
+  }
+  .firstPartyCategorySelected__3ad28,
+  .firstPartyCategorySelected__3ad28:hover,
+  .stickerCategoryGenericSelected__3ad28,
+  .stickerCategoryGenericSelected__3ad28:hover {
+    background: rgba(255, 255, 255, 0.25); /* More visible selection with transparency */
+    border-radius: 15px;
+    box-shadow: 0 0 12px rgba(255, 255, 255, 0.4);
+  }
+
+
+/* "Search" bar Server & Dm */
+.container__55c99 {
+  background: linear-gradient(-45deg,
+    rgba(255, 220, 80, 0.8) 0%, /* Sunny Yellow */
+    rgba(80, 255, 180, 0.8) 50%, /* Bright Teal */
+    rgba(120, 180, 255, 0.8) 100% /* Sky Blue */
+  );
+  border-radius: 28px; /* Very bubbly search bar */
+  box-shadow:
+    0 7px 25px rgba(255, 220, 80, 0.6), /* Yellow glow */
+    0 0 18px rgba(80, 255, 180, 0.5), /* Teal inner glow */
+    inset 0 0 8px rgba(255, 255, 255, 0.2);
+  transition: all 0.3s ease-in-out;
+
+  .queryContainer__55c99 {
+    background: rgba(255, 255, 255, 0.2); /* Lighter, more ethereal input area */
+    border-radius: 20px; /* Rounded input area */
+    padding: 10px 20px; /* More padding for the bubbly look */
+    box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.2);
+  }
+}
+.container__55c99:hover {
+  transform: translateY(-2px);
+  box-shadow:
+    0 10px 35px rgba(255, 220, 80, 0.8),
+    0 0 22px rgba(80, 255, 180, 0.7),
+    inset 0 0 12px rgba(255, 255, 255, 0.3);
+}
+
+.searchToken_bd8186 {
+  background: linear-gradient(90deg,
+    rgba(100, 200, 255, 0.8), /* Light Blue */
+    rgba(255, 150, 200, 0.8) /* Soft Pink */
+  );
+  border-radius: 15px; /* Super rounded search tokens */
+  padding: 6px 12px;
+  box-shadow: 0 3px 10px rgba(100, 200, 255, 0.4);
+  transition: all 0.2s ease-out;
+}
+.searchToken_bd8186:hover {
+  transform: scale(1.1); /* Jiggle on hover */
+  box-shadow: 0 5px 15px rgba(100, 200, 255, 0.6);
+}
+
+.button__02a39 {
+  background: linear-gradient(90deg,
+    rgba(255, 100, 200, 0.7), /* Vibrant Pink */
+    rgba(200, 100, 255, 0.7) /* Vibrant Purple */
+  );
+  border-radius: 18px; /* More rounded buttons */
+  box-shadow: 0 4px 15px rgba(255, 100, 200, 0.4);
+  transition: all 0.2s ease-out;
+}
+.button__02a39:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 20px rgba(255, 100, 200, 0.6);
+}
+
+.searchResult__02a39,
+.side_aa8da2 .themed_aa8da2.item_aa8da2:active:not(.disabled_aa8da2),
+.side_aa8da2 .themed_aa8da2.selected_aa8da2.item_aa8da2,
+.side_aa8da2 .themed_aa8da2.selected_aa8da2:hover:not(.disabled_aa8da2),
+.topPill_aa8da2 .themed_aa8da2.item_aa8da2:active:not(.disabled_aa8da2),
+.topPill_aa8da2 .themed_aa8da2.selected_aa8da2.item_aa8da2,
+.topPill_aa8da2 .themed_aa8da2.selected_aa8da2:hover:not(.disabled_aa8da2) {
+  background: linear-gradient(90deg,
+    rgba(150, 200, 255, 0.8), /* Soft Blue */
+    rgba(200, 150, 255, 0.8) /* Soft Purple */
+  );
+  border-radius: 15px; /* Rounded selection */
+  box-shadow: 0 4px 15px rgba(150, 200, 255, 0.5);
+  transition: all 0.2s ease-out;
+}
+.searchResult__02a39:hover,
+.side_aa8da2 .themed_aa8da2.item_aa8da2:active:not(.disabled_aa8da2),
+.topPill_aa8da2 .themed_aa8da2.item_aa8da2:active:not(.disabled_aa8da2) {
+  transform: translateX(3px); /* Subtle shift on hover/active */
+  box-shadow: 0 6px 20px rgba(150, 200, 255, 0.7);
+}
+
+
+/* Tooltip on hover */
+.tooltip__4e35b,
+.tooltip_c36707 {
+  background: linear-gradient(135deg,
+    rgba(255, 100, 200, 0.9), /* Bright Pink */
+    rgba(100, 200, 255, 0.9) /* Bright Sky Blue */
+  );
+  border: 3px solid rgba(255, 255, 255, 0.5); /* Thicker, glowing border */
+  border-radius: 25px; /* Very, very bubbly tooltip */
+  box-shadow:
+    0 8px 30px rgba(255, 100, 200, 0.7), /* Pink main glow */
+    0 0 20px rgba(100, 200, 255, 0.6), /* Blue inner glow */
+    inset 0 0 10px rgba(255, 255, 255, 0.3); /* Inner highlight */
+  padding: 12px 20px; /* More space inside */
+  transition: all 0.3s ease-in-out;
+}
+.tooltip__4e35b:hover,
+.tooltip_c36707:hover {
+  transform: translateY(-5px); /* Lift and float on hover */
+  box-shadow:
+    0 12px 40px rgba(255, 100, 200, 0.9),
+    0 0 25px rgba(100, 200, 255, 0.8),
+    inset 0 0 15px rgba(255, 255, 255, 0.4);
+}
+
+.caretIcon__4e35b {
+  fill: rgba(255, 255, 255, 0.9); /* White fill for contrast against vibrant tooltip */
+  filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.7)); /* Glowing caret */
+}
+
+
+
+
+
+/* transparency for profile popup */
+
+.user-profile-popout {
+    background-color: rgba(0, 0, 0, 0.473);
+    backdrop-filter: blur(5px); /* adjust the blur of user profile pop out */
+}
+
+
+
+
+
+
+
+#vc-spotify-progress-bar [class^="slider_"] > [class^="bar_"] {
+    height: 6px !important;
+    min-height: 6px !important;
+    max-height: 6px !important;
+    border-radius: 4px;
+    position: relative;
+    overflow: hidden;
+}
+
+#vc-spotify-progress-bar [class^="slider_"] > [class^="bar_"]::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: var(--vc-spotify-track-image);
+    background-size: 1px 100%;
+    background-repeat: repeat-x;
+    filter: blur(18px) brightness(0.8) saturate(0.8);
+    opacity: 0.9;
+}
+
+#vc-spotify-progress-bar [class^="slider_"] [class^="bar_"] [class^="barFill_"] {
+    background: var(--vc-spotify-track-image) !important;
+    background-size: 1px 100% !important;
+    background-repeat: repeat-x;
+    border-radius: 4px !important;
+    position: relative;
+    z-index: 2;
+    overflow: hidden;
+}
+
+#vc-spotify-progress-bar [class^="slider_"] [class^="bar_"] [class^="barFill_"]::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    backdrop-filter: blur(10px) saturate(4) brightness(1.6);
+    pointer-events: none;
+}
+
+#vc-spotify-progress-bar [class^="slider_"] [class*="grabber"],
+#vc-spotify-progress-bar [class^="slider_"] [class*="grabber"] * {
+    position: relative !important;
+    z-index: 999 !important;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -779,7 +1138,15 @@ html.theme-dark {
 
 
 
+
+
+
+
+
 /* Certain features from extras bellow have been diabled as it seems to break certain conponents */
+
+ 
+
 
 #vc-spotify-player {
     /* background-color: var(--background-gradient-highest, var(--background-base-low)) !important; */
@@ -819,138 +1186,6 @@ header[class^="header_"] {
 
 
 Tests
-
-
-.winButton_c38106 {
-    position: relative !important;
-    background-color: transparent !important;
-    margin: 0 !important;
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-}
-
-.winButtons_c38106 {
-    gap: 0 !important;
-    display: flex !important;
-    align-items: center !important;
-}
-
-.winButton_c38106 svg {
-    opacity: 0 !important;
-    display: none !important;
-}
-
-.winButton_c38106::before {
-    content: "" !important;
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    font-weight: bold !important;
-    width: 14px !important;
-    height: 14px !important;
-    transition: color 0.3s ease, text-shadow 0.7s ease, transform 0.7s ease-in-out, filter 0.7s ease !important;
-    position: absolute !important;
-    transform: translate(-50%, -50%) !important;
-}
-
-
-.winButtonClose_c38106::before {
-    content: "✖" !important;
-    color: #d83a42 !important; /* Red color */
-    top: 53% !important;
-    font-size: 20px !important;
-    left: 50% !important;
-    font-weight: normal !important; /* Fixed weight */
-    text-shadow: 0 0 3px #d83a42 !important; /* Light outline for stability */
-    will-change: transform !important; /* Optimization for animation */
-    transform: translate(-50%, -50%) !important;
-}
-
-.winButtonClose_c38106:hover::before {
-    color: #d83a42 !important; /* Brighter red on hover */
-    text-shadow: 
-    0 0 5px #ff3b44cc,
-    0 0 10px #ff3b4499,
-    0 0 15px #ff3b4480,
-    0 0 20px #ff3b4466,
-    0 0 25px #ff3b444d,
-    0 0 30px #ff3b4433 !important;
-    filter: brightness(1.1) !important;
-    transform: translate(-50%, -50%) rotate(180deg) !important; /* Rotation animation */
-}
-
-.winButtonMinMax_c38106:nth-child(1)::before {
-    content: "⚋" !important;
-    color: #faa61a !important; /* Yellow color */
-    top: 55% !important;
-    font-size: 20px !important;
-    left: 50% !important;
-    -webkit-text-stroke: 0.5px #faa61a !important; /* Fix outline */
-    text-rendering: geometricPrecision !important;
-    will-change: transform !important; /* Optimization for animation */
-    text-shadow: 0 0 3px #faa61a !important; /* Light outline for stability */
-}
-
-.winButtonMinMax_c38106:nth-child(1):hover::before {
-    color: #faa61a !important;
-    text-shadow: 
-        0 0 5px #faa61a,
-        0 0 10px #b3760f,
-        0 0 15px #c98105,
-        0 0 20px #b17307,
-        0 0 25px #996606b6,
-        0 0 30px #9663059a !important;
-    filter: brightness(1.2) !important;
-    transform: translate(-50%, -50%) rotate(180deg) !important;
-}
-
-.winButtonMinMax_c38106:nth-child(2)::before {
-    content: "⛶" !important;
-    color: #23a55a !important; /* Green color */
-    top: 55% !important;
-    font-size: 20px !important;
-    left: 50% !important;
-    -webkit-text-stroke: 0.5px #23a55a !important; /* Fix outline */
-    text-rendering: geometricPrecision !important;
-    will-change: transform !important; /* Optimization for animation */
-    text-shadow: 0 0 3px #23a55a !important; /* Light outline for stability */
-}
-
-.winButtonMinMax_c38106:nth-child(2):hover::before {
-    color: #2ecc71 !important;
-    text-shadow: 
-        0 0 5px #2ecc71cc,
-        0 0 10px #2ecc7199,
-        0 0 15px #2ecc7180,
-        0 0 20px #2ecc7166,
-        0 0 25px #2ecc714d,
-        0 0 30px #2ecc7133 !important;
-    filter: brightness(1.2) !important;
-    transform: translate(-50%, -50%) rotate(180deg) !important;
-}
-
-
-@container body style(--custom-window-controls: off) and style(--top-bar-button-position: titlebar) {
-    .visual-refresh .winButton_c38106 {
-        border-radius: 0 !important;
-    }
-    
-    .visual-refresh .winButtons_c38106 {
-        gap: 0 !important;
-    }
-}
-
-
-
-
-
-
-
-
-
-
-
 
 
 
