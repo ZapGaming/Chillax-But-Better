@@ -22,16 +22,22 @@
 @import url("github.com/ZapGaming/Mika-Theme-Components/blob/main/EmojiPicker.css");
 
 :root {
-    /* New Variables for Shimmer/Gloss/Heavy Rendering */
+    /* Existing Variables */
     --shimmer-color: 255, 255, 255; /* White shimmer/gloss color (RGBA values) */
     --shimmer-intensity: 0.15; /* Opacity of the main background shimmer */
     --gloss-color-light: 255, 255, 255;
     
     /* Ensure accentcolor is defined for use in glows, if not already in your variables */
     /* Example: --accentcolor: 58, 114, 255; */
+
+    /* New Variables for EXTREME Effects */
+    --plasma-color-1: 0, 255, 255; /* Cyan */
+    --plasma-color-2: 255, 0, 255; /* Magenta */
+    --glitch-shadow-1: 255, 0, 255; /* Glitch Magenta */
+    --glitch-shadow-2: 0, 255, 255; /* Glitch Cyan */
 }
 
-/***Animations and Effects - Heavy Rendering***/
+/***Animations and Effects - HEAVY RENDERING***/
 
 /* Main Background Shimmer Animation */
 @keyframes slowShimmer {
@@ -51,6 +57,85 @@
     100% {
         background-position: 500px 0;
     }
+}
+
+/* 3D Plasma Glow for Servers */
+@keyframes plasmaGlow {
+    0% { filter: hue-rotate(0deg) drop-shadow(0 0 5px rgba(var(--plasma-color-1), 0.9)) drop-shadow(0 0 10px rgba(var(--plasma-color-2), 0.9)); }
+    50% { filter: hue-rotate(180deg) drop-shadow(0 0 15px rgba(0, 255, 0, 0.9)) drop-shadow(0 0 20px rgba(255, 215, 0, 0.9)); }
+    100% { filter: hue-rotate(360deg) drop-shadow(0 0 5px rgba(var(--plasma-color-1), 0.9)) drop-shadow(0 0 10px rgba(var(--plasma-color-2), 0.9)); }
+}
+
+/* Volumetric Light Pulse for Chat Area */
+@keyframes volumetricPulse {
+    0%, 100% {
+        box-shadow: 0 0 100px 5px rgba(var(--shimmer-color), 0.5), inset 0 0 50px rgba(var(--shimmer-color), 0.3);
+        transform: scale(1.0);
+    }
+    50% {
+        box-shadow: 0 0 150px 10px rgba(var(--shimmer-color), 0.8), inset 0 0 80px rgba(var(--shimmer-color), 0.6);
+        transform: scale(1.005);
+    }
+}
+
+/* Extreme Glitch/Flicker for Messages */
+@keyframes glitchFlicker {
+    0% { transform: translate(0); opacity: 1; }
+    3% { transform: translate(-2px, 2px); opacity: 0.8; }
+    5% { transform: translate(3px, -3px); opacity: 0.9; }
+    8% { transform: translate(0); opacity: 1; }
+    100% { transform: translate(0); opacity: 1; }
+}
+
+/* Main Background Shimmer/Gloss Effect */
+.bg__960e4 {
+    background-image: var(--background-image) !important;
+    opacity: var(--bg-opacity) !important;
+    background-attachment: var(--background-attachment, fixed) !important;
+    background-size: var(--background-size, cover) !important;
+    background-position: var(--background-position, center) !important;
+    position: relative;
+    overflow: hidden;
+}
+
+.bg__960e4::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: -1;
+    
+    /* Perpetual, subtle, animated gloss/shimmer */
+    background: linear-gradient(
+        90deg,
+        rgba(var(--shimmer-color), 0) 0%,
+        rgba(var(--shimmer-color), var(--shimmer-intensity)) 50%,
+        rgba(var(--shimmer-color), 0) 100%
+    );
+    background-size: 200% 100%;
+    animation: slowShimmer 15s infinite linear;
+    mix-blend-mode: overlay;
+}
+
+/* Explosive Chat Area Effect - Volumetric Light Pulse */
+.chatContent_f75fb0 {
+    position: relative; /* Context for ::before */
+}
+.chatContent_f75fb0::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1; /* Above background image, below chat messages */
+    animation: volumetricPulse 10s infinite cubic-bezier(0.4, 0, 0.6, 1);
+    border-radius: 8px; 
+    opacity: 0.1; /* Keep it subtle but intense */
 }
 
 /***TRANSPARENT CODES***/
@@ -1075,39 +1160,6 @@ div[class*="wrapper__44b0c"][aria-label*="Idle"]
 div[class*="wrapper__44b0c"][aria-label*="Online"]
 > svg[class="mask__44b0c svg__44b0c"] {
     filter: drop-shadow(0 0 3px var(--rs-online-color)) !important;
-}
-
-/*theme background image with **GLOBAL SHIMMER/GLOSS** effect */
-.bg__960e4 {
-    background-image: var(--background-image) !important;
-    opacity: var(--bg-opacity) !important;
-    background-attachment: var(--background-attachment, fixed) !important;
-    background-size: var(--background-size, cover) !important;
-    background-position: var(--background-position, center) !important;
-    position: relative; /* Needed for the pseudo-element */
-    overflow: hidden;
-}
-
-.bg__960e4::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-    z-index: -1;
-    
-    /* Simulate a slow, glossy/shimmering reflection */
-    background: linear-gradient(
-        90deg,
-        rgba(var(--shimmer-color), 0) 0%,
-        rgba(var(--shimmer-color), var(--shimmer-intensity)) 50%,
-        rgba(var(--shimmer-color), 0) 100%
-    );
-    background-size: 200% 100%;
-    animation: slowShimmer 15s infinite linear;
-    mix-blend-mode: overlay;
 }
 
 /*remove those annoying shadow on top of the chats*/
@@ -2188,4 +2240,66 @@ html.theme-light .fieldSpacerBottom__1fed1 {
 /* transparency fix for discord store, shop, collections, etc */
 .page__1feb0, .shopScroll__08415, .shopScroll__1feb0, .filterBar__1feb0, .body__08415, .mainTableContainer__09a38, .mainTableContainer__09a38 .sidebar__09a38 {
     background-color: transparent !important;
+}
+
+/* ==================================== */
+/* C R A Z I E R   E F F E C T S */
+/* ==================================== */
+
+/* Server List 3D/Plasma Effect */
+.listItem-3Smokg {
+    transition: transform 0.5s ease-out, filter 0.5s ease-out, box-shadow 0.5s ease-out;
+}
+
+.listItem-3Smokg:hover {
+    /* 3D Tilt Effect - Heavy Rendering */
+    transform: perspective(1000px) rotateX(10deg) rotateY(-5deg) scale(1.1);
+    z-index: 100;
+    /* Plasma Glow Border */
+    filter: drop-shadow(0 0 10px rgba(0, 255, 255, 0.9));
+    animation: plasmaGlow 5s infinite alternate;
+}
+
+/* Extreme Glitch/Flicker on Message Selection */
+.message__5126c:hover,
+.message__5126c.selected__5126c {
+    background-color: rgba(var(--accentcolor), 0.1) !important;
+    /* Aggressive shadow effect */
+    box-shadow: 
+        1px 1px 0px rgba(var(--glitch-shadow-1), 1), 
+        -1px -1px 0px rgba(var(--glitch-shadow-2), 1), 
+        3px 3px 0px #FF0000, 
+        -3px -3px 0px #00FF00;
+    animation: glitchFlicker 0.1s infinite steps(2);
+    transition: none; /* Crucial for glitch effect */
+}
+
+/* Crazier Typing Indicator - Glowing, Pulsing Text */
+.typing__6d39d {
+    position: relative;
+    background: linear-gradient(90deg, #ff00cc, #3333ff, #ffcc00);
+    background-size: 400% 400%;
+    border-radius: 10px;
+    padding: 8px;
+    box-shadow: 0 0 20px #ff00cc, 0 0 30px #3333ff;
+    animation: plasmaGlow 3s infinite;
+    z-index: 999;
+    overflow: hidden;
+}
+
+.typing__6d39d::after {
+    content: '... H E A V Y L O A D I N G ...';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-weight: bold;
+    color: white;
+    text-shadow: 0 0 5px black, 0 0 10px rgba(255, 255, 255, 0.8);
+    animation: glitchFlicker 0.5s infinite;
+    white-space: nowrap;
+}
+
+.typing__6d39d * {
+    visibility: hidden; /* Hide default elements like avatar/dots */
 }
