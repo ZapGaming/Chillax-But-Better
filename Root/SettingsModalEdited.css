@@ -1,30 +1,3 @@
-/* ======================================================== */
-/*           ANIME FLOATING GLASS CONFIGURATION             */
-/* ======================================================== */
-
-/* 1. Animation Definitions (New Addition) */
-@keyframes genshinFloat {
-    0% { transform: translateY(0px); }
-    50% { transform: translateY(-6px); }
-    100% { transform: translateY(0px); }
-}
-
-@keyframes genshinFloatDelayed {
-    0% { transform: translateY(0px); }
-    50% { transform: translateY(-8px); }
-    100% { transform: translateY(0px); }
-}
-
-@keyframes starRain {
-    0% { background-position: 0% 0%; }
-    100% { background-position: -500px 1000px; }
-}
-
-/* ======================================================== */
-/*               YOUR PROVIDED LOGIC & VARIABLES            */
-/*          (Modified purely for separation effects)        */
-/* ======================================================== */
-
 #app-mount .baseLayer__960e4 {
     opacity: 1 !important;
     transform: unset !important;
@@ -36,17 +9,10 @@
     animation: inherit !important;
 }
 
-/* MODIFIED: Added Star/Particle Animation to the backdrop */
 #app-mount .layer__960e4.stop-animations:first-child::after {
     content: "" !important;
     position: fixed !important;
-    /* Keeps your logic but adds star gradient overlay */
-    background: 
-        radial-gradient(circle, rgba(255,255,255,0.8) 1px, transparent 1px),
-        radial-gradient(circle, rgba(255,255,255,0.5) 1px, transparent 1px),
-        rgb(0, 0, 0) !important;
-    background-size: 250px 250px, 100px 100px, cover !important; 
-    animation: starRain 60s linear infinite;
+    background: rgb(0, 0, 0) !important;
     top: 0 !important;
     right: 0 !important;
     bottom: 0 !important;
@@ -56,48 +22,44 @@
     opacity: 0.85 !important;
     z-index: 999 !important;
     pointer-events: none !important;
-    backdrop-filter: blur(8px);
 }
 
-/* MODIFIED: Made the main container TRANSPARENT to allow "Separation" */
 .theme-light #app-mount .layer__960e4 ~ .layer__960e4 {
     position: absolute !important;
     top: 0 !important;
     right: 0 !important;
     bottom: 0 !important;
     left: 0 !important;
-    background: transparent !important; /* Changed from var so islands can float */
+    background: var(--themelightsettingsmodalbackground) !important;
     border-radius: 5px !important;
-    box-shadow: none !important;        /* Shadow removed from parent */
+    box-shadow: var(--elevation-high) !important;
     width: var(--settingsmodalwidth) !important;
     height: var(--settingsmodalheight) !important;
     margin: auto !important;
     padding: 0 !important;
-    overflow: visible !important;       /* Changed to visible for glow effects */
+    overflow: hidden !important;
     contain: unset !important;
     z-index: 1000 !important;
 }
 
-/* MODIFIED: Made the main container TRANSPARENT to allow "Separation" */
 .theme-dark #app-mount .layer__960e4 ~ .layer__960e4 {
     position: absolute !important;
     top: 0 !important;
     right: 0 !important;
     bottom: 0 !important;
     left: 0 !important;
-    background: transparent !important; /* Changed from var so islands can float */
+    background: var(--themedarksettingsmodalbackground) !important;
     border-radius: 5px !important;
-    box-shadow: none !important;        /* Shadow removed from parent */
+    box-shadow: var(--elevation-high) !important;
     width: var(--settingsmodalwidth) !important;
     height: var(--settingsmodalheight) !important;
     margin: auto !important;
     padding: 0 !important;
-    overflow: visible !important;       /* Changed to visible for glow effects */
+    overflow: hidden !important;
     contain: unset !important;
     z-index: 1000 !important;
 }
 
-/* MODIFIED: Layout rules to create the GAP between Sidebar and Content */
 #app-mount .layer__960e4 ~ .layer__960e4 > div,
 #app-mount .layer__960e4 ~ .layer__960e4 .standardSidebarView__23e6b {
     position: static !important;
@@ -106,58 +68,24 @@
     height: 100% !important;
     margin: unset !important;
     padding: unset !important;
-    overflow: visible !important;       /* Visible for popouts */
-    display: flex !important;
-    gap: 35px;                          /* THE GAP SEPARATING THE ISLANDS */
+    overflow: hidden !important;
 }
 
-/* MODIFIED: SIDEBAR ISLAND STYLING */
 #app-mount .layer__960e4 ~ .layer__960e4 .sidebar__23e6b {
-    width: 240px !important; /* Increased slightly for look */
-    padding: 20px 10px !important;
-    /* Frosted Glass Effect */
-    background: color-mix(in srgb, var(--background-secondary) 60%, transparent) !important;
-    backdrop-filter: blur(15px);
-    border: 1px solid rgba(255,255,255,0.1);
-    border-radius: 25px !important; /* Anime Roundness */
-    box-shadow: 
-        0 0 0 1px rgba(255,255,255,0.05), 
-        0 10px 40px rgba(0,0,0,0.5); 
-    /* Animation */
-    animation: genshinFloat 6s ease-in-out infinite;
-    z-index: 10;
+    width: 218px !important;
+    padding: 20px 6px 20px 20px !important;
 }
 
-/* MODIFIED: CONTENT ISLAND STYLING */
 #app-mount .layer__960e4 ~ .layer__960e4 .contentColumnDefault__23e6b {
     padding: 20px 40px !important;
-    flex-grow: 1;
-    /* Frosted Glass Effect */
-    background: color-mix(in srgb, var(--background-primary) 65%, transparent) !important;
-    backdrop-filter: blur(15px);
-    border: 1px solid rgba(255,255,255,0.1);
-    border-radius: 25px !important; /* Anime Roundness */
-    box-shadow: 
-        0 0 0 1px rgba(255,255,255,0.05),
-        0 10px 40px rgba(0,0,0,0.5),
-        inset 0 0 60px rgba(0,0,0,0.1);
-    /* Animation (Delayed) */
-    animation: genshinFloatDelayed 7s ease-in-out infinite;
 }
 
 #app-mount .layer__960e4 ~ .layer__960e4 .side_aa8da2 {
-    height: 100% !important;
-    /* Ensure scrollbar works inside the island */
-    overflow: hidden scroll !important; 
-    border-radius: 25px;
-}
-#app-mount .layer__960e4 ~ .layer__960e4 .side_aa8da2::-webkit-scrollbar {
-    display: none;
+    height: var(--settingsmodalheight) !important;
 }
 
 #app-mount .layer__960e4 ~ .layer__960e4 .header_aa8da2 {
-    max-width: unset !important;
-    text-shadow: 0 0 10px rgba(255,255,255,0.3);
+    max-width: calc(var(--settingsmodalwidth) - 256px) !important;;
 }
 
 /* the below one BD specific? Vencord don't seems to have it*/
@@ -183,42 +111,22 @@
     max-height: unset !important;
     margin: 0 !important;
     padding: 0 !important;
-    /* Changed Opacity to 1 so the close button is visible */
-    opacity: 1 !important; 
+    opacity: 0 !important;
     cursor: default !important;
 }
 
-/* Close Button Positioning - Floating independently */
 #app-mount .layer__960e4 ~ .layer__960e4 .toolsContainer__23e6b {
     position: fixed !important;
-    top: calc(50% - (var(--settingsmodalheight)/2)) !important;
-    left: calc(50% + (var(--settingsmodalwidth)/2) + 20px) !important;
-    right: unset !important;
-    width: 50px !important;
-    height: 50px !important;
-    z-index: 2000 !important;
-    animation: genshinFloat 6s ease-in-out infinite;
-}
-
-/* Close Button Styling - Glass Orb */
-#app-mount .layer__960e4 ~ .layer__960e4 .toolsContainer__23e6b .closeButton_c2b141 {
-    cursor: pointer !important;
-    border-radius: 50% !important;
-    border: 2px solid rgba(255,255,255,0.2) !important;
-    background: color-mix(in srgb, var(--background-secondary) 50%, transparent) !important;
-    backdrop-filter: blur(10px);
-    transition: 0.3s;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-}
-
-#app-mount .layer__960e4 ~ .layer__960e4 .toolsContainer__23e6b .closeButton_c2b141:hover {
-    transform: rotate(90deg);
-    background: var(--background-secondary) !important;
-    box-shadow: 0 0 20px var(--accentcolor, var(--brand-experiment, #7289da));
+    top: 22px !important;
+    z-index: -1 !important;
 }
 
 #app-mount .layer__960e4 ~ .layer__960e4 .toolbar__9293f {
     display: none !important;
+}
+
+#app-mount .layer__960e4 ~ .layer__960e4 .header_aa8da2 {
+    max-width: calc(var(--settingsmodalwidth) - 730px) !important;
 }
 
 #app-mount .root__5c9fc {
@@ -294,21 +202,22 @@
     z-index: -1 !important;
 }
 
-/* Force standard internal backgrounds to transparent so the Glass Island backgrounds show through */
 .theme-dark .sidebarRegion__23e6b {
-    background: transparent !important;
+    background: var(--sidebar-colour);
 }
+
 .theme-light .sidebarRegion__23e6b {
-    background: transparent !important;
-}
-.layer__960e4 ~ .layer__960e4 .contentRegion__23e6b, 
-.layer__960e4 ~ .layer__960e4 .contentRegionScroller__23e6b {
-    background: transparent !important;
+    background: var(--sidebar-colour);
 }
 
 .contentRegion__23e6b {
     zoom: 0.9 !important;
 }
+
+/*
+ What is this one `premiumFeatureBorder__65c15?
+ A comment would have helped
+*/
 
 .premiumFeatureBorder__65c15 {
     background: linear-gradient(var(--background-primary), var(--background-primary)) padding-box border-box;
@@ -317,21 +226,6 @@
 /* hide hover underline on selected tab */
 .selected_aa8da2:after {
     background: transparent !important;
-}
-
-.side_aa8da2 .item_aa8da2 {
-    transition: 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    border-radius: 50px !important; /* Anime Pill Shape */
-    margin-bottom: 3px;
-}
-.side_aa8da2 .item_aa8da2:hover {
-    background: rgba(255,255,255,0.08) !important;
-    transform: translateX(5px);
-}
-.side_aa8da2 .item_aa8da2.selected_aa8da2 {
-    background: linear-gradient(90deg, rgba(255,255,255,0.1), transparent) !important;
-    color: var(--accentcolor, #fff) !important;
-    border-left: 3px solid var(--accentcolor, #fff);
 }
 
 .side_aa8da2 .item_aa8da2::after {
@@ -344,7 +238,7 @@
     display: none !important;
 }
 
-/*user setting redesign - RETAINING YOUR EXACT CODE */
+/*user setting redesign*/
 .fieldButton__1fed1.button_a22cb0[aria-label="Remove phone number"] {
     box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
     font-family: "Roboto";
@@ -421,7 +315,13 @@ div[class="field__1fed1"] > button[aria-label="Edit username"][class="button_a22
     width: 100% !important;
 }
 
-/* Fixed the blur issues... retaining your logic */
+/*
+    Fixed the blur issues of the `field__1fed1` items.
+    Issue was not having enough height(was being
+    overridden by a 3rd party AccountDetailsGrid addon).
+    However, the repository got so I forked the addon
+    to our repo for now.
+ */
 .field__1fed1 {
     border-radius: 8px;
     max-height: none;
@@ -431,8 +331,6 @@ div[class="field__1fed1"] > button[aria-label="Edit username"][class="button_a22
     position: relative;
     overflow-y: scroll;
     height: 150px !important;
-    /* Added subtle border to match glass theme */
-    border: 1px solid rgba(255,255,255,0.05);
 }
 
 .field__1fed1 .fieldButton__1fed1 {
@@ -440,7 +338,7 @@ div[class="field__1fed1"] > button[aria-label="Edit username"][class="button_a22
 }
 
 html.theme-dark .field__1fed1 {
-    background-color: rgba(51, 49, 53, 0.6) !important; /* Added opacity */
+    background-color: #333135;
 }
 
 html.theme-light .field__1fed1 {
@@ -524,12 +422,6 @@ html.theme-dark .fieldSpacerBottom__1fed1 {
     box-shadow: none;
 }
 
-/* Modded this one slightly to support anime border */
-.accountProfileCard__1fed1 {
-    border-radius: 12px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-}
-
 .button_a22cb0 {
     border-radius: 45px;
     box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
@@ -551,7 +443,6 @@ html.theme-light .button_a22cb0 {
 .button_a22cb0:hover {
     background: rgb(0, 0, 0) !important;
     transition: 0.1s;
-    box-shadow: 0 0 10px rgba(0,0,0,0.5); /* Anime glow on hover */
 }
 
 html.theme-dark .button_a22cb0:hover {
@@ -638,6 +529,8 @@ html.theme-light .children__7bffb .buttonContainer__6ca73 .critical-secondary_a2
     box-shadow: 0px 15px 20px rgba(229, 46, 46, 0.4);
 }
 
+/* Done */
+
 /* For discord checkpoint stuff */
 #app-mount .layerContainer__59d0d .root__5c9fc {
     contain: strict !important;
@@ -645,8 +538,4 @@ html.theme-light .children__7bffb .buttonContainer__6ca73 .critical-secondary_a2
     width: 100% !important;
     height: 100% !important;
     overflow: unset !important
-}
-/* Reset Transform from your code */
-#app-mount .root__5c9fc.enterDone__5c9fc {
-    transform: unset !important;
 }
