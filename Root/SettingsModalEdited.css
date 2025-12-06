@@ -12,14 +12,14 @@
 #app-mount .layer__960e4.stop-animations:first-child::after {
     content: "" !important;
     position: fixed !important;
-    background: rgb(0, 0, 0) !important;
+    background: repeating-conic-gradient(from 45deg, lime 0%, aqua 5%, magenta 12.5%, gold 20%, lime 25%) !important;
     top: 0 !important;
     right: 0 !important;
     bottom: 0 !important;
     left: 0 !important;
     margin: 0 !important;
     padding: 0 !important;
-    opacity: 0.85 !important;
+    opacity: 0.75 !important;
     z-index: 999 !important;
     pointer-events: none !important;
 }
