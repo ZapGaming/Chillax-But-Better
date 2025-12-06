@@ -1,280 +1,199 @@
-/* 🕸️ WEDNESDAY ADDAMS: THE SCRYING GLASS (MAXIMUM COMPLEXITY) 🕸️ */
-
-@import url('https://fonts.googleapis.com/css2?family=Special+Elite&display=swap');
-
-/* --- CONFIGURATION --- */
 :root {
-  --wed-width: 960px;
-  --wed-height: 85vh;
-  --wed-blood: #8a0b0b;
-  --wed-glass-surface: rgba(10, 5, 5, 0.7);
-  --wed-text-main: #cecece;
+    /* Genshin / Magical Colors */
+    --genshin-glass-bg: rgba(26, 30, 48, 0.65); /* Deep Blue Frost */
+    --genshin-glass-border: rgba(255, 255, 255, 0.15);
+    --genshin-glow-gold: #d4b069;
+    --genshin-accent-cyan: #72f7e7;
+    --genshin-star-color: rgba(255, 255, 255, 0.8);
+    
+    /* Variable Keep-Alive (from your specific config file) */
+    --themelightsettingsmodalbackground: transparent; /* OVERRIDDEN TO TRANSPARENT FOR FLOATING EFFECT */
+    --themedarksettingsmodalbackground: transparent;  /* OVERRIDDEN TO TRANSPARENT FOR FLOATING EFFECT */
+    /* --settingsmodalwidth: 960px; (Assumed existent) */
+    /* --settingsmodalheight: 80vh; (Assumed existent) */
 }
 
-/* ========================================================================
-   1. THE "VOID" BACKDROP (Smoke & Fog)
-   ======================================================================== */
+/* ========================================================= */
+/*              1. THE RAINING STARS ANIMATION               */
+/* ========================================================= */
+
+@keyframes rainingStars {
+    0% { background-position: 0% 0%, 0% 0%; }
+    100% { background-position: -1000px 1000px, 500px 1000px; } /* Moves diagonal */
+}
+
+@keyframes gentleFloat {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-5px); }
+    100% { transform: translateY(0px); }
+}
+
+/* MODIFIED: Your overlay layer now handles the starry sky */
 #app-mount .layer__960e4.stop-animations:first-child::after {
     content: "" !important;
     position: fixed !important;
-    inset: 0 !important;
-    /* Two layers of smoke: One static gradient, one moving GIF */
-    background-image: 
-        radial-gradient(circle at 50% 50%, transparent 20%, #000 90%),
-        repeating-linear-gradient(transparent 0, transparent 2px, black 3px),
-        url("https://media.tenor.com/On7KVXzcTkAAAAAC/smoke-black.gif"); 
-    background-color: #050505 !important;
-    background-size: cover, 100% 4px, cover;
-    background-blend-mode: normal, overlay, normal;
-    backdrop-filter: blur(5px);
+    background: 
+        radial-gradient(white, rgba(255,255,255,.2) 2px, transparent 3px),
+        radial-gradient(white, rgba(255,255,255,.15) 1px, transparent 2px),
+        linear-gradient(to bottom, #111422 0%, #1e2439 100%) !important;
+    background-size: 550px 550px, 350px 350px, cover !important;
+    background-position: 0 0, 0 0, 0 0 !important;
+    top: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    left: 0 !important;
+    opacity: 1 !important; /* Visible now */
     z-index: 999 !important;
-    opacity: 1 !important;
-    pointer-events: none;
-    animation: fog-pulse 8s infinite ease-in-out;
+    pointer-events: none !important;
+    animation: rainingStars 60s linear infinite !important;
 }
 
-/* ========================================================================
-   2. THE "SCRYING ARTIFACT" (Main Container)
-   ======================================================================== */
-.theme-light #app-mount .layer__960e4 ~ .layer__960e4,
-.theme-dark #app-mount .layer__960e4 ~ .layer__960e4 {
+/* ========================================================= */
+/*              2. YOUR STRUCTURE (MODIFIED)                 */
+/* ========================================================= */
+
+#app-mount .baseLayer__960e4 {
+    opacity: 1 !important;
+    transform: unset !important;
+    will-change: unset !important;
+}
+
+/* MODIFIED: Background set to Transparent so we can separate sections */
+.theme-dark #app-mount .layer__960e4 ~ .layer__960e4,
+.theme-light #app-mount .layer__960e4 ~ .layer__960e4 {
     position: absolute !important;
-    top: 0 !important; right: 0 !important; bottom: 0 !important; left: 0 !important;
+    top: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    left: 0 !important;
+    background: transparent !important; /* Makes the main box invisible */
+    border-radius: 0px !important;      /* Removed border here */
+    box-shadow: none !important;        /* Removed shadow here */
+    width: var(--settingsmodalwidth) !important;
+    height: var(--settingsmodalheight) !important;
     margin: auto !important;
-    width: var(--wed-width) !important;
-    height: var(--wed-height) !important;
-    
-    /* GLASS & FLUID SURFACE */
-    background-color: var(--wed-glass-surface) !important;
-    backdrop-filter: blur(20px) contrast(1.2) brightness(0.9);
-    border-radius: 2px !important; /* Harsh industrial corners */
-    
-    /* COMPLEX LAYERING: */
-    /* 1. Spotlight from top (Interrogation feel) */
-    /* 2. Blood dripping from top */
-    /* 3. Noise/Grain texture */
-    /* 4. Vignette */
-    background-image: 
-        radial-gradient(circle at 50% -20%, rgba(255, 255, 255, 0.1) 0%, transparent 40%),
-        linear-gradient(180deg, rgba(140, 0, 0, 0.6) 0%, transparent 15%),
-        url('https://grainy-gradients.vercel.app/noise.svg'),
-        radial-gradient(circle at center, transparent 0%, #000 100%);
-    background-size: 100% 100%, 100% 50%, 300px 300px, 100% 100%;
-    background-blend-mode: screen, normal, overlay, multiply;
-
-    /* BORDERS */
-    border: 1px solid rgba(80, 80, 80, 0.3) !important;
-    border-top: 4px solid var(--wed-blood) !important; /* Thick Blood Top */
-    box-shadow: 
-        0 40px 80px rgba(0,0,0,0.9),
-        0 0 0 1px #000,
-        inset 0 0 100px rgba(0,0,0,0.8);
-
-    overflow: hidden !important;
+    padding: 0 !important;
+    overflow: visible !important;       /* visible to allow glows */
     contain: unset !important;
     z-index: 1000 !important;
-    
-    /* The "Scry" Animation - The whole box breathes and distorts slightly */
-    animation: scry-breathing 6s ease-in-out infinite alternate;
+    display: flex !important;           /* Allows separation */
+    gap: 20px;                          /* Space between floating glass panels */
 }
 
-/* === THE GLITCH HEADER TEXT === */
-.theme-dark #app-mount .layer__960e4 ~ .layer__960e4::before {
-    content: "SYSTEM // VISION";
-    position: absolute;
-    top: -45px; left: 0; right: 0;
-    text-align: center;
-    font-family: 'Special Elite', monospace;
-    font-size: 24px;
-    letter-spacing: 10px;
-    color: var(--wed-blood);
-    text-shadow: 0 0 5px red;
-    animation: text-glitch 3s infinite steps(2);
-    pointer-events: none;
+/* Styling the Sidebar as its own floating Island */
+#app-mount .layer__960e4 ~ .layer__960e4 .sidebarRegion__23e6b {
+    background: var(--genshin-glass-bg) !important;
+    backdrop-filter: blur(20px) !important; /* The frosted glass blur */
+    border: 1px solid var(--genshin-glass-border) !important;
+    border-radius: 20px !important;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37) !important;
+    flex: 0 0 250px !important;         /* Fixed width */
+    height: 100% !important;
+    overflow: hidden !important;
 }
 
-/* === SCRATCHED RUNE WATERMARK === */
-.theme-dark #app-mount .layer__960e4 ~ .layer__960e4::after {
-    content: "👁";
-    position: absolute;
-    bottom: -50px; right: -50px;
-    font-size: 300px;
-    opacity: 0.03;
-    filter: blur(2px);
-    pointer-events: none;
-    z-index: 0;
-    transform: rotate(-20deg);
+/* Styling the Content (Right Side) as its own floating Island */
+#app-mount .layer__960e4 ~ .layer__960e4 .contentRegion__23e6b {
+    background: var(--genshin-glass-bg) !important;
+    backdrop-filter: blur(20px) !important; /* The frosted glass blur */
+    border: 1px solid var(--genshin-glass-border) !important;
+    border-radius: 20px !important;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37) !important;
+    flex: 1 !important;
+    height: 100% !important;
+    position: relative !important;
+    animation: gentleFloat 6s ease-in-out infinite; /* Content slowly bobs up and down */
 }
 
-/* ========================================================================
-   3. INTERNAL UI & TYPEWRITER TEXT
-   ======================================================================== */
-* { font-family: 'Special Elite', monospace; }
-
-/* Hide internal backgrounds so we see the Foggy Glass */
-#app-mount .layer__960e4 ~ .layer__960e4 > div,
-#app-mount .layer__960e4 ~ .layer__960e4 .standardSidebarView__23e6b,
-.theme-dark .sidebarRegion__23e6b, 
-.theme-light .sidebarRegion__23e6b,
-.contentRegion__23e6b {
+/* Force specific internal dimensions to match the new flex layout */
+#app-mount .layer__960e4 ~ .layer__960e4 .standardSidebarView__23e6b {
     background: transparent !important;
+    width: 100% !important;
+    display: flex !important;
+    position: static !important;
 }
 
-/* Darken the content column slightly for readability */
-#app-mount .layer__960e4 ~ .layer__960e4 .contentColumnDefault__23e6b {
-    background: rgba(0,0,0,0.4) !important;
-    padding: 20px 40px !important;
-    box-shadow: inset 10px 0 20px rgba(0,0,0,0.5);
+#app-mount .layer__960e4 ~ .layer__960e4 .sidebar__23e6b {
+    width: 100% !important;
+    padding: 20px 10px !important;
 }
 
-/* Sidebar Styling */
-.sidebar__23e6b { width: 220px !important; }
-.header-2Kx1US {
-    color: #eee !important;
-    border-bottom: 2px solid var(--wed-blood);
-    margin-bottom: 10px;
-    text-shadow: 2px 2px 0 #000;
-}
+/* ========================================================= */
+/*          3. GENSHIN UI DETAILS (VISUALS ONLY)             */
+/* ========================================================= */
+
+/* Sidebar Hover/Selected - The "Genshin Menu" selection */
 .side_aa8da2 .item_aa8da2 {
-    color: #999 !important;
-    transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    border-radius: 50px !important; /* Pill shape */
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    color: #dedede !important;
 }
 .side_aa8da2 .item_aa8da2:hover {
-    background: transparent !important;
-    color: #fff !important;
-    transform: translateX(10px);
-    text-shadow: 0 0 10px rgba(255,255,255,0.5);
+    background: rgba(255, 255, 255, 0.1) !important;
+    transform: translateX(5px); /* Move slightly right on hover */
+    text-shadow: 0 0 8px white;
 }
-.side_aa8da2 .item_aa8da2.selected_aa8da2 {
-    background: linear-gradient(90deg, rgba(138,11,11,0.5), transparent) !important;
-    color: #fff !important;
-    border-left: 3px solid red;
-}
-
-/* ========================================================================
-   4. COMPLEX BUTTONS (The "Typewriter Keys")
-   ======================================================================== */
-/* Apply this to all buttons inside settings */
-.button_a22cb0, .fieldButton__1fed1, .item-26Dhrx {
-    border-radius: 2px !important;
-    background: #0a0a0a !important;
-    border: 1px solid #444 !important;
-    box-shadow: 3px 3px 0px #000 !important; /* Retro clicky shadow */
-    color: #aaa !important;
-    text-transform: uppercase;
-    font-size: 12px;
-    font-weight: bold;
-    letter-spacing: 1px;
-    transition: all 0.1s;
+.side_aa8da2 .selected_aa8da2 {
+    background: linear-gradient(90deg, transparent 0%, rgba(212, 176, 105, 0.2) 100%) !important;
+    color: var(--genshin-glow-gold) !important;
+    border-right: 3px solid var(--genshin-glow-gold) !important;
 }
 
-/* Hover State: The "Nervous" Shake */
-.button_a22cb0:hover, .fieldButton__1fed1:hover, .item-26Dhrx:hover {
-    background: #200000 !important; /* Deep Red */
-    border-color: #f00 !important;
-    color: #fff !important;
-    transform: translate(-1px, -1px);
-    box-shadow: 5px 5px 0px #000 !important;
-    animation: nervous 0.1s infinite;
-    text-shadow: 0 0 5px red;
+/* Close Button (Moved to top right of floating glass) */
+#app-mount .layer__960e4 ~ .layer__960e4 .toolsContainer__23e6b {
+    position: fixed !important;
+    top: 25px !important;
+    right: 25px !important;
+    opacity: 1 !important;
+    z-index: 9999 !important;
+    width: 40px !important;
+    height: 40px !important;
 }
 
-/* ========================================================================
-   5. DESTRUCTIVE ACTIONS (Disable/Delete)
-   ======================================================================== */
-.children__7bffb .critical-primary_a22cb0, 
-.children__7bffb .critical-secondary_a22cb0 {
-    background: transparent !important;
-    border: 2px solid #ff0000 !important;
-    box-shadow: inset 0 0 10px rgba(255,0,0,0.1) !important;
-    color: #ff0000 !important;
-    height: 50px;
-    position: relative;
-    overflow: hidden;
-}
-
-/* Glitch hover effect for Delete buttons */
-.children__7bffb .critical-primary_a22cb0:hover, 
-.children__7bffb .critical-secondary_a22cb0:hover {
-    background: #ff0000 !important;
-    color: #000 !important;
-    box-shadow: 0 0 30px red, inset 0 0 10px black !important;
-    animation: nervous 0.1s infinite;
-}
-
-/* Replace text content with Ominous Warnings */
-.children__7bffb .critical-primary_a22cb0 span, .children__7bffb .critical-secondary_a22cb0 span { visibility: hidden; }
-.children__7bffb .critical-primary_a22cb0::before { content: "DISABLE SOUL"; position: absolute; inset: 0; line-height: 46px; text-align: center; }
-.children__7bffb .critical-secondary_a22cb0::before { content: "ERASE EXISTENCE"; position: absolute; inset: 0; line-height: 46px; text-align: center; }
-
-/* ========================================================================
-   6. USER ACCOUNTS (Your Complex Logic)
-   ======================================================================== */
-.fieldList__1fed1, .field__1fed1, .accountProfileCard__1fed1 {
-    background: rgba(0,0,0,0.5) !important;
-    border: 1px solid #333 !important;
-    border-radius: 4px;
-}
-.field__1fed1 { height: 160px !important; overflow-y: scroll; }
-
-/* The Complex Absolute Positioning */
-.fieldButton__1fed1.button_a22cb0[aria-label="Edit username"] {
-    position: absolute; bottom: 10px; width: 92% !important; left: 4%;
-}
-.fieldButton__1fed1.button_a22cb0[aria-label="Remove phone number"] {
-    position: absolute; top: 35px; color: red !important; border-color: red !important;
-}
-.fieldButton__1fed1.button_a22cb0[aria-label="Edit phone number"] {
-    position: absolute; top: 55px;
-}
-
-/* ========================================================================
-   7. EXIT STRATEGY (Close Button)
-   ======================================================================== */
-#app-mount .layer__960e4 ~ .layer__960e4 .closeWrapper-9ScmSq {
-    position: fixed; top: 25px; opacity: 1 !important; z-index: 2000; pointer-events: none;
-}
 .closeButton_c2b141 {
-    pointer-events: auto !important;
-    background: #000 !important;
-    border: 2px solid #ff0000 !important;
+    opacity: 1 !important;
+    background: rgba(0,0,0,0.5) !important;
     border-radius: 50% !important;
-    width: 40px !important; height: 40px !important;
-    box-shadow: 0 0 15px rgba(255,0,0,0.4);
-    transition: 0.4s ease;
+    border: 2px solid var(--genshin-glass-border) !important;
+    cursor: pointer !important;
+    color: #fff !important;
+    transition: 0.2s;
 }
 .closeButton_c2b141:hover {
-    transform: rotate(180deg) scale(1.2);
-    box-shadow: 0 0 30px #ff0000;
-    background: #300000 !important;
+    background: var(--genshin-accent-cyan) !important;
+    color: #000 !important;
+    transform: rotate(90deg);
 }
 
-/* ========================================================================
-   8. ANIMATIONS (The Magic)
-   ======================================================================== */
-@keyframes nervous {
-    0% { transform: translate(0, 0); }
-    20% { transform: translate(1px, 1px); }
-    40% { transform: translate(-1px, -1px); }
-    60% { transform: translate(-1px, 1px); }
-    80% { transform: translate(1px, -1px); }
-    100% { transform: translate(0, 0); }
+/* Your User Profile Overrides Refined */
+.field__1fed1 {
+    background: rgba(0, 0, 0, 0.3) !important; /* Darker glass for input fields */
+    border: 1px solid rgba(255,255,255,0.05);
+    backdrop-filter: none !important;
 }
 
-@keyframes scry-breathing {
-    0% { box-shadow: 0 40px 80px rgba(0,0,0,0.9); border-color: rgba(80,80,80,0.3); }
-    50% { box-shadow: 0 40px 80px rgba(50,0,0,0.6), 0 0 30px rgba(100,0,0,0.2); border-color: rgba(139,0,0,0.5); }
-    100% { box-shadow: 0 40px 80px rgba(0,0,0,0.9); border-color: rgba(80,80,80,0.3); }
+.accountProfileCard__1fed1 {
+    background: linear-gradient(135deg, rgba(32, 34, 46, 0.9) 0%, rgba(55, 60, 80, 0.9) 100%) !important;
+    border-bottom: 4px solid var(--genshin-glow-gold) !important; /* Vision Border */
 }
 
-@keyframes text-glitch {
-    0% { transform: skewX(0deg); opacity: 1; }
-    5% { transform: skewX(20deg); opacity: 0.8; }
-    10% { transform: skewX(-20deg); opacity: 1; }
-    15% { transform: skewX(0deg); }
-    100% { transform: skewX(0deg); }
+/* Hides scrollbars for cleanliness */
+::-webkit-scrollbar { display: none !important; }
+
+/* Keep your Original Delete/Disable Buttons */
+.children__7bffb .critical-primary_a22cb0, .children__7bffb .critical-secondary_a22cb0 {
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(255, 68, 68, 0.3);
 }
 
-/* Clean up debris */
-.premiumFeatureBorder__65c15 { display: none; }
-.userInfo__1fed1 .button_a22cb0.sm_a22cb0 { display: none !important; }
+/* The Close Wrapper Safety Net from your code */
+#app-mount .root__5c9fc .closeWrapper-9ScmSq {
+    position: fixed !important;
+    top: 22px !important;
+    z-index: -1 !important;
+}
+
+/* Reset Transform from your code */
+#app-mount .root__5c9fc.enterDone__5c9fc {
+    transform: unset !important;
+}
