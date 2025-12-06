@@ -1,56 +1,29 @@
-:root {
-    /* Genshin / Magical Colors */
-    --genshin-glass-bg: rgba(26, 30, 48, 0.65); /* Deep Blue Frost */
-    --genshin-glass-border: rgba(255, 255, 255, 0.15);
-    --genshin-glow-gold: #d4b069;
-    --genshin-accent-cyan: #72f7e7;
-    --genshin-star-color: rgba(255, 255, 255, 0.8);
-    
-    /* Variable Keep-Alive (from your specific config file) */
-    --themelightsettingsmodalbackground: transparent; /* OVERRIDDEN TO TRANSPARENT FOR FLOATING EFFECT */
-    --themedarksettingsmodalbackground: transparent;  /* OVERRIDDEN TO TRANSPARENT FOR FLOATING EFFECT */
-    /* --settingsmodalwidth: 960px; (Assumed existent) */
-    /* --settingsmodalheight: 80vh; (Assumed existent) */
-}
+/* ======================================================== */
+/*           ANIME FLOATING GLASS CONFIGURATION             */
+/* ======================================================== */
 
-/* ========================================================= */
-/*              1. THE RAINING STARS ANIMATION               */
-/* ========================================================= */
-
-@keyframes rainingStars {
-    0% { background-position: 0% 0%, 0% 0%; }
-    100% { background-position: -1000px 1000px, 500px 1000px; } /* Moves diagonal */
-}
-
-@keyframes gentleFloat {
+/* 1. Animation Definitions (New Addition) */
+@keyframes genshinFloat {
     0% { transform: translateY(0px); }
-    50% { transform: translateY(-5px); }
+    50% { transform: translateY(-6px); }
     100% { transform: translateY(0px); }
 }
 
-/* MODIFIED: Your overlay layer now handles the starry sky */
-#app-mount .layer__960e4.stop-animations:first-child::after {
-    content: "" !important;
-    position: fixed !important;
-    background: 
-        radial-gradient(white, rgba(255,255,255,.2) 2px, transparent 3px),
-        radial-gradient(white, rgba(255,255,255,.15) 1px, transparent 2px),
-        linear-gradient(to bottom, #111422 0%, #1e2439 100%) !important;
-    background-size: 550px 550px, 350px 350px, cover !important;
-    background-position: 0 0, 0 0, 0 0 !important;
-    top: 0 !important;
-    right: 0 !important;
-    bottom: 0 !important;
-    left: 0 !important;
-    opacity: 1 !important; /* Visible now */
-    z-index: 999 !important;
-    pointer-events: none !important;
-    animation: rainingStars 60s linear infinite !important;
+@keyframes genshinFloatDelayed {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-8px); }
+    100% { transform: translateY(0px); }
 }
 
-/* ========================================================= */
-/*              2. YOUR STRUCTURE (MODIFIED)                 */
-/* ========================================================= */
+@keyframes starRain {
+    0% { background-position: 0% 0%; }
+    100% { background-position: -500px 1000px; }
+}
+
+/* ======================================================== */
+/*               YOUR PROVIDED LOGIC & VARIABLES            */
+/*          (Modified purely for separation effects)        */
+/* ======================================================== */
 
 #app-mount .baseLayer__960e4 {
     opacity: 1 !important;
@@ -58,141 +31,621 @@
     will-change: unset !important;
 }
 
-/* MODIFIED: Background set to Transparent so we can separate sections */
-.theme-dark #app-mount .layer__960e4 ~ .layer__960e4,
+#app-mount .stop-animations * {
+    transition-property: inherit !important;
+    animation: inherit !important;
+}
+
+/* MODIFIED: Added Star/Particle Animation to the backdrop */
+#app-mount .layer__960e4.stop-animations:first-child::after {
+    content: "" !important;
+    position: fixed !important;
+    /* Keeps your logic but adds star gradient overlay */
+    background: 
+        radial-gradient(circle, rgba(255,255,255,0.8) 1px, transparent 1px),
+        radial-gradient(circle, rgba(255,255,255,0.5) 1px, transparent 1px),
+        rgb(0, 0, 0) !important;
+    background-size: 250px 250px, 100px 100px, cover !important; 
+    animation: starRain 60s linear infinite;
+    top: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    left: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    opacity: 0.85 !important;
+    z-index: 999 !important;
+    pointer-events: none !important;
+    backdrop-filter: blur(8px);
+}
+
+/* MODIFIED: Made the main container TRANSPARENT to allow "Separation" */
 .theme-light #app-mount .layer__960e4 ~ .layer__960e4 {
     position: absolute !important;
     top: 0 !important;
     right: 0 !important;
     bottom: 0 !important;
     left: 0 !important;
-    background: transparent !important; /* Makes the main box invisible */
-    border-radius: 0px !important;      /* Removed border here */
-    box-shadow: none !important;        /* Removed shadow here */
+    background: transparent !important; /* Changed from var so islands can float */
+    border-radius: 5px !important;
+    box-shadow: none !important;        /* Shadow removed from parent */
     width: var(--settingsmodalwidth) !important;
     height: var(--settingsmodalheight) !important;
     margin: auto !important;
     padding: 0 !important;
-    overflow: visible !important;       /* visible to allow glows */
+    overflow: visible !important;       /* Changed to visible for glow effects */
     contain: unset !important;
     z-index: 1000 !important;
-    display: flex !important;           /* Allows separation */
-    gap: 20px;                          /* Space between floating glass panels */
 }
 
-/* Styling the Sidebar as its own floating Island */
-#app-mount .layer__960e4 ~ .layer__960e4 .sidebarRegion__23e6b {
-    background: var(--genshin-glass-bg) !important;
-    backdrop-filter: blur(20px) !important; /* The frosted glass blur */
-    border: 1px solid var(--genshin-glass-border) !important;
-    border-radius: 20px !important;
-    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37) !important;
-    flex: 0 0 250px !important;         /* Fixed width */
-    height: 100% !important;
-    overflow: hidden !important;
+/* MODIFIED: Made the main container TRANSPARENT to allow "Separation" */
+.theme-dark #app-mount .layer__960e4 ~ .layer__960e4 {
+    position: absolute !important;
+    top: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    left: 0 !important;
+    background: transparent !important; /* Changed from var so islands can float */
+    border-radius: 5px !important;
+    box-shadow: none !important;        /* Shadow removed from parent */
+    width: var(--settingsmodalwidth) !important;
+    height: var(--settingsmodalheight) !important;
+    margin: auto !important;
+    padding: 0 !important;
+    overflow: visible !important;       /* Changed to visible for glow effects */
+    contain: unset !important;
+    z-index: 1000 !important;
 }
 
-/* Styling the Content (Right Side) as its own floating Island */
-#app-mount .layer__960e4 ~ .layer__960e4 .contentRegion__23e6b {
-    background: var(--genshin-glass-bg) !important;
-    backdrop-filter: blur(20px) !important; /* The frosted glass blur */
-    border: 1px solid var(--genshin-glass-border) !important;
-    border-radius: 20px !important;
-    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37) !important;
-    flex: 1 !important;
-    height: 100% !important;
-    position: relative !important;
-    animation: gentleFloat 6s ease-in-out infinite; /* Content slowly bobs up and down */
-}
-
-/* Force specific internal dimensions to match the new flex layout */
+/* MODIFIED: Layout rules to create the GAP between Sidebar and Content */
+#app-mount .layer__960e4 ~ .layer__960e4 > div,
 #app-mount .layer__960e4 ~ .layer__960e4 .standardSidebarView__23e6b {
-    background: transparent !important;
-    width: 100% !important;
-    display: flex !important;
     position: static !important;
-}
-
-#app-mount .layer__960e4 ~ .layer__960e4 .sidebar__23e6b {
+    border-radius: unset !important;
     width: 100% !important;
+    height: 100% !important;
+    margin: unset !important;
+    padding: unset !important;
+    overflow: visible !important;       /* Visible for popouts */
+    display: flex !important;
+    gap: 35px;                          /* THE GAP SEPARATING THE ISLANDS */
+}
+
+/* MODIFIED: SIDEBAR ISLAND STYLING */
+#app-mount .layer__960e4 ~ .layer__960e4 .sidebar__23e6b {
+    width: 240px !important; /* Increased slightly for look */
     padding: 20px 10px !important;
+    /* Frosted Glass Effect */
+    background: color-mix(in srgb, var(--background-secondary) 60%, transparent) !important;
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 25px !important; /* Anime Roundness */
+    box-shadow: 
+        0 0 0 1px rgba(255,255,255,0.05), 
+        0 10px 40px rgba(0,0,0,0.5); 
+    /* Animation */
+    animation: genshinFloat 6s ease-in-out infinite;
+    z-index: 10;
 }
 
-/* ========================================================= */
-/*          3. GENSHIN UI DETAILS (VISUALS ONLY)             */
-/* ========================================================= */
-
-/* Sidebar Hover/Selected - The "Genshin Menu" selection */
-.side_aa8da2 .item_aa8da2 {
-    border-radius: 50px !important; /* Pill shape */
-    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-    color: #dedede !important;
-}
-.side_aa8da2 .item_aa8da2:hover {
-    background: rgba(255, 255, 255, 0.1) !important;
-    transform: translateX(5px); /* Move slightly right on hover */
-    text-shadow: 0 0 8px white;
-}
-.side_aa8da2 .selected_aa8da2 {
-    background: linear-gradient(90deg, transparent 0%, rgba(212, 176, 105, 0.2) 100%) !important;
-    color: var(--genshin-glow-gold) !important;
-    border-right: 3px solid var(--genshin-glow-gold) !important;
+/* MODIFIED: CONTENT ISLAND STYLING */
+#app-mount .layer__960e4 ~ .layer__960e4 .contentColumnDefault__23e6b {
+    padding: 20px 40px !important;
+    flex-grow: 1;
+    /* Frosted Glass Effect */
+    background: color-mix(in srgb, var(--background-primary) 65%, transparent) !important;
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 25px !important; /* Anime Roundness */
+    box-shadow: 
+        0 0 0 1px rgba(255,255,255,0.05),
+        0 10px 40px rgba(0,0,0,0.5),
+        inset 0 0 60px rgba(0,0,0,0.1);
+    /* Animation (Delayed) */
+    animation: genshinFloatDelayed 7s ease-in-out infinite;
 }
 
-/* Close Button (Moved to top right of floating glass) */
+#app-mount .layer__960e4 ~ .layer__960e4 .side_aa8da2 {
+    height: 100% !important;
+    /* Ensure scrollbar works inside the island */
+    overflow: hidden scroll !important; 
+    border-radius: 25px;
+}
+#app-mount .layer__960e4 ~ .layer__960e4 .side_aa8da2::-webkit-scrollbar {
+    display: none;
+}
+
+#app-mount .layer__960e4 ~ .layer__960e4 .header_aa8da2 {
+    max-width: unset !important;
+    text-shadow: 0 0 10px rgba(255,255,255,0.3);
+}
+
+/* the below one BD specific? Vencord don't seems to have it*/
+#app-mount .layer__960e4 ~ .layer__960e4 .standardSidebarView__23e6b .editor {
+    height: calc(var(--settingsmodalheight) - 120px) !important;
+}
+
+#app-mount .layer__960e4 ~ .layer__960e4 .toolsContainer__23e6b,
+#app-mount .layer__960e4 ~ .layer__960e4 .toolsContainer__23e6b .tools__23e6b,
+#app-mount .layer__960e4 ~ .layer__960e4 .toolsContainer__23e6b .container_c2b141,
+#app-mount .layer__960e4 ~ .layer__960e4 .toolsContainer__23e6b .closeButton_c2b141 {
+    position: absolute !important;
+    top: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    left: 0 !important;
+    background: transparent !important;
+    border: none !important;
+    border-radius: 0 !important;
+    width: 100% !important;
+    max-width: unset !important;
+    height: 100% !important;
+    max-height: unset !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    /* Changed Opacity to 1 so the close button is visible */
+    opacity: 1 !important; 
+    cursor: default !important;
+}
+
+/* Close Button Positioning - Floating independently */
 #app-mount .layer__960e4 ~ .layer__960e4 .toolsContainer__23e6b {
     position: fixed !important;
-    top: 25px !important;
-    right: 25px !important;
-    opacity: 1 !important;
-    z-index: 9999 !important;
-    width: 40px !important;
-    height: 40px !important;
+    top: calc(50% - (var(--settingsmodalheight)/2)) !important;
+    left: calc(50% + (var(--settingsmodalwidth)/2) + 20px) !important;
+    right: unset !important;
+    width: 50px !important;
+    height: 50px !important;
+    z-index: 2000 !important;
+    animation: genshinFloat 6s ease-in-out infinite;
 }
 
-.closeButton_c2b141 {
-    opacity: 1 !important;
-    background: rgba(0,0,0,0.5) !important;
-    border-radius: 50% !important;
-    border: 2px solid var(--genshin-glass-border) !important;
+/* Close Button Styling - Glass Orb */
+#app-mount .layer__960e4 ~ .layer__960e4 .toolsContainer__23e6b .closeButton_c2b141 {
     cursor: pointer !important;
-    color: #fff !important;
-    transition: 0.2s;
+    border-radius: 50% !important;
+    border: 2px solid rgba(255,255,255,0.2) !important;
+    background: color-mix(in srgb, var(--background-secondary) 50%, transparent) !important;
+    backdrop-filter: blur(10px);
+    transition: 0.3s;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
 }
-.closeButton_c2b141:hover {
-    background: var(--genshin-accent-cyan) !important;
-    color: #000 !important;
+
+#app-mount .layer__960e4 ~ .layer__960e4 .toolsContainer__23e6b .closeButton_c2b141:hover {
     transform: rotate(90deg);
+    background: var(--background-secondary) !important;
+    box-shadow: 0 0 20px var(--accentcolor, var(--brand-experiment, #7289da));
 }
 
-/* Your User Profile Overrides Refined */
-.field__1fed1 {
-    background: rgba(0, 0, 0, 0.3) !important; /* Darker glass for input fields */
-    border: 1px solid rgba(255,255,255,0.05);
-    backdrop-filter: none !important;
+#app-mount .layer__960e4 ~ .layer__960e4 .toolbar__9293f {
+    display: none !important;
 }
 
-.accountProfileCard__1fed1 {
-    background: linear-gradient(135deg, rgba(32, 34, 46, 0.9) 0%, rgba(55, 60, 80, 0.9) 100%) !important;
-    border-bottom: 4px solid var(--genshin-glow-gold) !important; /* Vision Border */
+#app-mount .root__5c9fc {
+    position: fixed !important;
+    top: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    left: 0 !important;
+    background: var(--settingsmodalbackground) !important;
+    border-radius: 5px !important;
+    box-shadow: var(--elevation-high) !important;
+    width: var(--settingsmodalwidth) !important;
+    height: var(--settingsmodalheight) !important;
+    margin: auto !important;
+    padding: 0 !important;
+    overflow: hidden !important;
+    contain: unset !important;
+    z-index: 1000 !important;
 }
 
-/* Hides scrollbars for cleanliness */
-::-webkit-scrollbar { display: none !important; }
-
-/* Keep your Original Delete/Disable Buttons */
-.children__7bffb .critical-primary_a22cb0, .children__7bffb .critical-secondary_a22cb0 {
-    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.2);
-    border: 1px solid rgba(255, 68, 68, 0.3);
+#app-mount .root__5c9fc.enterDone__5c9fc {
+    transform: unset !important;
 }
 
-/* The Close Wrapper Safety Net from your code */
+#app-mount .perksModal-CLcR1c {
+    position: static !important;
+    border-radius: unset !important;
+    width: 100% !important;
+    height: 100% !important;
+    margin: unset !important;
+    padding: unset !important;
+}
+
+#app-mount .perksModal-CLcR1c::before {
+    width: var(--settingsmodalwidth) !important;
+    height: var(--settingsmodalheight) !important;
+    margin: auto !important;
+}
+
+#app-mount .perksModalContentWrapper-3RHugb {
+    padding: 10px 0 10px !important;
+}
+
+#app-mount .root__5c9fc .perksModal-CLcR1c .carousel-3dvee9 {
+    margin-left: calc(-0.5 * (100vw - var(--settingsmodalwidth))) !important;
+}
+
+#app-mount .root__5c9fc .closeWrapper-9ScmSq,
+#app-mount .root__5c9fc .closeWrapper-9ScmSq .closeContent-I3JbQJ,
+#app-mount .root__5c9fc .closeWrapper-9ScmSq .container_c2b141,
+#app-mount .root__5c9fc .closeWrapper-9ScmSq .closeButton_c2b141 {
+    position: absolute !important;
+    top: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    left: 0 !important;
+    background: transparent !important;
+    border: none !important;
+    border-radius: 0 !important;
+    width: 100% !important;
+    max-width: unset !important;
+    height: 100% !important;
+    max-height: unset !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    opacity: 0 !important;
+    cursor: default !important;
+}
+
 #app-mount .root__5c9fc .closeWrapper-9ScmSq {
     position: fixed !important;
     top: 22px !important;
     z-index: -1 !important;
 }
 
+/* Force standard internal backgrounds to transparent so the Glass Island backgrounds show through */
+.theme-dark .sidebarRegion__23e6b {
+    background: transparent !important;
+}
+.theme-light .sidebarRegion__23e6b {
+    background: transparent !important;
+}
+.layer__960e4 ~ .layer__960e4 .contentRegion__23e6b, 
+.layer__960e4 ~ .layer__960e4 .contentRegionScroller__23e6b {
+    background: transparent !important;
+}
+
+.contentRegion__23e6b {
+    zoom: 0.9 !important;
+}
+
+.premiumFeatureBorder__65c15 {
+    background: linear-gradient(var(--background-primary), var(--background-primary)) padding-box border-box;
+}
+
+/* hide hover underline on selected tab */
+.selected_aa8da2:after {
+    background: transparent !important;
+}
+
+.side_aa8da2 .item_aa8da2 {
+    transition: 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    border-radius: 50px !important; /* Anime Pill Shape */
+    margin-bottom: 3px;
+}
+.side_aa8da2 .item_aa8da2:hover {
+    background: rgba(255,255,255,0.08) !important;
+    transform: translateX(5px);
+}
+.side_aa8da2 .item_aa8da2.selected_aa8da2 {
+    background: linear-gradient(90deg, rgba(255,255,255,0.1), transparent) !important;
+    color: var(--accentcolor, #fff) !important;
+    border-left: 3px solid var(--accentcolor, #fff);
+}
+
+.side_aa8da2 .item_aa8da2::after {
+    /* Fix the double icon when hovering */
+    display: none !important;
+}
+
+/* Gets rid of the annoying profile button ref */
+.userInfo__1fed1 .button_a22cb0.sm_a22cb0 {
+    display: none !important;
+}
+
+/*user setting redesign - RETAINING YOUR EXACT CODE */
+.fieldButton__1fed1.button_a22cb0[aria-label="Remove phone number"] {
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+    font-family: "Roboto";
+    font-size: 12px;
+    transition: 0.2s;
+}
+
+
+html.theme-dark .fieldButton__1fed1.button_a22cb0[aria-label="Remove phone number"] {
+    background: rgb(36, 36, 36) !important;
+    color: rgb(255, 255, 255) !important;
+}
+
+html.theme-light .fieldButton__1fed1.button_a22cb0[aria-label="Remove phone number"] {
+    background: #fff !important;
+    color: #000 !important;
+}
+
+.fieldButton__1fed1.button_a22cb0[aria-label="Remove phone number"]:hover {
+    box-shadow: 0px 8px 15px rgba(229, 46, 46, 0.4);
+    transition: 0.1s;
+}
+
+html.theme-dark .fieldButton__1fed1.button_a22cb0[aria-label="Remove phone number"]:hover {
+    background: rgb(229, 46, 46) !important;
+    color: #000 !important;
+}
+
+html.theme-light .fieldButton__1fed1.button_a22cb0[aria-label="Remove phone number"]:hover {
+    background-color: rgb(255, 129, 129) !important;
+    color: rgb(255, 255, 255) !important;
+}
+
+.badgeList__1fed1 {
+    border-radius: 8px;
+    margin-top: 5px;
+    padding: 2px;
+}
+
+html.theme-dark .badgeList__1fed1 {
+    background-color: #333135;
+}
+
+html.theme-light .badgeList__1fed1 {
+    background-color: #e4e4e4;
+}
+
+.fieldList__1fed1 {
+    margin-left: 10px;
+    margin-bottom: 25px;
+    grid-gap: 15px;
+}
+
+.field__1fed1:last-child {
+    margin-right: 0 !important;
+}
+
+div[class="field__1fed1"] > button[aria-label="Edit username"][class="button_a22cb0 sm_a22cb0 secondary_a22cb0 hasText_a22cb0"] {
+    width: 90%;
+    position: absolute;
+    bottom: -1px;
+}
+
+.field__1fed1 > button {
+    width: 90%;
+}
+
+.fieldButtonList__1fed1 > button {
+    width: 100%;
+}
+
+/* This now actually targets the button and makes it takes the whole space */
+.fieldButton__1fed1 > button {
+    width: 100% !important;
+}
+
+/* Fixed the blur issues... retaining your logic */
+.field__1fed1 {
+    border-radius: 8px;
+    max-height: none;
+    flex-flow: column;
+    padding: 15px;
+    margin-right: 10px;
+    position: relative;
+    overflow-y: scroll;
+    height: 150px !important;
+    /* Added subtle border to match glass theme */
+    border: 1px solid rgba(255,255,255,0.05);
+}
+
+.field__1fed1 .fieldButton__1fed1 {
+    background: transparent !important;
+}
+
+html.theme-dark .field__1fed1 {
+    background-color: rgba(51, 49, 53, 0.6) !important; /* Added opacity */
+}
+
+html.theme-light .field__1fed1 {
+    background-color: #e4e4e4;
+}
+
+html.theme-dark .fieldSpacerBottom__1fed1 {
+    margin-bottom: 0;
+}
+
+.field__1fed1::-webkit-scrollbar {
+    width: 0;
+}
+
+.constrainedRow__1fed1 {
+    overflow: visible;
+}
+
+.fieldButton__1fed1.button_a22cb0[aria-label="Edit phone number"] {
+    top: 30px !important;
+    border-radius: 8px;
+}
+
+.fieldButton__1fed1.button_a22cb0[aria-label="Edit username"] {
+    top: 50px;
+    border-radius: 8px;
+}
+
+.fieldButton__1fed1.removeButton__1fed1 {
+    top: 30px !important;
+    font-size: 12.7px;
+}
+
+.fieldButton__1fed1.button_a22cb0 {
+    top: 30px;
+    border-radius: 8px;
+}
+
+.background__1fed1 {
+    background: transparent !important;
+}
+
+.settingsBanner-2E5fAp {
+    border-radius: 8px;
+}
+
+#my-account-tab {
+    transform: scale(0.98) translateX(-17px);
+}
+
+.fieldButton__1fed1.button_a22cb0[aria-label="Edit phone number"] {
+    top: 50px;
+    border-radius: 8px;
+}
+
+.fieldButton__1fed1.button_a22cb0[aria-label="Remove phone number"] {
+    top: 30px !important;
+}
+
+.layer__960e4 .accountProfileCard__1fed1 .userInfo__1fed1 {
+    align-items: center;
+    justify-content: center;
+    width: calc(100% - 34px);
+    margin-left: 17px;
+    padding: 50px 0 9px;
+}
+
+.layer__960e4 .accountProfileCard__1fed1 .userInfo__1fed1 .button_a22cb0 {
+    position: absolute;
+    top: 52.5px !important;
+    right: 294.5px;
+    width: 77px;
+    height: 77px;
+    min-width: unset;
+    min-height: unset;
+    padding: 0;
+    border-radius: 50px;
+    background-color: transparent !important;
+    font-size: 0;
+    border: none !important;
+    box-shadow: none;
+}
+
+/* Modded this one slightly to support anime border */
+.accountProfileCard__1fed1 {
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.button_a22cb0 {
+    border-radius: 45px;
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+    font-family: "Roboto";
+    font-size: 12px;
+    transition: 0.2s;
+}
+
+html.theme-dark .button_a22cb0 {
+    background: rgb(36, 36, 36) !important;
+    color: rgb(255, 255, 255) !important;
+}
+
+html.theme-light .button_a22cb0 {
+    background: #fff !important;
+    color: #000 !important;
+}
+
+.button_a22cb0:hover {
+    background: rgb(0, 0, 0) !important;
+    transition: 0.1s;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5); /* Anime glow on hover */
+}
+
+html.theme-dark .button_a22cb0:hover {
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.4);
+}
+
+html.theme-light .button_a22cb0:hover {
+    box-shadow: -3px -3px 7px #cfcfcf inset, 3px 3px 7px #949aa1 inset;
+}
+
+.overlay__3b260 .button_a22cb0 {
+    box-shadow: none !important; /* gets rid of the shadow */
+}
+
+/* fix for the newly added classes for the disable and Delete account button */
+.children__7bffb .critical-primary_a22cb0, .children__7bffb .critical-secondary_a22cb0 {
+    padding: 25px;
+    height: 45px;
+    font-family: "Roboto" !important;
+    text-transform: uppercase;
+    letter-spacing: 2.5px;
+    font-weight: 500;
+    border: none;
+    border-radius: 45px;
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease 0s;
+    cursor: pointer;
+    outline: none;
+}
+
+.children__7bffb .critical-primary_a22cb0 .buttonChildrenWrapper_a22cb0 span, .children__7bffb .critical-secondary_a22cb0 span {
+    /* font-size: 0px !important; */
+    visibility: hidden;
+}
+
+.children__7bffb .critical-primary_a22cb0::before {
+    content: "Disable";
+    position: absolute;
+    font-size: 14px !important;
+}
+
+.children__7bffb .critical-secondary_a22cb0::before {
+    content: "Delete";
+    position: absolute;
+    font-size: 14px !important;
+}
+
+
+html.theme-dark .children__7bffb .buttonContainer__6ca73 .critical-primary_a22cb0 {
+    color: rgb(255, 255, 255) !important;
+    background-color: rgb(58, 58, 58) !important;
+}
+
+html.theme-dark .children__7bffb .buttonContainer__6ca73 .critical-secondary_a22cb0 {
+    color: rgb(255, 255, 255) !important;
+    background-color: rgb(58, 58, 58) !important;
+}
+
+html.theme-dark .children__7bffb .buttonContainer__6ca73 .critical-primary_a22cb0:hover {
+    background-color: rgb(229, 46, 46) !important;
+    color: rgb(37, 37, 37) !important;
+    transform: translateY(-7px);
+}
+
+html.theme-dark .children__7bffb .buttonContainer__6ca73 .critical-secondary_a22cb0:hover {
+    background-color: rgb(229, 46, 46) !important;
+    color: rgb(37, 37, 37) !important;
+    transform: translateY(-7px);
+}
+
+html.theme-light .children__7bffb .buttonContainer__6ca73 .critical-primary_a22cb0:hover {
+    background-color: rgb(255, 129, 129) !important;
+    color: rgb(255, 255, 255) !important;
+    transform: translateY(-7px);
+}
+
+html.theme-light .children__7bffb .buttonContainer__6ca73 .critical-secondary_a22cb0:hover {
+    background-color: rgb(255, 129, 129) !important;
+    color: rgb(255, 255, 255) !important;
+    transform: translateY(-7px);
+}
+
+.children__7bffb .buttonContainer__6ca73 .critical-primary_a22cb0:hover, .children__7bffb .buttonContainer__6ca73 .critical-secondary_a22cb0:hover {
+    box-shadow: 0px 15px 20px rgba(229, 46, 46, 0.4);
+}
+
+/* For discord checkpoint stuff */
+#app-mount .layerContainer__59d0d .root__5c9fc {
+    contain: strict !important;
+    border-radius: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    overflow: unset !important
+}
 /* Reset Transform from your code */
 #app-mount .root__5c9fc.enterDone__5c9fc {
     transform: unset !important;
