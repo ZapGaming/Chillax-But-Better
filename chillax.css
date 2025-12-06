@@ -8,17 +8,17 @@
 
 /****ADDONS****/
 @import url("https://mwittrien.github.io/BetterDiscordAddons/Themes/BlurpleRecolor/BlurpleRecolor.css");
-@import url("https://warrayquipsome.github.io/Chillax/ChillaxTag.css");
+@import url("https://raw.githubusercontent.com/warrayquipsome/Chillax/refs/heads/recent-fixes/ChillaxTag.css");
 @import url("https://raw.githubusercontent.com/ZapGaming/Chillax-But-Better/refs/heads/main/Root/SettingsModalEdited.css");
-@import url("https://warrayquipsome.github.io/Chillax/Addons/AccountDetailsGrid.css");
+@import url("https://raw.githubusercontent.com/warrayquipsome/Chillax/refs/heads/recent-fixes/Addons/AccountDetailsGrid.css");
 @import url("https://crearts-community.github.io/Friends-Grid/theme.css");
 
 /****CHILLAX COMPONENTS****/
-@import url("https://github.com/ZapGaming/Chillax-But-Better/raw/refs/heads/main/Root/WindowsButtons.css");
-@import url("https://warrayquipsome.github.io/Chillax/Components/UserArea.css");
-@import url("https://warrayquipsome.github.io/Chillax/Components/Embeds.css");
-@import url("https://warrayquipsome.github.io/Chillax/Components/ChatArea.css");
-@import url("https://warrayquipsome.github.io/Chillax/Components/ChannelHeader.css");
+@import url("https://raw.githubusercontent.com/warrayquipsome/Chillax/refs/heads/recent-fixes/Components/WindowsButtons.css");
+@import url("https://raw.githubusercontent.com/warrayquipsome/Chillax/refs/heads/recent-fixes/Components/UserArea.css");
+@import url("https://raw.githubusercontent.com/warrayquipsome/Chillax/refs/heads/recent-fixes/Components/Embeds.css");
+@import url("https://raw.githubusercontent.com/warrayquipsome/Chillax/refs/heads/recent-fixes/Components/ChatArea.css");
+@import url("https://raw.githubusercontent.com/warrayquipsome/Chillax/refs/heads/recent-fixes/Components/ChannelHeader.css");
 @import url("github.com/ZapGaming/Mika-Theme-Components/blob/main/EmojiPicker.css");
 
 /***TRANSPARENT CODES***/
