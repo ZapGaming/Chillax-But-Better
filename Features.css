@@ -770,7 +770,7 @@ ul[aria-label="Direct Messages"] .channel__972a0.container_e45859 .interactive_b
         width: 225px;
         box-sizing: border-box;
         cursor: text;
-        background: rgba(var(--input-background-rgb, 50, 50, 50), 0.7);
+        background: rgba(var(--input-background-rgb, 50, 50, 50), 0);
         backdrop-filter: blur(12px); 
         border: 1px solid var(--input-border);
         padding: 2px 0;
@@ -791,7 +791,7 @@ ul[aria-label="Direct Messages"] .channel__972a0.container_e45859 .interactive_b
     left: calc(var(--space-xs) + var(--space-xxs) * 3);
     flex-direction: column;
     bottom: calc(var(--custom-app-panels-height) + 6px + var(--space-md));
-    background: rgba(var(--background-base-low-rgb, 0, 0, 0), 0.4); 
+    background: rgba(var(--background-base-low-rgb, 0, 0, 0), 0); 
     backdrop-filter: blur(12px) brightness(1.1); 
     border: 1px solid var(--border-faint);
     padding: var(--space-xs);
