@@ -1151,26 +1151,6 @@ opacity: 0;
 }
 
 
-/* Chat bar icons hide if message is long */
-  [class^="channelTextArea_"] > div > [class^="inner_"] {
-    [aria-label="Send a gift"] {
-      display: none;
-    }
-
-  &:not(:has([aria-hidden="true"] + [role="textbox"])) {
-    [aria-label="Open sticker picker"] {
-      display: none;
-    }
-
-    [aria-label="Open GIF picker"] {
-      display: none;
-    }
-
-    .app-launcher-entrypoint {
-      display: none;
-    }
-  }
-}
 
 
 
