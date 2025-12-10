@@ -1,31 +1,11 @@
 /* yellow 80px */
-.emojiSpriteImage_d982c2[style*='background-image: url("/assets/9d6f7bad0b4786fd.png")'] {
-	background-image: url("https://github.com/ZapGaming/Chillax-But-Better/blob/main/EmojiReplace/image_2025-12-10_172159882.png?raw=true") !important;
-}
-
-/* light 80px */
-.emojiSpriteImage_d982c2[style*='background-image: url("/assets/42a77a907c6518a2.png")'] {
-	background-image: url("https://mwittrien.github.io/BetterDiscordAddons/Themes/EmojiReplace/spritesheets/BlobMoji/light_80.png") !important;
-}
-
-/* light_medium 80px */
-.emojiSpriteImage_d982c2[style*='background-image: url("/assets/13d7c7712a8c345d.png")'] {
-	background-image: url("https://mwittrien.github.io/BetterDiscordAddons/Themes/EmojiReplace/spritesheets/BlobMoji/light_medium_80.png") !important;
-}
-
-/* medium 80px */
-.emojiSpriteImage_d982c2[style*='background-image: url("/assets/7ba098a1f59e8c25.png")'] {
-	background-image: url("https://mwittrien.github.io/BetterDiscordAddons/Themes/EmojiReplace/spritesheets/BlobMoji/medium_80.png") !important;
-}
-
-/* dark_medium 80px */
-.emojiSpriteImage_d982c2[style*='background-image: url("/assets/553d87e518760843.png")'] {
-	background-image: url("https://mwittrien.github.io/BetterDiscordAddons/Themes/EmojiReplace/spritesheets/BlobMoji/dark_medium_80.png") !important;
-}
-
-/* dark 80px */
+.emojiSpriteImage_d982c2[style*='background-image: url("/assets/9d6f7bad0b4786fd.png")'],
+.emojiSpriteImage_d982c2[style*='background-image: url("/assets/42a77a907c6518a2.png")'],
+.emojiSpriteImage_d982c2[style*='background-image: url("/assets/13d7c7712a8c345d.png")'],
+.emojiSpriteImage_d982c2[style*='background-image: url("/assets/7ba098a1f59e8c25.png")'],
+.emojiSpriteImage_d982c2[style*='background-image: url("/assets/553d87e518760843.png")'],
 .emojiSpriteImage_d982c2[style*='background-image: url("/assets/bce9faa083202df0.png")'] {
-	background-image: url("https://mwittrien.github.io/BetterDiscordAddons/Themes/EmojiReplace/spritesheets/BlobMoji/dark_80.png") !important;
+	background-image: url("https://github.com/ZapGaming/Chillax-But-Better/blob/main/EmojiReplace/image_2025-12-10_172159882.png?raw=true") !important;
 }
 
 /* emoji 80px */
