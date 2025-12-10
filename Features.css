@@ -1139,6 +1139,44 @@ opacity: 0;
 
 
 
+/* Moonlight Extension update banner color */
+.cardPrimary_a298b8.editable_a298b8 :has(button[aria-label="Update"]) {
+    background-color:#F23F43;
+    .defaultColor_a595eb {
+        color:black !important;
+    }
+    svg {
+        color:black;
+    }
+}
+
+
+/* Chat bar icons hide if message is long */
+  [class^="channelTextArea_"] > div > [class^="inner_"] {
+  [aria-label="Send a gift"] {
+    display: none;
+  }
+
+  &:not(:has([aria-hidden="true"] + [role="textbox"])) {
+    [aria-label="Open sticker picker"] {
+      display: none;
+    }
+
+    [aria-label="Open GIF picker"] {
+      display: none;
+    }
+
+    .app-launcher-entrypoint {
+      display: none;
+    }
+  }
+}
+
+
+
+
+
+
 
 
 
