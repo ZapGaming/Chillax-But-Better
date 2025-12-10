@@ -124,6 +124,18 @@
     --accentcolorV2: #d4f067;
 
 
+	--rgb-border-width: 4px;
+    --main-border-radius: 25px; /* Fully rounded */
+    --rgb-gradient: linear-gradient(45deg, #ff0000, #ff7f00, #ffff00, #00ff00, #0000ff, #4b0082, #9400d3);
+    --rgb-animation-duration: 8s;
+
+    --floating-bg-dark: rgba(15, 15, 15, 0.45); /* Dark Frosted Glass Background */
+    --floating-bg-light: rgba(255, 255, 255, 0.65); /* Light Frosted Glass Background */
+    --glass-blur: 12px; /* Frosted Glass Effect */
+    --float-shadow: 0 10px 40px rgba(0, 0, 0, 0.6); /* Floating Effect */
+    --float-margin: 15px; /* Separation */
+
+
     /* settings modal root */
     --themelightsettingsmodalbackground: rgb(223, 223, 223);
     --themedarksettingsmodalbackground: rgb(51, 49, 53);
