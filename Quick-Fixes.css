@@ -4,3 +4,10 @@
 {
     background: none !important;
 }
+
+
+
+/* Hide the Help (Question Mark) Button */
+div[aria-label="Help"] {
+    display: none;
+}
