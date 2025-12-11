@@ -21,7 +21,7 @@
         </a>
         <br/>
         <a href="https://discord.com/channels/881453188509753384/1423863221378617497" target="_blank">
-            <img src="https://img.shields.io/static/v1.svg?style=for-the-badge&label=Support%20Thread&message=Chillax%20But%20Better&colorA=033027&colorB=6075eb"
+            <img src="https://github.com/ZapGaming/Chillax-But-Better/raw/refs/heads/main/badge-discord.svg"
                 alt="Support Server Thread"/>
         </a>
         <br/>
