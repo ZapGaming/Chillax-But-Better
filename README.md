@@ -10,6 +10,11 @@
                 alt="Support Server Thread"/>
         </a>
         <br/>
+        <a href="https://discord.gg/DrfX6286kF" target="_blank">
+            <img src="https://img.shields.io/static/v1.svg?style=for-the-badge&label=Chillax&message=Support%20Server&colorA=033027&colorB=6075eb"
+                alt="Support Server Thread"/>
+        </a>
+        <br/>
         <a href="https://chillax-org.github.io/chillaxdocs/" target="_blank">
             <img src="https://img.shields.io/static/v1.svg?style=for-the-badge&label=DOCS&message=CHILLAX&colorA=333333&colorB=FB5454"
                      alt="whatever" style="border-radius: 5px"/>
