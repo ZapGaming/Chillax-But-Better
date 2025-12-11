@@ -1,12 +1,3 @@
-/* Spotify Progress Bar Fill */
-.container_6sXIoE.withTimeline_824fT_ .timeline_UWmgAx .barFill_Dhkah7,
-#vc-spotify-progress-bar > div:first-child
-{
-    background: none !important;
-}
-
-
-
 /* Hide the Help (Question Mark) Button */
 div[aria-label="Help"] {
     display: none;
