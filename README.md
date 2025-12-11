@@ -6,13 +6,13 @@
     <hr width="250px"/>
     <div align="center">
         <a href="https://discord.com/channels/881453188509753384/1423863221378617497" target="_blank">
-            <img src="https://img.shields.io/static/v1.svg?style=for-the-badge&label=Support&message=Thread&colorA=033027&colorB=6075eb"
+            <img src="https://img.shields.io/static/v1.svg?style=for-the-badge&label=Support%20Thread&message=Chillax%20But%20Better&colorA=033027&colorB=6075eb"
                 alt="Support Server Thread"/>
         </a>
         <br/>
         <a href="https://discord.gg/DrfX6286kF" target="_blank">
-            <img src="https://img.shields.io/static/v1.svg?style=for-the-badge&label=Chillax&message=Support%20Server&colorA=033027&colorB=6075eb"
-                alt="Support Server Thread"/>
+            <img src="https://img.shields.io/static/v1.svg?style=for-the-badge&label=Support%20Server&message=Chillax&colorA=033027&colorB=6075eb"
+                alt="Support Server"/>
         </a>
         <br/>
         <a href="https://chillax-org.github.io/chillaxdocs/" target="_blank">
