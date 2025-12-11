@@ -1,4 +1,4 @@
-<h1 align="center">Zap Gaming Presents:   𝓒𝓱𝓲𝓵𝓵𝓪𝔁 𝓑𝓾𝓽 𝓑𝓮𝓽𝓽𝓮𝓻 </h1>
+<h1 align="center">Zandy Presents:   𝓒𝓱𝓲𝓵𝓵𝓪𝔁 𝓑𝓾𝓽 𝓑𝓮𝓽𝓽𝓮𝓻 </h1>
 
 ![chillax cover](https://ik.imagekit.io/zapgaming/image_2025-10-10_140349714.png?updatedAt=1760076233890)
 
@@ -15,7 +15,7 @@
                      alt="whatever" style="border-radius: 5px"/>
         </a>
         <br/>
-        <a href="https://discord.com/channels/881453188509753384/1423863221378617497" target="_blank">
+        <a href="https://discord.com/channels/881453188509753384/1447801817244237964" target="_blank">
             <img src="https://img.shields.io/static/v1.svg?style=for-the-badge&label=Support%20Thread&message=Frosted%20Chillax%20But%20Better&colorA=033027&colorB=6075eb"
                 alt="Support Server Thread"/>
         </a>
@@ -30,12 +30,12 @@
                 alt="Chillax Github"/>
         </a>
         <br/>
-        <a href="https://github.com/warrayquipsome/Chillax" target="_blank">
+        <a href="https://github.com/ZapGaming/Chillax-But-Better" target="_blank">
             <img src="https://img.shields.io/static/v1.svg?style=for-the-badge&label=Github&message=Chillax%20But%20Better&colorA=033027&colorB=6075eb"
                 alt="Chillax But Better Github"/>
         </a>
         <br/>
-        <a href="https://github.com/warrayquipsome/Chillax" target="_blank">
+        <a href="https://github.com/Immortal473/Frosted-Chillax" target="_blank">
             <img src="https://img.shields.io/static/v1.svg?style=for-the-badge&label=Github&message=Frosted%20Chillax%20But%20Better&colorA=033027&colorB=6075eb"
                 alt="Frosted Chillax But Better Github"/>
         </a>
