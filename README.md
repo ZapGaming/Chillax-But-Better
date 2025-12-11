@@ -31,7 +31,7 @@
         </a>
         <br/>
         <a href="https://github.com/ZapGaming/Chillax-But-Better" target="_blank">
-            <img src="https://img.shields.io/static/v1.svg?style=for-the-badge&label=Github&message=Chillax%20But%20Better&colorA=033027&colorB=6075eb"
+            <img src="https://github.com/ZapGaming/Chillax-But-Better/raw/refs/heads/main/badge-github.svg"
                 alt="Chillax But Better Github"/>
         </a>
         <br/>
