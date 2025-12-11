@@ -5,11 +5,6 @@
 <div align="center">
     <hr width="250px"/>
     <div align="center">
-        <a href="https://discord.com/channels/881453188509753384/1423863221378617497" target="_blank">
-            <img src="https://img.shields.io/static/v1.svg?style=for-the-badge&label=Support%20Thread&message=Chillax%20But%20Better&colorA=033027&colorB=6075eb"
-                alt="Support Server Thread"/>
-        </a>
-        <br/>
         <a href="https://discord.gg/DrfX6286kF" target="_blank">
             <img src="https://img.shields.io/static/v1.svg?style=for-the-badge&label=Support%20Server&message=Chillax&colorA=033027&colorB=6075eb"
                 alt="Support Server"/>
@@ -18,6 +13,31 @@
         <a href="https://chillax-org.github.io/chillaxdocs/" target="_blank">
             <img src="https://img.shields.io/static/v1.svg?style=for-the-badge&label=DOCS&message=CHILLAX&colorA=033027&colorB=6075eb"
                      alt="whatever" style="border-radius: 5px"/>
+        </a>
+        <br/>
+        <a href="https://discord.com/channels/881453188509753384/1423863221378617497" target="_blank">
+            <img src="https://img.shields.io/static/v1.svg?style=for-the-badge&label=Support%20Thread&message=Frosted%20Chillax%20But%20Better&colorA=033027&colorB=6075eb"
+                alt="Support Server Thread"/>
+        </a>
+        <br/>
+        <a href="https://discord.com/channels/881453188509753384/1423863221378617497" target="_blank">
+            <img src="https://img.shields.io/static/v1.svg?style=for-the-badge&label=Support%20Thread&message=Chillax%20But%20Better&colorA=033027&colorB=6075eb"
+                alt="Support Server Thread"/>
+        </a>
+        <br/>
+        <a href="https://github.com/warrayquipsome/Chillax" target="_blank">
+            <img src="https://img.shields.io/static/v1.svg?style=for-the-badge&label=Github&message=Chillax&colorA=033027&colorB=6075eb"
+                alt="Chillax Github"/>
+        </a>
+        <br/>
+        <a href="https://github.com/warrayquipsome/Chillax" target="_blank">
+            <img src="https://img.shields.io/static/v1.svg?style=for-the-badge&label=Github&message=Chillax%20But%20Better&colorA=033027&colorB=6075eb"
+                alt="Chillax But Better Github"/>
+        </a>
+        <br/>
+        <a href="https://github.com/warrayquipsome/Chillax" target="_blank">
+            <img src="https://img.shields.io/static/v1.svg?style=for-the-badge&label=Github&message=Frosted%20Chillax%20But%20Better&colorA=033027&colorB=6075eb"
+                alt="Frosted Chillax But Better Github"/>
         </a>
     </div>
     <hr width="250px"/>
