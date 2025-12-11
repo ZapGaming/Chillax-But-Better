@@ -131,8 +131,8 @@
 
 /*discord transparency*//*roots*/ /*theme dark*/
 .theme-dark {
-    --background-message-hover: rgba(24, 5, 171, 0.5)/*linear-gradient(
-    -45deg, rgba(30, 103, 120, 0.6), rgba(171, 17, 94, 0.5), rgba(245, 140, 49, 0.4), rgba(186, 151, 24, 0.5), rgba(135, 161, 32, 0.5), rgba(57, 153, 121, 0.6) )*/;
+    --background-message-hover: linear-gradient(
+    -45deg, rgba(30, 103, 120, 0.6), rgba(171, 17, 94, 0.5), rgba(245, 140, 49, 0.4), rgba(186, 151, 24, 0.5), rgba(135, 161, 32, 0.5), rgba(57, 153, 121, 0.6) );
     --header-primary: #fff;
     --header-secondary: #b9bbbe;
     --text-normal: #dcddde;
