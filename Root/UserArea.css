@@ -410,7 +410,7 @@ html.theme-light #vc-spotify-player {
 
 /* The Grabber of the progress bar */
 #vc-spotify-player [class*="barFill_"]::after {
-  content: "var(--chillax-spotify-controll-grabber-icon)";
+  content: "😎";
   position: absolute;
   right: -13px;
   top: -11px;
