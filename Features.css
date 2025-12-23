@@ -4,12 +4,12 @@
 /* Hide the add server button. Customize however you like */
 
 /* Below is for Add Server button */
-.tutorialContainer__650eb {
+._650eb104245d257b-tutorialContainer {
     display: none !important;
 }
 
 /* Below is for Discover Button (disabled)*/
-/*.tutorialContainer__650eb + .listItem__650eb {
+/*._650eb104245d257b-tutorialContainer + ._650eb104245d257b-listItem {
     display: none !important;
 }*/
 
@@ -18,7 +18,7 @@
 /* customize `N E W`/ unread design */
 
 /* For the gradient color of unread */
-.isUnread__908e2 {
+._908e20001ad67812-isUnread {
     --divider-color: rgb(28, 177, 102);
     border: none;
     background: linear-gradient(90deg, rgb(14, 175, 14) 0%, #162ba3 25%, rgba(0, 0, 0, 0) 50%, #20bb66 75%, rgb(30, 211, 30) 100%);
@@ -26,7 +26,7 @@
 }
 
 /* For the text color */
-.unreadPill__908e2 {
+._908e20001ad67812-unreadPill {
     /* change the below color however you like */
     color: rgb(38, 182, 38) !important;
 }
@@ -36,59 +36,59 @@
 /* channel colors */
 
 /* Text Channel - Purple/Lilac Gradient */
-.iconContainer__2ea32[aria-label="Text icon"] + .name__2ea32 {
+._2ea32c412048f708-iconContainer[aria-label="Text icon"] + ._2ea32c412048f708-name {
   background-image: linear-gradient(45deg, #7289da 0%, #a5b4fc 100%);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
 }
 
-.iconContainer__2ea32[aria-label="Text icon"] .icon__2ea32 {
+._2ea32c412048f708-iconContainer[aria-label="Text icon"] ._2ea32c412048f708-icon {
   color: #7289da; /* Matching solid color */
 }
 
 /* Voice Channel - Sky Blue Gradient */
-.iconContainer__2ea32[aria-label="Voice icon"] + .name__2ea32 {
+._2ea32c412048f708-iconContainer[aria-label="Voice icon"] + ._2ea32c412048f708-name {
   background-image: linear-gradient(45deg, #00b4d8 0%, #90e0ef 100%);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
 }
 
-.iconContainer__2ea32[aria-label="Voice icon"] .icon__2ea32 {
+._2ea32c412048f708-iconContainer[aria-label="Voice icon"] ._2ea32c412048f708-icon {
   color: #00b4d8;
 }
 
 /* Limited Voice - Sunset Gradient */
-.iconContainer__2ea32[aria-label="Voice (Limited) icon"] + .name__2ea32 {
+._2ea32c412048f708-iconContainer[aria-label="Voice (Limited) icon"] + ._2ea32c412048f708-name {
   background-image: linear-gradient(45deg, #ff6b6b 0%, #ff8e53 100%);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
 }
 
-.iconContainer__2ea32[aria-label="Voice (Limited) icon"] .icon__2ea32 {
+._2ea32c412048f708-iconContainer[aria-label="Voice (Limited) icon"] ._2ea32c412048f708-icon {
   color: #ff6b6b;
 }
 
 /* Forum Channel - Deep Ocean Gradient */
-.iconContainer__2ea32[aria-label="Forum icon"] + .name__2ea32 {
+._2ea32c412048f708-iconContainer[aria-label="Forum icon"] + ._2ea32c412048f708-name {
   background-image: linear-gradient(45deg, #1a73e8 0%, #4a90e2 100%);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
 }
 
-.iconContainer__2ea32[aria-label="Forum icon"] .icon__2ea32 {
+._2ea32c412048f708-iconContainer[aria-label="Forum icon"] ._2ea32c412048f708-icon {
   color: #1a73e8;
 }
 
 /* Default - Emerald Gradient */
-.icon__2ea32 {
+._2ea32c412048f708-icon {
   color: #10b981;
 }
 
-.name__2ea32 {
+._2ea32c412048f708-name {
   background-image: linear-gradient(45deg, #10b981 0%, #6ee7b7 100%);
   -webkit-background-clip: text;
   background-clip: text;
@@ -99,21 +99,21 @@
 
 
 /* Change the Discord Logo to something custom */
-.listItemWrapper__91816 .childWrapper__6e9f8 img {
+._918165dab2b1e10b-listItemWrapper ._6e9f8dce4cc18de3-childWrapper img {
     content: url("https://emojipedia.org/_next/image?url=https%3A%2F%2Fis.zobj.net%2Fimage-server%2Fv1%2Fimages%3Fr%3DV58EAKDVUTQfeva_7u4BUwmWE33BpLhKCJ38wy8M7p5DCNrwhH0EJDYBvOQdfCMrKvJSJuQU6m90aUZfAqkkU6LYywTyYjqxjPkw4TBSxu8IYOGBKKCUtzb_6l5IOnhOpwz6GWd14dQB8LY9t1n0tZyd5wIwUXh9j1RfdNmm_fekApO5OUpozTP2Hb7TXlzoJiAuq8FfGTlIXXxf3toR4YVaBDQZ5UmsSExW-T_vklpw6isQPKeE_o522Ck&w=256&q=75")} /* change the url to your fav logo/gif etc (I recommend 50x50 or similar) */
 
-.listItemWrapper__91816 .childWrapper__6e9f8 svg {
+._918165dab2b1e10b-listItemWrapper ._6e9f8dce4cc18de3-childWrapper svg {
     display: none;
 }
 
-.listItemWrapper__91816 .childWrapper__6e9f8  {
+._918165dab2b1e10b-listItemWrapper ._6e9f8dce4cc18de3-childWrapper  {
     content: url("https://emojipedia.org/_next/image?url=https%3A%2F%2Fis.zobj.net%2Fimage-server%2Fv1%2Fimages%3Fr%3DV58EAKDVUTQfeva_7u4BUwmWE33BpLhKCJ38wy8M7p5DCNrwhH0EJDYBvOQdfCMrKvJSJuQU6m90aUZfAqkkU6LYywTyYjqxjPkw4TBSxu8IYOGBKKCUtzb_6l5IOnhOpwz6GWd14dQB8LY9t1n0tZyd5wIwUXh9j1RfdNmm_fekApO5OUpozTP2Hb7TXlzoJiAuq8FfGTlIXXxf3toR4YVaBDQZ5UmsSExW-T_vklpw6isQPKeE_o522Ck&w=256&q=75") /* url("https://emojipedia.org/_next/image?url=https%3A%2F%2Fis.zobj.net%2Fimage-server%2Fv1%2Fimages%3Fr%3DV58EAKDVUTQfeva_7u4BUwmWE33BpLhKCJ38wy8M7p5DCNrwhH0EJDYBvOQdfCMrKvJSJuQU6m90aUZfAqkkU6LYywTyYjqxjPkw4TBSxu8IYOGBKKCUtzb_6l5IOnhOpwz6GWd14dQB8LY9t1n0tZyd5wIwUXh9j1RfdNmm_fekApO5OUpozTP2Hb7TXlzoJiAuq8FfGTlIXXxf3toR4YVaBDQZ5UmsSExW-T_vklpw6isQPKeE_o522Ck&w=256&q=75") */;
 } /* change the url to your fav logo/gif etc (I recommend 50x50 or similar) */
 
 
 
 /* changes the color of memeberlist as time passes as well as adds glow. Please change `500ms` and `1.5s` values as well as colors to your likings. */
-.members_c8ffbb:hover {
+.c8ffbb79449f399c-members:hover {
     background: linear-gradient(90deg, rgba(144, 210, 232, 0.8) 0%, rgba(178, 157, 237, 0.6) 30%, rgba(230, 144, 144, 0.344) 100%) !important;
     animation: colorGlow 500ms infinite alternate ease-in-out, glowing 1.5s infinite ease-in-out;
     box-shadow: 0 0 20px rgba(144, 212, 232, 0.8), 0 0 30px rgba(178, 157, 237, 0.8), 0 0 40px rgba(104, 198, 241, 0.8);
@@ -153,11 +153,11 @@
 
 
 /* adds border radius when hovering over dms */
-ul[aria-label="Direct Messages"] .channel__972a0.container_e45859 {
+ul[aria-label="Direct Messages"] ._972a0d22c8afa7f0-channel.container__23ba6 {
     max-width: 213px !important; /* this is something you can also adjust */
 }
 
-ul[aria-label="Direct Messages"] .channel__972a0.container_e45859 .interactive_bf202d.interactive__972a0:hover {
+ul[aria-label="Direct Messages"] ._972a0d22c8afa7f0-channel.container__23ba6 .bf202d63ad53e289-interactive._972a0d22c8afa7f0-interactive:hover {
     border-radius: 25px !important; /* adjust as per your liking */
     background-color: rgba(30, 204, 70, 0.733); /* adjust as per your liking */
     transform: scale(1.059); /* determines how big it gets when hovered */
@@ -255,7 +255,7 @@ ul[aria-label="Direct Messages"] .channel__972a0.container_e45859 .interactive_b
 
 
 /* Transparent Embeds */
-.embedFull__623de {
+._623de82e76ad7f82-embedFull {
     overflow: hidden;
     position: relative;
     
@@ -292,10 +292,10 @@ ul[aria-label="Direct Messages"] .channel__972a0.container_e45859 .interactive_b
 
 
 /* remove annoying buttons */
-.micButtonParent__37e49>.buttonChevron__37e49 {
+._37e49614b9f110a9-micButtonParent>._37e49614b9f110a9-buttonChevron {
   display: none;
 }
-.micButtonParent__37e49>.micButtonWithMenu__37e49 {
+._37e49614b9f110a9-micButtonParent>._37e49614b9f110a9-micButtonWithMenu {
   border-radius: var(--radius-sm);
 }
 
@@ -309,7 +309,7 @@ ul[aria-label="Direct Messages"] .channel__972a0.container_e45859 .interactive_b
 
 
 /* Default discord complete Capybara theme */
-.themeSelection__36dee.midnightIcon__36dee::before {
+._36dee59b8fa89219-themeSelection._36dee59b8fa89219-midnightIcon::before {
     position: absolute;
     content: "";
     inset: 10px;
@@ -319,7 +319,7 @@ ul[aria-label="Direct Messages"] .channel__972a0.container_e45859 .interactive_b
     background-position: center;
 }
 
-.app_a3002d:has(.themeSelection__36dee.midnightIcon__36dee:hover)~.layerContainer__59d0d .tooltipContent__382e7 {
+.a3002d7de5be5280-app:has(._36dee59b8fa89219-themeSelection._36dee59b8fa89219-midnightIcon:hover)~._59d0d7075b521375-layerContainer .c36707910f687430-tooltipContent {
     font-size: 0px;
     position: center;
     width: 80px;
@@ -334,9 +334,9 @@ ul[aria-label="Direct Messages"] .channel__972a0.container_e45859 .interactive_b
 }
  
 .theme-midnight {
-    .content_f75fb0 
+    .f75fb00fb7356cbe-content 
     {background: var(--background-gradient-chat, var(--background-base-lower));}
-    .chatContent_f75fb0 {
+    .f75fb00fb7356cbe-chatContent {
         background: url("https://preview.redd.it/07ugp5ljimc91.gif?width=730&auto=webp&s=081800fe7503f81497bc4afa324d99cf297c5553") center no-repeat; background-size: 100cap;
         position: relative;
         &::before { 
@@ -347,7 +347,7 @@ ul[aria-label="Direct Messages"] .channel__972a0.container_e45859 .interactive_b
     }
 }
 
-.item_c1e9c4#user-settings-cog-App_Settings--Appearance--midnight {
+.c1e9c47c23f12ca3-item#user-settings-cog-App_Settings--Appearance--midnight {
     font-size: 0px;
     background: url("https://preview.redd.it/07ugp5ljimc91.gif?width=730&auto=webp&s=081800fe7503f81497bc4afa324d99cf297c5553") center no-repeat;
     background-size: contain; background-position: right; padding-right: 40px;
@@ -364,7 +364,7 @@ ul[aria-label="Direct Messages"] .channel__972a0.container_e45859 .interactive_b
 
 
 /* Glitch Black Captcha */
-.captchaContainer_deee3a iframe {
+.deee3a6e7fe4b481-captchaContainer iframe {
     /* Base Inversion */
     filter: 
         invert(1) 
@@ -418,7 +418,7 @@ ul[aria-label="Direct Messages"] .channel__972a0.container_e45859 .interactive_b
    --channel-text-area-placeholder: rgb(255, 98, 192) !important;
 }
 
-.menu_c1e9c4 {
+.c1e9c47c23f12ca3-menu {
   background: linear-gradient(135deg,
     rgba(100, 180, 255, 0.9) 0%, /* Sky Blue */
     rgba(150, 80, 200, 0.9) 40%, /* Lavender Purple */
@@ -433,7 +433,7 @@ ul[aria-label="Direct Messages"] .channel__972a0.container_e45859 .interactive_b
   overflow: hidden;
   transition: all 0.3s ease-in-out; /* Smooth transitions for hover effects */
 }
-.menu_c1e9c4:hover {
+.c1e9c47c23f12ca3-menu:hover {
   transform: translateY(-3px) scale(1.02); /* Slight lift and grow on hover */
   box-shadow:
     0 12px 40px rgba(100, 180, 255, 0.8), /* More intense blue glow */
@@ -441,7 +441,7 @@ ul[aria-label="Direct Messages"] .channel__972a0.container_e45859 .interactive_b
     inset 0 0 15px rgba(255, 255, 255, 0.3);
 }
 
-.contentWrapper__08434 {
+._084343c4f11eaaab-contentWrapper {
   background: linear-gradient(45deg,
     rgba(255, 150, 100, 0.8) 0%, /* Orange */
     rgba(255, 220, 100, 0.8) 30%, /* Light Yellow */
@@ -456,7 +456,7 @@ ul[aria-label="Direct Messages"] .channel__972a0.container_e45859 .interactive_b
   padding: 15px; /* More internal padding */
   transition: all 0.3s ease-in-out;
 }
-.contentWrapper__08434:hover {
+._084343c4f11eaaab-contentWrapper:hover {
   transform: scale(1.01); /* Subtle grow on hover */
   box-shadow:
     0 15px 45px rgba(255, 150, 100, 0.9),
@@ -464,10 +464,10 @@ ul[aria-label="Direct Messages"] .channel__972a0.container_e45859 .interactive_b
     inset 0 0 18px rgba(255, 255, 255, 0.4);
 }
 
-  .wrapper__4e6ce {
+  ._4106ae7c1472c1de-wrapper {
     background-color: transparent;
     border-radius: 20px; /* Rounded internal wrappers */
-    .unicodeShortcut_b9ee0c {
+    .b9ee0c229bc0b6bb-unicodeShortcut {
       background: linear-gradient(90deg,
         rgba(255, 120, 180, 0.7), /* Hot Pink */
         rgba(120, 180, 255, 0.7) /* Cool Blue */
@@ -476,44 +476,44 @@ ul[aria-label="Direct Messages"] .channel__972a0.container_e45859 .interactive_b
       box-shadow: 0 4px 15px rgba(255, 120, 180, 0.4);
       transition: all 0.2s ease-out;
     }
-    .unicodeShortcut_b9ee0c:hover {
+    .b9ee0c229bc0b6bb-unicodeShortcut:hover {
       transform: scale(1.05); /* Pop out on hover */
       box-shadow: 0 6px 20px rgba(255, 120, 180, 0.6);
     }
-    .categoryItemDefaultCategorySelected_b9ee0c,
-    .categoryItemDefaultCategorySelected_b9ee0c:hover {
+    .b9ee0c229bc0b6bb-categoryItemDefaultCategorySelected,
+    .b9ee0c229bc0b6bb-categoryItemDefaultCategorySelected:hover {
       background: rgba(255, 255, 255, 0.2); /* Brighter highlight for selection */
       border-radius: 12px;
       box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
     }
   }
-  .emojiItem_fc7141.emojiItemSelected_fc7141,
-  .emojiItem_fc7141.expandCollapseButtonSelected_fc7141 {
+  .fc7141859aaa98b7-emojiItem.fc7141859aaa98b7-emojiItemSelected,
+  .fc7141859aaa98b7-emojiItem.expandCollapseButtonSelected_fc7141 {
     background: rgba(0, 0, 0, 0.4); /* Darker, more defined selection */
     border-radius: 12px;
     box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.5);
   }
-  .inspector_aeaaeb,
-  .wrapper__14245,
-  .header__8ef02,
-  .container_fed6d3,
-  .header_fed6d3 {
+  .aeaaeb2a573807f0-inspector,
+  ._14245bb948377a25-wrapper,
+  ._8ef02eea17068b73-header,
+  .fed6d32841cc2da2-container,
+  .fed6d32841cc2da2-header {
     background-color: transparent;
     border-radius: 15px; /* Ensures internal elements are also rounded */
   }
-  .stickerInspected_c6367b .inspectedIndicator_c6367b {
+  .c6367b0f171ba6d7-stickerInspected .c6367b0f171ba6d7-inspectedIndicator {
     background-color: rgba(255, 255, 255, 0.5); /* Lighter, glowing indicator */
     border-radius: 50%; /* Perfectly round */
     box-shadow: 0 0 8px rgba(255, 255, 255, 0.7);
   }
-  .stickerCategoryGeneric__3ad28:hover {
+  ._3ad28b0867fa3fad-stickerCategoryGeneric:hover {
     background-color: rgba(0, 0, 0, 0.4);
     border-radius: 15px;
   }
-  .firstPartyCategorySelected__3ad28,
-  .firstPartyCategorySelected__3ad28:hover,
-  .stickerCategoryGenericSelected__3ad28,
-  .stickerCategoryGenericSelected__3ad28:hover {
+  ._3ad28b0867fa3fad-firstPartyCategorySelected,
+  ._3ad28b0867fa3fad-firstPartyCategorySelected:hover,
+  ._3ad28b0867fa3fad-stickerCategoryGenericSelected,
+  ._3ad28b0867fa3fad-stickerCategoryGenericSelected:hover {
     background: rgba(255, 255, 255, 0.25); /* More visible selection with transparency */
     border-radius: 15px;
     box-shadow: 0 0 12px rgba(255, 255, 255, 0.4);
@@ -521,7 +521,7 @@ ul[aria-label="Direct Messages"] .channel__972a0.container_e45859 .interactive_b
 
 
 /* "Search" bar Server & Dm */
-.container__55c99 {
+._55c999adcf6db265-container {
   background: linear-gradient(-45deg,
     rgba(255, 220, 80, 0.8) 0%, /* Sunny Yellow */
     rgba(80, 255, 180, 0.8) 50%, /* Bright Teal */
@@ -534,14 +534,14 @@ ul[aria-label="Direct Messages"] .channel__972a0.container_e45859 .interactive_b
     inset 0 0 8px rgba(255, 255, 255, 0.2);
   transition: all 0.3s ease-in-out;
 
-  .queryContainer__55c99 {
+  ._55c999adcf6db265-queryContainer {
     background: rgba(255, 255, 255, 0.2); /* Lighter, more ethereal input area */
     border-radius: 20px; /* Rounded input area */
     padding: 10px 20px; /* More padding for the bubbly look */
     box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.2);
   }
 }
-.container__55c99:hover {
+._55c999adcf6db265-container:hover {
   transform: translateY(-2px);
   box-shadow:
     0 10px 35px rgba(255, 220, 80, 0.8),
@@ -549,7 +549,7 @@ ul[aria-label="Direct Messages"] .channel__972a0.container_e45859 .interactive_b
     inset 0 0 12px rgba(255, 255, 255, 0.3);
 }
 
-.searchToken_bd8186 {
+.bd818628221af7aa-searchToken {
   background: linear-gradient(90deg,
     rgba(100, 200, 255, 0.8), /* Light Blue */
     rgba(255, 150, 200, 0.8) /* Soft Pink */
@@ -559,12 +559,12 @@ ul[aria-label="Direct Messages"] .channel__972a0.container_e45859 .interactive_b
   box-shadow: 0 3px 10px rgba(100, 200, 255, 0.4);
   transition: all 0.2s ease-out;
 }
-.searchToken_bd8186:hover {
+.bd818628221af7aa-searchToken:hover {
   transform: scale(1.1); /* Jiggle on hover */
   box-shadow: 0 5px 15px rgba(100, 200, 255, 0.6);
 }
 
-.button__02a39 {
+._02a39cb2980ceaaf-button {
   background: linear-gradient(90deg,
     rgba(255, 100, 200, 0.7), /* Vibrant Pink */
     rgba(200, 100, 255, 0.7) /* Vibrant Purple */
@@ -573,18 +573,18 @@ ul[aria-label="Direct Messages"] .channel__972a0.container_e45859 .interactive_b
   box-shadow: 0 4px 15px rgba(255, 100, 200, 0.4);
   transition: all 0.2s ease-out;
 }
-.button__02a39:hover {
+._02a39cb2980ceaaf-button:hover {
   transform: scale(1.1);
   box-shadow: 0 6px 20px rgba(255, 100, 200, 0.6);
 }
 
-.searchResult__02a39,
-.side_aa8da2 .themed_aa8da2.item_aa8da2:active:not(.disabled_aa8da2),
-.side_aa8da2 .themed_aa8da2.selected_aa8da2.item_aa8da2,
-.side_aa8da2 .themed_aa8da2.selected_aa8da2:hover:not(.disabled_aa8da2),
-.topPill_aa8da2 .themed_aa8da2.item_aa8da2:active:not(.disabled_aa8da2),
-.topPill_aa8da2 .themed_aa8da2.selected_aa8da2.item_aa8da2,
-.topPill_aa8da2 .themed_aa8da2.selected_aa8da2:hover:not(.disabled_aa8da2) {
+._02a39cb2980ceaaf-searchResult,
+.aa8da23faa27393c-side .aa8da23faa27393c-themed.aa8da23faa27393c-item:active:not(.aa8da23faa27393c-disabled),
+.aa8da23faa27393c-side .aa8da23faa27393c-themed.aa8da23faa27393c-selected.aa8da23faa27393c-item,
+.aa8da23faa27393c-side .aa8da23faa27393c-themed.aa8da23faa27393c-selected:hover:not(.aa8da23faa27393c-disabled),
+.aa8da23faa27393c-topPill .aa8da23faa27393c-themed.aa8da23faa27393c-item:active:not(.aa8da23faa27393c-disabled),
+.aa8da23faa27393c-topPill .aa8da23faa27393c-themed.aa8da23faa27393c-selected.aa8da23faa27393c-item,
+.aa8da23faa27393c-topPill .aa8da23faa27393c-themed.aa8da23faa27393c-selected:hover:not(.aa8da23faa27393c-disabled) {
   background: linear-gradient(90deg,
     rgba(150, 200, 255, 0.8), /* Soft Blue */
     rgba(200, 150, 255, 0.8) /* Soft Purple */
@@ -593,17 +593,17 @@ ul[aria-label="Direct Messages"] .channel__972a0.container_e45859 .interactive_b
   box-shadow: 0 4px 15px rgba(150, 200, 255, 0.5);
   transition: all 0.2s ease-out;
 }
-.searchResult__02a39:hover,
-.side_aa8da2 .themed_aa8da2.item_aa8da2:active:not(.disabled_aa8da2),
-.topPill_aa8da2 .themed_aa8da2.item_aa8da2:active:not(.disabled_aa8da2) {
+._02a39cb2980ceaaf-searchResult:hover,
+.aa8da23faa27393c-side .aa8da23faa27393c-themed.aa8da23faa27393c-item:active:not(.aa8da23faa27393c-disabled),
+.aa8da23faa27393c-topPill .aa8da23faa27393c-themed.aa8da23faa27393c-item:active:not(.aa8da23faa27393c-disabled) {
   transform: translateX(3px); /* Subtle shift on hover/active */
   box-shadow: 0 6px 20px rgba(150, 200, 255, 0.7);
 }
 
 
 /* Tooltip on hover */
-.tooltip__4e35b,
-.tooltip_c36707 {
+._4e35b986167c457d-tooltip,
+.c36707910f687430-tooltip {
   background: linear-gradient(135deg,
     rgba(255, 100, 200, 0.9), /* Bright Pink */
     rgba(100, 200, 255, 0.9) /* Bright Sky Blue */
@@ -617,8 +617,8 @@ ul[aria-label="Direct Messages"] .channel__972a0.container_e45859 .interactive_b
   padding: 12px 20px; /* More space inside */
   transition: all 0.3s ease-in-out;
 }
-.tooltip__4e35b:hover,
-.tooltip_c36707:hover {
+._4e35b986167c457d-tooltip:hover,
+.c36707910f687430-tooltip:hover {
   transform: translateY(-5px); /* Lift and float on hover */
   box-shadow:
     0 12px 40px rgba(255, 100, 200, 0.9),
@@ -626,7 +626,7 @@ ul[aria-label="Direct Messages"] .channel__972a0.container_e45859 .interactive_b
     inset 0 0 15px rgba(255, 255, 255, 0.4);
 }
 
-.caretIcon__4e35b {
+._4e35b986167c457d-caretIcon {
   fill: rgba(255, 255, 255, 0.9); /* White fill for contrast against vibrant tooltip */
   filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.7)); /* Glowing caret */
 }
@@ -720,17 +720,17 @@ ul[aria-label="Direct Messages"] .channel__972a0.container_e45859 .interactive_b
 
 /* Toolbar Relocation */
 /* 1. Frosted Glass Elements */
-.sidebar__5e434:after {
+._5e434347c823b592-sidebar:after {
     display: none;
 }
 
-.sidebarList__5e434 {
+._5e434347c823b592-sidebarList {
     margin-bottom: var(--space-xs);
     border-bottom: 1px solid var(--border-subtle);
     border-top-left-radius: 0px;
 }
 
-.page__5e434 {
+._5e434347c823b592-page {
     height: calc(100% - var(--space-xs));
     margin-bottom: var(--space-xs);
     width: calc(100% - var(--space-xs));
@@ -742,9 +742,9 @@ ul[aria-label="Direct Messages"] .channel__972a0.container_e45859 .interactive_b
 
 
 /* 2. Search Bar */
-.upperContainer__9293f .toolbar__9293f .search__49676 {
+._9293f6b2fc12398a-upperContainer ._9293f6b2fc12398a-toolbar ._496769951eb140fe-search {
 
-    .searchBar__97492 {
+    ._974928fe84ca9647-searchBar {
         transition: all ease 0.3s;
         width: 25px; 
         box-sizing: unset;
@@ -753,7 +753,7 @@ ul[aria-label="Direct Messages"] .channel__972a0.container_e45859 .interactive_b
         border: none;
         padding: 0;
 
-        .icon__97492 {
+        ._974928fe84ca9647-icon {
             height: 32px;
             width: 32px;
             scale: 1.2;
@@ -762,8 +762,8 @@ ul[aria-label="Direct Messages"] .channel__972a0.container_e45859 .interactive_b
         }
     }
 
-    .focused__97492 .searchBar__97492,
-    .open__97492 .searchBar__97492 {
+    ._974928fe84ca9647-focused ._974928fe84ca9647-searchBar,
+    ._974928fe84ca9647-open ._974928fe84ca9647-searchBar {
         position: fixed;
         top: calc(var(--custom-app-top-bar-height) + var(--space-xs));
         right: var(--space-md);
@@ -775,7 +775,7 @@ ul[aria-label="Direct Messages"] .channel__972a0.container_e45859 .interactive_b
         border: 1px solid var(--input-border);
         padding: 2px 0;
 
-        .icon__97492 {
+        ._974928fe84ca9647-icon {
             height: 24px;
             width: 24px;
             scale: 1;
@@ -786,7 +786,7 @@ ul[aria-label="Direct Messages"] .channel__972a0.container_e45859 .interactive_b
 }
 
 /* 3. Repositioned Toolbar Container */
-.toolbar__9293f {
+._9293f6b2fc12398a-toolbar {
     position: fixed;
     left: calc(var(--space-xs) + var(--space-xxs) * 3);
     flex-direction: column;
@@ -807,7 +807,7 @@ ul[aria-label="Direct Messages"] .channel__972a0.container_e45859 .interactive_b
 
 /* Guild Tag Animations */
 
-[class^="chipletContainerInner_"] .tagText__10651 {
+[class^="chipletContainerInner_"] ._10651c5cfe637db6-tagText {
   display: inline-block;
   white-space: nowrap;
   overflow: hidden;
@@ -819,21 +819,21 @@ ul[aria-label="Direct Messages"] .channel__972a0.container_e45859 .interactive_b
     opacity 0.4s ease;
 }
 
-[class^="chipletContainerInner_"]:hover .tagText__10651 {
+[class^="chipletContainerInner_"]:hover ._10651c5cfe637db6-tagText {
   max-width: 24ch;
   opacity: 1;
   transition-delay: 0.05s;
 }
 
 /* Icon animation (unchanged) */
-[class^="chipletContainerInner_"] img.badge__10651 {
+[class^="chipletContainerInner_"] img._10651c5cfe637db6-badge {
   margin-right: 0;
   transition:
     transform 0.8s cubic-bezier(0.34, 1.56, 0.64, 1),
     margin 0.7s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
-[class^="chipletContainerInner_"]:hover img.badge__10651 {
+[class^="chipletContainerInner_"]:hover img._10651c5cfe637db6-badge {
   transform: rotateZ(360deg);
   margin-right: .6ch;
   transition-delay: 0.08s;
@@ -894,12 +894,12 @@ nav[class*="guilds"]:hover div {
 
 
 /* member */
-.membersWrap_c8ffbb:hover::-webkit-scrollbar {
+.c8ffbb79449f399c-membersWrap:hover::-webkit-scrollbar {
   background-color: rgb(151, 151, 151);
   backdrop-filter: blur(15px);
   display: none !important;
 }
-.membersWrap_c8ffbb {
+.c8ffbb79449f399c-membersWrap {
   opacity: 0;
   --paddingY: 15px;
   position: absolute;
@@ -916,28 +916,28 @@ nav[class*="guilds"]:hover div {
   border-radius: 30px;
   height: 82.5vh;
 }
-.membersWrap_c8ffbb:hover {
+.c8ffbb79449f399c-membersWrap:hover {
   opacity: 1;
   filter: drop-shadow(0 0 50px rgb(0, 0, 0));
   transform: translate(95%, -50%) !important;
   height: 82.5vh;
 }
-.members_c8ffbb {
+.c8ffbb79449f399c-members {
   filter: drop-shadow(0 0 50px rgb(0, 0, 0));
   background: none;
 }
 /* simply tweak this part with a different background color */
-.member_c8ffbb {
+.c8ffbb79449f399c-member {
     filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0));
   background: none;
 }
 
-.member_c8ffbb:hover div {
+.c8ffbb79449f399c-member:hover div {
     filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0));
   background: none;
 }
 
-.member_c8ffbb div {
+.c8ffbb79449f399c-member div {
     filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0));
   background: none;
 }
@@ -955,7 +955,7 @@ nav[class*="guilds"]:hover div {
 
 
 /* user area */
-.wrapper_e131a9 {
+.e131a99484292a19-wrapper {
   height: 0;
   overflow: hidden;
 
@@ -967,7 +967,7 @@ nav[class*="guilds"]:hover div {
   border-radius: 15px!important;
   filter: drop-shadow(7px 7px 7px rgba(0, 0, 0, 0.123)) ;
   transition-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
-  .wrapper_e131a9 {
+  .e131a99484292a19-wrapper {
     height: auto!important;
   }
 }
@@ -1021,7 +1021,7 @@ nav[class*="guilds"]:hover div {
 }
 
 
-.visual-refresh .panel__5dec7 {
+.visual-refresh ._5dec784a68542d60-panel {
   display: none;
 }
 
@@ -1031,32 +1031,32 @@ nav[class*="guilds"]:hover div {
 
 
 /* transparency */
-.wrapper_e131a9 {
+.e131a99484292a19-wrapper {
   height: 0;
   overflow: hidden;
   
 }
 
-.panels__5e434 {
+._5e434347c823b592-panels {
   display: flex!important;
   flex-direction: column;
   border-radius: 15px!important;
   filter: drop-shadow(7px 7px 7px rgba(0, 0, 0, 0.123)) ;
   transition-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
-  .wrapper_e131a9 {
+  .e131a99484292a19-wrapper {
     height: auto!important;
   }
 }
-.sidebar__5e434 {
+._5e434347c823b592-sidebar {
   overflow: visible!important;
 }
-.container__2637a {
+._2637a2609f343032-container {
   padding-bottom: 0px!important;
 }
-.scroller__99e7c {
+._99e7cad8d4c55236-scroller {
   margin-bottom: 0px!important;
 }
-.bottom__7aaec {
+._7aaec78b97ff00f7-bottom {
   bottom: 0px!important;
 }
 
@@ -1074,11 +1074,11 @@ nav[class*="guilds"]:hover div {
   opacity: 1;
 }
 
-.visual-refresh .panel__5dec7 {
+.visual-refresh ._5dec784a68542d60-panel {
   display: none;
 }
 
-.visual-refresh [class^="panels_"]:hover .panel__5dec7 {
+.visual-refresh [class^="panels_"]:hover ._5dec784a68542d60-panel {
   display: block;
 }
 
@@ -1090,7 +1090,7 @@ nav[class*="guilds"]:hover div {
 
 
 /*Animated invite button*/
-.inviteButton_f37cb1 {
+.f37cb1984c371ee5-inviteButton {
 opacity: 0;
   
   transform-origin: left;
@@ -1100,7 +1100,7 @@ opacity: 0;
   will-change: opacity, transform;
 }
 
-.inviteButton_f37cb1:hover {
+.f37cb1984c371ee5-inviteButton:hover {
  opacity: 1;
  
  transform: translate(-1%, -1%) !important;
@@ -1140,9 +1140,9 @@ opacity: 0;
 
 
 /* Moonlight Extension update banner color */
-.cardPrimary_a298b8.editable_a298b8 :has(button[aria-label="Update"]) {
+._730694f5672c9601-cardPrimary._730694f5672c9601-editable :has(button[aria-label="Update"]) {
     background-color:#F23F43;
-    .defaultColor_a595eb {
+    ._4bd5201c86a2042b-defaultColor {
         color:black !important;
     }
     svg {
@@ -1551,8 +1551,8 @@ Tests
 
 
 
-.iconContainerWithGuildIcon__2ea32 {
-    .icon__2894c {
+._2ea32c412048f708-iconContainerWithGuildIcon {
+    ._2894cba534d7d8a0-icon {
         margin-left: 0px;
         margin-top: 0px;
         width: 20px;
@@ -1564,7 +1564,7 @@ Tests
         }
     }
 
-    .svg__2338f {
+    ._2338f50c3988e5ec-svg {
         position: absolute;
         top: -6px;
         left: -10px;
@@ -1579,7 +1579,7 @@ Tests
             border-radius: var(--radius-sm) 0 0 var(--radius-sm) !important;
             width: calc(28px + var(--space-xxs) + var(--space-xxs)) !important;
 
-            .channelGuildIcon__2894c {
+            ._2894cba534d7d8a0-channelGuildIcon {
                 position: absolute;
                 top: calc(0px - var(--space-xxs) - var(--space-xxs));
                 width: calc(28px + var(--space-xxs) + var(--space-xxs)) !important;
@@ -1593,6 +1593,6 @@ Tests
     }
 }
 
-.modeSelected__2ea32 .iconWithGuildIcon__2ea32 {
+._2ea32c412048f708-modeSelected ._2ea32c412048f708-iconWithGuildIcon {
     color: var(--header-primary)
 }
