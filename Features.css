@@ -1152,6 +1152,68 @@ opacity: 0;
 
 
 
+/* RAINBOW THREAD */
+.d125d22cdfd32cfe-content > li._5b40bdd67543ba35-container > ul[role="group"] {
+> ._5b40bdd67543ba35-spineBorder {
+    --step: calc(var(--channels-name-line-height) + 10px);
+    background: var(--thread-muted, repeating-linear-gradient(
+      #824e62 calc(var(--step) * 0),
+      #824e62 calc(var(--step) * 1),
+      #866251 calc(var(--step) * 1),
+      #866251 calc(var(--step) * 2),
+      #857a65 calc(var(--step) * 2),
+      #857a65 calc(var(--step) * 3),
+      #5c7a5e calc(var(--step) * 3),
+      #5c7a5e calc(var(--step) * 4),
+      #4d638b calc(var(--step) * 4),
+      #4d638b calc(var(--step) * 5),
+      #6e5c89 calc(var(--step) * 5),
+      #6e5c89 calc(var(--step) * 6))
+    )
+  }
+> li {
+    --interactive-hover: var(--thread-core, #f38ba8);
+    --interactive-active: var(--thread-core, #f38ba8);
+  }
+> li:nth-of-type(6n + 1) {
+    --channels-default: var(--thread-default, rgba(243, 139, 168, 0.7));
+    --text-primary: var(--thread-core, #f38ba8);
+    --interactive-muted: var(--thread-muted, #824e62);
+  }
+> li:nth-of-type(6n + 2) {
+    --channels-default: var(--thread-default, rgba(250, 179, 135, 0.7));
+    --text-primary: var(--thread-core, #fab387);
+    --interactive-muted: var(--thread-muted, #866251);
+  }
+> li:nth-of-type(6n + 3) {
+    --channels-default: var(--thread-default, rgba(249, 226, 175, 0.7));
+    --text-primary: var(--thread-core, #f9e2af);
+    --interactive-muted: var(--thread-muted, #857a65);
+  }
+> li:nth-of-type(6n + 4) {
+    --channels-default: var(--thread-default, rgba(166, 227, 161, 0.7));
+    --text-primary: var(--thread-core, #a6e3a1);
+    --interactive-muted: var(--thread-muted, #5c7a5e);
+  }
+> li:nth-of-type(6n + 5) {
+    --channels-default: var(--thread-default, rgba(137, 180, 250, 0.7));
+    --text-primary: var(--thread-core, #89b4fa);
+    --interactive-muted: var(--thread-muted, #4d638b);
+  }
+> li:nth-of-type(6n + 6) {
+    --channels-default: var(--thread-default, rgba(203, 166, 247, 0.7));
+    --text-primary: var(--thread-core, #cba6f7);
+    --interactive-muted: var(--thread-muted, #6e5c89);
+  }
+  li:only-of-type {
+    --channels-default: var(--thread-default, rgba(245, 194, 231, 0.7));
+    --text-primary: var(--thread-core, #f5c2e7);
+    --interactive-muted: var(--thread-muted, #836a81);
+  }
+}
+
+
+
 
 
 
