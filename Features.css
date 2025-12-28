@@ -949,99 +949,131 @@ nav[class*="guilds"]:hover div {
 
 
 
-/*Frosted Glass Stealth User Panel*/
+/* Complex Animated Stealth User Panel */
 
-/* The main container */
+:root {
+    --glass-blur: 16px;
+    --glass-opacity: 0.1;
+    --glass-border: rgba(255, 255, 255, 0.15);
+    --anim-curve: cubic-bezier(0.68, -0.55, 0.265, 1.55); /* Playful Bounce */
+}
+
+/* Base Container */
 ._5e434347c823b592-panels {
-    /* Layout & Positioning */
     position: fixed !important;
-    left: 10px !important;
-    bottom: 10px !important; /* Adjust based on your layout */
+    left: 8px !important;
+    bottom: 8px !important;
     z-index: 50000;
     
-    /* Initial Hidden State */
-    height: 40px !important;
-    width: 10px !important; /* Narrow "trigger" strip */
-    border-radius: 20px !important;
-    overflow: hidden;
-    opacity: 0.2; /* Subtle hint of existence */
-    
-    /* Visuals - Frosted Glass */
-    background: rgba(255, 255, 255, 0.03) !important;
-    backdrop-filter: blur(0px); 
+    /* Initial State: Tiny Circle */
+    width: 48px !important;
+    height: 48px !important;
+    border-radius: 24px !important;
+    background: rgba(0, 0, 0, 0.2) !important;
+    backdrop-filter: blur(0px);
     border: 1px solid transparent !important;
+    overflow: hidden;
     
-    /* Animation */
+    /* Transition Mask */
+    clip-path: circle(50% at 50% 50%);
+    
+    /* Smooth multi-property transition */
     transition: 
-        width 0.45s cubic-bezier(0.165, 0.84, 0.44, 1),
-        height 0.45s cubic-bezier(0.165, 0.84, 0.44, 1),
-        opacity 0.3s ease,
-        backdrop-filter 0.3s ease,
-        background 0.3s ease !important;
+        width 0.6s var(--anim-curve),
+        height 0.6s var(--anim-curve),
+        clip-path 0.5s ease,
+        background 0.4s ease,
+        backdrop-filter 0.4s ease,
+        box-shadow 0.4s ease !important;
     pointer-events: all;
 }
 
-/* Hover State - Expansion & Frosting */
+/* Hover State: Expansion */
 ._5e434347c823b592-panels:hover {
-    width: 300px !important;
-    height: auto !important; /* Let content dictate height */
-    min-height: 56px !important;
-    opacity: 1;
-    border-radius: 12px !important;
-    
-    /* Enhanced Frosted Glass Effect */
-    background: rgba(30, 31, 34, 0.6) !important; /* Darker tint for readability */
-    backdrop-filter: blur(12px) saturate(160%) !important;
-    border: 1px solid var(--border-subtle) !important;
-    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    width: 320px !important;
+    height: 75px !important; /* Slightly taller for breathing room */
+    border-radius: 16px !important;
+    background: rgba(20, 20, 22, 0.7) !important;
+    backdrop-filter: blur(var(--glass-blur)) saturate(180%) !important;
+    border: 1px solid var(--glass-border) !important;
+    clip-path: circle(100% at 50% 50%);
+    box-shadow: 
+        0 10px 30px rgba(0, 0, 0, 0.5),
+        inset 0 0 0 1px rgba(255, 255, 255, 0.05);
 }
 
-/* Internal Wrapper Handling */
+/* Staggered Content Reveal */
 .e131a99484292a19-wrapper {
-    height: 0;
+    display: flex;
+    align-items: center;
+    height: 100%;
     opacity: 0;
-    transform: translateY(10px);
-    transition: opacity 0.3s ease, transform 0.3s ease;
-    overflow: hidden;
+    transform: translateX(-20px) skewX(-5deg);
+    transition: 
+        opacity 0.4s ease 0.1s, 
+        transform 0.5s var(--anim-curve) 0.1s;
 }
 
 ._5e434347c823b592-panels:hover .e131a99484292a19-wrapper {
-    height: auto !important;
     opacity: 1;
-    transform: translateY(0);
+    transform: translateX(0) skewX(0deg);
 }
 
-/* Sidebar and Container Cleanup */
-._5e434347c823b592-sidebar {
-    overflow: visible !important;
-}
-
-._2637a2609f343032-container {
-    padding-bottom: 0px !important;
-}
-
-/* Buttons (Mute, Deafen, Settings) Animation */
+/* Complex Icon Animations (Mute/Deafen/Settings) */
 .visual-refresh [class^="panels_"] [class^="container__"] [class^="buttons__"] {
+    display: flex !important;
+    gap: 4px;
+}
+
+.visual-refresh [class^="panels_"] [class^="container__"] [class^="buttons__"] > button {
     opacity: 0;
-    transform: scale(0.8) translateX(-10px);
-    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    transform: translateY(15px) rotate(-15deg);
+    transition: 
+        opacity 0.3s ease,
+        transform 0.4s var(--anim-curve);
 }
 
-._5e434347c823b592-panels:hover [class^="buttons__"] {
-    opacity: 1;
-    transform: scale(1) translateX(0);
+/* Staggering the buttons so they pop in one by one */
+._5e434347c823b592-panels:hover button:nth-child(1) { transition-delay: 0.15s; opacity: 1; transform: translateY(0) rotate(0); }
+._5e434347c823b592-panels:hover button:nth-child(2) { transition-delay: 0.20s; opacity: 1; transform: translateY(0) rotate(0); }
+._5e434347c823b592-panels:hover button:nth-child(3) { transition-delay: 0.25s; opacity: 1; transform: translateY(0) rotate(0); }
+._5e434347c823b592-panels:hover button:nth-child(4) { transition-delay: 0.30s; opacity: 1; transform: translateY(0) rotate(0); }
+
+/* Avatar Zoom Effect */
+._37e49614b9f110a9-avatarWrapper {
+    transition: transform 0.3s var(--anim-curve) !important;
 }
 
-/* Remove default panel backgrounds to prevent clashing with frost */
+._5e434347c823b592-panels:hover ._37e49614b9f110a9-avatarWrapper {
+    transform: scale(1.1) rotate(3deg);
+}
+
+/* Clean up visual refresh artifacts */
 .visual-refresh [class^="panels_"] [class^="container__"] {
     background: transparent !important;
+    border: none !important;
 }
 
-/* Avatar behavior fix */
-._37e49614b9f110a9-avatarWrapper:hover {
-    min-width: 35px !important;
-    max-width: 35px !important;
-    transition: 0.2s ease-in-out !important;
+/* Add a subtle "shimmer" line on hover */
+._5e434347c823b592-panels::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.05),
+        transparent
+    );
+    transition: 0.6s;
+}
+
+._5e434347c823b592-panels:hover::after {
+    left: 100%;
+    transition: 0.8s ease-in-out;
 }
 
 
