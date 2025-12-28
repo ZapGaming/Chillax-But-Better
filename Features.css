@@ -954,14 +954,33 @@ nav[class*="guilds"]:hover div {
 
 
 
-/* user area */
+/* Collapsable user control adopted for chillax*/
+._5e434347c823b592-panels {
+  left: var(--space-sm)!important;
+  height: 57px!important;
+  width: 56px!important;
+  border-radius: 30px!important;
+  display: flex!important;
+  flex-direction: column;
+  overflow: hidden;
+  transition-duration: 0.35s;
+  z-index: 50000;
+  pointer-events: all;
+  border: 1px solid var(--border-subtle)!important;
+ &:has(.e131a99484292a19-container) {
+  border: 1px solid var(--border-normal);
+ }
+}
+
 .e131a99484292a19-wrapper {
   height: 0;
   overflow: hidden;
-
+  
 }
 
-.panels5e434 {
+._5e434347c823b592-panels:hover {
+  width: 300px!important;
+  height: auto!important;
   display: flex!important;
   flex-direction: column;
   border-radius: 15px!important;
@@ -971,63 +990,55 @@ nav[class*="guilds"]:hover div {
     height: auto!important;
   }
 }
-
-.avatarwrapper {
+._5e434347c823b592-sidebar {
   overflow: visible!important;
 }
-.sidebar5e434 {
-  overflow: visible!important;
-}
-.container2637a {
+._2637a2609f343032-container {
   padding-bottom: 0px!important;
 }
-.scroller99e7c {
+._99e7cad8d4c55236-scroller {
   margin-bottom: 0px!important;
 }
-.bottom7aaec {
+._7aaec78b97ff00f7-bottom {
   bottom: 0px!important;
 }
 
 
-.visual-refresh [class^="panels_"] {
+.visual-refresh [class^="panels_"] [class^="container__"] [class^="buttons__"] {
   opacity: 0;
-  background: none;
-  transform: translate(-101%, -1%) !important;
   transform: scale(0);
   transform-origin: left;
-  transition: all 0.9s ease;
-  backdrop-filter: blur(50px);
+  transition: opacity 0.1s ease-in, transform 0.1s ease-in;
   will-change: opacity, transform;
 }
 
-.visual-refresh [class^="panels_"]:hover {
- opacity: 1;
+.visual-refresh [class^="panels_"]:hover [class^="container__"] [class^="buttons__"] {
 
-  background: none;
-  transform: scale(100);
- transform: translate(-3%, -1%) !important;
-
-}
-
-.visual-refresh [class^="panels_"] [class^="buttons"] {
-  opacity: 0;
-  transition: all 0.9s ease;
-  transform: translate(-101%, -1%) !important;
-}
-
-.visual-refresh [class^="panels_"]:hover [class^="buttons"] {
+  transform: scale(1);
+  
   opacity: 1;
-  transform: translate(-5%, -1%) !important;
 }
-
 
 .visual-refresh ._5dec784a68542d60-panel {
   display: none;
 }
 
-.visual-refresh [class^="panels"]:hover .panel5dec7 {
+.visual-refresh [class^="panels_"]:hover ._5dec784a68542d60-panel {
   display: block;
 }
+
+._5e434347c823b592-panels {
+    left: 10px !important;
+}
+
+._37e49614b9f110a9-avatarWrapper:hover {
+    min-width: 35px !important;
+    max-width: 35px !important;
+    transition: none !important;
+}
+
+
+
 
 
 /* transparency */
