@@ -1268,67 +1268,8 @@ opacity: 0;
 
 
 
-/* viggy chat bar */
-form[class$=formWithLoadedChatInput] > div:first-child::before {
-  height: 200px;
-  position: absolute;
-  width: 228px;
-  bottom: calc(50% - 8px);
-  top: unset !important;
-  content: url(https://media.discordapp.net/stickers/1217112512374505613.png?size=320);
-  image-rendering: pixelated;
-  align-content: center;
-  scale: 0.5;
-  inset-inline: unset;
-  animation: 20s linear 0s infinite walk_cycle;
-  left: 0;
-  pointer-events: none;
-  transform-origin: center;
-}
 
-@keyframes walk_cycle {
-  /* START: At Left, flipped to face Right */
-  0%, 5% { 
-    left: 0%; 
-    transform: scaleX(-1); 
-  }
 
-  /* TRAVEL: Moving Right */
-  45% { 
-    left: 75%; 
-    transform: scaleX(-1); 
-  }
-
-  /* PAUSE & FLIP: Stay at Right, then flip to face Left (Original) */
-  45%, 50% { 
-    left: 75%; 
-    transform: scaleX(-1); 
-  }
-  51% { 
-    left: 75%; 
-    transform: scaleX(1); 
-  }
-  55% { 
-    left: 75%; 
-    transform: scaleX(1); 
-  }
-
-  /* TRAVEL: Moving Left */
-  95% { 
-    left: 0%; 
-    transform: scaleX(1); 
-  }
-
-  /* PAUSE & FLIP: Stay at Left, flip to face Right to loop */
-  95%, 99% { 
-    left: 0%; 
-    transform: scaleX(1); 
-  }
-  100% { 
-    left: 0%; 
-    transform: scaleX(-1); 
-  }
-}
 
 
 
