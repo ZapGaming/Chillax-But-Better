@@ -1282,6 +1282,33 @@ opacity: 0;
 
 
 
+form[class$=formWithLoadedChatInput] > div:first-child::before {
+  height: 200px;
+  position: absolute;
+  width: 228px;
+  bottom: calc(50% - 8px);
+  top: unset !important;
+  content: url(https://media.discordapp.net/stickers/1217112512374505613.png?size=320);
+  image-rendering: pixelated;
+  align-content: center;
+  scale: 0.5;
+  inset-inline: unset;
+  animation: 20s linear 0s infinite left_right;
+  left: 0;
+  pointer-events: none;
+}
+
+@keyframes left_right {
+  0%, 2.5%, 97.5%, 100% { left: 0 }
+  45%, 55% { left: 75% }
+  2.4%, 55% { transform: scaleX(1) }
+  2.5%, 54.9% { transform: scaleX(-1) }
+}
+
+
+
+
+
 
 
 
