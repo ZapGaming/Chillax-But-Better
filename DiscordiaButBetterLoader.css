@@ -17,20 +17,20 @@
 @import url("https://warrayquipsome.github.io/Chillax/Components/ChannelHeader.css");
 @import url("https://warrayquipsome.github.io/Chillax/Components/EmojiPicker.css");
 
-/* --- Interfaccia Utente (UI) --- *//*
+/* --- Interfaccia Utente (UI) --- */
 @import url("https://ungiglio.github.io/DiscordDiscordia/awkglass/core/ui/app_base.css");
-@import url("https://ungiglio.github.io/DiscordDiscordia/awkglass/core/ui/scrollbars.css");*/
+@import url("https://ungiglio.github.io/DiscordDiscordia/awkglass/core/ui/scrollbars.css");
 
-/* --- Layout --- *//*
+/* --- Layout --- */
 @import url("https://ungiglio.github.io/DiscordDiscordia/awkglass/core/layout/sidebar.css");
 @import url("https://ungiglio.github.io/DiscordDiscordia/awkglass/core/layout/channels.css");
 @import url("https://ungiglio.github.io/DiscordDiscordia/awkglass/core/layout/members.css");
-@import url("https://ungiglio.github.io/DiscordDiscordia/awkglass/core/layout/pages.css");*/
+@import url("https://ungiglio.github.io/DiscordDiscordia/awkglass/core/layout/pages.css");
 
-/* --- Chat & Forum --- *//*
+/* --- Chat & Forum --- */
 @import url("https://ungiglio.github.io/DiscordDiscordia/awkglass/core/chat/message_area.css");
 @import url("https://ungiglio.github.io/DiscordDiscordia/awkglass/core/chat/input_bar.css");
-@import url("https://ungiglio.github.io/DiscordDiscordia/awkglass/core/chat/forum.css");*/
+@import url("https://ungiglio.github.io/DiscordDiscordia/awkglass/core/chat/forum.css");
 
 /* --- Moduli & Plugin --- */
 @import url("https://ungiglio.github.io/DiscordDiscordia/awkglass/core/modules/modals.css");
