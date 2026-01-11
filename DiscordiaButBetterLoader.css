@@ -5,6 +5,7 @@
 @import url("https://ungiglio.github.io/DiscordDiscordia/awkglass/core/variables.css");
 
 /* --- Interfaccia Utente (UI) --- */
+@import url("https://ungiglio.github.io/DiscordDiscordia/awkglass/core/ui/app_base.css");
 /* * CORE UI: SCROLLBARS */
 
 ._99f8cc7ad4790ce9-auto.f369dba7416c67f0-list._99f8cc7ad4790ce9-scrollerBase::-webkit-scrollbar {
