@@ -32,23 +32,3 @@
 @import url("https://ungiglio.github.io/DiscordDiscordia/awkglass/core/modules/notifications.css");
 @import url("https://ungiglio.github.io/DiscordDiscordia/awkglass/core/modules/user_panel_version.css");
 /* @import url("https://ungiglio.github.io/DiscordDiscordia/awkglass/core/modules/horizontal_server_list.css"); */
-
-/* top bar */
-.c38106a3f0c3ca76-title {
-    padding: 2px 2px;
-    background: rgba(240, 116, 185, 0.6)/*var(--window-colour)*/;
-    backdrop-filter: blur(var(--window-blur)) !important;
-    width: 300px;
-    border-radius: 7px;
-    position: relative;
-    z-index: 0;
-    display: ruby;
-} 
-
-div[aria-label="Help"] {
-    display: none;
-}
-
-div[aria-label="Checkpoint"] {
-    display: none;
-}
