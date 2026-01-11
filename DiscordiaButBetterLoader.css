@@ -46,25 +46,6 @@
     display: ruby;
 } 
 
-.c38106a3f0c3ca76-leading::before {
-    content: "‏‏‎ m i k a";
-    font-size: 12px;
-    font-family: "Urbanist" !important;
-    background: var(--window-colour);
-    backdrop-filter: blur(var(--window-blur));
-    border-radius: 5px;
-    padding: 10px 11px 10px 7px;
-    margin-left: var(--window-margin);
-    pointer-events: all;
-    transition: 0.5s ease-in-out;
-    color: var(--text-normal);
-}
-
-.c38106a3f0c3ca76-leading:hover::before {
-    content: "‏‏‎ m i k a";
-    letter-spacing: 2px;
-}
-
 div[aria-label="Help"] {
     display: none;
 }
