@@ -4,9 +4,6 @@
 /* --- Core Logic --- */
 @import url("https://ungiglio.github.io/DiscordDiscordia/awkglass/core/variables.css");
 
-/****CHILLAX COMPONENTS****/
-@import url("https://warrayquipsome.github.io/Chillax/Components/EmojiPicker.css");
-
 /* --- Interfaccia Utente (UI) --- */
 @import url("https://ungiglio.github.io/DiscordDiscordia/awkglass/core/ui/app_base.css");
 @import url("https://ungiglio.github.io/DiscordDiscordia/awkglass/core/ui/scrollbars.css");
@@ -35,6 +32,3 @@
 @import url("https://ungiglio.github.io/DiscordDiscordia/awkglass/core/modules/notifications.css");
 @import url("https://ungiglio.github.io/DiscordDiscordia/awkglass/core/modules/user_panel_version.css");
 /* @import url("https://ungiglio.github.io/DiscordDiscordia/awkglass/core/modules/horizontal_server_list.css"); */
-@import url("https://warrayquipsome.github.io/Chillax/Addons/SettingsModalEdited.css");
-@import url("https://warrayquipsome.github.io/Chillax/Addons/AccountDetailsGrid.css");
-@import url("https://crearts-community.github.io/Friends-Grid/theme.css");
