@@ -6,33 +6,7 @@
 
 /* --- Interfaccia Utente (UI) --- */
 @import url("https://ungiglio.github.io/DiscordDiscordia/awkglass/core/ui/app_base.css");
-/* * CORE UI: SCROLLBARS */
-
-._99f8cc7ad4790ce9-auto.f369dba7416c67f0-list._99f8cc7ad4790ce9-scrollerBase::-webkit-scrollbar {
-    width: 5px;
-}
-
-._99f8cc7ad4790ce9-auto.f369dba7416c67f0-list._99f8cc7ad4790ce9-scrollerBase::-webkit-scrollbar-thumb {
-    display: none;
-}
-
-._99f8cc7ad4790ce9-auto.f369dba7416c67f0-list._99f8cc7ad4790ce9-scrollerBase::-webkit-scrollbar-thumb:hover {
-    display: none;
-}
-
-._629e4c86564a4ee7-scroller::-webkit-scrollbar {
-    /*channel list scrollbar hidden*/
-    display: none;
-}
-
-._629e4c86564a4ee7-scroller::-webkit-scrollbar-thumb {
-    display: none;
-}
-
-._36d072eab2b2e737-scroller::-webkit-scrollbar {
-    /*channel scrollbar hidden*/
-    width: 12px;
-}
+@import url("https://ungiglio.github.io/DiscordDiscordia/awkglass/core/ui/scrollbars.css");
 
 /* top bar */
 .c38106a3f0c3ca76-title {
