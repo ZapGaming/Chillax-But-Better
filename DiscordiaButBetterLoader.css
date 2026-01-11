@@ -5,8 +5,72 @@
 @import url("https://ungiglio.github.io/DiscordDiscordia/awkglass/core/variables.css");
 
 /* --- Interfaccia Utente (UI) --- */
-@import url("https://ungiglio.github.io/DiscordDiscordia/awkglass/core/ui/app_base.css");
-@import url("https://ungiglio.github.io/DiscordDiscordia/awkglass/core/ui/scrollbars.css");
+/* * CORE UI: SCROLLBARS */
+
+._99f8cc7ad4790ce9-auto.f369dba7416c67f0-list._99f8cc7ad4790ce9-scrollerBase::-webkit-scrollbar {
+    width: 5px;
+}
+
+._99f8cc7ad4790ce9-auto.f369dba7416c67f0-list._99f8cc7ad4790ce9-scrollerBase::-webkit-scrollbar-thumb {
+    display: none;
+}
+
+._99f8cc7ad4790ce9-auto.f369dba7416c67f0-list._99f8cc7ad4790ce9-scrollerBase::-webkit-scrollbar-thumb:hover {
+    display: none;
+}
+
+._629e4c86564a4ee7-scroller::-webkit-scrollbar {
+    /*channel list scrollbar hidden*/
+    display: none;
+}
+
+._629e4c86564a4ee7-scroller::-webkit-scrollbar-thumb {
+    display: none;
+}
+
+._36d072eab2b2e737-scroller::-webkit-scrollbar {
+    /*channel scrollbar hidden*/
+    width: 12px;
+}
+
+/* top bar */
+.c38106a3f0c3ca76-title {
+    padding: 2px 2px;
+    background: rgba(240, 116, 185, 0.6)/*var(--window-colour)*/;
+    backdrop-filter: blur(var(--window-blur)) !important;
+    width: 300px;
+    border-radius: 7px;
+    position: relative;
+    z-index: 0;
+    display: ruby;
+} 
+
+.c38106a3f0c3ca76-leading::before {
+    content: "‏‏‎ m i k a";
+    font-size: 12px;
+    font-family: "Urbanist" !important;
+    background: var(--window-colour);
+    backdrop-filter: blur(var(--window-blur));
+    border-radius: 5px;
+    padding: 10px 11px 10px 7px;
+    margin-left: var(--window-margin);
+    pointer-events: all;
+    transition: 0.5s ease-in-out;
+    color: var(--text-normal);
+}
+
+.c38106a3f0c3ca76-leading:hover::before {
+    content: "‏‏‎ m i k a";
+    letter-spacing: 2px;
+}
+
+div[aria-label="Help"] {
+    display: none;
+}
+
+div[aria-label="Checkpoint"] {
+    display: none;
+}
 
 /* --- Layout --- */
 @import url("https://ungiglio.github.io/DiscordDiscordia/awkglass/core/layout/sidebar.css");
