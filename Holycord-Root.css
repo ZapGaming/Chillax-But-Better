@@ -143,9 +143,6 @@
     --icon-hover: var(--text-channel-hover);
     --highlighted-channel-color: rgb(123, 176, 245);
     --custom-spoiler-color: rgb(148, 83, 212);
-
-
-    --ver: "Lande della Discordia (" var(--current-ver)") " var(--file-ver);
 }
 
 
