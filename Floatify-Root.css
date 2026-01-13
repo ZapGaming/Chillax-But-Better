@@ -719,7 +719,7 @@ html.theme-light body:before {
 
 
 
-/*custom chillax theme card*/
+/*custom chillax theme card*//*
 #Chillax-card .bd-name {
     font-size: 100px;
     text-align: left;
@@ -789,7 +789,7 @@ html.theme-dark #Chillax-card .bd-meta {
 
 html.theme-light #Chillax-card .bd-meta {
     color: rgb(0, 0, 0);
-}
+}*/
 
 
 
