@@ -1360,11 +1360,6 @@ div[aria-label="Checkpoint"] {
     z-index: 10;
 }
 
-/* Hover Pauses */
-.c38106a3f0c3ca76-bar:hover::after {
-    animation-play-state: paused;
-}
-
 @keyframes hq-scroll {
     0% { background-position: 0 center; }
     /* Matches Server WIDTH exactly */
