@@ -699,12 +699,12 @@ html.theme-light .monaco-editor .margin {
 
 
 /*custom chillax theme card*/
-#Chillax-card .bd-name {
+#Floatify-card .bd-name {
     font-size: 100px;
     text-align: left;
 }
 
-#Chillax-card .bd-name::after {
+#Floatify-card .bd-name::after {
     font-size: 20px;
     content: "activated";
     display: block;
@@ -712,44 +712,44 @@ html.theme-light .monaco-editor .margin {
     margin-left: 15px;
 }
 
-#Chillax-card .bd-meta {
+#Floatify-card .bd-meta {
     margin-left: 15px;
     bottom: 25px;
     color: rgb(226, 226, 226);
 }
 
-#Chillax-card {
+#Floatify-card {
     border: 2px solid rgba(13, 191, 222, 0.8);
     box-shadow: 0 0 5px rgba(13, 191, 222, 0.8);
 }
 
-#Chillax-card .bd-addon-header {
+#Floatify-card .bd-addon-header {
     border-bottom: 2px solid rgba(13, 191, 222, 0.8);
     box-shadow: 0 0 5px rgba(13, 191, 222, 0.8);
 }
 
-#Chillax-card > *:not(#a#B) {
+#Floatify-card > *:not(#a#B) {
     background: rgba(rgba(13, 191, 222, 0.8, .2) !important;
 }
 
-#Chillax-card .bd-description {
+#Floatify-card .bd-description {
     display: none;
 }
 
-#Chillax-card [href='https\:\/\/github.com/warrayquipsome/Chillax'] {
+#Floatify-card [href='https\:\/\/github.com/warrayquipsome/Chillax'] {
     color: #fff !important;
 }
 
-#Chillax-card [href='DrfX6286kF'] {
+#Floatify-card [href='DrfX6286kF'] {
     color: #fff !important;
 }
 
-#Chillax-card .bd-name {
+#Floatify-card .bd-name {
     font-size: 70px;
     text-align: left;
 }
 
-#Chillax-card .bd-name::after {
+#Floatify-card .bd-name::after {
     font-size: 20px;
     content: "activated";
     display: block;
@@ -757,16 +757,16 @@ html.theme-light .monaco-editor .margin {
     margin-left: 10px;
 }
 
-#Chillax-card .bd-meta {
+#Floatify-card .bd-meta {
     margin-left: -50px;
     bottom: 25px;
 }
 
-html.theme-dark #Chillax-card .bd-meta {
+html.theme-dark #Floatify-card .bd-meta {
     color: rgb(226, 226, 226);
 }
 
-html.theme-light #Chillax-card .bd-meta {
+html.theme-light #Floatify-card .bd-meta {
     color: rgb(0, 0, 0);
 }
 
