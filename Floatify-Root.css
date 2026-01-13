@@ -697,10 +697,6 @@ html.theme-light body:before {
     background-color: #ffffff7a;
 }
 
-body,
-span:not(.spinner-item) {
-    -webkit-font-smoothing: antialiased;
-}
 
 
 
