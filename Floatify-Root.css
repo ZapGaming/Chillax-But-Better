@@ -1406,7 +1406,7 @@ ul[aria-label="Direct Messages"] ._972a0d22c8afa7f0-channel.container__23ba6 .bf
 
 
 /* Toolbar Relocation */
-/* 1. Frosted Glass Elements */
+/* 1. Frosted Glass Elements *//*
 ._5e434347c823b592-sidebar:after {
     display: none;
 }
@@ -1428,7 +1428,7 @@ ul[aria-label="Direct Messages"] ._972a0d22c8afa7f0-channel.container__23ba6 .bf
 }
 
 
-/* 2. Search Bar */
+/* 2. Search Bar *//*
 ._9293f6b2fc12398a-upperContainer ._9293f6b2fc12398a-toolbar ._496769951eb140fe-search {
 
     ._974928fe84ca9647-searchBar {
@@ -1472,7 +1472,7 @@ ul[aria-label="Direct Messages"] ._972a0d22c8afa7f0-channel.container__23ba6 .bf
     }
 }
 
-/* 3. Repositioned Toolbar Container */
+/* 3. Repositioned Toolbar Container *//*
 ._9293f6b2fc12398a-toolbar {
     position: fixed;
     left: calc(var(--space-xs) + var(--space-xxs) * 3);
