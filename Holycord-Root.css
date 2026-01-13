@@ -19,10 +19,135 @@
 
 
 /* CORE: VARIABLES */
+
 :root,
 .theme-dark,
 .theme-light {
+
+    --file-ver: "#20251219";
+
+    /* --- MAPPING VARIABILI UTENTE --- */
     --background-image: var(--custom-image-url);
+
+    --darkPurple-background: rgb(46, 0, 58); 
+    
+    /* DEFINIZIONE COLORI SPECIFICI RICHIESTI */
+    --header-cat-rgb: 147, 106, 201;
+    --text-lilac: rgb(175, 145, 230);
+    --text-white: rgb(255, 255, 255);
+
+    /* Variabili Categorie (Usa il nuovo viola scuro) */
+    --cat-custom-color: rgb(var(--header-cat-rgb));
+
+    /* Colori Base */
+    --highlight: rgb(var(--rgb-highlight));
+    --highlight-darker: hsl(from var(--highlight) calc(h + 15) s calc(l - 35));
+    
+    /* Stati Utente */
+    --online-color: rgb(var(--rgb-online-color)) !important;
+    --afk-color: rgb(var(--rgb-afk-color)) !important;
+    --dnd-color: rgb(var(--rgb-dnd-color)) !important;
+    --streaming-color: rgb(var(--rgb-streaming-color)) !important;
+
+    /* --- BACKGROUND LAYERS --- */
+    --background-primary: rgba(24, 24, 24, 0.26) !important;
+    --background-secondary: rgba(26, 26, 26, 0.500) !important;
+    --background-tertiary: rgba(26, 26, 26, 0.815) !important;
+    --background-modifier-hover: rgba(20, 20, 20, 0.500);
+    
+    /* MENU TASTO DESTRO NERI */
+    --background-floating: black !important; 
+    
+    --app-border-frame: rgba(255, 255, 255, 0.1) !important;
+    
+    /* --- ELEMENTI UI --- */
+    --button-background: linear-gradient(60deg, var(--highlight), var(--highlight-darker));
+    --button-background-static: var(--highlight);
+    --box-shadow: 0 0 10px 0px black;
+    --spoiler-hidden-background: var(--custom-spoiler-color) !important;
+    --spoiler-hidden-background-hover: var(--highlight) !important;
+    
+    /* --- SCROLLBARS --- */
+    --scrollbar-thin-thumb: var(--highlight) !important;
+    --scrollbar-auto-thumb: var(--highlight) !important;
+    
+    /* --- GESTIONE TESTI --- */
+    --text-normal: rgb(230, 230, 230) !important;
+    --text-muted: rgb(160, 160, 160) !important;
+    --text-header: white !important;
+    
+    --icon-default: rgb(180, 180, 180) !important;
+    
+    --border-subtle: rgba(255, 255, 255, 0.15) !important;
+    --border-strong: rgba(255, 255, 255, 0.4) !important;
+
+    /* Mapping Compatibilità */
+    --channels-default: var(--text-channel-normal) !important;
+    --channel-icon: var(--text-channel-normal) !important; 
+    --interactive-normal: var(--icon-default) !important;
+    --interactive-hover: var(--icon-hover) !important;
+    --interactive-muted: rgba(180, 180, 180, 0.5) !important;
+
+    /* --- LOGHI E BRAND --- */
+    --logo-primary: var(--highlight) !important;
+    --control-brand-foreground: var(--highlight) !important;
+    --bg-brand: var(--highlight) !important;
+    --background-brand: var(--highlight) !important;
+
+    /* --- MESSAGGI --- */
+    --background-mentioned: rgba(var(--rgb-highlight), 14%) !important;
+    --background-mentioned-hover: rgba(var(--rgb-highlight), 20%) !important;
+    --background-message-highlight: rgba(var(--rgb-highlight), 30%) !important;
+    --background-message-highlight-hover: rgba(var(--rgb-highlight), 40%) !important;
+    --background-message-automod: rgba(var(--rgb-highlight), 20%) !important;
+    --background-message-hover: rgba(20, 20, 20, 0.4) !important;
+    --background-surface-high: var(--background-tertiary) !important;
+    --background-surface-higher: var(--background-tertiary) !important;
+    --background-base-low: var(--background-tertiary) !important;
+    --background-base-lower: var(--background-secondary) !important;
+    --card-background-default: rgba(20, 20, 20, 0.4) !important;
+
+    /* --- PULSANTI --- */
+    --button-danger-background: rgba(var(--rgb-close-button), 100%) !important;
+    --button-danger-background-hover: rgba(var(--rgb-close-button), 70%) !important;
+    --button-danger-background-active: rgba(var(--rgb-close-button), 100%) !important;
+    
+    --button-positive-background: rgba(var(--rgb-online-color), 20%) !important;
+    --button-positive-background-hover: rgba(var(--rgb-online-color), 70%) !important;
+    
+    --button-primary-background: rgba(var(--rgb-highlight), 95%) !important;
+    --button-primary-background-hover: rgba(var(--rgb-highlight), 70%) !important;
+    
+    --button-secondary-background: rgba(var(--rgb-highlight), 20%) !important;
+    --button-secondary-background-hover: rgba(var(--rgb-highlight), 70%) !important;
+
+    /* --- UI GENERICA --- */
+    --status-danger-background: rgb(var(--rgb-close-button)) !important;
+    --status-danger: rgb(var(--rgb-close-button)) !important; 
+    --status-warning: var(--afk-color) !important;
+    --status-positive: var(--online-color) !important;
+    --status-positive-background: var(--online-color);
+    
+    --menu-item-default-active-bg: var(--highlight) !important;
+    --background-channel-selected: rgba(var(--rgb-highlight), 10%) !important;
+
+    /* --- Search Popout --- */
+    --search-popout-option-user-nickname: var(--highlight) !important;
+    --search-popout-option-user-username: rgba(var(--rgb-highlight), 70%) !important;
+    --search-popout-option-filter-text: rgba(var(--rgb-highlight), 70%) !important;
+    --search-popout-date-picker-border: 1px solid var(--highlight) !important;
+
+    /* --- Variabili di Personalizzazione --- */
+    --memberlist-text: var(--text-muted);
+    --new-msg-divider: var(--cat-custom-color);
+    --text-channel-normal: var(--text-lilac); 
+    --text-channel-hover: var(--text-normal);
+    --icon-hover: var(--text-channel-hover);
+    --highlighted-channel-color: rgb(123, 176, 245);
+    --custom-spoiler-color: rgb(148, 83, 212);
+
+
+    --ver: "Lande della Discordia (" var(--current-ver)") " var(--file-ver);
 }
 
 
@@ -36,9 +161,193 @@
 /* * CORE CHAT: MESSAGE AREA */
 
 .f75fb00fb7356cbe-chat {
-    background: var(--background-image);
+    background: var(--background-primary);
     border-radius: 10px;
     margin: 0 20px;
+}
+
+._5126c0cd07f243a0-mentioned:before {
+    box-shadow: 4px 0px 6px 1px var(--button-background);
+    background: var(--button-background);
+}
+
+._5126c0cd07f243a0-mentioned::before {
+    background-color: var(--highlight);
+}
+
+.f7ecaca5c80dbf3a-wrapper {
+    /* message:hover popup */
+    background: var(--darkPurple-background);
+}
+
+.f7ecaca5c80dbf3a-wrapper:hover {
+    /* message:hover popup */
+    border: 1px solid var(--border-strong); /* Era custom-channel-icon */
+}
+
+.f7ecaca5c80dbf3a-button.f7ecaca5c80dbf3a-dangerous {
+    color: var(--status-warning);
+}
+
+.f7ecaca5c80dbf3a-button.f7ecaca5c80dbf3a-dangerous:hover {
+    color: var(--status-danger);
+}
+
+.aa605f19898fe32e-miniPopover.f7ecaca5c80dbf3a-wrapper .f7ecaca5c80dbf3a-button {
+    height: 4px;
+}
+
+.aa605f19898fe32e-miniPopover.f7ecaca5c80dbf3a-wrapper:hover {
+    border: 1px solid var(--border-strong);
+}
+
+._841c8f861f7b2704-replyBar {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+}
+
+._841c8f861f7b2704-clipContainer {
+    overflow: hidden;
+    padding-top: 0;
+    margin-top: -3px;
+    background-color: rgba(0, 0, 0, 0);
+}
+
+._551b0894962ff66f-container {
+    background: var(--background-secondary);
+}
+
+._908e20001ad67812-unreadPillCapStroke {
+    color: var(--highlight);
+    fill: var(--highlight)
+}
+
+._908e20001ad67812-unreadPill {
+    background-color: var(--highlight);
+}
+
+.popoverReactionHoverBar_f84418 {
+    background: transparent;
+}
+
+._5126c0cd07f243a0-replying:hover {
+    background-color: rgba(var(--rgb-highlight), 60%) !important;
+}
+
+._5126c0cd07f243a0-ephemeral {
+    background-color: rgba(var(--rgb-highlight), 30%);
+}
+
+._5126c0cd07f243a0-ephemeral:hover {
+    background-color: rgba(var(--rgb-highlight), 20%) !important;
+}
+
+._5126c0cd07f243a0-ephemeral::before {
+    background-color: var(--highlight) !important;
+}
+
+._0f481cbbd7530492-newMessagesBar {
+    height: 32px;
+    top: 0px;
+    border-radius: 8px;
+    background-color: var(--highlight);
+    box-shadow: var(--elevation-low);
+}
+
+.f75fb00fb7356cbe-subtitleContainer {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    border-radius: 8px;
+    background: transparent;
+}
+
+.theme-dark .f75fb00fb7356cbe-subtitleContainer {
+    background: transparent;
+}
+
+.f75fb00fb7356cbe-title {
+    position: relative;
+    flex: 0 0 auto;
+    z-index: 100;
+    border-radius: 8px;
+}
+
+.disabledStrokeThrough {
+    fill: var(--status-danger);
+}
+
+._908e20001ad67812-divider {
+    border-top: none;
+}
+
+.f75fb00fb7356cbe-chatContent {
+    border-radius: 0px 0px 0px 8px;
+    background: var(--background-secondary);
+}
+
+._82f0793afa59e5dc-botTagOP {
+    color: var(--white);
+}
+
+._5b40bdd67543ba35-spine {
+    color: rgb(121, 121, 121);
+}
+
+._5b40bdd67543ba35-spineBorder {
+    background: rgb(121, 121, 121);
+}
+
+.c69b6db0641110f6-containerDefault:hover ._5b40bdd67543ba35-spineBorder {
+    background: var(--white);
+}
+
+._0f481cbbd7530492-jumpToPresentBar {
+    background-color: var(--darkPurple-background);
+    border: 1px solid var(--border-subtle);
+}
+
+._5126c0cd07f243a0-divider {
+    margin-right: 50px;
+}
+
+._908e20001ad67812-endCap svg {
+    display: none;
+}
+
+._36d072eab2b2e737-chatGradient {
+    background: transparent;
+}
+
+span[class*="timestampInline_"] time::before {
+    content: attr(aria-label);
+    font-size: 12px;
+}
+
+._841c8f861f7b2704-mentionIcon {
+    margin-right: 0px;
+}
+
+.theme-dark .a8e786485f0c32f8-container:not(.a8e786485f0c32f8-playing) .a8e786485f0c32f8-playButtonContainer,
+.a8e786485f0c32f8-ripple {
+    background: var(--online-color);
+}
+
+.theme-dark .a8e786485f0c32f8-container:not(.a8e786485f0c32f8-playing) .a8e786485f0c32f8-playButtonContainer:hover {
+    background: var(--online-color);
+    filter: brightness(85%);
+}
+
+._00de6f6c14b53606-emptyChannelIcon {
+    background-color: var(--background-primary);
+}
+
+._623de82e76ad7f82-embedFull {
+    background: var(--background-secondary);
+    border-radius: 5px;
 }
 
 /* For the gradient color of unread */
