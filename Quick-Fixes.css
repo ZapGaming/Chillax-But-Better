@@ -2,3 +2,104 @@
 div[aria-label="Help"] {
     display: none;
 }
+
+
+
+
+/* =========================================== */
+/*   FROSTED GLASS USER AREA - "CONTROL POD"   */
+/* =========================================== */
+
+/* 1. The Main Panel Container */
+div[class^="panels_"] {
+    /* Create the "Floating" effect */
+    margin: 0 10px 10px 10px;
+    border-radius: 18px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    
+    /* The Glass Effect */
+    background: linear-gradient(
+        135deg, 
+        rgba(0, 0, 0, 0.5) 0%, 
+        rgba(0, 0, 0, 0.3) 100%
+    );
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    
+    /* Shadow for depth */
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+    
+    /* Animation setup */
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    overflow: hidden;
+}
+
+/* 2. Hover State for the Whole Panel */
+div[class^="panels_"]:hover {
+    transform: translateY(-3px) scale(1.02);
+    border-color: rgba(255, 255, 255, 0.25);
+    box-shadow: 0 15px 40px 0 rgba(0, 0, 0, 0.45);
+    background: linear-gradient(
+        135deg, 
+        rgba(20, 20, 20, 0.7) 0%, 
+        rgba(20, 20, 20, 0.5) 100%
+    );
+}
+
+/* 3. The Inner Container (Structure Fixes) */
+div[class^="panels_"] > div[class^="container_"] {
+    background: transparent !important;
+}
+
+/* 4. Avatar Animations */
+div[class^="panels_"] img[class^="avatar_"] {
+    transition: transform 0.5s ease;
+    border: 2px solid transparent;
+    border-radius: 50%;
+}
+
+div[class^="panels_"]:hover img[class^="avatar_"] {
+    transform: rotate(360deg) scale(1.1);
+    border-color: rgba(255, 255, 255, 0.6);
+}
+
+/* 5. User Name & Text styling */
+div[class^="panels_"] div[class^="nameTag_"] {
+    transition: transform 0.3s ease;
+}
+
+div[class^="panels_"]:hover div[class^="nameTag_"] {
+    transform: translateX(5px);
+}
+
+/* 6. The Buttons (Mic, Deafen, Settings) */
+div[class^="panels_"] button {
+    background: rgba(255, 255, 255, 0.05); /* Subtle bubble background */
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+/* Button Hover Effects */
+div[class^="panels_"] button:hover {
+    background: rgba(255, 255, 255, 0.2) !important;
+    transform: rotate(15deg) scale(1.15);
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+    color: white !important;
+}
+
+/* Special treatment for Settings Gear (Spins on hover) */
+div[class^="panels_"] button:last-child:hover svg {
+    animation: spinGear 2s linear infinite;
+}
+
+@keyframes spinGear {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* 7. Hide default footer color to fix glass overlap */
+.theme-dark .container-1GI3v5, 
+.theme-dark .container-YkUktl,
+section[aria-label="User area"] {
+    background: transparent !important;
+}
