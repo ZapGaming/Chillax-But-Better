@@ -17,5 +17,54 @@
 @import url("https://raw.githubusercontent.com/Ragnar-es/css-snippets/refs/heads/main/Compact-Spotify-Player/theme.css");
 @import url("https://davart154.github.io/Themes/Snippets/Mana%20Page%20Switcher/ManaPageSwitcherSource.css");
 
+/* --- News Ticker --- */
+/* 1. Reset the Bar visuals */
+.c38106a3f0c3ca76-bar {
+    position: relative !important;
+    overflow: hidden !important;
+    /* Optional: If you want a slight tint behind the text so it pops more */
+    /* background: linear-gradient(180deg, rgba(0,0,0,0.4) 0%, transparent 100%) !important; */
+}
 
+/* 2. Hide original text */
+.c38106a3f0c3ca76-bar > * { visibility: hidden; }
 
+/* 3. The Ticker Container */
+.c38106a3f0c3ca76-bar::after {
+    content: "";
+    visibility: visible;
+    position: absolute;
+    top: 0; left: 0;
+    
+    /* Using 100% height allows the 60px server image to scale nicely */
+    width: 100%; height: 100%;
+
+    /* --- YOUR TICKER URL --- */
+    background-image: url("https://discord-news-ticker.onrender.com/news_ticker.png");
+    
+    /* Logic: contain keeps the aspect ratio so text doesn't look stretched */
+    background-size: 3000px contain;
+    background-repeat: repeat-x;
+    background-position: 0 center; /* Center it vertically */
+
+    animation: hq-scroll 60s linear infinite;
+    
+    /* Clean fade edges */
+    -webkit-mask-image: linear-gradient(90deg, transparent 0%, black 5%, black 95%, transparent 100%);
+    mask-image: linear-gradient(90deg, transparent 0%, black 5%, black 95%, transparent 100%);
+
+    pointer-events: auto;
+    cursor: help;
+    z-index: 10;
+}
+
+/* Hover Pauses */
+.c38106a3f0c3ca76-bar:hover::after {
+    animation-play-state: paused;
+}
+
+@keyframes hq-scroll {
+    0% { background-position: 0 center; }
+    /* Matches Server WIDTH exactly */
+    100% { background-position: -3000px center; }
+}
