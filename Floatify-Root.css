@@ -698,77 +698,7 @@ html.theme-light .monaco-editor .margin {
 
 
 
-/*custom chillax theme card*/
-#Floatify-card .bd-name {
-    font-size: 100px;
-    text-align: left;
-}
 
-#Floatify-card .bd-name::after {
-    font-size: 20px;
-    content: "activated";
-    display: block;
-    margin-top: -20px;
-    margin-left: 15px;
-}
-
-#Floatify-card .bd-meta {
-    margin-left: 15px;
-    bottom: 25px;
-    color: rgb(226, 226, 226);
-}
-
-#Floatify-card {
-    border: 2px solid rgba(13, 191, 222, 0.8);
-    box-shadow: 0 0 5px rgba(13, 191, 222, 0.8);
-}
-
-#Floatify-card .bd-addon-header {
-    border-bottom: 2px solid rgba(13, 191, 222, 0.8);
-    box-shadow: 0 0 5px rgba(13, 191, 222, 0.8);
-}
-
-#Floatify-card > *:not(#a#B) {
-    background: rgba(rgba(13, 191, 222, 0.8, .2) !important;
-}
-
-#Floatify-card .bd-description {
-    display: none;
-}
-
-#Floatify-card [href='https\:\/\/github.com/warrayquipsome/Chillax'] {
-    color: #fff !important;
-}
-
-#Floatify-card [href='DrfX6286kF'] {
-    color: #fff !important;
-}
-
-#Floatify-card .bd-name {
-    font-size: 70px;
-    text-align: left;
-}
-
-#Floatify-card .bd-name::after {
-    font-size: 20px;
-    content: "activated";
-    display: block;
-    margin-top: -15px;
-    margin-left: 10px;
-}
-
-#Floatify-card .bd-meta {
-    margin-left: -50px;
-    bottom: 25px;
-}
-
-html.theme-dark #Floatify-card .bd-meta {
-    color: rgb(226, 226, 226);
-}
-
-html.theme-light #Floatify-card .bd-meta {
-    color: rgb(0, 0, 0);
-}
 
 
 
