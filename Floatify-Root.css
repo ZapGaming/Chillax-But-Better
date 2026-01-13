@@ -1,3 +1,4 @@
+@import url("https://ungiglio.github.io/DiscordDiscordia/awkglass/core/layout/sidebar.css");
 @import url("https://github.com/ZapGaming/Chillax-But-Better/raw/refs/heads/main/Quick-Fixes.css");
 @import url("https://ungiglio.github.io/DiscordDiscordia/awkglass/core/layout/pages.css");
 
@@ -337,45 +338,6 @@ html.theme-light ._2b2f1bb918566c48-elevationBorderHigh {
         transform: translateY(0);
         opacity: 1;
     }
-}
-
-._0f481cbbd7530492-newMessagesBar._0f481cbbd7530492-barBase {
-    margin-left: auto;
-    margin-top: auto;
-    align-self: flex-end;
-    justify-self: flex-end !important;
-    position: absolute !important;
-    z-index: 998;
-    bottom: 78px;
-    right: 22px;
-    padding: 8px 8px !important;
-    width: 25.5px;
-    height: 20px;
-    background-color: var(--brand-experiment);
-    box-shadow: var(--elevation-high);
-    border-radius: 100px;
-    display: flex;
-    animation: pop 0.2s ease-in;
-    transition: font-size 0s, color 0.2s 0.1s, padding 0.4s, width 0.1s 50ms;
-    opacity: 1;
-}
-
-._0f481cbbd7530492-newMessagesBar._0f481cbbd7530492-barBase:hover {
-    padding: 8px 18px !important;
-    width: 105px;
-    transition: font-size 0s, color 0.2s 0.1s, padding 0.4s, width 0.1s 50ms;
-}
-
-._0f481cbbd7530492-newMessagesBar._0f481cbbd7530492-barBase > button {
-    font-size: 0px;
-    color: transparent !important;
-    transition: color 0.3s 0.1s, padding 0.4s;
-}
-
-._0f481cbbd7530492-newMessagesBar._0f481cbbd7530492-barBase:hover > button {
-    font-size: 14px;
-    color: #ffffff !important;
-    transition: color 0.3s 0.1s, padding 0.4s;
 }
 
 ._0f481cbbd7530492-barButtonIcon {
