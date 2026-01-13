@@ -673,29 +673,8 @@ html.theme-light .monaco-editor .margin {
     color: white !important;
 }
 
-/*welcome text*/
-body:before {
-    content: "Greetings " var(--user-name) "!";
-    z-index: 1000000000000000000000000;
-    top: 0px;
-    left: 52%;
-    position: absolute;
-    border-radius: 5px;
-    padding: 5px 15px;
-    transform: translate(-60%, -100%);
-    animation: chl 3s ease;
-    animation-delay: 4s;
-}
 
-html.theme-dark body:before {
-    color: #fff;
-    background-color: #0000007a;
-}
 
-html.theme-light body:before {
-    color: rgb(0, 0, 0);
-    background-color: #ffffff7a;
-}
 
 
 
@@ -719,7 +698,7 @@ html.theme-light body:before {
 
 
 
-/*custom chillax theme card*//*
+/*custom chillax theme card*/
 #Chillax-card .bd-name {
     font-size: 100px;
     text-align: left;
@@ -789,7 +768,7 @@ html.theme-dark #Chillax-card .bd-meta {
 
 html.theme-light #Chillax-card .bd-meta {
     color: rgb(0, 0, 0);
-}*/
+}
 
 
 
