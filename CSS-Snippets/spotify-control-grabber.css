@@ -13,14 +13,14 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%) rotate(90deg);
-    width: var(--chillax-spotify-control-squid-width, 30px);
-    height: var(--chillax-spotify-control-squid-height, 30px);
-    background-image: var(--chillax-spotify-control-squid-gif-url);
+    width: var(--spotify-control-grabber-width, 30px);
+    height: var(--spotify-control-grabber-height, 30px);
+    background-image: var(--spotify-control-grabber-icon-url);
     background-color: transparent !important; 
     background-repeat: no-repeat;
     background-size: contain; 
     background-position: center;
-    filter: drop-shadow(0 0 3px var(--chillax-spotify-control-squid-glow));
+    filter: drop-shadow(0 0 3px var(--spotify-control-grabber-glow));
     pointer-events: none;
     z-index: 10;
 }
