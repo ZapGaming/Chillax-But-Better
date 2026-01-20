@@ -1,0 +1,26 @@
+#vc-spotify-progress-bar [class*="grabber"] {
+    background: transparent !important;
+    box-shadow: none !important;
+    border: none !important;
+    width: 15px !important; 
+    height: 15px !important;
+    opacity: 1 !important; 
+}
+
+#vc-spotify-progress-bar [class*="grabber"]::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(90deg);
+    width: var(--chillax-spotify-control-squid-width, 30px);
+    height: var(--chillax-spotify-control-squid-height, 30px);
+    background-image: var(--chillax-spotify-control-squid-gif-url);
+    background-color: transparent !important; 
+    background-repeat: no-repeat;
+    background-size: contain; 
+    background-position: center;
+    filter: drop-shadow(0 0 3px var(--chillax-spotify-control-squid-glow));
+    pointer-events: none;
+    z-index: 10;
+}
