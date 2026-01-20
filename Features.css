@@ -650,7 +650,7 @@ ul[aria-label="Direct Messages"] ._972a0d22c8afa7f0-channel.container__23ba6 .bf
 
 
 
-/* custom vc player slider */
+/* custom vc player slider *//*
 #vc-spotify-progress-bar [class^="slider_"] > [class^="bar_"] {
     height: 6px !important;
     min-height: 6px !important;
@@ -694,7 +694,7 @@ ul[aria-label="Direct Messages"] ._972a0d22c8afa7f0-channel.container__23ba6 .bf
 #vc-spotify-progress-bar [class^="slider_"] [class*="grabber"] * {
     position: relative !important;
     z-index: 999 !important;
-}
+}*/
 
 
 
