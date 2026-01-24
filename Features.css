@@ -719,7 +719,7 @@ ul[aria-label="Direct Messages"] .channel__972a0.container_cac583 .interactive_b
 
 
 /* Toolbar Relocation */
-/* 1. Frosted Glass Elements *//*
+/* 1. Frosted Glass Elements */
 .sidebar__5e434:after {
     display: none;
 }
@@ -741,7 +741,7 @@ ul[aria-label="Direct Messages"] .channel__972a0.container_cac583 .interactive_b
 }
 
 
-/* 2. Search Bar *//*
+/* 2. Search Bar */
 .upperContainer__9293f .toolbar__9293f .search__49676 {
 
     .searchBar__97492 {
@@ -785,7 +785,7 @@ ul[aria-label="Direct Messages"] .channel__972a0.container_cac583 .interactive_b
     }
 }
 
-/* 3. Repositioned Toolbar Container *//*
+/* 3. Repositioned Toolbar Container */
 .toolbar__9293f {
     position: fixed;
     left: calc(var(--space-xs) + var(--space-xxs) * 3);
