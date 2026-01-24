@@ -1354,6 +1354,116 @@ div[aria-label="Checkpoint"] {
 
 
 
+:root {
+    /* Pixel Perfect Nyan Cat */
+    --nyan-cat-gif: url("https://static.wikia.nocookie.net/nyancat/images/4/44/Glitchynyancatgif.gif/revision/latest/scale-to-width-down/250?cb=20210323054747");
+    --nyan-size: 35px;
+    
+    /* Animation Speed for the Rainbow Flow */
+    --rainbow-speed: 2s; 
+}
+
+@keyframes rainbowFlow {
+    0% { background-position: 0% 50%; }
+    100% { background-position: 100% 50%; }
+}
+
+#vc-spotify-progress-bar [class*="barFill"] {
+    background: none !important;
+    background-blend-mode: luminosity;
+    
+    /* Make it wide so we can animate it sliding */
+    background-size: 200% 100% !important;
+    
+    /* Border radius matches Nyan cat style */
+    border-radius: 0px !important; 
+    
+    /* Animate the flow */
+    animation: rainbowFlow var(--rainbow-speed) linear infinite;
+    
+    /* Remove shadow to look flat/pixelated */
+    box-shadow: none !important; 
+}
+
+
+/* Hide the default Discord dot */
+#vc-spotify-progress-bar [class*="grabber"] {
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    
+    /* Make the click hitbox strictly match our Nyan Cat size */
+    width: var(--nyan-size) !important;
+    height: var(--nyan-size) !important;
+    margin-top: -12px !important; /* Center on line */
+    opacity: 1 !important;
+    cursor: grab; /* Mouse cursor becomes a hand */
+}
+
+/* 3. The Visual Cat Image */
+#vc-spotify-progress-bar [class*="grabber"]::after {
+    content: "";
+    position: absolute;
+    top: 50%; 
+    left: 50%;
+    
+    /* Size */
+    width: var(--nyan-size);
+    height: var(--nyan-size);
+    
+    background-image: var(--nyan-cat-gif);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    
+    /* Pixel Art crisp edges */
+    image-rendering: pixelated; 
+    
+    /* Offset: Shift right so the rainbow comes out of the toaster tart */
+    transform: translate(-50%, -50%); 
+    
+    pointer-events: none; /* Let clicks pass through to the hitbox */
+    transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Bouncy physics */
+}
+
+
+/* STATE: Hover (About to grab) */
+/* When hovering the bar or the grabber, the cat floats up */
+#vc-spotify-progress-bar:hover [class*="grabber"]::after {
+    /* Cat gets bigger and floats slightly up */
+    transform: translate(-50%, -70%) scale(1.3);
+    filter: drop-shadow(0 5px 5px rgba(0,0,0,0.3)); /* Shadow underneath flying cat */
+}
+
+/* STATE: Active (Currently Dragging) */
+/* The "Holding" Animation */
+#vc-spotify-progress-bar [class*="grabber"]:active {
+    cursor: grabbing; /* Clenched fist cursor */
+}
+
+#vc-spotify-progress-bar [class*="grabber"]:active::after {
+    /* 1. Squish slightly flat to simulate speed */
+    /* 2. Rotate nose down slightly */
+    transform: translate(-50%, -50%) scale(0.9, 1.2) rotate(5deg) !important;
+    
+    /* 3. Brightness flash to show contact */
+    filter: brightness(1.2);
+    
+    /* 4. Faster transition for responsive feel */
+    transition: transform 0.05s ease;
+}
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
