@@ -519,7 +519,7 @@ ul[aria-label="Direct Messages"] ._972a0d22c8afa7f0-channel.container__23ba6 .bf
     position: fixed;
     left: calc(var(--space-xs) + var(--space-xxs) * 3);
     flex-direction: column;
-    bottom: calc(var(--custom-app-panels-height) + 6px + var(--space-md));
+    bottom: calc(var(--custom-app-panels-height) + 24px + var(--space-md));
     background: rgba(var(--background-base-low-rgb, 0, 0, 0), 0); 
     backdrop-filter: blur(12px) brightness(1.1); 
     border: 1px solid var(--border-faint);
