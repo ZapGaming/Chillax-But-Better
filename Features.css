@@ -1170,6 +1170,26 @@ opacity: 0;
 
 
 
+@font-face {
+    font-family: "Androd";
+    src: url("https://vendicated.github.io/random-files/Androd.woff2") format("woff2");
+    unicode-range: U+F8FF;
+}
+
+:root {
+    --font-primary: Androd, 'gg sans', 'Noto Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    --font-display: Androd, 'gg sans', 'Noto Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    --font-code: Androd, "gg mono","Source Code Pro",Consolas,"Andale Mono WT","Andale Mono","Lucida Console","Lucida Sans Typewriter","DejaVu Sans Mono","Bitstream Vera Sans Mono","Liberation Mono","Nimbus Mono L",Monaco,"Courier New",Courier,monospace;
+}
+
+
+
+
+
+
+
+
+
 
 
 
