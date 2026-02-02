@@ -2,3 +2,55 @@
 div[aria-label="Help"] {
     display: none;
 }
+
+/* rainbow username */
+[data-author-id="1173155162093785099"] .contents_c19a55 .username_c19a55 {
+    /* 1. NEON GRADIENT LOGIC: Moved from 'color' to 'background-image' */
+    background-image: linear-gradient(
+        to right, 
+        #ff00ff, #00ffff, #00ff00, #ffff00, #ff0000, #ff00ff
+    ) !important;
+    
+    /* 2. THE MASK: Clips the background to the letters and makes text transparent */
+    -webkit-background-clip: text !important;
+    background-clip: text !important;
+    color: transparent !important;
+    
+    /* 3. NEON GLOW: Layered shadows for depth */
+    filter: drop-shadow(0 0 2px rgba(255, 255, 255, 0.5)) 
+            drop-shadow(0 0 5px currentColor) !important;
+
+    /* 4. ANIMATION: Sized larger so it can slide */
+    background-size: 300% 100% !important;
+    animation: neon-slide 4s linear infinite !important;
+    
+    /* 5. SMOOTH TRANSITION: For the hover effects */
+    display: inline-block;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
+    font-weight: 800 !important;
+}
+
+/* --- COMPLEX HOVER EFFECT --- */
+[data-author-id="1173155162093785099"] .contents_c19a55 .username_c19a55:hover {
+    /* Bouncy scale and slight rotation */
+    transform: scale(1.15) rotate(-2deg) !important;
+    
+    /* Intense Neon Surge Glow */
+    filter: drop-shadow(0 0 10px #ff00ff) 
+            drop-shadow(0 0 20px #00ffff) 
+            brightness(1.5) !important;
+            
+    /* Speed up the "energy" flow on hover */
+    animation-duration: 1.5s !important;
+    letter-spacing: 1px !important;
+}
+
+/* --- ANIMATION LOGIC --- */
+@keyframes neon-slide {
+    0% {
+        background-position: 0% 0%;
+    }
+    100% {
+        background-position: -300% 0%;
+    }
+}
