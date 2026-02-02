@@ -3,6 +3,12 @@ div[aria-label="Help"] {
     display: none;
 }
 
+
+
+
+
+
+
 /* rainbow username */
 [data-author-id="1173155162093785099"] .contents_c19a55 .username_c19a55 {
     /* 1. NEON GRADIENT LOGIC: Moved from 'color' to 'background-image' */
@@ -53,4 +59,125 @@ div[aria-label="Help"] {
     100% {
         background-position: -300% 0%;
     }
+}
+
+
+
+
+
+
+
+
+/**
+ * CENTERED OVERLORD RAIL
+ * Fixes: PFP Vertical alignment, Overlap, and Wrap logic
+ */
+
+/* 1. CONTAINER: Pull to the far left edge */
+[class*=scrollerInner] > [data-author-id="1173155162093785099"] {
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: flex-start !important;
+    margin: 12px 0 12px -20px !important; /* Pulls closer to left scroller edge */
+    padding: 0 !important;
+    overflow: visible !important;
+}
+
+/* 2. THE RAIL: 3-Column Grid for perfect separation */
+[class*=scrollerInner] > [data-author-id="1173155162093785099"] [class*=contents] {
+    position: relative;
+    display: grid !important;
+    /* Col 1: PFP | Col 2: Name | Col 3: Message */
+    grid-template-columns: 54px auto 1fr; 
+    align-items: center !important; /* FIX: Centers everything vertically */
+    gap: 14px;
+    padding: 10px 22px 10px 12px !important;
+    
+    /* SIZE LIMITS: Prevents horizontal scrolling */
+    width: fit-content !important;
+    min-width: 260px !important;
+    max-width: 600px !important; /* Limits width to force wrapping down */
+    
+    /* MATERIAL: Premium Frosted Glass */
+    background: rgba(255, 255, 255, 0.04) !important;
+    backdrop-filter: blur(20px) saturate(180%) brightness(1.1) !important;
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    
+    /* ROUNDING & BORDER */
+    border-radius: 32px !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.4);
+    
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1) !important;
+    overflow: hidden !important; 
+}
+
+/* 3. COLUMN 1: PFP & DECO (Centered Fix) */
+[data-author-id="1173155162093785099"] [class*=avatarStack] {
+    grid-column: 1;
+    position: relative !important;
+    margin: 2px 0 0 0 !important; /* Slight manual offset to look visually centered */
+    transform: scale(0.95);
+    z-index: 5;
+}
+
+/* 4. COLUMN 2: USERNAME (Side-by-side) */
+[data-author-id="1173155162093785099"] [class*=header] {
+    grid-column: 2;
+    display: flex !important;
+    align-items: center !important;
+    white-space: nowrap !important;
+    margin: 0 !important;
+}
+
+/* 5. COLUMN 3: MESSAGE (Wraps down, No overlap) */
+[data-author-id="1173155162093785099"] [class*=markup] {
+    grid-column: 3;
+    display: block !important;
+    white-space: pre-wrap !important; /* Message goes down at max-width */
+    word-break: break-word !important;
+    color: #fff !important;
+    font-size: 1rem !important;
+    line-height: 1.4;
+    margin: 0 !important;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+}
+
+/* 6. HOVER: The 2D Glide */
+[class*=scrollerInner] > [data-author-id="1173155162093785099"] [class*=contents]:hover {
+    transform: translateX(8px) translateY(-2px) !important;
+    background: rgba(255, 255, 255, 0.07) !important;
+    box-shadow: 0 15px 45px rgba(0, 0, 0, 0.55);
+}
+
+/* 7. COLORFUL SHIMMER: Stays inside the glass */
+[class*=scrollerInner] > [data-author-id="1173155162093785099"] [class*=contents]::after {
+    content: "";
+    position: absolute;
+    top: 0; left: -120%;
+    width: 80%;
+    height: 100%;
+    background: linear-gradient(
+        90deg, 
+        transparent, 
+        rgba(255, 255, 255, 0.05), 
+        transparent
+    );
+    animation: rail-shimmer 8s infinite linear;
+    pointer-events: none;
+}
+
+@keyframes rail-shimmer {
+    0% { left: -120%; }
+    100% { left: 180%; }
+}
+
+/* Floating Idle */
+[class*=scrollerInner] > [data-author-id="1173155162093785099"] [class*=contents] {
+    animation: drifting 5s ease-in-out infinite alternate;
+}
+
+@keyframes drifting {
+    from { transform: translateY(0px); }
+    to { transform: translateY(-4px); }
 }
