@@ -181,3 +181,102 @@ div[aria-label="Help"] {
     from { transform: translateY(0px); }
     to { transform: translateY(-4px); }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+:root {
+    /* SETTINGS */
+    --user-gif-2: url('https://wallup.net/wp-content/uploads/2018/03/23/568464-Dominik_Mayer-digital_art-dragon-banner-artwork-748x390.jpg');
+    --glass-blur: 10px;
+    --spin-speed: 2.5s;
+    --float-speed: 4s;
+}
+
+/* 1. THE MAIN BOX: GIF Background & Floating */
+[data-author-id="824004439358570596"] [class*="contents_"] {
+    position: relative !important;
+    display: block !important;
+    padding: 15px 25px 15px 85px !important; /* Space to stop overlap */
+    
+    /* THE GIF BACKGROUND */
+    background: var(--user-gif-2) center/cover no-repeat !important;
+    backdrop-filter: blur(var(--glass-blur)) brightness(1.1) !important;
+    -webkit-backdrop-filter: blur(var(--glass-blur));
+    
+    /* SHAPE & FLOATING */
+    border-radius: 30px !important;
+    border: 1.5px solid rgba(255, 255, 255, 0.15) !important;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.7) !important;
+    
+    /* SIZE LIMITS */
+    width: fit-content !important;
+    max-width: 600px !important; 
+    margin: 12px 0 12px 10px !important;
+    
+    /* FLOATING ANIMATION */
+    animation: floating-rail var(--float-speed) ease-in-out infinite alternate !important;
+    overflow: visible !important; /* Allows PFP to breathe */
+}
+
+/* 2. FORCED SPINNING PFP */
+[data-author-id="824004439358570596"] [class*="avatarStack_"] {
+    position: absolute !important;
+    left: 15px !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    z-index: 20 !important;
+}
+
+/* Force circular spin and hide decoration */
+[data-author-id="824004439358570596"] [class*="avatarStack_"] img {
+    border-radius: 50% !important;
+    border: 3px solid rgba(255, 255, 255, 0.3) !important;
+    animation: vinyl-spin var(--spin-speed) linear infinite !important;
+    box-shadow: 0 0 15px rgba(0,0,0,0.5);
+}
+
+/* 3. TEXT WRAPPING & CLARITY */
+[data-author-id="824004439358570596"] [class*="markup_"] {
+    white-space: pre-wrap !important;
+    word-break: break-word !important;
+    color: #fff !important;
+    font-weight: 500;
+    text-shadow: 0 2px 12px rgba(0,0,0,1);
+    position: relative;
+    z-index: 5;
+}
+
+/* 4. USERNAME REFINEMENT */
+[data-author-id="824004439358570596"] [class*="header_"] {
+    margin-bottom: 4px !important;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.8);
+}
+
+/* --- ANIMATIONS --- */
+
+@keyframes vinyl-spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+@keyframes floating-rail {
+    0% { transform: translateY(0px) rotate(0deg); }
+    100% { transform: translateY(-15px) rotate(1.5deg); }
+}
