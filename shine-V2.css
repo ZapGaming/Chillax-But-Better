@@ -1,464 +1,334 @@
 /** 
- * SHINE 2.0 - Prismatic Edition 
- * Fully Upgraded Glassmorphism Engine
+ * SHINE 3.0 - Parallax 3D Edition 
+ * Dynamic Z-Axis Depth + Original Asset Integration
  */
 
-/* 1. THE FOUNDATION & VARIABLES 
-   Uses @property to allow animation of variables 
-*/
-@property --shine-gap { syntax: "<length>"; inherits: true; initial-value: 12px; }
-@property --shine-radius { syntax: "<length>"; inherits: true; initial-value: 18px; }
-@property --glass-opacity { syntax: "<number>"; inherits: true; initial-value: 0.6; }
-@property --accent-hue { syntax: "<angle>"; inherits: true; initial-value: 240deg; }
-@property --glow-intensity { syntax: "<number>"; inherits: true; initial-value: 1; }
+/* =======================================================
+   1. CORE VARIABLES & 3D ENGINE
+   ======================================================= */
+@property --shine-base {
+    syntax: "<color>";
+    inherits: true;
+    initial-value: #5865F2; /* Default blurple if not set */
+}
 
 :root {
-    /* Core Configuration */
-    --shine-gap: 12px;
-    --shine-radius: 18px;
-    --glass-blur: 24px;
-    --glass-saturation: 180%;
+    /* 3D Depth Configuration */
+    --z-depth-1: translateZ(10px);
+    --z-depth-2: translateZ(25px);
+    --z-depth-high: translateZ(50px);
+    --tilt-perspective: 1200px;
     
-    /* Dynamic Color Mixers (Auto-adapts to theme) */
-    --base-glass-color: color-mix(in srgb, var(--background-base-lowest) 40%, transparent);
-    --surface-glass-color: color-mix(in srgb, var(--background-surface-high) 60%, transparent);
+    /* Global Lighting & Accent */
+    --shine-accent: var(--shine-base, #5865F2);
+    --shine-glass: color-mix(in oklab, var(--background-surface-high), transparent 30%);
+    --shine-border: 1px solid rgba(255,255,255,0.08);
     
-    /* The "Prism" Gradients */
-    --gradient-primary: linear-gradient(135deg, 
-        oklch(0.6 0.15 var(--accent-hue)), 
-        oklch(0.6 0.15 calc(var(--accent-hue) + 40)));
-    --gradient-glass: linear-gradient(to bottom right, rgba(255,255,255,0.08), rgba(255,255,255,0.01));
-    
-    /* Layout */
-    --app-margin: var(--shine-gap);
-    --sidebar-width: 280px;
-    
-    /* Animations */
-    --transition-fast: 0.2s cubic-bezier(0.2, 0.8, 0.2, 1);
-    --transition-bounce: 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+    /* Standard Layout overrides */
+    --shine-gap: 16px;
+    --shine-radius: 24px;
 }
 
-/* Dark Mode overrides for depth */
-.theme-dark {
-    --glass-border: rgba(255, 255, 255, 0.08);
-    --glass-shine: rgba(255, 255, 255, 0.05);
-    --glass-shadow: rgba(0, 0, 0, 0.4);
-}
-
-.theme-light {
-    --glass-border: rgba(0, 0, 0, 0.06);
-    --glass-shine: rgba(255, 255, 255, 0.6);
-    --glass-shadow: rgba(0, 0, 0, 0.1);
-    --accent-hue: 260deg; /* Purple adjustment for light mode */
-}
-
-/* 2. GLOBAL APP RESET & BACKGROUND 
-   Creates the floating island layout
-*/
-#app-mount .appBot__5e434 {
+/* Global 3D Perspective container */
+#app-mount {
     background: transparent;
+    perspective: var(--tilt-perspective);
 }
 
-body {
-    /* Optional: Global noise texture */
-    &::before {
-        content: "";
-        position: fixed;
-        inset: 0;
-        z-index: 9999;
-        background: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.03'/%3E%3C/svg%3E");
-        pointer-events: none;
-        opacity: 0.4;
-    }
-}
-
+/* The Background Wallpaper/Scene */
 .bg__960e4 {
-    /* The wallpaper background */
-    background: var(--background-tertiary); 
+    background: radial-gradient(circle at 50% -20%, 
+        color-mix(in oklab, var(--shine-accent), transparent 70%), 
+        transparent 60%),
+        var(--background-tertiary);
+    z-index: -1;
 }
 
-/* 3. ULTRA GLASS COMPONENT MIXIN 
-   Applied to major surfaces for unified aesthetic
-*/
+/* =======================================================
+   2. THE PANELS (SIDEBAR & CHAT)
+   Floating Glass Slabs
+   ======================================================= */
+
+/* General Glass Surface */
 .sidebar__5e434, 
-.container_c8ffbb, /* Member List */
-.panels__5e434,    /* User Panel */
-.container__133bf, /* Friends Container */
-.chat_f75fb0 {     /* Chat Main */
-    background: var(--base-glass-color) !important;
-    backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-saturation));
+.container_c8ffbb, /* Members */
+.container__133bf, /* Friends */
+.chat_f75fb0 {     /* Main Chat */
+    background: var(--shine-glass) !important;
+    backdrop-filter: blur(40px) saturate(120%);
     border-radius: var(--shine-radius);
-    border: 1px solid var(--glass-border);
+    border: var(--shine-border);
+    /* 3D Shadow for depth */
     box-shadow: 
-        0 8px 32px 0 var(--glass-shadow),
-        inset 0 1px 1px 0 var(--glass-shine);
+        0 1px 0 rgba(255,255,255,0.1) inset,
+        0 20px 40px -5px rgba(0,0,0,0.4),
+        0 0 0 1px rgba(0,0,0,0.1);
+    transform-style: preserve-3d;
+    transition: transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
-/* 4. THE GUILD RAIL (Far Left) */
+/* Hover effect: Subtle lift */
+.sidebar__5e434:hover,
+.chat_f75fb0:hover {
+    box-shadow: 
+        0 1px 0 rgba(255,255,255,0.2) inset,
+        0 30px 60px -10px rgba(0,0,0,0.5);
+    /* Subtle shift towards user */
+    transform: translateY(-2px) scale(1.002);
+    z-index: 10;
+}
+
+/* Sidebar Position & Float */
+.sidebar__5e434 {
+    width: 260px;
+    margin: var(--shine-gap) 0 var(--shine-gap) var(--shine-gap);
+    border-right: none;
+}
+
+/* Chat Position */
+.chat_f75fb0 {
+    margin: var(--shine-gap);
+    background: color-mix(in srgb, var(--shine-glass), black 10%) !important;
+}
+
+/* Member List Float */
+.container_c8ffbb {
+    margin: var(--shine-gap) var(--shine-gap) var(--shine-gap) 0;
+    height: auto !important;
+    background: transparent !important;
+    box-shadow: none;
+    border: none;
+}
+
+/* =======================================================
+   3. THE RESTORED ASSETS (Original User Request)
+   ======================================================= */
+
+/* THE MARBLE TEXT BUTTON (Input Bar) - Restored & Upgraded */
+.container_aa63ab > .buttonContainer_aa63ab > .button_aa63ab {
+    height: 48px;
+    width: 48px;
+    border-radius: 50%;
+    /* Original marble texture */
+    background-image: url(https://blade04208.github.io/shine/src/marble.png) !important;
+    background-size: cover;
+    background-color: transparent;
+    transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    
+    /* 3D Enhancement */
+    transform: rotateX(10deg); 
+}
+
+/* Hover state for marble button */
+.container_aa63ab > .buttonContainer_aa63ab > .button_aa63ab:not(.disabled__24af7):hover {
+    background-image: url(https://blade04208.github.io/shine/src/marble-active.png) !important;
+    transform: rotateX(0deg) scale(1.1) var(--z-depth-2); /* 3D pop */
+    box-shadow: 
+        0 0 25px var(--shine-accent),
+        0 10px 20px black;
+    filter: brightness(110%);
+}
+
+.sendIcon_aa63ab {
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.5));
+}
+
+/* THE CORNER GRABBER (Bottom Right) - Restored */
+#app-mount::after {
+    content: "";
+    position: fixed;
+    width: 27px;
+    height: 27px;
+    bottom: calc(var(--shine-gap) + 6px);
+    right: calc(var(--shine-gap) + 6px);
+    background: url(https://blade04208.github.io/shine/src/grabber.svg) no-repeat center center;
+    z-index: 9999999;
+    -webkit-app-region: drag;
+    opacity: 0.8;
+    transition: opacity 0.3s;
+    /* Add slight 3D shadow to the grabber */
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.5));
+}
+
+#app-mount::after:hover {
+    opacity: 1;
+    cursor: nwse-resize;
+}
+
+/* =======================================================
+   4. GUILDS (Server List) - 3D Sphere Style
+   ======================================================= */
 .guilds__5e434 {
-    margin-top: var(--shine-gap);
-    margin-bottom: var(--shine-gap);
-    margin-left: var(--shine-gap);
-    border-radius: var(--shine-radius);
-    background: transparent !important; /* Items float individually */
+    margin: var(--shine-gap);
+    background: transparent !important;
+    overflow: visible;
 }
 
 .scroller__99e7c {
     background: transparent !important;
+    padding-top: 10px;
 }
 
-/* Dynamic Guild Blobs */
+/* Turn server icons into 3D Spheres/Tiles */
 .wrapper__58105 .childWrapper__6e9f8, 
 .circleIconButton__5bc7e {
-    background-color: var(--glass-border) !important;
-    backdrop-filter: blur(10px);
-    border: 1px solid var(--glass-border);
-    transition: var(--transition-bounce);
+    transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+    background-color: rgba(255,255,255,0.1) !important;
+    /* Create a 3D glass sheen */
+    box-shadow: 
+        inset 0 4px 6px rgba(255,255,255,0.4), 
+        inset 0 -4px 6px rgba(0,0,0,0.3),
+        0 5px 15px rgba(0,0,0,0.3);
 }
 
 .wrapper__58105:hover .childWrapper__6e9f8,
 .wrapper__58105.selected__6e9f8 .childWrapper__6e9f8 {
-    background: var(--gradient-primary) !important;
-    box-shadow: 0 0 20px oklch(0.6 0.15 var(--accent-hue) / 0.5);
-    color: white;
-    transform: scale(1.05);
-}
-
-/* 5. SIDEBAR (Channels) 
-   Now floats separately 
-*/
-.sidebar__5e434 {
-    margin: var(--shine-gap) 0 var(--shine-gap) var(--shine-gap);
-    height: auto !important;
-    width: var(--sidebar-width) !important;
-}
-
-.privateChannels_e6b769, 
-.scroller__99e7c {
-    background: transparent !important;
-}
-
-/* Channel Selection Styling */
-.modeSelected__2ea32 .link__2ea32, 
-.modeSelected__2ea32:hover .link__2ea32 {
-    background: linear-gradient(90deg, 
-        rgba(255,255,255,0.1) 0%, 
-        rgba(255,255,255,0.02) 100%) !important;
-    border-left: 3px solid oklch(0.8 0.15 var(--accent-hue));
-    backdrop-filter: blur(4px);
-}
-
-.link__2ea32 {
-    transition: transform 0.15s ease, background 0.2s ease;
-    border-radius: 8px;
-    margin-left: 4px;
-}
-.link__2ea32:hover {
-    transform: translateX(4px);
-    background: var(--glass-border);
-}
-
-/* 6. MAIN CHAT AREA & MESSAGES 
-   The "Paper" Layout 
-*/
-.chat_f75fb0 {
-    margin: var(--shine-gap);
-    height: calc(100vh - (var(--shine-gap) * 2)) !important;
-    overflow: hidden;
-    /* Fancy glowing top border */
+    transform: translateX(5px) scale(1.1);
+    background-color: var(--shine-accent) !important;
+    border-radius: 16px;
     box-shadow: 
-        0 -1px 0 var(--glass-shine) inset,
-        0 10px 40px var(--glass-shadow);
+        inset 0 4px 8px rgba(255,255,255,0.4),
+        0 0 20px var(--shine-accent);
 }
 
-.chatContent_f75fb0 {
-    background: transparent !important;
-}
-
-/* Entry Animation for Messages */
-@keyframes slideInGlass {
-    from { 
-        opacity: 0; 
-        transform: translateY(10px) scale(0.99); 
-    }
-    to { 
-        opacity: 1; 
-        transform: translateY(0) scale(1); 
-    }
-}
-
-.message_d5deea {
-    animation: slideInGlass 0.3s ease forwards;
-    /* Create slight separation */
-    margin-top: 2px !important;
-    border-radius: 8px;
-    transition: background 0.1s;
-}
-
-.message_d5deea:hover {
-    background: linear-gradient(90deg, rgba(255,255,255,0.03), transparent) !important;
-    box-shadow: -2px 0 0 oklch(0.7 0.12 var(--accent-hue)) inset;
-}
-
-/* Embeds with depth */
-.embedFull__623de {
-    background: rgba(0,0,0,0.2) !important;
-    backdrop-filter: blur(12px);
-    border: 1px solid var(--glass-border);
-    border-left-width: 4px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-}
-
-/* 7. DYNAMIC INPUT BAR ("The Island") */
+/* =======================================================
+   5. CHAT & INPUT ("The Dynamic Deck")
+   ======================================================= */
 .form_f75fb0 {
-    padding: 0px;
-    margin: 0px;
-    width: 100%;
-}
-
-.channelBottomBarArea_f75fb0 {
-    padding: 0 16px 20px 16px; /* Floating look */
-    background: transparent;
+    padding: 0 20px;
+    margin-bottom: 24px;
 }
 
 .channelTextArea_f75fb0 {
-    background: var(--surface-glass-color);
-    border: 2px solid transparent; /* Prepare for typing gradient */
-    border-radius: 24px;
-    padding: 2px;
-    transition: box-shadow 0.3s ease, transform 0.2s ease;
-}
-
-/* Glowing border when typing or focused */
-.channelTextArea_f75fb0:has(.focused_d91ba9),
-.channelTextArea_f75fb0:hover {
-    box-shadow: 0 0 25px -5px oklch(0.6 0.2 var(--accent-hue) / 0.4);
-    border-color: rgba(255,255,255,0.1);
-    background: rgba(0,0,0,0.3);
-}
-
-.scrollableContainer__74017 {
-    background: transparent !important;
-}
-
-/* 8. THE USER PANEL (Bottom Left) 
-   Completely detached floating pill
-*/
-.panels__5e434 {
-    position: absolute; /* Anchor to bottom left of sidebar visually */
-    bottom: var(--shine-gap);
-    left: calc(72px + (var(--shine-gap) * 2)); /* Guilds width + gaps */
-    width: var(--sidebar-width);
-    margin: 0;
-    height: 70px;
-    border-radius: 35px; /* Pill shape */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 1002;
-    overflow: hidden;
-}
-
-/* Background canvas for profile */
-.panels__5e434 .container__37e49 {
-    background: transparent !important;
-    padding: 0;
-    width: 100%;
-    justify-content: space-evenly;
-}
-
-/* Mic/Headset buttons as Circles */
-.panels__5e434 button {
-    border-radius: 50%;
-    width: 42px;
-    height: 42px;
-    background: rgba(255,255,255,0.05) !important;
+    background: rgba(0,0,0,0.25);
+    border-radius: 99px; /* Fully rounded capsule */
     border: 1px solid rgba(255,255,255,0.05);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    transition: transform 0.2s, box-shadow 0.2s, border 0.2s;
 }
 
-.panels__5e434 button:hover {
-    background: rgba(255,255,255,0.15) !important;
-    transform: rotate(5deg) scale(1.1);
-}
-
-/* 9. MEMBER LIST (Right) 
-   Fade-out edges
-*/
-.container_c8ffbb {
-    margin: var(--shine-gap) var(--shine-gap) var(--shine-gap) 0;
-    background: rgba(0, 0, 0, 0.15) !important; /* Slightly darker glass */
-    height: auto !important;
-}
-
-.members_c8ffbb {
-    background: transparent !important;
-}
-
-.member_c8ffbb {
-    background: transparent !important;
-    margin: 2px 8px;
-    max-width: unset;
-}
-
-.layout_e9f61e {
-    border-radius: 8px;
-    transition: all 0.2s ease;
-    border: 1px solid transparent;
-}
-
-.layout_e9f61e:hover {
-    background: rgba(255,255,255,0.05) !important;
-    border-color: var(--glass-border);
-    transform: scale(1.02);
-}
-
-/* 10. MICRO INTERACTIONS & POLISH */
-
-/* Role Pills */
-.role_dfa8b6 {
-    background: rgba(255,255,255,0.05) !important;
-    border: 1px solid var(--glass-border);
-    backdrop-filter: blur(5px);
-    border-radius: 12px;
-    padding: 6px 10px;
-    transform-origin: center;
-}
-
-.role_dfa8b6:hover {
-    transform: scale(1.05);
-    background: rgba(255,255,255,0.1) !important;
-}
-
-/* Popouts / Menus */
-.menu_c1e9c4, 
-.emojiPicker_c0e32c, 
-.browser_d9f526, 
-.messagesPopoutWrap_e8b59c {
-    background: var(--background-surface-high) !important;
-    backdrop-filter: blur(35px);
-    border: 1px solid rgba(255,255,255,0.15);
+/* Focus State: 3D Lift */
+.channelTextArea_f75fb0:has(.focused_d91ba9) {
+    transform: translateY(-2px);
+    border-color: var(--shine-accent);
     box-shadow: 
-        0 10px 50px rgba(0,0,0,0.5),
-        inset 0 1px 0 rgba(255,255,255,0.2);
-    border-radius: 24px !important;
-    animation: fadePopup 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        0 15px 40px -10px var(--shine-accent),
+        inset 0 1px 1px rgba(255,255,255,0.2);
+    background: linear-gradient(180deg, rgba(0,0,0,0.3), rgba(0,0,0,0.2));
 }
 
-@keyframes fadePopup {
-    from { opacity: 0; transform: scale(0.9); }
-    to { opacity: 1; transform: scale(1); }
+/* =======================================================
+   6. USER PANEL (Floating Pill)
+   ======================================================= */
+.panels__5e434 {
+    background: color-mix(in srgb, var(--shine-glass), black 20%);
+    margin: 0 0 12px 0; /* Attach to bottom of Sidebar visually */
+    border-bottom-left-radius: var(--shine-radius);
+    border-bottom-right-radius: var(--shine-radius);
+    border: none;
+    border-top: 1px solid rgba(255,255,255,0.05);
 }
 
-/* Call Buttons / Action Buttons */
-.button_a22cb0 {
-    transition: var(--transition-bounce);
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-    position: relative;
-    overflow: hidden;
-}
-
-.button_a22cb0::after {
-    /* Shine swipe effect on buttons */
-    content: "";
-    position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background: linear-gradient(45deg, transparent, rgba(255,255,255,0.1), transparent);
-    transform: translateX(-100%) rotate(45deg);
-    transition: transform 0.5s;
-}
-
-.button_a22cb0:hover::after {
-    transform: translateX(100%) rotate(45deg);
-}
-
-.button_a22cb0:active {
-    transform: scale(0.95);
-}
-
-/* Header / Title Bar Cleaning */
-.title_f75fb0 {
-    background: transparent !important;
-}
-.subtitleContainer_f75fb0 {
-    background: transparent !important;
-    mask-image: linear-gradient(to bottom, black 50%, transparent);
-}
-
-/* Search Bar (Collapsing) */
-.searchBar_c322aa {
-    background: rgba(0,0,0,0.2) !important;
-    border: 1px solid var(--glass-border);
-    transition: width 0.3s cubic-bezier(0.18, 0.89, 0.32, 1.28);
-}
-.searchBar_c322aa:focus-within {
-    box-shadow: 0 0 15px rgba(255,255,255,0.1);
-    border-color: rgba(255,255,255,0.3);
-}
-
-/* Mention Badge Dynamic Pulse */
-@keyframes badgePulse {
-    0% { box-shadow: 0 0 0 0 rgba(240, 71, 71, 0.7); }
-    70% { box-shadow: 0 0 0 5px rgba(240, 71, 71, 0); }
-    100% { box-shadow: 0 0 0 0 rgba(240, 71, 71, 0); }
-}
-
-.numberBadge__2b1f5 {
-    background: oklch(0.6 0.25 29) !important; /* Vibrant Red */
-    animation: badgePulse 2s infinite;
-}
-
-/* Code Blocks */
-code.inline, .markup_d6076c code {
-    background: rgba(0,0,0,0.3);
-    border: 1px solid var(--glass-border);
-    border-radius: 6px;
-    padding: 2px 6px;
-    font-family: 'JetBrains Mono', 'Fira Code', monospace;
-}
-
-/* Scrollbars - Thin & Sleek */
-::-webkit-scrollbar {
-    width: 8px;
-    height: 8px;
-}
-::-webkit-scrollbar-track {
+.panels__5e434 button {
+    /* Mini-Buttons inside panel */
     background: transparent;
+    transition: 0.2s;
+    border-radius: 12px;
 }
-::-webkit-scrollbar-thumb {
+.panels__5e434 button:hover {
     background: rgba(255,255,255,0.1);
-    border-radius: 99px;
-    border: 2px solid transparent;
-    background-clip: content-box;
-}
-::-webkit-scrollbar-thumb:hover {
-    background-color: rgba(255,255,255,0.3);
+    transform: var(--z-depth-1); /* Pop out */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
 }
 
-/* CHANNEL TABS COMPATIBILITY (If installed) */
-.vc-channeltabs-tab {
-    background: var(--surface-glass-color) !important;
-    border: 1px solid var(--glass-border);
-    border-bottom: none;
-    margin-right: 4px;
-    border-radius: 12px 12px 0 0;
-}
-.vc-channeltabs-tab-selected {
-    background: var(--gradient-primary) !important;
-    box-shadow: 0 -2px 10px rgba(0,0,0,0.2);
-}
-
-/* Window Grabber Fix for transparency */
-.typeWindows_a934d8 {
-    margin-top: 0px;
+/* =======================================================
+   7. MESSAGES (Sliding Card Stack)
+   ======================================================= */
+.message_d5deea {
+    margin: 4px 16px;
+    padding: 8px 10px !important;
+    border-radius: 12px;
     background: transparent;
-    height: var(--shine-gap);
+    border: 1px solid transparent;
+    transition: background 0.2s, border 0.2s, transform 0.2s;
 }
-.wordmarkWindows_a934d8 {
+
+.message_d5deea:hover {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.04);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    transform: scale(1.005) translateX(2px);
+    z-index: 5;
+}
+
+.message_d5deea.selected_d5deea {
+    background: linear-gradient(90deg, 
+        color-mix(in oklab, var(--shine-accent), transparent 90%), 
+        transparent);
+    border-left: 3px solid var(--shine-accent);
+}
+
+/* =======================================================
+   8. MODERN CHANNEL LIST 
+   ======================================================= */
+/* Hide the default messy headers */
+.container_c69b6d, .header_f37cb1 {
+    background: transparent;
+}
+
+/* Channels as cards */
+.modeSelected__2ea32 .link__2ea32, 
+.wrapper__2ea32:hover .link__2ea32 {
+    background: linear-gradient(90deg, 
+        rgba(255,255,255,0.08) 0%, 
+        transparent 100%);
+    backdrop-filter: blur(5px);
+    transform: translateZ(5px); /* Lift */
+    box-shadow: -2px 0 0 var(--shine-accent);
+    border-radius: 0 8px 8px 0;
+}
+
+/* Unread blobs glow */
+.modeUnreadImportant__2ea32 .icon_d8bfb3 {
+    filter: drop-shadow(0 0 5px white);
+}
+
+/* =======================================================
+   9. POPOUTS (True 3D Modals)
+   ======================================================= */
+.menu_c1e9c4, 
+.userProfileOuter_c69a7b,
+.messagesPopoutWrap_e8b59c {
+    background: rgba(20,20,20,0.85) !important;
+    backdrop-filter: blur(50px) !important;
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 20px;
+    box-shadow: 
+        0 0 0 1px rgba(0,0,0,0.2),
+        0 20px 60px rgba(0,0,0,0.6),
+        0 0 100px -20px var(--shine-accent); /* Colored ambient glow */
+    animation: menu-3d-in 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    transform-origin: top;
+}
+
+@keyframes menu-3d-in {
+    0% {
+        opacity: 0;
+        transform: scale(0.9) rotateX(-10deg) translateY(-20px);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1) rotateX(0) translateY(0);
+    }
+}
+
+/* Hide OS window bar buttons but keep draggable area */
+.typeWindows_a934d8 {
+    background: transparent;
+    height: 18px;
+    margin: 0;
+}
+.wordmarkWindows_a934d8, .winButton_a934d8 {
     display: none;
-}
-.winButton_a934d8 {
-    top: 10px;
 }
