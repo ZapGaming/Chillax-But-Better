@@ -1,311 +1,316 @@
 /**
- * SHINE 4.0 - PASTEL PRISM WORLD
- * "The Full 3D Redesign"
+ * SHINE 5.0 - LIQUIFIED OBSIDIAN
+ * The "Liquid" & "Dark Glass" Hybrid
  */
 
-@property --rotate-world { syntax: "<angle>"; initial-value: 0deg; inherits: true; }
-@property --pastel-hue { syntax: "<angle>"; initial-value: 260deg; inherits: true; }
-
 :root {
-    /* -- PALETTE: Soft Pastels (Eye Care) -- */
-    --pastel-bg-1: #e0c3fc; /* Soft Lavender */
-    --pastel-bg-2: #8ec5fc; /* Baby Blue */
-    --pastel-bg-3: #90f1ef; /* Mint */
+    /* LIQUID COLOR PALETTE */
+    --liquid-text-gradient: linear-gradient(45deg, #7289da 0%, #a5b4fc 100%);
+    --liquid-voice-gradient: linear-gradient(45deg, #00b4d8 0%, #90e0ef 100%);
+    --liquid-thread-spine: repeating-linear-gradient(
+        to bottom,
+        #f38ba8 0px, #f38ba8 20px,
+        #fab387 20px, #fab387 40px,
+        #f9e2af 40px, #f9e2af 60px,
+        #a6e3a1 60px, #a6e3a1 80px,
+        #89b4fa 80px, #89b4fa 100px,
+        #cba6f7 100px, #cba6f7 120px
+    );
     
-    --card-bg: rgba(255, 255, 255, 0.85);
-    --card-border: 2px solid white;
-    --card-shadow: 0 20px 50px rgba(50, 50, 93, 0.15), 
-                   0 8px 15px rgba(0, 0, 0, 0.1);
+    /* GLASS VARIABLES */
+    --glass-bg: rgba(0, 0, 0, 0.4);
+    --glass-border: 1px solid rgba(255, 255, 255, 0.08);
+    --glass-shine: inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    --glass-blur: 25px;
     
-    /* -- 3D VARIABLES -- */
-    --depth-layer-1: translateZ(20px);
-    --depth-layer-2: translateZ(50px);
-    --world-perspective: 1200px;
+    /* BUBBLE RADIUS */
+    --shine-radius: 28px; 
 }
 
 /* ==============================================
-   1. THE 3D STAGE (Background & Perspective)
+   1. GLOBAL FOUNDATION (Dark & Clean)
    ============================================== */
 
 body {
-    /* Moving Pastel Sky */
-    background: conic-gradient(from 180deg at 50% 50%, 
-        var(--pastel-bg-1), var(--pastel-bg-2), var(--pastel-bg-3), var(--pastel-bg-1));
-    background-size: 200% 200%;
-    animation: pastelFlow 20s linear infinite;
+    /* Subtle moving gradient background, very dark */
+    background: radial-gradient(circle at 50% 120%, 
+        #1a103c 0%, 
+        #000000 60%);
+    background-attachment: fixed;
 }
 
-@keyframes pastelFlow {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
-}
+#app-mount { background: transparent; }
 
-#app-mount {
-    background: transparent;
-    perspective: var(--world-perspective);
-    overflow: hidden; /* Hide 3D overflow */
-}
-
-/* Clear all default backgrounds to let the world shine through */
-.bg__960e4, .app_de4237, .appBot__5e434 {
-    background: transparent;
+/* Remove default dark backgrounds to allow glass to work */
+.app_de4237, .bg__960e4, .appBot__5e434 {
+    background: transparent !important; 
 }
 
 /* ==============================================
-   2. THE PANELS: 3D Porcelain Cards
+   2. THE PANELS: SEPARATED "FLOATING" GLASS
    ============================================== */
 
-/* -- SHARED 3D CARD STYLE -- */
-.guilds__5e434,         /* Server List */
-.sidebar__5e434,        /* Channel List */
+/* -- Universal Panel Style -- */
+.guilds__5e434,         /* Server Rail */
+.sidebar__5e434,        /* Channels */
 .container_c8ffbb,      /* Member List */
-.chat_f75fb0,           /* Chat View */
-.container__133bf {     /* Friends */
-    background: var(--card-bg) !important;
-    backdrop-filter: blur(20px) saturate(180%);
-    border-radius: 30px;
-    border: var(--card-border);
-    box-shadow: var(--card-shadow);
-    
-    /* 3D Physics */
-    transform-style: preserve-3d;
-    transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+.container__133bf,      /* Friends List */
+.chat_f75fb0 {          /* Main Chat */
+    background: var(--glass-bg) !important;
+    backdrop-filter: blur(var(--glass-blur)) saturate(140%);
+    border: var(--glass-border);
+    box-shadow: 0 20px 50px rgba(0,0,0,0.5), var(--glass-shine);
+    border-radius: var(--shine-radius);
+    transition: transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.3s;
 }
 
-/* -- SERVER LIST (Left-most Pillar) -- */
+/* -- SERVER LIST (Floating Left) -- */
 .guilds__5e434 {
-    margin: 20px;
-    width: 80px;
-    transform: rotateY(5deg) translateX(-10px);
+    margin: 16px;
+    width: 72px; /* Slimmer */
+    border-radius: 50px; /* Capsule */
 }
-.guilds__5e434:hover {
-    transform: rotateY(0deg) translateZ(20px) scale(1.05);
-}
+.scroller__99e7c { background: transparent !important; }
 
-/* -- CHANNEL SIDEBAR -- */
+/* -- CHANNEL LIST -- */
 .sidebar__5e434 {
-    margin: 20px 10px;
-    border-radius: 30px;
-    transform: translateZ(10px);
+    margin: 16px 0 16px 8px;
+    background: rgba(0,0,0,0.3) !important; /* Slightly darker */
+    width: 250px;
 }
-.privateChannels_e6b769, .scroller__99e7c { background: transparent !important; }
+.privateChannels_e6b769 { background: transparent !important; }
 
-/* -- CHAT AREA (Center Stage) -- */
+/* -- CHAT VIEW -- */
 .chat_f75fb0 {
-    margin: 20px 20px 20px 10px;
-    transform: translateZ(0px);
-    /* Make chat items pop */
-    transform-style: preserve-3d;
-}
-
-/* -- 3D Hover Effect for Main Panels -- */
-.sidebar__5e434:hover,
-.chat_f75fb0:hover {
-    box-shadow: 0 40px 80px rgba(50,50,93,0.25);
-    transform: translateZ(40px) scale(1.01);
-    z-index: 100;
+    margin: 16px;
+    /* Fancy top glowing line */
+    border-top: 1px solid rgba(255,255,255,0.15);
 }
 
 /* ==============================================
-   3. DECORATION: ROTATING 3D DICE & CUBES
+   3. "LIQUID" TYPOGRAPHY (From Liquify)
    ============================================== */
 
-/* -- THE DISCORD HOME BUTTON -> BECOMES A SPINNING DIE -- */
-.tutorialContainer__1f388 .wrapper__6e9f8 {
-    background: transparent !important;
-    box-shadow: none !important;
-    transform-style: preserve-3d;
-    animation: diceSpin 8s linear infinite;
+/* Text Channels - Lilac Gradient */
+.iconContainer__2ea32[aria-label="Text icon"] + .name__2ea32 {
+    background-image: var(--liquid-text-gradient);
+    -webkit-background-clip: text;
+    color: transparent;
+    font-weight: 700;
+}
+.iconContainer__2ea32[aria-label="Text icon"] { color: #7289da; }
+
+/* Voice Channels - Cyan Gradient */
+.iconContainer__2ea32[aria-label="Voice icon"] + .name__2ea32 {
+    background-image: var(--liquid-voice-gradient);
+    -webkit-background-clip: text;
+    color: transparent;
+    font-weight: 700;
+}
+.iconContainer__2ea32[aria-label="Voice icon"] { color: #00b4d8; }
+
+/* Unread Pills - Liquid Gradient */
+.modeUnreadImportant__2ea32 .icon_d8bfb3 {
+    filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.5));
+}
+.unreadPill__2ea32 {
+    background: linear-gradient(90deg, #162ba3, #30ff84);
+    box-shadow: 0 0 10px #30ff84;
 }
 
-/* Hide default icon, we make our own faces */
-.tutorialContainer__1f388 .childWrapper__6e9f8 svg { display: none; }
-
-.tutorialContainer__1f388 .childWrapper__6e9f8 {
-    background: #6C5CE7; /* Die Color */
-    width: 100%; height: 100%;
-    position: relative;
-    transform-style: preserve-3d;
-}
-
-/* Fake the cube depth using pseudo-elements */
-.tutorialContainer__1f388 .childWrapper__6e9f8::before,
-.tutorialContainer__1f388 .childWrapper__6e9f8::after {
-    content: ""; position: absolute;
-    width: 100%; height: 100%;
-    background: inherit;
-    border: 2px solid white;
-    opacity: 0.9;
-}
-.tutorialContainer__1f388 .childWrapper__6e9f8::before {
-    transform: translateZ(-10px); /* Back Face */
-}
-.tutorialContainer__1f388 .childWrapper__6e9f8 {
-    transform: translateZ(10px); /* Front Face */
-}
-
-/* The spinning animation */
-@keyframes diceSpin {
-    0% { transform: rotateX(0) rotateY(0) rotateZ(0); }
-    100% { transform: rotateX(360deg) rotateY(360deg) rotateZ(360deg); }
-}
-
-/* -- AMBIENT BACKGROUND CUBES (Added to Title Bar area) -- */
-.wordmarkWindows_a934d8::before,
-.wordmarkWindows_a934d8::after {
-    content: "🎲";
-    position: absolute;
-    font-size: 40px;
-    opacity: 0.3;
-    animation: floatCube 10s ease-in-out infinite;
-    top: 50vh;
-    left: 50vw;
-    z-index: -1;
-    text-shadow: 0 0 20px white;
-}
-.wordmarkWindows_a934d8::after {
-    content: "🧊";
-    animation-duration: 15s;
-    animation-delay: -5s;
-    left: 20vw;
-}
-
-@keyframes floatCube {
-    0%, 100% { transform: translateY(0) rotate(0deg) scale(1); }
-    50% { transform: translateY(-40px) rotate(20deg) scale(1.2); }
+/* Rainbow Thread Lines (Spine) */
+.spineBorder__5b40b {
+    background: var(--liquid-thread-spine) !important;
 }
 
 /* ==============================================
-   4. RESTORED MARBLE BUTTONS (Refined for Pastel)
+   4. MEMBER LIST - GLOW ANIMATION (From Liquify)
    ============================================== */
-.container_aa63ab > .buttonContainer_aa63ab > .button_aa63ab {
-    width: 55px; height: 55px;
+.container_c8ffbb {
+    margin: 16px 16px 16px 0;
+    width: 260px;
+    background: transparent !important; /* Individual members float */
+    border: none; 
+    box-shadow: none;
+}
+.members_c8ffbb, .member_c8ffbb { background: transparent !important; }
+
+/* The layout inside the member item */
+.layout_e9f61e {
+    background: rgba(0,0,0,0.4);
+    border: 1px solid rgba(255,255,255,0.05);
+    border-radius: 16px;
+    margin-bottom: 4px;
+    transition: all 0.3s ease;
+}
+
+/* HOVER ANIMATION - Pulsing Gradient Glow */
+.layout_e9f61e:hover {
+    background: linear-gradient(90deg, 
+        rgba(144, 210, 232, 0.2) 0%, 
+        rgba(178, 157, 237, 0.2) 50%, 
+        rgba(0,0,0,0.5) 100%) !important;
+    box-shadow: 0 0 20px rgba(144, 212, 232, 0.2);
+    transform: scale(1.02) translateX(-5px);
+    z-index: 10;
+}
+
+/* ==============================================
+   5. EXPANDABLE "DOCK" USER PANEL (Bottom Left)
+   ============================================== */
+.panels__5e434 {
+    position: fixed;
+    bottom: 25px;
+    left: 100px; /* Offset from server rail */
+    z-index: 2000;
+    
+    width: 50px; /* Starts distinctively small */
+    height: 50px;
+    
+    background: rgba(0, 0, 0, 0.6) !important;
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 99px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    
+    transition: width 0.4s cubic-bezier(0.18, 0.89, 0.32, 1.28),
+                border-radius 0.3s;
+    
+    display: flex;
+    overflow: hidden;
+    padding: 0;
+    align-items: center;
+}
+
+/* Expansion Logic */
+.panels__5e434:hover {
+    width: 260px; /* Expands to show details */
+    border-radius: 20px;
+    border-color: rgba(255,255,255,0.4);
+}
+
+/* Hide internal details when collapsed */
+.container__37e49 .avatarWrapper__37e49 {
+    margin-left: 6px;
+    min-width: unset;
+}
+/* When collapsed, name is hidden */
+.container__37e49:not(:hover) .nameTag__37e49 {
+    display: none;
+}
+/* When expanded, show name */
+.panels__5e434:hover .nameTag__37e49 {
+    display: block;
+    animation: fadeIn 0.3s ease 0.1s forwards;
+    opacity: 0;
+}
+@keyframes fadeIn { to { opacity: 1; } }
+
+/* ==============================================
+   6. RESTORED & UPGRADED ASSETS
+   ============================================== */
+
+/* -- MARBLE UPLOAD BUTTON -- */
+.button_aa63ab {
+    width: 44px; height: 44px;
     border-radius: 50%;
+    /* Image from your original request */
     background-image: url(https://blade04208.github.io/shine/src/marble.png) !important;
-    background-size: 150%;
-    background-position: center;
-    border: 4px solid white; /* Thick white rim */
-    box-shadow: 0 10px 20px rgba(0,0,0,0.15);
-    transform: translateZ(30px); /* Lift button off chat */
-    transition: all 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+    background-size: cover;
+    border: 2px solid rgba(255,255,255,0.1);
+    transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.4);
 }
-
-.container_aa63ab > .buttonContainer_aa63ab > .button_aa63ab:hover {
-    transform: translateZ(50px) scale(1.15) rotate(90deg);
+.button_aa63ab:hover {
+    transform: rotate(90deg) scale(1.1);
     background-image: url(https://blade04208.github.io/shine/src/marble-active.png) !important;
-    box-shadow: 0 0 30px #a29bfe; /* Glowing pastel aura */
-    border-color: #a29bfe;
+    box-shadow: 0 0 20px rgba(88, 101, 242, 0.6);
+    border-color: #5865F2;
 }
+/* Remove svg icon inside */
+.button_aa63ab svg { display: none; }
 
-/* ==============================================
-   5. BOTTOM RIGHT: 3D PRISM ANCHOR
-   ============================================== */
+
+/* -- PRISM CORNER (Bottom Right) -- */
 #app-mount::after {
     content: "";
     position: fixed;
     bottom: 25px; 
     right: 25px;
-    width: 40px; 
-    height: 40px;
-    
-    /* 3D Triangle Prism Construction */
-    background: conic-gradient(from 45deg,
-        #ff9ff3, /* Pink */
-        #54a0ff, /* Blue */
-        #5f27cd, /* Purple */
-        #ff9ff3
-    );
-    clip-path: polygon(100% 0, 0% 100%, 100% 100%);
-    
+    width: 40px; height: 40px;
+    background: conic-gradient(from 180deg,
+        #7289da, #00b4d8, #a5b4fc, #7289da);
+    clip-path: polygon(100% 0, 100% 100%, 0% 100%); /* Triangle */
     z-index: 9999;
-    cursor: se-resize;
+    pointer-events: all;
+    cursor: nwse-resize;
     -webkit-app-region: drag;
-    
-    /* Material properties */
-    box-shadow: -5px -5px 20px rgba(255,255,255,0.5) inset,
-                 5px 5px 20px rgba(0,0,0,0.2) inset;
-    border-radius: 0 0 10px 0;
-    transition: transform 0.5s;
-    transform: translateZ(50px);
-    
-    /* Make it bounce/float */
-    animation: prismFloat 4s ease-in-out infinite;
+    opacity: 0.7;
+    filter: blur(1px);
+    transition: all 0.3s;
 }
-
-@keyframes prismFloat {
-    0%, 100% { transform: translateY(0px) rotateZ(0deg); }
-    50% { transform: translateY(-10px) rotateZ(5deg); }
-}
-
 #app-mount::after:hover {
-    transform: scale(1.5) rotate(360deg);
-    clip-path: polygon(50% 0%, 0% 100%, 100% 100%); /* Becomes full triangle on hover */
+    opacity: 1;
+    filter: blur(0px) drop-shadow(0 0 10px #00b4d8);
+    transform: scale(1.1);
 }
 
 /* ==============================================
-   6. INTERFACE POLISH (The Clean Modern Look)
+   7. INPUT BAR (The Bubble)
    ============================================== */
-
-/* -- BUBBLE CHAT INPUT -- */
-.form_f75fb0 { padding: 0 24px 20px 24px; }
+.form_f75fb0 { 
+    padding: 0 16px; 
+    margin-bottom: 24px;
+}
 
 .channelTextArea_f75fb0 {
-    background: white !important;
+    background: rgba(0,0,0,0.3) !important;
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 28px;
+    box-shadow: inset 0 2px 5px rgba(0,0,0,0.2);
+    transition: 0.3s;
+}
+
+.channelTextArea_f75fb0:focus-within {
+    background: rgba(0,0,0,0.5) !important;
+    border-color: #a5b4fc;
+    box-shadow: 0 0 20px rgba(114, 137, 218, 0.15), inset 0 2px 5px rgba(0,0,0,0.5);
+}
+
+/* ==============================================
+   8. EXTRAS / POLISH
+   ============================================== */
+
+/* -- Popouts / Menus (Rounded & Glow) -- */
+.menu_c1e9c4, 
+.emojiPicker_c0e32c {
+    border-radius: 24px !important;
+    background: #0f0f15 !important;
+    border: 1px solid rgba(255,255,255,0.1);
+    box-shadow: 0 0 50px rgba(0,0,0,0.5);
+}
+
+/* -- Search Bar (Pill) -- */
+.searchBar_c322aa {
     border-radius: 50px;
-    padding: 4px;
-    box-shadow: 
-        inset 0 2px 5px rgba(0,0,0,0.05),
-        0 10px 20px rgba(100,100,255,0.1);
-    transition: transform 0.2s;
-}
-.channelTextArea_f75fb0:hover {
-    transform: scale(1.02) translateY(-2px);
+    background: rgba(0,0,0,0.2) !important;
+    transition: width 0.3s ease;
 }
 
-/* -- TEXT READABILITY FIX (Since backgrounds are light) -- */
-.theme-dark, .theme-light {
-    --text-normal: #2d3436;
-    --text-muted: #636e72;
-    --header-primary: #2d3436;
-    --channels-default: #636e72;
+/* -- Spotify Player Integration Height Adjustment -- */
+/* (In case you use the Vencord Spotify plugin mentioned in Liquify) */
+#vc-spotify-player {
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    margin: 8px;
+    background: transparent !important;
 }
 
-/* -- SERVER ICONS AS BUBBLES -- */
-.wrapper__58105 .childWrapper__6e9f8 {
-    background: white;
-    color: #6C5CE7;
-    box-shadow: inset 0 -3px 0 rgba(0,0,0,0.1);
-}
-.wrapper__58105.selected__6e9f8 .childWrapper__6e9f8 {
-    background: linear-gradient(135deg, #a29bfe, #6c5ce7);
-    color: white;
-    transform: rotate(360deg); /* Spin on select */
-}
-
-/* -- HIDE TOP BAR DRAG AREA TO CLEAN UP -- */
-.typeWindows_a934d8 { 
-    height: 10px; margin: 0; background: transparent; 
-}
-.wordmarkWindows_a934d8, .winButton_a934d8 { display: none; }
-
-/* -- MESSAGES SLIP-IN ANIMATION -- */
-@keyframes slipIn3D {
-    from { opacity: 0; transform: perspective(500px) rotateX(90deg) translateY(50px); }
-    to { opacity: 1; transform: perspective(500px) rotateX(0deg) translateY(0); }
-}
+/* Message Hover Slide */
 .message_d5deea {
-    animation: slipIn3D 0.4s forwards;
+    transition: background 0.1s, transform 0.2s;
 }
-
-/* -- FLOATING USER PANEL -- */
-.panels__5e434 {
-    margin-bottom: 30px; /* Float higher */
-    margin-left: 10px;
-    border-radius: 50px;
-    background: white;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-    border: 2px solid white;
-    max-width: 240px;
-    transform: translateZ(60px); /* Sticks out the most */
+.message_d5deea:hover {
+    background: linear-gradient(90deg, rgba(255,255,255,0.03) 0%, transparent 100%) !important;
+    transform: translateX(4px);
+    border-left: 2px solid rgba(255,255,255,0.2);
 }
