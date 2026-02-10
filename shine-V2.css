@@ -1,334 +1,311 @@
-/** 
- * SHINE 3.0 - Parallax 3D Edition 
- * Dynamic Z-Axis Depth + Original Asset Integration
+/**
+ * SHINE 4.0 - PASTEL PRISM WORLD
+ * "The Full 3D Redesign"
  */
 
-/* =======================================================
-   1. CORE VARIABLES & 3D ENGINE
-   ======================================================= */
-@property --shine-base {
-    syntax: "<color>";
-    inherits: true;
-    initial-value: #5865F2; /* Default blurple if not set */
-}
+@property --rotate-world { syntax: "<angle>"; initial-value: 0deg; inherits: true; }
+@property --pastel-hue { syntax: "<angle>"; initial-value: 260deg; inherits: true; }
 
 :root {
-    /* 3D Depth Configuration */
-    --z-depth-1: translateZ(10px);
-    --z-depth-2: translateZ(25px);
-    --z-depth-high: translateZ(50px);
-    --tilt-perspective: 1200px;
+    /* -- PALETTE: Soft Pastels (Eye Care) -- */
+    --pastel-bg-1: #e0c3fc; /* Soft Lavender */
+    --pastel-bg-2: #8ec5fc; /* Baby Blue */
+    --pastel-bg-3: #90f1ef; /* Mint */
     
-    /* Global Lighting & Accent */
-    --shine-accent: var(--shine-base, #5865F2);
-    --shine-glass: color-mix(in oklab, var(--background-surface-high), transparent 30%);
-    --shine-border: 1px solid rgba(255,255,255,0.08);
+    --card-bg: rgba(255, 255, 255, 0.85);
+    --card-border: 2px solid white;
+    --card-shadow: 0 20px 50px rgba(50, 50, 93, 0.15), 
+                   0 8px 15px rgba(0, 0, 0, 0.1);
     
-    /* Standard Layout overrides */
-    --shine-gap: 16px;
-    --shine-radius: 24px;
+    /* -- 3D VARIABLES -- */
+    --depth-layer-1: translateZ(20px);
+    --depth-layer-2: translateZ(50px);
+    --world-perspective: 1200px;
 }
 
-/* Global 3D Perspective container */
+/* ==============================================
+   1. THE 3D STAGE (Background & Perspective)
+   ============================================== */
+
+body {
+    /* Moving Pastel Sky */
+    background: conic-gradient(from 180deg at 50% 50%, 
+        var(--pastel-bg-1), var(--pastel-bg-2), var(--pastel-bg-3), var(--pastel-bg-1));
+    background-size: 200% 200%;
+    animation: pastelFlow 20s linear infinite;
+}
+
+@keyframes pastelFlow {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
 #app-mount {
     background: transparent;
-    perspective: var(--tilt-perspective);
+    perspective: var(--world-perspective);
+    overflow: hidden; /* Hide 3D overflow */
 }
 
-/* The Background Wallpaper/Scene */
-.bg__960e4 {
-    background: radial-gradient(circle at 50% -20%, 
-        color-mix(in oklab, var(--shine-accent), transparent 70%), 
-        transparent 60%),
-        var(--background-tertiary);
-    z-index: -1;
+/* Clear all default backgrounds to let the world shine through */
+.bg__960e4, .app_de4237, .appBot__5e434 {
+    background: transparent;
 }
 
-/* =======================================================
-   2. THE PANELS (SIDEBAR & CHAT)
-   Floating Glass Slabs
-   ======================================================= */
+/* ==============================================
+   2. THE PANELS: 3D Porcelain Cards
+   ============================================== */
 
-/* General Glass Surface */
-.sidebar__5e434, 
-.container_c8ffbb, /* Members */
-.container__133bf, /* Friends */
-.chat_f75fb0 {     /* Main Chat */
-    background: var(--shine-glass) !important;
-    backdrop-filter: blur(40px) saturate(120%);
-    border-radius: var(--shine-radius);
-    border: var(--shine-border);
-    /* 3D Shadow for depth */
-    box-shadow: 
-        0 1px 0 rgba(255,255,255,0.1) inset,
-        0 20px 40px -5px rgba(0,0,0,0.4),
-        0 0 0 1px rgba(0,0,0,0.1);
+/* -- SHARED 3D CARD STYLE -- */
+.guilds__5e434,         /* Server List */
+.sidebar__5e434,        /* Channel List */
+.container_c8ffbb,      /* Member List */
+.chat_f75fb0,           /* Chat View */
+.container__133bf {     /* Friends */
+    background: var(--card-bg) !important;
+    backdrop-filter: blur(20px) saturate(180%);
+    border-radius: 30px;
+    border: var(--card-border);
+    box-shadow: var(--card-shadow);
+    
+    /* 3D Physics */
     transform-style: preserve-3d;
-    transition: transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+    transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
-/* Hover effect: Subtle lift */
+/* -- SERVER LIST (Left-most Pillar) -- */
+.guilds__5e434 {
+    margin: 20px;
+    width: 80px;
+    transform: rotateY(5deg) translateX(-10px);
+}
+.guilds__5e434:hover {
+    transform: rotateY(0deg) translateZ(20px) scale(1.05);
+}
+
+/* -- CHANNEL SIDEBAR -- */
+.sidebar__5e434 {
+    margin: 20px 10px;
+    border-radius: 30px;
+    transform: translateZ(10px);
+}
+.privateChannels_e6b769, .scroller__99e7c { background: transparent !important; }
+
+/* -- CHAT AREA (Center Stage) -- */
+.chat_f75fb0 {
+    margin: 20px 20px 20px 10px;
+    transform: translateZ(0px);
+    /* Make chat items pop */
+    transform-style: preserve-3d;
+}
+
+/* -- 3D Hover Effect for Main Panels -- */
 .sidebar__5e434:hover,
 .chat_f75fb0:hover {
-    box-shadow: 
-        0 1px 0 rgba(255,255,255,0.2) inset,
-        0 30px 60px -10px rgba(0,0,0,0.5);
-    /* Subtle shift towards user */
-    transform: translateY(-2px) scale(1.002);
-    z-index: 10;
+    box-shadow: 0 40px 80px rgba(50,50,93,0.25);
+    transform: translateZ(40px) scale(1.01);
+    z-index: 100;
 }
 
-/* Sidebar Position & Float */
-.sidebar__5e434 {
-    width: 260px;
-    margin: var(--shine-gap) 0 var(--shine-gap) var(--shine-gap);
-    border-right: none;
-}
+/* ==============================================
+   3. DECORATION: ROTATING 3D DICE & CUBES
+   ============================================== */
 
-/* Chat Position */
-.chat_f75fb0 {
-    margin: var(--shine-gap);
-    background: color-mix(in srgb, var(--shine-glass), black 10%) !important;
-}
-
-/* Member List Float */
-.container_c8ffbb {
-    margin: var(--shine-gap) var(--shine-gap) var(--shine-gap) 0;
-    height: auto !important;
+/* -- THE DISCORD HOME BUTTON -> BECOMES A SPINNING DIE -- */
+.tutorialContainer__1f388 .wrapper__6e9f8 {
     background: transparent !important;
-    box-shadow: none;
-    border: none;
+    box-shadow: none !important;
+    transform-style: preserve-3d;
+    animation: diceSpin 8s linear infinite;
 }
 
-/* =======================================================
-   3. THE RESTORED ASSETS (Original User Request)
-   ======================================================= */
+/* Hide default icon, we make our own faces */
+.tutorialContainer__1f388 .childWrapper__6e9f8 svg { display: none; }
 
-/* THE MARBLE TEXT BUTTON (Input Bar) - Restored & Upgraded */
+.tutorialContainer__1f388 .childWrapper__6e9f8 {
+    background: #6C5CE7; /* Die Color */
+    width: 100%; height: 100%;
+    position: relative;
+    transform-style: preserve-3d;
+}
+
+/* Fake the cube depth using pseudo-elements */
+.tutorialContainer__1f388 .childWrapper__6e9f8::before,
+.tutorialContainer__1f388 .childWrapper__6e9f8::after {
+    content: ""; position: absolute;
+    width: 100%; height: 100%;
+    background: inherit;
+    border: 2px solid white;
+    opacity: 0.9;
+}
+.tutorialContainer__1f388 .childWrapper__6e9f8::before {
+    transform: translateZ(-10px); /* Back Face */
+}
+.tutorialContainer__1f388 .childWrapper__6e9f8 {
+    transform: translateZ(10px); /* Front Face */
+}
+
+/* The spinning animation */
+@keyframes diceSpin {
+    0% { transform: rotateX(0) rotateY(0) rotateZ(0); }
+    100% { transform: rotateX(360deg) rotateY(360deg) rotateZ(360deg); }
+}
+
+/* -- AMBIENT BACKGROUND CUBES (Added to Title Bar area) -- */
+.wordmarkWindows_a934d8::before,
+.wordmarkWindows_a934d8::after {
+    content: "🎲";
+    position: absolute;
+    font-size: 40px;
+    opacity: 0.3;
+    animation: floatCube 10s ease-in-out infinite;
+    top: 50vh;
+    left: 50vw;
+    z-index: -1;
+    text-shadow: 0 0 20px white;
+}
+.wordmarkWindows_a934d8::after {
+    content: "🧊";
+    animation-duration: 15s;
+    animation-delay: -5s;
+    left: 20vw;
+}
+
+@keyframes floatCube {
+    0%, 100% { transform: translateY(0) rotate(0deg) scale(1); }
+    50% { transform: translateY(-40px) rotate(20deg) scale(1.2); }
+}
+
+/* ==============================================
+   4. RESTORED MARBLE BUTTONS (Refined for Pastel)
+   ============================================== */
 .container_aa63ab > .buttonContainer_aa63ab > .button_aa63ab {
-    height: 48px;
-    width: 48px;
+    width: 55px; height: 55px;
     border-radius: 50%;
-    /* Original marble texture */
     background-image: url(https://blade04208.github.io/shine/src/marble.png) !important;
-    background-size: cover;
-    background-color: transparent;
-    transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
-    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-    
-    /* 3D Enhancement */
-    transform: rotateX(10deg); 
+    background-size: 150%;
+    background-position: center;
+    border: 4px solid white; /* Thick white rim */
+    box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+    transform: translateZ(30px); /* Lift button off chat */
+    transition: all 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
-/* Hover state for marble button */
-.container_aa63ab > .buttonContainer_aa63ab > .button_aa63ab:not(.disabled__24af7):hover {
+.container_aa63ab > .buttonContainer_aa63ab > .button_aa63ab:hover {
+    transform: translateZ(50px) scale(1.15) rotate(90deg);
     background-image: url(https://blade04208.github.io/shine/src/marble-active.png) !important;
-    transform: rotateX(0deg) scale(1.1) var(--z-depth-2); /* 3D pop */
-    box-shadow: 
-        0 0 25px var(--shine-accent),
-        0 10px 20px black;
-    filter: brightness(110%);
+    box-shadow: 0 0 30px #a29bfe; /* Glowing pastel aura */
+    border-color: #a29bfe;
 }
 
-.sendIcon_aa63ab {
-    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.5));
-}
-
-/* THE CORNER GRABBER (Bottom Right) - Restored */
+/* ==============================================
+   5. BOTTOM RIGHT: 3D PRISM ANCHOR
+   ============================================== */
 #app-mount::after {
     content: "";
     position: fixed;
-    width: 27px;
-    height: 27px;
-    bottom: calc(var(--shine-gap) + 6px);
-    right: calc(var(--shine-gap) + 6px);
-    background: url(https://blade04208.github.io/shine/src/grabber.svg) no-repeat center center;
-    z-index: 9999999;
+    bottom: 25px; 
+    right: 25px;
+    width: 40px; 
+    height: 40px;
+    
+    /* 3D Triangle Prism Construction */
+    background: conic-gradient(from 45deg,
+        #ff9ff3, /* Pink */
+        #54a0ff, /* Blue */
+        #5f27cd, /* Purple */
+        #ff9ff3
+    );
+    clip-path: polygon(100% 0, 0% 100%, 100% 100%);
+    
+    z-index: 9999;
+    cursor: se-resize;
     -webkit-app-region: drag;
-    opacity: 0.8;
-    transition: opacity 0.3s;
-    /* Add slight 3D shadow to the grabber */
-    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.5));
+    
+    /* Material properties */
+    box-shadow: -5px -5px 20px rgba(255,255,255,0.5) inset,
+                 5px 5px 20px rgba(0,0,0,0.2) inset;
+    border-radius: 0 0 10px 0;
+    transition: transform 0.5s;
+    transform: translateZ(50px);
+    
+    /* Make it bounce/float */
+    animation: prismFloat 4s ease-in-out infinite;
+}
+
+@keyframes prismFloat {
+    0%, 100% { transform: translateY(0px) rotateZ(0deg); }
+    50% { transform: translateY(-10px) rotateZ(5deg); }
 }
 
 #app-mount::after:hover {
-    opacity: 1;
-    cursor: nwse-resize;
+    transform: scale(1.5) rotate(360deg);
+    clip-path: polygon(50% 0%, 0% 100%, 100% 100%); /* Becomes full triangle on hover */
 }
 
-/* =======================================================
-   4. GUILDS (Server List) - 3D Sphere Style
-   ======================================================= */
-.guilds__5e434 {
-    margin: var(--shine-gap);
-    background: transparent !important;
-    overflow: visible;
-}
+/* ==============================================
+   6. INTERFACE POLISH (The Clean Modern Look)
+   ============================================== */
 
-.scroller__99e7c {
-    background: transparent !important;
-    padding-top: 10px;
-}
-
-/* Turn server icons into 3D Spheres/Tiles */
-.wrapper__58105 .childWrapper__6e9f8, 
-.circleIconButton__5bc7e {
-    transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
-    background-color: rgba(255,255,255,0.1) !important;
-    /* Create a 3D glass sheen */
-    box-shadow: 
-        inset 0 4px 6px rgba(255,255,255,0.4), 
-        inset 0 -4px 6px rgba(0,0,0,0.3),
-        0 5px 15px rgba(0,0,0,0.3);
-}
-
-.wrapper__58105:hover .childWrapper__6e9f8,
-.wrapper__58105.selected__6e9f8 .childWrapper__6e9f8 {
-    transform: translateX(5px) scale(1.1);
-    background-color: var(--shine-accent) !important;
-    border-radius: 16px;
-    box-shadow: 
-        inset 0 4px 8px rgba(255,255,255,0.4),
-        0 0 20px var(--shine-accent);
-}
-
-/* =======================================================
-   5. CHAT & INPUT ("The Dynamic Deck")
-   ======================================================= */
-.form_f75fb0 {
-    padding: 0 20px;
-    margin-bottom: 24px;
-}
+/* -- BUBBLE CHAT INPUT -- */
+.form_f75fb0 { padding: 0 24px 20px 24px; }
 
 .channelTextArea_f75fb0 {
-    background: rgba(0,0,0,0.25);
-    border-radius: 99px; /* Fully rounded capsule */
-    border: 1px solid rgba(255,255,255,0.05);
-    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
-    transition: transform 0.2s, box-shadow 0.2s, border 0.2s;
-}
-
-/* Focus State: 3D Lift */
-.channelTextArea_f75fb0:has(.focused_d91ba9) {
-    transform: translateY(-2px);
-    border-color: var(--shine-accent);
+    background: white !important;
+    border-radius: 50px;
+    padding: 4px;
     box-shadow: 
-        0 15px 40px -10px var(--shine-accent),
-        inset 0 1px 1px rgba(255,255,255,0.2);
-    background: linear-gradient(180deg, rgba(0,0,0,0.3), rgba(0,0,0,0.2));
+        inset 0 2px 5px rgba(0,0,0,0.05),
+        0 10px 20px rgba(100,100,255,0.1);
+    transition: transform 0.2s;
+}
+.channelTextArea_f75fb0:hover {
+    transform: scale(1.02) translateY(-2px);
 }
 
-/* =======================================================
-   6. USER PANEL (Floating Pill)
-   ======================================================= */
-.panels__5e434 {
-    background: color-mix(in srgb, var(--shine-glass), black 20%);
-    margin: 0 0 12px 0; /* Attach to bottom of Sidebar visually */
-    border-bottom-left-radius: var(--shine-radius);
-    border-bottom-right-radius: var(--shine-radius);
-    border: none;
-    border-top: 1px solid rgba(255,255,255,0.05);
+/* -- TEXT READABILITY FIX (Since backgrounds are light) -- */
+.theme-dark, .theme-light {
+    --text-normal: #2d3436;
+    --text-muted: #636e72;
+    --header-primary: #2d3436;
+    --channels-default: #636e72;
 }
 
-.panels__5e434 button {
-    /* Mini-Buttons inside panel */
-    background: transparent;
-    transition: 0.2s;
-    border-radius: 12px;
+/* -- SERVER ICONS AS BUBBLES -- */
+.wrapper__58105 .childWrapper__6e9f8 {
+    background: white;
+    color: #6C5CE7;
+    box-shadow: inset 0 -3px 0 rgba(0,0,0,0.1);
 }
-.panels__5e434 button:hover {
-    background: rgba(255,255,255,0.1);
-    transform: var(--z-depth-1); /* Pop out */
-    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+.wrapper__58105.selected__6e9f8 .childWrapper__6e9f8 {
+    background: linear-gradient(135deg, #a29bfe, #6c5ce7);
+    color: white;
+    transform: rotate(360deg); /* Spin on select */
 }
 
-/* =======================================================
-   7. MESSAGES (Sliding Card Stack)
-   ======================================================= */
+/* -- HIDE TOP BAR DRAG AREA TO CLEAN UP -- */
+.typeWindows_a934d8 { 
+    height: 10px; margin: 0; background: transparent; 
+}
+.wordmarkWindows_a934d8, .winButton_a934d8 { display: none; }
+
+/* -- MESSAGES SLIP-IN ANIMATION -- */
+@keyframes slipIn3D {
+    from { opacity: 0; transform: perspective(500px) rotateX(90deg) translateY(50px); }
+    to { opacity: 1; transform: perspective(500px) rotateX(0deg) translateY(0); }
+}
 .message_d5deea {
-    margin: 4px 16px;
-    padding: 8px 10px !important;
-    border-radius: 12px;
-    background: transparent;
-    border: 1px solid transparent;
-    transition: background 0.2s, border 0.2s, transform 0.2s;
+    animation: slipIn3D 0.4s forwards;
 }
 
-.message_d5deea:hover {
-    background: rgba(255,255,255,0.03);
-    border: 1px solid rgba(255,255,255,0.04);
-    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-    transform: scale(1.005) translateX(2px);
-    z-index: 5;
-}
-
-.message_d5deea.selected_d5deea {
-    background: linear-gradient(90deg, 
-        color-mix(in oklab, var(--shine-accent), transparent 90%), 
-        transparent);
-    border-left: 3px solid var(--shine-accent);
-}
-
-/* =======================================================
-   8. MODERN CHANNEL LIST 
-   ======================================================= */
-/* Hide the default messy headers */
-.container_c69b6d, .header_f37cb1 {
-    background: transparent;
-}
-
-/* Channels as cards */
-.modeSelected__2ea32 .link__2ea32, 
-.wrapper__2ea32:hover .link__2ea32 {
-    background: linear-gradient(90deg, 
-        rgba(255,255,255,0.08) 0%, 
-        transparent 100%);
-    backdrop-filter: blur(5px);
-    transform: translateZ(5px); /* Lift */
-    box-shadow: -2px 0 0 var(--shine-accent);
-    border-radius: 0 8px 8px 0;
-}
-
-/* Unread blobs glow */
-.modeUnreadImportant__2ea32 .icon_d8bfb3 {
-    filter: drop-shadow(0 0 5px white);
-}
-
-/* =======================================================
-   9. POPOUTS (True 3D Modals)
-   ======================================================= */
-.menu_c1e9c4, 
-.userProfileOuter_c69a7b,
-.messagesPopoutWrap_e8b59c {
-    background: rgba(20,20,20,0.85) !important;
-    backdrop-filter: blur(50px) !important;
-    border: 1px solid rgba(255,255,255,0.1);
-    border-radius: 20px;
-    box-shadow: 
-        0 0 0 1px rgba(0,0,0,0.2),
-        0 20px 60px rgba(0,0,0,0.6),
-        0 0 100px -20px var(--shine-accent); /* Colored ambient glow */
-    animation: menu-3d-in 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    transform-origin: top;
-}
-
-@keyframes menu-3d-in {
-    0% {
-        opacity: 0;
-        transform: scale(0.9) rotateX(-10deg) translateY(-20px);
-    }
-    100% {
-        opacity: 1;
-        transform: scale(1) rotateX(0) translateY(0);
-    }
-}
-
-/* Hide OS window bar buttons but keep draggable area */
-.typeWindows_a934d8 {
-    background: transparent;
-    height: 18px;
-    margin: 0;
-}
-.wordmarkWindows_a934d8, .winButton_a934d8 {
-    display: none;
+/* -- FLOATING USER PANEL -- */
+.panels__5e434 {
+    margin-bottom: 30px; /* Float higher */
+    margin-left: 10px;
+    border-radius: 50px;
+    background: white;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    border: 2px solid white;
+    max-width: 240px;
+    transform: translateZ(60px); /* Sticks out the most */
 }
