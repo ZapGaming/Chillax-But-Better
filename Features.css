@@ -1165,6 +1165,109 @@ opacity: 0;
 
 
 
+/* theme vencord update notification by Benzeel V1 */
+.vc-notification-root {
+  background: #8d063a46;
+  backdrop-filter: blur(40px);
+  border: 2px solid #b32b5838;
+  filter: drop-shadow(0px 3px 8px #000000);
+  transition: 0.5s ease;
+}
+.vc-notification-root:hover {
+  background: #c5084765;
+  border: 2px solid #b80d46a6;
+  transition: 0.3s ease;
+  transform: scale(99%) translateY(2%)  ;
+}
+.root__49fc1:has(.vc-settings-modal) {
+  border: 2px solid #df1256c5;
+  background: #c71e571e;
+  backdrop-filter: blur(50px);
+  transition: 0.1s ease;
+}
+
+
+
+
+
+
+/* translucent settings menu by benzeel V1 */
+/* ------ SETTINGS MENU START ------ */
+
+    /* settings menu scroll shadow */
+      .fixedContent__409aa:after {
+        border-top-left-radius:  8px;
+        border-top-right-radius:  8px;
+      }
+    /* settings menu main BG */
+      .content_e9e3ed {
+        background: #00000046;
+      }
+      .contentHeader_e9e3ed.theme-dark.theme-midnight.images-dark {
+        background: none;
+      } 
+    /* Security Keys BG */
+      .credentialItem__6c75d {background: none;}
+      .credentialItem__6c75d:is(:first-child) {border:0px;}
+      .credentialList__6c75d {
+        background: #0c0c0c83; 
+        border-radius: 8px; 
+        border: 1px solid var(--border-subtle);
+      }
+    /* krisp bg */
+      .card__73069:not(.outline__73069) {background: none}
+    /* keybinding bgs */
+      .defaultKeybindGroup__740f2 {background: #2b2a2a63;}
+    /* vencord quick actions */
+      .vc-card-base {background: none;}
+      .vc-settings-quickActions-pill {background: #55555571;}
+      .vc-settings-quickActions-pill:hover {background: #7e7e7e71;}
+    /* Plugins */
+      .vc-addon-card {background: none;}
+    /* server boosts */
+      .appliedBoostContainer_ceb06a {
+        background: none; 
+        border: 1px solid var(--border-subtle);
+      }
+      .guildContainer__5dba5 {background: #3d3d3d52;}
+      .boostContainer_ceb06a {background: #141414a1;}
+    /* server boost faq */
+      .wrapper__5b98e {background: #3d3d3d52;}
+    /* Share nitro */
+      .expandedProgressBarContainerSettingsPage_a61c56 {
+        background: none;
+        backdrop-filter: none;
+      }
+    /* my account */
+      .accountProfileCard__1fed1 {
+        background: #03030333; 
+        border: 1px solid var(--border-subtle);
+      }
+      .background__1fed1 {
+        background: #1818183b; 
+        border: 1px solid var(--border-subtle);
+      }
+      .fieldList__1fed1 {background: none;}
+    /* appearance */
+      .cardPrimary__73069, .cardPrimary__73069.editable__73069 {background: #03030356;}
+
+/* ------ END OF SETTINGS MENU ------ */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -1181,6 +1284,13 @@ opacity: 0;
     --font-display: Androd, 'gg sans', 'Noto Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
     --font-code: Androd, "gg mono","Source Code Pro",Consolas,"Andale Mono WT","Andale Mono","Lucida Console","Lucida Sans Typewriter","DejaVu Sans Mono","Bitstream Vera Sans Mono","Liberation Mono","Nimbus Mono L",Monaco,"Courier New",Courier,monospace;
 }
+
+
+
+
+
+
+
 
 
 
