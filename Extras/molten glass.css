@@ -1,0 +1,282 @@
+/* ---===< BASE VARIABLES & MOLTEN COLORS >===--- */
+:root {
+  /* Molten Glass Base Settings */
+  --isc-bg: rgba(15, 15, 20, 0.4);
+  --isc-bg-blur: 24px; 
+  --isc-bg-brightness: 1.1;
+  
+  /* Layout ordering */
+  --ics-full-album-art: true;
+  --ics-panel-order-activity: 2; 
+  --ics-panel-order-spotify: 1; 
+  --ics-panel-order-voicechat: 3; 
+  --ics-panel-order-user: 4; 
+
+  /* Neon / Molten Accents */
+  --isc-song-title: #ffffff;
+  --isc-icon-color: rgba(255, 255, 255, 0.8);
+
+  /* Liquid Gradient Progress Bar */
+  --isc-progress-bar: #00f0ff;
+  --isc-progress-bar-hover: #ff007f;
+
+  /* Glassy Buttons */
+  --isc-button-icon: rgba(255, 255, 255, 0.6);
+  --isc-button-icon-hover: #ffffff;
+  --isc-button-bg: rgba(255, 255, 255, 0.05);
+  --isc-button-bg-hover: rgba(255, 255, 255, 0.15);
+
+  --isc-button-toggled-icon: #00f0ff;
+  --isc-button-toggled-icon-hover: #ff007f;
+  --isc-button-toggled-bg: rgba(0, 240, 255, 0.15);
+  --isc-button-toggled-bg-hover: rgba(255, 0, 127, 0.25);
+}
+
+body {
+  container-name: body;
+}
+
+/* ---===< MOLTEN GLASS CONTAINER & 3D HOVER >===--- */
+
+#vc-spotify-player {
+  position: relative;
+  background: var(--isc-bg) !important;
+  backdrop-filter: blur(var(--isc-bg-blur)) saturate(150%);
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  overflow: visible !important; /* Allow 3D popping */
+  margin: 8px;
+  
+  /* 3D Setup */
+  transform-style: preserve-3d;
+  transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.5s ease;
+}
+
+/* 3D Tilt Effect on Hover */
+#vc-spotify-player:hover {
+  transform: perspective(1000px) translateY(-5px) rotateX(4deg) rotateY(-2deg);
+  box-shadow: 10px 15px 40px 0 rgba(0, 0, 0, 0.5), inset 0 0 20px rgba(255,255,255,0.1);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+/* Molten Liquid Background Aura */
+#vc-spotify-player::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  z-index: -1;
+  background-image: var(--vc-spotify-track-image);
+  background-position: center;
+  background-size: cover;
+  filter: blur(30px) saturate(200%);
+  opacity: 0.5;
+  border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
+  animation: moltenFlow 8s ease-in-out infinite alternate;
+  pointer-events: none;
+}
+
+@keyframes moltenFlow {
+  0% { border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%; transform: scale(0.95) rotate(0deg); }
+  100% { border-radius: 60% 40% 30% 70% / 50% 60% 40% 50%; transform: scale(1.05) rotate(10deg); }
+}
+
+/* Glass Inner Reflection */
+#vc-spotify-player::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(135deg, rgba(255,255,255,0.2) 0%, transparent 40%, transparent 100%);
+  pointer-events: none;
+  z-index: 2;
+  transform: translateZ(10px); /* 3D layer pop */
+}
+
+/* Layer all children to sit on top of the 3D pane */
+#vc-spotify-info-wrapper,
+.vc-spotify-button,
+.wrapper_e131a9 {
+  position: relative;
+  z-index: 5;
+  transform: translateZ(20px); /* Pushes content out in 3D space */
+}
+
+/* ---===< 3D CSS MODEL: SPINNING VINYL RECORD >===--- */
+
+/* Unhide the album image and turn it into a 3D model */
+#vc-spotify-info-wrapper > img {
+  display: block !important;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin-right: 12px;
+  
+  /* 3D coin/record thickness using stacked box-shadows */
+  box-shadow: 
+    -1px 0 0 rgba(255,255,255,0.4),
+    -2px 0 0 rgba(255,255,255,0.3),
+    -3px 0 0 rgba(255,255,255,0.2),
+    -4px 0 0 rgba(255,255,255,0.1),
+    0 5px 15px rgba(0,0,0,0.6);
+    
+  border: 2px solid rgba(25, 25, 25, 0.9);
+  animation: spin3D 6s linear infinite;
+  transform-style: preserve-3d;
+}
+
+/* Center hole of the record */
+#vc-spotify-info-wrapper > img::after {
+  content: '';
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  width: 10px; height: 10px;
+  background: var(--isc-bg);
+  border-radius: 50%;
+  border: 1px solid rgba(0,0,0,0.5);
+}
+
+@keyframes spin3D {
+  0% { transform: rotateY(0deg) rotateX(15deg) translateZ(15px); }
+  100% { transform: rotateY(360deg) rotateX(15deg) translateZ(15px); }
+}
+
+/* ---===< ICONS & TYPOGRAPHY >===--- */
+
+#vc-spotify-info-wrapper {
+  margin-left: 8px;
+  align-items: center;
+}
+
+#vc-spotify-song-title {
+  color: var(--isc-song-title);
+  font: 'gg sans' !important;
+  font-weight: 800;
+  text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.8), 0px 0px 10px rgba(255,255,255,0.3);
+}
+
+/* Modern clean subtitles */
+.vc-spotify-secondary-song-info {
+  color: rgba(255,255,255,0.7);
+  font-weight: 500;
+}
+
+/* ---===< LIQUID PROGRESS BAR >===--- */
+
+#vc-spotify-progress-bar {
+  margin: 10px;
+  transform: translateZ(10px);
+}
+
+#vc-spotify-player .bar_a562c8 {
+  background-color: rgba(255, 255, 255, 0.1);
+  box-shadow: inset 0 1px 3px rgba(0,0,0,0.5);
+  border-radius: 8px;
+  height: 6px;
+  overflow: hidden;
+}
+
+#vc-spotify-player .barFill_a562c8 {
+  /* Molten animated gradient */
+  background: linear-gradient(90deg, #00f0ff, #ff007f, #00f0ff);
+  background-size: 200% 200%;
+  animation: liquidGradient 3s linear infinite;
+  border-radius: 8px;
+  box-shadow: 0 0 10px var(--isc-progress-bar);
+}
+
+@keyframes liquidGradient {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 200% 50%; }
+}
+
+/* Glowing Grabber */
+#vc-spotify-progress-bar .grabber_a562c8 {
+  background-color: #ffffff;
+  border: 2px solid var(--isc-progress-bar-hover);
+  box-shadow: 0 0 10px var(--isc-progress-bar-hover), 0 0 20px var(--isc-progress-bar);
+  width: 14px;
+  height: 14px;
+  margin-top: -4px;
+  opacity: 0;
+  transform: scale(0.5);
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+#vc-spotify-progress-bar:hover .grabber_a562c8 {
+  opacity: 1;
+  transform: scale(1.2);
+}
+
+.vc-spotify-progress-time {
+  display: none;
+}
+
+/* ---===< GLASSY HOVER BUTTONS >===--- */
+
+.vc-spotify-button-row {
+  margin: 5px;
+  padding-bottom: 5px;
+}
+
+.vc-spotify-button {
+  margin: 0px 10px;
+  border-radius: 50%;
+  background-color: var(--isc-button-bg);
+  width: 35px;
+  height: 35px;
+  color: var(--isc-button-icon);
+  backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.vc-spotify-button:hover {
+  background-color: var(--isc-button-bg-hover);
+  color: var(--isc-button-icon-hover);
+  transform: translateY(-4px) scale(1.1) translateZ(15px);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3), 0 0 15px rgba(255,255,255,0.2);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.vc-spotify-button-icon {
+  width: 20px;
+  height: 20px;
+}
+
+/* Active State Buttons */
+.vc-spotify-shuffle-on,
+.vc-spotify-repeat-context,
+.vc-spotify-repeat-track {
+  background-color: var(--isc-button-toggled-bg);
+  color: var(--isc-button-toggled-icon);
+  border-color: var(--isc-button-toggled-icon);
+  box-shadow: 0 0 15px var(--isc-button-toggled-bg);
+}
+
+.vc-spotify-shuffle-on:hover,
+.vc-spotify-repeat-context:hover,
+.vc-spotify-repeat-track:hover {
+  background-color: var(--isc-button-toggled-bg-hover);
+  color: var(--isc-button-toggled-icon-hover);
+  border-color: var(--isc-button-toggled-icon-hover);
+  box-shadow: 0 0 20px var(--isc-button-toggled-icon-hover);
+}
+
+/* ---===< FIXES FOR BASE DISCORD ELEMENTS >===--- */
+
+section.panels__5e434 {
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 8px;
+
+  .activityPanel__5e434 { order: var(--ics-panel-order-activity); }
+  #vc-spotify-player { order: var(--ics-panel-order-spotify) !important; }
+  .wrapper_e131a9 { order: var(--ics-panel-order-voicechat); }
+  .container__37e49 { order: var(--ics-panel-order-user); }
+}
+
+.panels__5e434 div.panel__5dec7.activityPanel__5e434 {
+  background-color: transparent;
+}
