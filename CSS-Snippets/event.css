@@ -1,163 +1,139 @@
 :root {
---glass-magenta: rgba(255, 0, 150, 0.08);
---glass-magenta-border: rgba(255, 0, 150, 0.25);
---glass-shine: rgba(255, 255, 255, 0.4);
---glass-blur: 14px;
+--glass-magenta-base: rgba(255, 0, 150, 0.05);
+--glass-magenta-vibrant: rgba(255, 0, 150, 0.25);
+--glass-border-light: rgba(255, 255, 255, 0.45);
+--glass-border-dark: rgba(255, 0, 150, 0.15);
+--glass-blur-radius: 16px;
 }
 
 .container__6e9be {
 position: relative;
 z-index: 2;
-&:empty {
-display: none;
-}
+&:empty { display: none; }
 }
 
-/* Complex shadow and edge transition */
+/* The "Glow Leak" - subtle magenta light bleeding from the bottom */
 .container__6e9be:after {
-background: linear-gradient(
-to bottom,
-rgba(255, 0, 150, 0.15) 0%,
-rgba(255, 0, 150, 0.05) 40%,
-transparent 100%
+background: radial-gradient(
+ellipse at 50% 0%,
+rgba(255, 0, 150, 0.2) 0%,
+transparent 75%
 );
 content: "";
-height: 16px;
+height: 24px;
 position: absolute;
 top: 100%;
-inset-inline: 12px;
-filter: blur(4px);
+inset-inline: 4px;
+filter: blur(8px);
 pointer-events: none;
 }
 
-/* Main Glass Components */
+/* The Main Glass Panel */
 .channelNotice__4c43d,
 .channelNotice_e2d7b8 {
 position: relative;
 background: linear-gradient(
-135deg,
-var(--glass-magenta) 0%,
-rgba(255, 255, 255, 0.03) 100%
+165deg,
+var(--glass-magenta-base) 0%,
+rgba(255, 255, 255, 0.02) 40%,
+rgba(255, 0, 150, 0.03) 100%
 );
 
-/* The "Frost" effect */
-backdrop-filter: blur(var(--glass-blur)) saturate(160%);
--webkit-backdrop-filter: blur(var(--glass-blur)) saturate(160%);
+/* High-fidelity frost */
+backdrop-filter: blur(var(--glass-blur-radius)) saturate(180%) contrast(90%);
+-webkit-backdrop-filter: blur(var(--glass-blur-radius)) saturate(180%) contrast(90%);
 
-/* Multi-layered border for glass thickness simulation */
-border: 1px solid var(--glass-magenta-border);
-border-top-color: var(--glass-shine);
-border-left-color: var(--glass-shine);
-
-border-radius: 12px; /* Increased radius for modern glass look */
+/* Niche: Dual-Layer Refraction Border /
+border: 1px solid var(--glass-border-dark);
 box-shadow:
-0 8px 32px 0 rgba(255, 0, 150, 0.1),
-inset 0 0 0 1px rgba(255, 255, 255, 0.1);
+inset 0 1px 1px var(--glass-border-light), / Top highlight /
+inset 0 -1px 1px rgba(0, 0, 0, 0.05),      / Bottom depth /
+0 12px 40px -10px rgba(255, 0, 150, 0.15), / Outer magenta glow /
+0 4px 12px -2px rgba(0, 0, 0, 0.1);        / Sharp contact shadow */
 
-gap: 8px;
-margin: 12px 12px 0 12px;
-padding: 16px;
-overflow: hidden; /* Clips the inner "shine" pseudo-elements */
+border-radius: 16px;
+margin: 10px 10px 0 10px;
+padding: 18px;
+overflow: hidden;
+transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
-/* Pseudo-element for micro-texture/grain */
+/* Niche: The "Micro-Grain" Overlay */
 .channelNotice_e2d7b8::before {
 content: "";
 position: absolute;
-top: 0; left: 0; right: 0; bottom: 0;
-background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='https://www.google.com/search?q=http://www.w3.org/2000/svg%27%253E%253Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
-opacity: 0.03;
-pointer-events: none;
+inset: 0;
+background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 250 250' xmlns='https://www.google.com/search?q=http://www.w3.org/2000/svg%27%253E%253Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+opacity: 0.04;
 mix-blend-mode: overlay;
+pointer-events: none;
 }
 
-.channelNotice_e2d7b8 {
-display: grid;
-grid-template-areas:
-"eventHeader eventHeader"
-"eventName eventName"
-"eventParty eventParty"
-"eventDivider eventDivider"
-"eventLocation eventAction";
-grid-template-columns: 1fr min-content;
-
-/* Use :has for complex conditional glass tinting */
-&:has(button:hover) {
-background: linear-gradient(135deg, rgba(255, 0, 150, 0.12) 0%, rgba(255, 255, 255, 0.05) 100%);
+/* Animated shine on hover */
+.channelNotice_e2d7b8:hover {
+transform: translateY(-2px);
+box-shadow:
+inset 0 1px 2px var(--glass-border-light),
+0 15px 45px -8px rgba(255, 0, 150, 0.25);
 }
 
-/* Refined Glass Divider */
-&:after {
-background: linear-gradient(
-to right,
-transparent,
-var(--glass-magenta-border),
-transparent
-);
-height: 1px;
-border: none;
-content: "";
-grid-area: eventDivider;
-margin-inline: -16px;
-margin-block: 12px;
-opacity: 0.6;
-}
+.eventName_e2d7b8 {
+font-weight: 700;
+letter-spacing: -0.01em;
+color: white;
+text-shadow: 0 2px 4px rgba(255, 0, 150, 0.3); /* Niche: Tinted text shadow */
 }
 
-.textBlock_e2d7b8 {
-margin: unset;
-min-width: 0;
-color: rgba(255, 255, 255, 0.9);
-text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
-
-svg {
-flex-shrink: 0;
-width: 14px;
-height: 14px;
-filter: drop-shadow(0 0 2px rgba(255, 0, 150, 0.4));
-}
-}
-
+/* The Live Indicator - Pulse effect */
 .liveIndicator_e2d7b8 {
-background-color: #ff0096; /* High contrast magenta for the icon */
-box-shadow: 0 0 8px rgba(255, 0, 150, 0.6);
+background-color: #ff0096;
+box-shadow: 0 0 12px #ff0096;
+position: relative;
+&::after {
+content: "";
+position: absolute;
+inset: -2px;
+border-radius: 50%;
+border: 2px solid #ff0096;
+animation: glassPulse 2s infinite;
+}
+}
+
+@keyframes glassPulse {
+0% { transform: scale(1); opacity: 0.8; }
+100% { transform: scale(2.5); opacity: 0; }
 }
 
 .liveNowText_e2d7b8 {
-font-size: 12px;
-font-weight: 700;
-letter-spacing: 0.02em;
-color: #ff77cc !important; /* Pastel Magenta */
-text-transform: uppercase;
+color: #ff77cc !important;
+font-weight: 800;
+text-shadow: 0 0 10px rgba(255, 119, 204, 0.4);
 }
 
-/* Glass Buttons */
+/* Niche Button: Floating Glass look */
+.joinButton_e2d7b8.joinButton_e2d7b8 button {
+background: rgba(255, 255, 255, 0.1) !important;
+backdrop-filter: blur(8px);
+border: 1px solid rgba(255, 255, 255, 0.3) !important;
+border-radius: 20px;
+color: white !important;
+font-weight: 600;
+transition: all 0.2s ease;
+
+&:hover {
+background: rgba(255, 0, 150, 0.4) !important;
+border-color: rgba(255, 255, 255, 0.5) !important;
+box-shadow: 0 0 20px rgba(255, 0, 150, 0.4) !important;
+transform: scale(1.02);
+}
+}
+
+/* The Close Icon - Subtle interaction */
 .closeIcon_e2d7b8, .closeIcon__4c43d {
-background: rgba(255, 255, 255, 0.05);
-border: 1px solid rgba(255, 255, 255, 0.1);
-border-radius: 8px;
-backdrop-filter: blur(4px);
-
+opacity: 0.6;
 &:hover {
-background-color: rgba(255, 0, 150, 0.2);
-border-color: rgba(255, 0, 150, 0.4);
-transform: translateY(-1px);
-}
-}
-
-.joinButton_e2d7b8.joinButton_e2d7b8 {
-button {
-background: rgba(255, 0, 150, 0.2) !important;
-border: 1px solid rgba(255, 255, 255, 0.2) !important;
-box-shadow: 0 4px 12px rgba(255, 0, 150, 0.2) !important;
-transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-
-&:hover {
-  background: rgba(255, 0, 150, 0.3) !important;
-  box-shadow: 0 6px 16px rgba(255, 0, 150, 0.3) !important;
-  transform: scale(1.05);
-}
-
-
+opacity: 1;
+background: rgba(255, 255, 255, 0.15);
+transform: rotate(90deg);
 }
 }
