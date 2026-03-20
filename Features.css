@@ -410,6 +410,13 @@ ul[aria-label="Direct Messages"] .channel__972a0.container_cac583 .interactive_b
 } /* To change font visit the githubs font folder and change K-Pop%20Demon%20Hunters to Aurora or Norse or maybe Harry%20Potter */
 
 
+@font-face {
+    font-family: 'GI';
+    font-weight: 400;
+    font-style: normal;
+    src: url("https://github.com/ZapGaming/Chillax-But-Better/raw/refs/heads/main/Fonts/genshin-impact-drip-font.ttf") format('ttf');
+}
+
 
 
 
@@ -1377,7 +1384,7 @@ opacity: 0;
 /* --- Custom Flashcord code used for font features --- */
 /* ========= Core Variables (From original sid.css, branding modified) ========= */
 :root {
-    --Flashcord-Font: "KDH";
+    --Flashcord-Font: var(--font-name);
     --font-primary: var(--Flashcord-Font); 
     --font-display: var(--Flashcord-Font);
     --font-headline: var(--Flashcord-Font);
