@@ -1272,6 +1272,64 @@ opacity: 0;
 
 
 
+/*better profile spotify*/
+.card__39ec2 {
+    overflow: hidden;
+
+    .imagePosition_ef9ae7,
+    .imageContainer_ef9ae7:not(svg) {
+        display: contents;
+
+        .contentImage__42bf5 {
+            position: absolute;
+            top: -4px !important;
+            left: -4px;
+            width: calc(100% + 8px);
+            height: calc(100% + 8px);
+            max-width: unset !important;
+            mask-image: linear-gradient(165deg, black, transparent);
+            opacity: 0.5;
+            filter: blur(2px);
+        }
+    }
+
+    svg.imageContainer_ef9ae7 {
+        position: absolute;
+        top: -4px !important;
+        left: -4px;
+        width: calc(100% + 8px);
+        height: calc(100% + 8px);
+        contain: none !important;
+        mask: none;
+
+        >foreignObject {
+            mask: none !important;
+            contain: none !important;
+            width: 200px !important;
+            x: -70;
+        }
+    }
+
+    .header__39ec2 {
+        position: absolute;
+        right: var(--space-xs);
+
+        .headerText__39ec2 {
+            display: none;
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
 
 
 
